@@ -5,3 +5,11 @@ This library currently uses Swift features only available in Xcode 7+.  Until th
 ```
 pod 'SwiftWisdom', :git => 'https://github.com/intrepidpursuits/swift-wisdom.git'
 ```
+
+**Note**
+
+To use this library, you must add the following line to your `Podfile`:
+
+```
+use_frameworks!
+```
