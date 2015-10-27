@@ -1,10 +1,24 @@
-public extension UIView {
-    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil) -> T {
-        let v: T? = fromNib(nibNameOrNil)
+//
+//  UIView+Nib.swift
+//  ChristmasCheer
+//
+//  Created by Logan Wright on 10/25/15.
+//  Copyright © 2015 lowriDevs. All rights reserved.
+//
+
+import UIKit
+
+extension UIView {
+    class func ip_fromNib(nibNameOrNil: String? = nil) -> Self {
+        return ip_fromNib(nibNameOrNil, type: self)
+    }
+    
+    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T {
+        let v: T? = ip_fromNib(nibNameOrNil, type: T.self)
         return v!
     }
-
-    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil) -> T? {
+    
+    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {
@@ -22,3 +36,4 @@ public extension UIView {
         return view
     }
 }
+
