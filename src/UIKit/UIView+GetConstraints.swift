@@ -59,33 +59,33 @@ public extension UIView {
         
         if let toAttribute = itemAttribute, let toItem = item {
             
-            let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+            return constraints.filter { constraint in
                 return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
-            })
-            return possibleConstraints.first
+                }
+                .first
             
         } else if let toItem = item {
             
-            let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+            return constraints.filter { constraint in
                 return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem)
-            })
-            return possibleConstraints.first
+                }
+                .first
             
         } else {
             
             if attribute == .Height || attribute == .Width {
                 //For size constraints
-                let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                return constraints.filter { constraint in
                     return constraint.isIntrinsicConstraintWithView(view: self, andAttribute: attribute)
-                })
-                return possibleConstraints.first
+                    }
+                    .first
                 
             } else {
                 // For simple positioning constraints
-                let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                return constraints.filter { constraint in
                     return constraint.relatesView(view: self, viaAttribute: attribute)
-                })
-                return possibleConstraints.first
+                    }
+                    .first
                 
             }
         }
