@@ -1,7 +1,12 @@
+//
+//  UIView+GetConstraints.swift
+//  Created by Paul Rolfe on 7/31/15.
+//  Copyright (c) 2015 Paul Rolfe. All rights reserved.
+//
 /*
 
-The idea is that you can call view.topConstraint or view.heightConstraint on any view and you'll be given the editable constraint that deals with that attribute.
-Optionally you can use the base function constraintForAttribute() and pass in the toItem and itemAttribute. It is less convienient but more accurate.
+The idea is that you can call view.ip_topConstraint or view.ip_heightConstraint on any view and you'll be given the editable constraint that deals with that attribute.
+Optionally you can use the base function ip_constraintForAttribute() and pass in the toItem and itemAttribute. It is less convienient but more accurate.
 
 */
 import Foundation
@@ -10,35 +15,35 @@ import UIKit
 public extension UIView {
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_widthConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Width)
+        return ip_constraintForAttribute(NSLayoutAttribute.Width)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_heightConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Height)
+        return ip_constraintForAttribute(NSLayoutAttribute.Height)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_topConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Top)
+        return ip_constraintForAttribute(NSLayoutAttribute.Top)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_bottomConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Bottom)
+        return ip_constraintForAttribute(NSLayoutAttribute.Bottom)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_leadingConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Leading)
+        return ip_constraintForAttribute(NSLayoutAttribute.Leading)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_trailingConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.Trailing)
+        return ip_constraintForAttribute(NSLayoutAttribute.Trailing)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_centerXConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.CenterX)
+        return ip_constraintForAttribute(NSLayoutAttribute.CenterX)
     }
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     var ip_centerYConstraint: NSLayoutConstraint? {
-        return self.ip_constraintForAttribute(NSLayoutAttribute.CenterY)
+        return ip_constraintForAttribute(NSLayoutAttribute.CenterY)
     }
     
     /**
@@ -50,64 +55,82 @@ public extension UIView {
     
     :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
     */
-    func ip_constraintForAttribute(attribute: NSLayoutAttribute, toItem: UIView? = nil, itemAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    func ip_constraintForAttribute(attribute: NSLayoutAttribute, toItem item: UIView? = nil, itemAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
-        //when there is a toItem AND an itemConstraint
-        if let toAttribute = itemAttribute, let item = toItem {
-            if let constraints = self.superview?.constraints() {
-                for constraint in constraints {
-                    if (constraint.firstItem as? UIView == self &&
-                        constraint.firstAttribute == attribute &&
-                        constraint.secondItem as? UIView == item &&
-                        constraint.secondAttribute == toAttribute) ||
-                        (constraint.secondItem as? UIView == self &&
-                            constraint.secondAttribute == attribute &&
-                            constraint.firstItem as? UIView == item &&
-                            constraint.firstAttribute == toAttribute) {
-                        return constraint as? NSLayoutConstraint;
-                    }
-                }
+        if let toAttribute = itemAttribute, let toItem = item {
+            
+            let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
+            })
+            return possibleConstraints.first
+            
+        } else if let toItem = item {
+            
+            let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem)
+            })
+            return possibleConstraints.first
+            
+        } else {
+            
+            if attribute == .Height || attribute == .Width {
+                //For size constraints
+                let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                    return constraint.isIntrinsicConstraintWithView(view: self, andAttribute: attribute)
+                })
+                return possibleConstraints.first
+                
+            } else {
+                // For simple positioning constraints
+                let possibleConstraints = self.constraints.filter({ (constraint: NSLayoutConstraint) -> Bool in
+                    return constraint.relatesView(view: self, viaAttribute: attribute)
+                })
+                return possibleConstraints.first
+                
             }
         }
         
-        //when there is a toItem present.
-        if let item = toItem {
-            if let constraints = self.superview?.constraints() {
-                for constraint in constraints {
-                    if (constraint.firstItem as? UIView == self &&
-                        constraint.firstAttribute == attribute &&
-                        constraint.secondItem as? UIView == item) ||
-                        (constraint.secondItem as? UIView == self &&
-                            constraint.secondAttribute == attribute &&
-                            constraint.firstItem as? UIView == item) {
-                        return constraint as? NSLayoutConstraint;
-                    }
-                }
-            }
-        }
-        
-        //For size constraints
-        if attribute == .Height || attribute == .Width {
-            for constraint in self.constraints() {
-                if constraint.firstItem as? UIView == self &&
-                    constraint.firstAttribute == attribute {
-                    return constraint as? NSLayoutConstraint;
-                }
-            }
-        }
+    }
+}
 
-        //For positioning constraints without toItem and itemAttribute
-        if let constraints = self.superview?.constraints() {
-            for constraint in constraints {
-                if (constraint.firstItem as? UIView == self &&
-                    constraint.firstAttribute == attribute) ||
-                    (constraint.secondItem as? UIView == self &&
-                        constraint.secondAttribute == attribute) {
-                    return constraint as? NSLayoutConstraint;
-                }
-            }
-        }
-        
-        return nil;
+extension NSLayoutConstraint {
+    
+    func relatesView(view view1: UIView,
+        viaAttribute attribute1: NSLayoutAttribute,
+        toView view2: UIView,
+        andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
+            
+            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2 && secondAttribute == attribute2)
+            
+            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2 && firstAttribute == attribute2)
+            
+            return possibility1 || possibility2
+    }
+    
+    func relatesView(view view1: UIView,
+        viaAttribute attribute1: NSLayoutAttribute,
+        toView view2: UIView) -> Bool {
+            
+            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2)
+            
+            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2)
+            
+            return possibility1 || possibility2
+    }
+    
+    func relatesView(view view1: UIView,
+        viaAttribute attribute1: NSLayoutAttribute) -> Bool {
+            
+            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
+            
+            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1)
+            
+            return possibility1 || possibility2
+    }
+    
+    func isIntrinsicConstraintWithView(view view1: UIView,
+        andAttribute attribute1: NSLayoutAttribute) -> Bool {
+            
+            return (firstItem as? UIView == view1 && firstAttribute == attribute1)
     }
 }
