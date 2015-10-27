@@ -1,16 +1,10 @@
-Originally, adding public extensions to standard Swift types wasn't working, but it appears to be running at the moment.  If that changes in the future, we'll have to find a new way to share this code.  For the moment, cocoapods is running appropriately.
+This library is mean to be a general grab bag of Swift methods made by the engineers at IntrepidPursuits.  As this library goes, useful components will be isolated into separate podspecs where appropriate.
 
-This library currently uses Swift features only available in Xcode 7+.  Until this pod is officially added to `intrepid-wisdom`, add this to your Podfile:
-
-```
-pod 'SwiftWisdom', :git => 'https://github.com/intrepidpursuits/swift-wisdom.git'
-```
-
-**Note**
-
-To use this library, you must add the following line to your `Podfile`:
+The reason for the grab bag approach is to make it easier to facilitate the adding of materials and encourage componentization and sharing of common functionality.
 
 ```
+source 'https://github.com/IntrepidPursuits/IntrepidWisdom.git'
+pod 'IntrepidSwiftWisdom'
 use_frameworks!
 ```
 
