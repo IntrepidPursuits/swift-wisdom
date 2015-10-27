@@ -3,7 +3,7 @@ This library is mean to be a general grab bag of Swift methods made by the engin
 The reason for the grab bag approach is to make it easier to facilitate the adding of materials and encourage componentization and sharing of common functionality.
 
 ```
-source 'https://github.com/IntrepidPursuits/IntrepidWisdom.git'
+source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
 pod 'IntrepidSwiftWisdom'
 use_frameworks!
 ```
