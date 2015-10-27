@@ -14,6 +14,5 @@ All contributions and updates are welcome!  Here's some basic guidelines when su
 
 - Submit via a Pull Request documenting the addition
 - Follow appropriate folder conventions
-- Only include extensions for the moment.  If you have a more self contained class, it should probably have its own library.
 - Prefix all extension methods and variables with `ip_` to avoid namespacing.  Swift namespacing doesn't apply the same way to extensions and prefixes help avoid issues.
 - Document functionality if it is ambiguous
