@@ -176,7 +176,7 @@ func +=(operationQueue: NSOperationQueue, operation: NSOperation) {
 
 private extension NSOperationQueue {
     
-    /// This is the most recently added operation.  According to the docs, `operation` is returned in the order they were added to the queue, NOT the order in which they are executed.
+    /// This is the most recently added operation.  According to the docs, `operations` are returned in the order they were added to the queue, NOT the order in which they are executed.
     var lastOperation: Operation? {
         return ops.last
     }

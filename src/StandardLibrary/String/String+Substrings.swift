@@ -8,14 +8,15 @@
 
 import Foundation
 
-extension String {
-    subscript(range: Range<Int>) -> String {
+public extension String {
+    public subscript(range: Range<Int>) -> String {
         let chars = Array(characters)
         let substringCharacters = chars[range]
         return String(substringCharacters)
     }
     
-    mutating func dropFirst() {
+    public mutating func dropFirst() {
+        guard !isEmpty else { return }
         self = self[1..<characters.count]
     }
 }
