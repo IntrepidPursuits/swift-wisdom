@@ -5,6 +5,7 @@ Pod::Spec.new do |s|
   s.description   = <<-DESC
                     A collection of extensions to the Swift Standard Library, written by the developers of Intrepid Pursuits.
                     DESC
+  s.frameworks    = "XCTest"
   s.homepage      = "https://github.com/IntrepidPursuits/swift-wisdom"
   s.license       = "MIT"
   s.authors       = { "Logan Wright" => "logan@intrepid.io" }
