@@ -15,9 +15,6 @@ public extension CGFloat {
     public var radians: CGFloat {
         return CGFloat(Double(self) * (M_PI / 180))
     }
-}
-
-public extension CGFloat {
     public var degrees: CGFloat {
         return self * CGFloat(180.0 / M_PI)
     }
@@ -88,4 +85,78 @@ public func pointWithCenter(center: CGPoint, radius: CGFloat, angleDegrees: CGFl
     let x = radius * cos(angleDegrees.radians) + center.x
     let y = radius * sin(angleDegrees.radians) + center.y
     return CGPoint(x: x, y: y)
+}
+
+public extension CGRect {
+    public var width: CGFloat {
+        get {
+            return CGRectGetWidth(self)
+        }
+        set(width) {
+            size.width = width
+        }
+    }
+    
+    public var halfWidth: CGFloat {
+        get {
+            return width / 2.0
+        }
+        set {
+            width = newValue * 2
+        }
+    }
+    
+    public var height: CGFloat {
+        get {
+            return CGRectGetHeight(self)
+        }
+        set(height) {
+            size.height = height
+        }
+    }
+    
+    public var halfHeight: CGFloat {
+        get {
+            return height / 2.0
+        }
+        set {
+            height = newValue * 2
+        }
+    }
+    
+    public var center: CGPoint {
+        get {
+            return CGPoint(x: midX, y: midY)
+        }
+        set {
+            midX = center.x
+            midY = center.y
+        }
+    }
+    
+    public var midX: CGFloat {
+        get {
+            return CGRectGetMidX(self)
+        }
+        set {
+            origin.x = newValue - halfWidth
+        }
+    }
+    
+    public var midY: CGFloat {
+        get {
+            return CGRectGetMidY(self)
+        }
+        set {
+            origin.y = newValue - halfHeight
+        }
+    }
+    
+    public var shortestEdge: CGFloat {
+        return min(width, height)
+    }
+    
+    public var longestEdge: CGFloat {
+        return max(width, height)
+    }
 }
