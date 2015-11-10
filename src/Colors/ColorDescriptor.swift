@@ -8,18 +8,18 @@
 
 import UIKit
 
-enum ColorDescriptor {
+public enum ColorDescriptor {
     case PatternImage(imageName: String)
     case RGB(r: Int, g: Int, b: Int, a: Int)
     case Hex(hex: String)
 }
 
 extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatable {
-    typealias RawValue = StringLiteralType
-    typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
-    typealias UnicodeScalarLiteralType = StringLiteralType
+    public typealias RawValue = StringLiteralType
+    public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
+    public typealias UnicodeScalarLiteralType = StringLiteralType
     
-    var color: UIColor {
+    public var color: UIColor {
         switch self {
         case let .PatternImage(imageName: imageName):
             let image = UIImage(named: imageName)!
@@ -35,7 +35,7 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
         }
     }
     
-    var rawValue: RawValue {
+    public var rawValue: RawValue {
         switch self {
         case let .PatternImage(imageName: imageName):
             return imageName
@@ -48,19 +48,19 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
     
     // MARK: Initializers
     
-    init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
+    public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
         self.init(value)
     }
     
-    init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
+    public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
+        self.init(value)
+    }
+
+    public init(stringLiteral value: StringLiteralType) {
         self.init(value)
     }
     
-    init(stringLiteral value: StringLiteralType) {
-        self.init(value)
-    }
-    
-    init?(rawValue: RawValue) {
+    public init?(rawValue: RawValue) {
         self.init(rawValue)
     }
     
@@ -80,6 +80,6 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
     }
 }
 
-func ==(lhs: ColorDescriptor, rhs: ColorDescriptor) -> Bool {
+public func ==(lhs: ColorDescriptor, rhs: ColorDescriptor) -> Bool {
     return lhs.rawValue == rhs.rawValue
 }
