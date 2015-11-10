@@ -8,17 +8,17 @@
 
 import UIKit
 
-extension UIView {
-    class func ip_fromNib(nibNameOrNil: String? = nil) -> Self {
+public extension UIView {
+    public class func ip_fromNib(nibNameOrNil: String? = nil) -> Self {
         return ip_fromNib(nibNameOrNil, type: self)
     }
     
-    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T {
+    public class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T {
         let v: T? = ip_fromNib(nibNameOrNil, type: T.self)
         return v!
     }
     
-    class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T? {
+    public class func ip_fromNib<T : UIView>(nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {

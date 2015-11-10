@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UIColor {
-    convenience init(hex: String) {
+public extension UIColor {
+    public convenience init(hex: String) {
         var cleanHex: String = hex.uppercaseString
         if hex.hasPrefix("#") {
             cleanHex.dropFirst()
