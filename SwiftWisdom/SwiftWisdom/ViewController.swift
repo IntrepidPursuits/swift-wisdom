@@ -7,12 +7,18 @@
 //
 
 import UIKit
+
+#if COCOAPODS
 import IntrepidSwiftWisdom
+#endif
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        After(0.25) {
+            print("Hi")
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
