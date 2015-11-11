@@ -1,0 +1,21 @@
+PODS:
+  - IntrepidSwiftWisdom (0.0.6):
+    - IntrepidSwiftWisdom/Core (= 0.0.6)
+  - IntrepidSwiftWisdom/Core (0.0.6)
+  - IntrepidSwiftWisdomTesting (0.0.6)
+
+DEPENDENCIES:
+  - IntrepidSwiftWisdom (from `..`)
+  - IntrepidSwiftWisdomTesting (from `..`)
+
+EXTERNAL SOURCES:
+  IntrepidSwiftWisdom:
+    :path: ..
+  IntrepidSwiftWisdomTesting:
+    :path: ..
+
+SPEC CHECKSUMS:
+  IntrepidSwiftWisdom: e612d5aa3bdc8def6fbdd749f1abf473374f9f15
+  IntrepidSwiftWisdomTesting: dfa982510eeb6d462802d9d72363a6b605c5082f
+
+COCOAPODS: 0.39.0
