@@ -31,7 +31,7 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
             let a = CGFloat(ai)
             return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a / 255)
         case let .Hex(hex: hex):
-            return UIColor(hex: hex)
+            return UIColor(ip_hex: hex)
         }
     }
     
