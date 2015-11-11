@@ -16,7 +16,6 @@
 		80232BC31BF2EE2E00818B6E /* SwiftWisdomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BC21BF2EE2E00818B6E /* SwiftWisdomUITests.swift */; };
 		80232BD51BF2F13300818B6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA41BF2EE2E00818B6E /* ViewController.swift */; };
 		80232BD61BF2F13300818B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA21BF2EE2E00818B6E /* AppDelegate.swift */; };
-		80232BD81BF2F13300818B6E /* Pods_SwiftWisdom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D393937D5D484AE9D6B661F /* Pods_SwiftWisdom.framework */; };
 		80232BDA1BF2F13300818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
 		80232BDB1BF2F13300818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
 		80232BDC1BF2F13300818B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA61BF2EE2E00818B6E /* Main.storyboard */; };
@@ -122,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80232BD81BF2F13300818B6E /* Pods_SwiftWisdom.framework in Frameworks */,
 				265F5218D085F23CDE020365 /* Pods_SwiftWisdomPods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
