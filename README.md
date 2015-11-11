@@ -144,10 +144,25 @@ enum Setting : String, EnumSettingsKeyAccessible {
 let displayName: String? = Setting.DisplayName.readFromDefaults
 ```
 
-##### write
+##### Write
 
 ```Swift
 Setting.DisplayName.writeToDefaults(displayName)
+```
+
+##### Implement
+
+```Swift
+struct ApplicationSettings {
+    var displayName: String {
+        get {
+            return Setting.DisplayName.readFromDefaults ?? ""
+        }
+        set {
+            Setting.DisplayName.writeToDefaults(newValue)
+        }
+    }
+}
 ```
 
 #### Contributions
