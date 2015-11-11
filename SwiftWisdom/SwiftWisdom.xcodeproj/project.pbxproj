@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		265F5218D085F23CDE020365 /* Pods_SwiftWisdomPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F70AFB7FEF9CF536BFE983 /* Pods_SwiftWisdomPods.framework */; };
 		80232BA31BF2EE2E00818B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA21BF2EE2E00818B6E /* AppDelegate.swift */; };
-		80232BA51BF2EE2E00818B6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA41BF2EE2E00818B6E /* ViewController.swift */; };
 		80232BA81BF2EE2E00818B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA61BF2EE2E00818B6E /* Main.storyboard */; };
 		80232BAA1BF2EE2E00818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
 		80232BAD1BF2EE2E00818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
@@ -590,7 +589,6 @@
 				80232BFE1BF2F1BD00818B6E /* After.swift in Sources */,
 				80232BFF1BF2F1BD00818B6E /* Qu.swift in Sources */,
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
-				80232BA51BF2EE2E00818B6E /* ViewController.swift in Sources */,
 				80232C021BF2F1BD00818B6E /* NSDate+Comparable.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,

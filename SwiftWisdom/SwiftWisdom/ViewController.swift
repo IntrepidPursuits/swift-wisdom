@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IntrepidSwiftWisdom
 
 class ViewController: UIViewController {
 
