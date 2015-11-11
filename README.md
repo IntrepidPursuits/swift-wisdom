@@ -2,10 +2,22 @@ This library is mean to be a general grab bag of Swift methods made by the engin
 
 The reason for the grab bag approach is to make it easier to facilitate the adding of materials and encourage componentization and sharing of common functionality.
 
-```
+### Core
+
+```Ruby
 source 'https://github.com/IntrepidPursuits/swift-wisdom.git'
 pod 'IntrepidSwiftWisdom'
 use_frameworks!
+```
+
+### Testing Additions
+
+```Ruby
+source 'https://github.com/IntrepidPursuits/swift-wisdom.git'
+target 'SwiftWisdomTests',
+    use_frameworks!
+    pod 'IntrepidSwiftWisdomTesting'
+end
 ```
 
 ### Components
@@ -73,13 +85,14 @@ let myCustomView = MyCustomView.fromNib()
 
 #### Color Descriptor
 
-Setup Easy Color Schemes
+Setup Easy Color Schemes.  Note, if you're using Zeplin that it auto generates color schemes if you'd like
 
 ```Swift
 enum ColorPalette : ColorDescriptor {
     case White = "254,216,130,255"
     case DarkGreen = "51,58,24,255"
     case DarkGray = "64,48,56,255"
+    case BrightWhite = "#ffffff"
 
     var color: UIColor {
         return rawValue.color
@@ -100,16 +113,16 @@ A simple way to cover most table view registering / dequeing
 ##### Register
 
 ```Swift
-tableView.registerCell(YourCell.self)
-tableView.registerHeader(YourHeader.self)
+tableView.ip_registerCell(YourCell.self)
+tableView.ip_registerHeader(YourHeader.self)
 ```
 
 ##### Dequeue
 
 ```Swift
-let cell: YourCell = tableView.dequeueCell(indexPath)
+let cell: YourCell = tableView.ip_dequeueCell(indexPath)
 //
-let header: YourHeader = tableView.dequeueHeader(section)
+let header: YourHeader = tableView.ip_dequeueHeader(section)
 ```
 
 #### User Defaults
