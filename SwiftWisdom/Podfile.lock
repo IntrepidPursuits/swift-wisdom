@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  IntrepidSwiftWisdom: 1c7c8f812e45f212c7d4b16cca3549f33b72d89f
+  IntrepidSwiftWisdom: c99439bb2543f361603099da790dae679cd44931
   IntrepidSwiftWisdomTesting: d6dca2420d7018b44a2b3c619114cac097897007
 
 COCOAPODS: 0.39.0

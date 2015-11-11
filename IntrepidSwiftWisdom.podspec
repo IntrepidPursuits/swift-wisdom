@@ -12,10 +12,9 @@ Pod::Spec.new do |s|
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
   s.ios.deployment_target = "8.0"
-  s.source_files = "SwiftWisdom/SwiftWisdom/Core/**/*.swift"
   s.default_subspec = "Core"
 
   s.subspec "Core" do |cs|
-    # cs.source_files = "SwiftWisdom/SwiftWisdom/Core/**/**/*.swift"
+    cs.source_files = "SwiftWisdom/SwiftWisdom/Core/**/**/*.swift"
   end
 end
