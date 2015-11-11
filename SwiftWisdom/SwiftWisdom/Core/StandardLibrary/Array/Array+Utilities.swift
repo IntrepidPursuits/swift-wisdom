@@ -1,5 +1,5 @@
 public extension Array {
-    func ip_subArrayFromIndices(indices: [Int]) -> [Element] {
+    public func ip_subArrayFromIndices(indices: [Int]) -> [Element] {
         var subArray: [Element] = []
         for (idx, element) in enumerate() {
             if indices.contains(idx) {
@@ -9,7 +9,7 @@ public extension Array {
         return subArray
     }
 
-    func ip_passesTest(@noescape test: (element: Element) -> Bool) -> Bool {
+    public func ip_passesTest(@noescape test: (element: Element) -> Bool) -> Bool {
         for ob in self {
             if test(element: ob) {
                 return true
@@ -20,7 +20,7 @@ public extension Array {
 }
 
 public extension Array where Element: Equatable {
-    mutating func ip_remove(objectToRemove: Element) -> Bool {
+    public mutating func ip_remove(objectToRemove: Element) -> Bool {
         for (idx, objectToCompare) in enumerate() {
             if objectToRemove == objectToCompare {
                 removeAtIndex(idx)
@@ -32,7 +32,7 @@ public extension Array where Element: Equatable {
 }
 
 public extension Array where Element: Hashable {
-    func ip_toSet() -> Set<Element> {
+    public func ip_toSet() -> Set<Element> {
         return Set(self)
     }
 }

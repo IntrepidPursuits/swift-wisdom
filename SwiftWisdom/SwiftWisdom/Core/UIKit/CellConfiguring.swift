@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension UITableView {
-    func registerCell<T : UITableViewCell>(_: T.Type, identifier: String = T.identifier) {
+public extension UITableView {
+    public func registerCell<T : UITableViewCell>(_: T.Type, identifier: String = T.identifier) {
         if let nib = T.nib {
             registerNib(nib, forCellReuseIdentifier: identifier)
         } else {
@@ -17,7 +17,7 @@ extension UITableView {
         }
     }
     
-    func registerHeader<T: UITableViewHeaderFooterView>(_: T.Type, identifier: String = T.identifier) {
+    public func registerHeader<T: UITableViewHeaderFooterView>(_: T.Type, identifier: String = T.identifier) {
         if let nib = T.nib {
             registerNib(nib, forHeaderFooterViewReuseIdentifier: identifier)
         } else {
@@ -25,23 +25,23 @@ extension UITableView {
         }
     }
     
-    func dequeueCell<T: UITableViewCell>(indexPath: NSIndexPath, identifier: String = T.identifier) -> T {
+    public func dequeueCell<T: UITableViewCell>(indexPath: NSIndexPath, identifier: String = T.identifier) -> T {
         let cell = dequeueReusableCellWithIdentifier(T.identifier, forIndexPath: indexPath) as! T
         return cell
     }
     
-    func dequeueHeader<T: UITableViewHeaderFooterView>(section: Int, identifier: String = T.identifier) -> T {
+    public func dequeueHeader<T: UITableViewHeaderFooterView>(section: Int, identifier: String = T.identifier) -> T {
         let header = dequeueReusableHeaderFooterViewWithIdentifier(T.identifier) as! T
         return header
     }
 }
 
-extension UITableViewHeaderFooterView {
-    class var nibName: String {
+public extension UITableViewHeaderFooterView {
+    public class var nibName: String {
         let name = "\(self)".componentsSeparatedByString(".").first ?? ""
         return name
     }
-    class var nib: UINib? {
+   public  class var nib: UINib? {
         if let _ = NSBundle.mainBundle().pathForResource(nibName, ofType: "nib") {
             return UINib(nibName: nibName, bundle: nil)
         } else {

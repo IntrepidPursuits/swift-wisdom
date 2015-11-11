@@ -8,11 +8,11 @@ public func -=<T>(inout lhs: Set<T>, rhs: Set<T>) {
 }
 
 public extension Set {
-    func ip_toArray() -> [Element] {
+    public func ip_toArray() -> [Element] {
         return Array<Element>(self)
     }
     
-    func ip_passesTest(@noescape test: (element: Element) -> Bool) -> Bool {
+    public func ip_passesTest(@noescape test: (element: Element) -> Bool) -> Bool {
         for ob in self {
             if test(element: ob) {
                 return true
@@ -21,7 +21,7 @@ public extension Set {
         return false
     }
     
-    func ip_filter(@noescape include: (element: Element) -> Bool) -> Set<Element> {
+    public func ip_filter(@noescape include: (element: Element) -> Bool) -> Set<Element> {
         var filtered = Set<Element>()
         for ob in self {
             if include(element: ob) {

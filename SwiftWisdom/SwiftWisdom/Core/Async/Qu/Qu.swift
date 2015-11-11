@@ -59,36 +59,36 @@ public class Qu {
     
     // MARK: Class Functions
     
-    class func Background(block: Block) -> Self {
+    public class func Background(block: Block) -> Self {
         let q = self.init(priority: .Background)
         return q.Run(block)
     }
     
-    class func Main(block: Block) -> Self {
+    public class func Main(block: Block) -> Self {
         let q = self.init(priority: .Main)
         return q.Run(block)
     }
     
-    class func Custom(queue: NSOperationQueue, block: Block) -> Self {
+    public class func Custom(queue: NSOperationQueue, block: Block) -> Self {
         let q = self.init(priority: .Custom(queue))
         return q.Run(block)
     }
     
     // MARK: Dispatching Functions
     
-    func Run(block: Block) -> Self {
+    public func Run(block: Block) -> Self {
         return queue(block)
     }
     
-    func Also(block: Block) -> Self {
+    public func Also(block: Block) -> Self {
         return queue(block)
     }
     
-    func Then(block: Block) -> Self {
+    public func Then(block: Block) -> Self {
         return ThenAfter(.Last, block: block)
     }
     
-    func ThenAfter(dependency: Dependency, block: Block) -> Self {
+    public func ThenAfter(dependency: Dependency, block: Block) -> Self {
         let blockOp = Operation(block: block)
         switch dependency {
         case .Last:
@@ -113,14 +113,14 @@ public class Qu {
     
     // MARK: Completion
     
-    func Finally(block: Block) -> Self {
+    public func Finally(block: Block) -> Self {
         let op = Operation(block: block)
         completion = op
         operationQueue.setCompletion(op)
         return self
     }
     
-    func FinallyOn(priority: Priority, block: Block) -> Self {
+    public func FinallyOn(priority: Priority, block: Block) -> Self {
         let wrapped: Block = {
             if let queue = priority.queue.underlyingQueue {
                 dispatch_async(queue, block)

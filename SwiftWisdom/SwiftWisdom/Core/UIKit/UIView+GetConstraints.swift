@@ -14,39 +14,47 @@ import UIKit
 
 public extension UIView {
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_widthConstraint: NSLayoutConstraint? {
+    public var ip_widthConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Width)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_heightConstraint: NSLayoutConstraint? {
+    public var ip_heightConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Height)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_topConstraint: NSLayoutConstraint? {
+    public var ip_topConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Top)
     }
+
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_bottomConstraint: NSLayoutConstraint? {
+    public var ip_bottomConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Bottom)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_leadingConstraint: NSLayoutConstraint? {
+    public var ip_leadingConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Leading)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_trailingConstraint: NSLayoutConstraint? {
+    public var ip_trailingConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Trailing)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_centerXConstraint: NSLayoutConstraint? {
+    public var ip_centerXConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.CenterX)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_centerYConstraint: NSLayoutConstraint? {
+    public var ip_centerYConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.CenterY)
     }
+    
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    var ip_aspectRatioConstraint: NSLayoutConstraint? {
+    public var ip_aspectRatioConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.Height, toItem: self, itemAttribute: .Width)
     }
     
@@ -59,7 +67,7 @@ public extension UIView {
     
     :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
     */
-    func ip_constraintForAttribute(attribute: NSLayoutAttribute, toItem item: UIView? = nil, itemAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, toItem item: UIView? = nil, itemAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
         if let toAttribute = itemAttribute, let toItem = item {
             
@@ -99,7 +107,7 @@ public extension UIView {
 
 extension NSLayoutConstraint {
     
-    func relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView,
         andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
@@ -111,7 +119,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    func relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView) -> Bool {
             
@@ -122,7 +130,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    func relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
@@ -132,7 +140,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    func isIntrinsicConstraintWithView(view view1: UIView,
+    public func isIntrinsicConstraintWithView(view view1: UIView,
         andAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             return (firstItem as? UIView == view1 && firstAttribute == attribute1)

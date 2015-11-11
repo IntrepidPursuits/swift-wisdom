@@ -1,6 +1,6 @@
 
 public extension Dictionary {
-    mutating func ip_setValue(val: AnyObject, forKeyPath keyPath: String) {
+    public mutating func ip_setValue(val: AnyObject, forKeyPath keyPath: String) {
         var keys = keyPath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return }
         keys.removeAtIndex(0)
@@ -22,7 +22,7 @@ public extension Dictionary {
         
     }
     
-    func ip_valueForKeyPath<T>(keyPath: String) -> T? {
+    public func ip_valueForKeyPath<T>(keyPath: String) -> T? {
         var keys = keyPath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return nil }
         guard let value = self[first] as? AnyObject else { return nil }

@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol SettingsKeyAccessible {
+public protocol SettingsKeyAccessible {
     var key: String { get }
     var defaults: NSUserDefaults { get }
 }
 
-extension SettingsKeyAccessible {
+public extension SettingsKeyAccessible {
     var defaults: NSUserDefaults {
         return NSUserDefaults.standardUserDefaults()
     }
@@ -31,12 +31,12 @@ extension SettingsKeyAccessible {
     }
 }
 
-protocol EnumSettingsKeyAccessible : SettingsKeyAccessible {
+public protocol EnumSettingsKeyAccessible : SettingsKeyAccessible {
     var rawValue: String { get }
     init?(rawValue: String)
 }
 
-extension EnumSettingsKeyAccessible {
+public extension EnumSettingsKeyAccessible {
     var key: String {
         return rawValue
     }
