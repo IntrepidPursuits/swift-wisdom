@@ -5,6 +5,8 @@
 //  Copyright © 2015 lowriDevs. All rights reserved.
 //
 
+import Foundation
+
 public typealias Block = () -> ()
 
 // MARK: Qu

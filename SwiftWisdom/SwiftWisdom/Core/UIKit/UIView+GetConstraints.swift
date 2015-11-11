@@ -72,14 +72,14 @@ public extension UIView {
         if let toAttribute = itemAttribute, let toItem = item {
             
             return constraints.filter { constraint in
-                return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
+                return constraint.ip_relatesView(view: self, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
                 }
                 .first
             
         } else if let toItem = item {
             
             return constraints.filter { constraint in
-                return constraint.relatesView(view: self, viaAttribute: attribute, toView: toItem)
+                return constraint.ip_relatesView(view: self, viaAttribute: attribute, toView: toItem)
                 }
                 .first
             
@@ -88,14 +88,14 @@ public extension UIView {
             if attribute == .Height || attribute == .Width {
                 //For size constraints
                 return constraints.filter { constraint in
-                    return constraint.isIntrinsicConstraintWithView(view: self, andAttribute: attribute)
+                    return constraint.ip_isIntrinsicConstraintWithView(view: self, andAttribute: attribute)
                     }
                     .first
                 
             } else {
                 // For simple positioning constraints
                 return constraints.filter { constraint in
-                    return constraint.relatesView(view: self, viaAttribute: attribute)
+                    return constraint.ip_relatesView(view: self, viaAttribute: attribute)
                     }
                     .first
                 
@@ -107,7 +107,7 @@ public extension UIView {
 
 extension NSLayoutConstraint {
     
-    public func relatesView(view view1: UIView,
+    public func ip_relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView,
         andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
@@ -119,7 +119,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func relatesView(view view1: UIView,
+    public func ip_relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView) -> Bool {
             
@@ -130,7 +130,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func relatesView(view view1: UIView,
+    public func ip_relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
@@ -140,7 +140,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func isIntrinsicConstraintWithView(view view1: UIView,
+    public func ip_isIntrinsicConstraintWithView(view view1: UIView,
         andAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             return (firstItem as? UIView == view1 && firstAttribute == attribute1)

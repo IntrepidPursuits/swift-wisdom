@@ -7,41 +7,41 @@ import Foundation
 import UIKit
 
 public extension Int {
-    public var radians: CGFloat {
-        return CGFloat(self).radians
+    public var ip_radians: CGFloat {
+        return CGFloat(self).ip_radians
     }
 }
 public extension CGFloat {
-    public var radians: CGFloat {
+    public var ip_radians: CGFloat {
         return CGFloat(Double(self) * (M_PI / 180))
     }
-    public var degrees: CGFloat {
+    public var ip_degrees: CGFloat {
         return self * CGFloat(180.0 / M_PI)
     }
 }
 
 public extension CGFloat {
-    public var squared: CGFloat {
+    public var ip_squared: CGFloat {
         return self * self
     }
 }
 
 public extension CGPoint {
-    public func angleToPoint(comparisonPoint: CGPoint) -> CGFloat {
+    public func ip_angleToPoint(comparisonPoint: CGPoint) -> CGFloat {
         let originX = comparisonPoint.x - self.x
         let originY = comparisonPoint.y - self.y
         let bearingRadians = atan2f(Float(originY), Float(originX))
-        var bearingDegrees = CGFloat(bearingRadians).degrees
+        var bearingDegrees = CGFloat(bearingRadians).ip_degrees
         while bearingDegrees < 0 {
             bearingDegrees += 360
         }
         return bearingDegrees
     }
     
-    public func distanceToPoint(point: CGPoint) -> CGFloat {
+    public func ip_distanceToPoint(point: CGPoint) -> CGFloat {
         let distX = point.x - self.x
         let distY = point.y - self.y
-        let distance = sqrt(distX.squared + distY.squared)
+        let distance = sqrt(distX.ip_squared + distY.ip_squared)
         return distance
     }
 }
@@ -82,13 +82,13 @@ public func degreesForLengthOfArc(lengthOfArc: CGFloat, radius: CGFloat) -> CGFl
 }
 
 public func pointWithCenter(center: CGPoint, radius: CGFloat, angleDegrees: CGFloat) -> CGPoint {
-    let x = radius * cos(angleDegrees.radians) + center.x
-    let y = radius * sin(angleDegrees.radians) + center.y
+    let x = radius * cos(angleDegrees.ip_radians) + center.x
+    let y = radius * sin(angleDegrees.ip_radians) + center.y
     return CGPoint(x: x, y: y)
 }
 
 public extension CGRect {
-    public var width: CGFloat {
+    public var ip_width: CGFloat {
         get {
             return CGRectGetWidth(self)
         }
@@ -97,16 +97,16 @@ public extension CGRect {
         }
     }
     
-    public var halfWidth: CGFloat {
+    public var ip_halfWidth: CGFloat {
         get {
-            return width / 2.0
+            return ip_width / 2.0
         }
         set {
-            width = newValue * 2
+            ip_width = newValue * 2
         }
     }
     
-    public var height: CGFloat {
+    public var ip_height: CGFloat {
         get {
             return CGRectGetHeight(self)
         }
@@ -115,48 +115,48 @@ public extension CGRect {
         }
     }
     
-    public var halfHeight: CGFloat {
+    public var ip_halfHeight: CGFloat {
         get {
-            return height / 2.0
+            return ip_height / 2.0
         }
         set {
-            height = newValue * 2
+            ip_height = newValue * 2
         }
     }
     
-    public var center: CGPoint {
+    public var ip_center: CGPoint {
         get {
-            return CGPoint(x: midX, y: midY)
+            return CGPoint(x: ip_midX, y: ip_midY)
         }
         set {
-            midX = center.x
-            midY = center.y
+            ip_midX = newValue.x
+            ip_midY = newValue.y
         }
     }
     
-    public var midX: CGFloat {
+    public var ip_midX: CGFloat {
         get {
             return CGRectGetMidX(self)
         }
         set {
-            origin.x = newValue - halfWidth
+            origin.x = newValue - ip_halfWidth
         }
     }
     
-    public var midY: CGFloat {
+    public var ip_midY: CGFloat {
         get {
             return CGRectGetMidY(self)
         }
         set {
-            origin.y = newValue - halfHeight
+            origin.y = newValue - ip_halfHeight
         }
     }
     
-    public var shortestEdge: CGFloat {
-        return min(width, height)
+    public var ip_shortestEdge: CGFloat {
+        return min(ip_width, ip_height)
     }
     
-    public var longestEdge: CGFloat {
-        return max(width, height)
+    public var ip_longestEdge: CGFloat {
+        return max(ip_width, ip_height)
     }
 }

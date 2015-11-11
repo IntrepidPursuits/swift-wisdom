@@ -35,7 +35,6 @@
 		80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BFB1BF2F1BD00818B6E /* UIColor+Hex.swift */; };
 		80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BFC1BF2F1BD00818B6E /* UIView+GetConstraints.swift */; };
 		80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BFD1BF2F1BD00818B6E /* UIView+Nib.swift */; };
-		9B3E04A4851E9C792113A9B1 /* Pods_SwiftWisdom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D393937D5D484AE9D6B661F /* Pods_SwiftWisdom.framework */; };
 		F6808688B17C75000AE80289 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB5B939423EAD00D1186E21 /* Pods_SwiftWisdomTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B3E04A4851E9C792113A9B1 /* Pods_SwiftWisdom.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,12 +334,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80232BC71BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomDev" */;
 			buildPhases = (
-				D953D767FBBCC8599D724543 /* Check Pods Manifest.lock */,
 				80232B9B1BF2EE2E00818B6E /* Sources */,
 				80232B9C1BF2EE2E00818B6E /* Frameworks */,
 				80232B9D1BF2EE2E00818B6E /* Resources */,
-				2CFEBC9D3D2BFE3E976830AB /* Embed Pods Frameworks */,
-				C1D1FA8B8EDFD77B8DD59065 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -493,21 +488,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2CFEBC9D3D2BFE3E976830AB /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		718AD788247367DF8567D2A1 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -596,36 +576,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C1D1FA8B8EDFD77B8DD59065 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D953D767FBBCC8599D724543 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
