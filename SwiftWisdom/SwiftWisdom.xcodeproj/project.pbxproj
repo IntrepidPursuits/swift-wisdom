@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		265F5218D085F23CDE020365 /* Pods_SwiftWisdomPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F70AFB7FEF9CF536BFE983 /* Pods_SwiftWisdomPods.framework */; };
+		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
 		80232BA81BF2EE2E00818B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA61BF2EE2E00818B6E /* Main.storyboard */; };
 		80232BAA1BF2EE2E00818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
 		80232BAD1BF2EE2E00818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
@@ -62,6 +63,7 @@
 		3FD85444416B355CDFA4AE94 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
 		63759939D1B5290295D5540B /* Pods-SwiftWisdomPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomPods/Pods-SwiftWisdomPods.release.xcconfig"; sourceTree = "<group>"; };
 		7D393937D5D484AE9D6B661F /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
 		80232B9F1BF2EE2E00818B6E /* SwiftWisdomDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWisdomDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80232BA21BF2EE2E00818B6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80232BA41BF2EE2E00818B6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8002059C1BF683CB005852C9 /* CommonTypes */ = {
+			isa = PBXGroup;
+			children = (
+				8002059D1BF683E0005852C9 /* Result.swift */,
+			);
+			name = CommonTypes;
+			sourceTree = "<group>";
+		};
 		80232B961BF2EE2E00818B6E = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +210,7 @@
 			children = (
 				80232BE41BF2F1BD00818B6E /* Async */,
 				80232BE91BF2F1BD00818B6E /* Colors */,
+				8002059C1BF683CB005852C9 /* CommonTypes */,
 				80232BEB1BF2F1BD00818B6E /* Foundation */,
 				80232BEE1BF2F1BD00818B6E /* Geometry */,
 				80232BF01BF2F1BD00818B6E /* StandardLibrary */,
@@ -597,6 +608,7 @@
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
+				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
 				80232C0F1BF2FB3800818B6E /* ViewController.swift in Sources */,
 				80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */,
 			);
