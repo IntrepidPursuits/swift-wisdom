@@ -49,7 +49,7 @@ public struct TimeOfDay {
     
     // MARK: Initialization
     
-    public init?(stringRepresentation: String) {
+    public init?(_ stringRepresentation: String) {
         guard let (hours, minutes) = stringRepresentation.ip_hoursAndMinutes() else {
             return nil
         }
@@ -57,7 +57,7 @@ public struct TimeOfDay {
         self.minutes = minutes
     }
     
-    public init?(date: NSDate) {
+    public init?(_ date: NSDate) {
         dateFormatter.dateFormat = "HH:mm"
         let formattedStringRepresentation = dateFormatter.stringFromDate(date)
         guard let (hours, minutes) = formattedStringRepresentation.ip_hoursAndMinutes() else {
