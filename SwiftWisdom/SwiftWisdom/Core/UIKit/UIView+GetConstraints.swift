@@ -55,7 +55,7 @@ public extension UIView {
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_aspectRatioConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Height, toItem: self, itemAttribute: .Width)
+        return ip_constraintForAttribute(.Height, toView: self, viewAttribute: .Width)
     }
     
     /**
@@ -67,19 +67,19 @@ public extension UIView {
     
     :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
     */
-    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, toItem item: UIView? = nil, itemAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, onView view1: UIView? = self, toView view2: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
-        if let toAttribute = itemAttribute, let toItem = item {
+        if let toAttribute = itemAttribute, let toItem = view2 {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: self, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
+                return constraint.ip_relatesView(view: view1, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
                 }
                 .first
             
-        } else if let toItem = item {
+        } else if let toItem = view2 {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: self, viaAttribute: attribute, toView: toItem)
+                return constraint.ip_relatesView(view: view1, viaAttribute: attribute, toView: toItem)
                 }
                 .first
             
@@ -88,14 +88,14 @@ public extension UIView {
             if attribute == .Height || attribute == .Width {
                 //For size constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_isIntrinsicConstraintWithView(view: self, andAttribute: attribute)
+                    return constraint.ip_isIntrinsicConstraintWithView(view: view1, andAttribute: attribute)
                     }
                     .first
                 
             } else {
                 // For simple positioning constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_relatesView(view: self, viaAttribute: attribute)
+                    return constraint.ip_relatesView(view: view1, viaAttribute: attribute)
                     }
                     .first
                 
