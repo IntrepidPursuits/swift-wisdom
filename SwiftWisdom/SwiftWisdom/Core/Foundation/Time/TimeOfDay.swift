@@ -36,7 +36,7 @@ public struct TimeOfDay {
         }
 
         // Display format
-        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.dateFormat = displayFormat
         return dateFormatter.stringFromDate(date)
     }
     
