@@ -27,7 +27,7 @@ extension SoundFile {
     }
     
     private var path: String {
-        return MainBundle.pathForResource(name, ofType: type)!
+        return NSBundle.mainBundle().pathForResource(name, ofType: type)!
     }
     
     private var url: NSURL {
