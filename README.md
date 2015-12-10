@@ -28,6 +28,7 @@ end
 * [Color Descriptor](#color-descriptor)
 * [Cell Configuring](#cell-configuring)
 * [User Defaults](#user-defaults)
+* [Result](#result)
 
 #### Qu
 
@@ -163,6 +164,55 @@ struct ApplicationSettings {
         }
     }
 }
+```
+
+#### Result
+
+As opposed to using objective-c style async completion blocks like `(possibleObject: AnyObject?, error: NSError?)`, Result types are preferable:
+
+```Swift
+func fetchName(completion: Result<String> -> Void)
+```
+
+And use:
+
+```Swift
+fetchName { result in
+    switch result {
+    case let .Success(name):
+        print("Successfully got name: \(name)")
+    case let .Failure(error):
+        print("Failed to get name: \(error)")
+    }
+
+}
+```
+
+#### Time Of Day
+
+Used to convert times of day back and forth from NSDate
+
+To Time
+
+```Swift
+let date = ...
+let timeOfDay = TimeOfDay(date)
+// or
+
+let timeOfDay = TimeOfDay("1:30")
+```
+
+To Date:
+
+```Swift
+let timeOfDay = ...
+
+// Time Today
+let todayAtThatTime = timeOfDay.timeToday()
+
+// Time on given date
+let someDate = ...
+let timeOnThatDate = timeOfDay.timeOnDate(someDate)
 ```
 
 #### Contributions
