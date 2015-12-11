@@ -41,6 +41,7 @@
 		802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB31C1B6E4600C69D80 /* Downloader.swift */; };
 		802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */; };
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
+		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
 		F6808688B17C75000AE80289 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB5B939423EAD00D1186E21 /* Pods_SwiftWisdomTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		802C4BB31C1B6E4600C69D80 /* Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Downloader.swift; sourceTree = "<group>"; };
 		802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
 		89B56A937CF155C595D41B3E /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2F2CF5CDE350389741AB1E7 /* Pods-SwiftWisdom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +239,7 @@
 		80232BD11BF2F05500818B6E /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				802C4BBB1C1B6FE500C69D80 /* Timeout */,
 				802C4BB81C1B6F7200C69D80 /* Version */,
 				802C4BB51C1B6F2E00C69D80 /* DirectoryManager */,
 				802C4BB21C1B6E3E00C69D80 /* Downloader */,
@@ -387,6 +390,14 @@
 				802C4BB91C1B6F7C00C69D80 /* Version.swift */,
 			);
 			path = Version;
+			sourceTree = "<group>";
+		};
+		802C4BBB1C1B6FE500C69D80 /* Timeout */ = {
+			isa = PBXGroup;
+			children = (
+				802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */,
+			);
+			path = Timeout;
 			sourceTree = "<group>";
 		};
 		C48E8D982480C033E8C3663F /* Pods */ = {
@@ -677,6 +688,7 @@
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
+				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
 				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
