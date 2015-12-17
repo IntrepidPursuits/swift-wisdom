@@ -51,6 +51,30 @@ public func +=(inout left: CGPoint, right: CGPoint) {
     left.y += right.y
 }
 
+public func *(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+    return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
+}
+
+public func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+}
+
+public func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+}
+
+public func +(lhs: CGSize, rhs: CGSize) -> CGSize {
+    return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+}
+
+public func -(lhs: CGSize, rhs: CGSize) -> CGSize {
+    return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
+}
+
+public func *(lhs: CGSize, rhs: CGFloat) -> CGSize {
+    return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
+}
+
 public func random(range: Range<Int>) -> Int {
     guard let first = range.first, let last = range.last else { return 0 }
     assert(range.first >= 0)
