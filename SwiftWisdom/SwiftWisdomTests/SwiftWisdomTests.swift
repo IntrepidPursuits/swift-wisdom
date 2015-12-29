@@ -33,4 +33,10 @@ class SwiftWisdomTests: XCTestCase {
         }
     }
     
+    func testConstraints_NilToView() {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController
+        let constraint = vc?.view.ip_constraintForAttribute(.Top, onView: nil, toView: vc?.blueView, viewAttribute: .Top)
+        XCTAssertEqual(constraint.constant, 165, "Top constraint found with nil view")
+    }
+    
 }
