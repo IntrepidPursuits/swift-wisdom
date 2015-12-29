@@ -13,6 +13,8 @@ import IntrepidSwiftWisdom
 #endif
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var blueView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
