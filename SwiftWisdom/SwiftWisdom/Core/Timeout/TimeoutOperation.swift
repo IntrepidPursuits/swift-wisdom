@@ -9,7 +9,7 @@
 import Foundation
 
 internal class TimeoutOperation : NSOperation {
-    let block: Block
+    private(set) var block: Block?
     let duration: NSTimeInterval
     
     init(duration: NSTimeInterval = 30, block: Block) {
@@ -25,5 +25,10 @@ internal class TimeoutOperation : NSOperation {
                 block()
             }
         }
+    }
+    
+    override func cancel() {
+        super.cancel()
+        block = nil
     }
 }
