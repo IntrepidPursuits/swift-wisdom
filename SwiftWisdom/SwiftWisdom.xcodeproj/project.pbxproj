@@ -16,7 +16,6 @@
 		80232BAA1BF2EE2E00818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
 		80232BAD1BF2EE2E00818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
 		80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */; };
-		80232BC31BF2EE2E00818B6E /* SwiftWisdomUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BC21BF2EE2E00818B6E /* SwiftWisdomUITests.swift */; };
 		80232BD61BF2F13300818B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA21BF2EE2E00818B6E /* AppDelegate.swift */; };
 		80232BDA1BF2F13300818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
 		80232BDB1BF2F13300818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
@@ -53,13 +52,6 @@
 			remoteGlobalIDString = 80232B9E1BF2EE2E00818B6E;
 			remoteInfo = SwiftWisdom;
 		};
-		80232BBF1BF2EE2E00818B6E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 80232B971BF2EE2E00818B6E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 80232B9E1BF2EE2E00818B6E;
-			remoteInfo = SwiftWisdom;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -84,9 +76,6 @@
 		80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWisdomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWisdomTests.swift; sourceTree = "<group>"; };
 		80232BB91BF2EE2E00818B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80232BBE1BF2EE2E00818B6E /* SwiftWisdomUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWisdomUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80232BC21BF2EE2E00818B6E /* SwiftWisdomUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWisdomUITests.swift; sourceTree = "<group>"; };
-		80232BC41BF2EE2E00818B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80232BE21BF2F13300818B6E /* SwiftWisdomPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWisdomPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80232BE31BF2F13300818B6E /* SwiftWisdom copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SwiftWisdom copy-Info.plist"; path = "/Users/loganwright/Desktop/swift-wisdom/SwiftWisdom/SwiftWisdom copy-Info.plist"; sourceTree = "<absolute>"; };
 		80232BE61BF2F1BD00818B6E /* After.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = After.swift; sourceTree = "<group>"; };
@@ -124,13 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6808688B17C75000AE80289 /* Pods_SwiftWisdomTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80232BBB1BF2EE2E00818B6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +167,6 @@
 			children = (
 				80232BA11BF2EE2E00818B6E /* SwiftWisdom */,
 				80232BB61BF2EE2E00818B6E /* SwiftWisdomTests */,
-				80232BC11BF2EE2E00818B6E /* SwiftWisdomUITests */,
 				80232BA01BF2EE2E00818B6E /* Products */,
 				C48E8D982480C033E8C3663F /* Pods */,
 				22193FAF2DE34CE7F5012589 /* Frameworks */,
@@ -198,7 +179,6 @@
 			children = (
 				80232B9F1BF2EE2E00818B6E /* SwiftWisdomDev.app */,
 				80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */,
-				80232BBE1BF2EE2E00818B6E /* SwiftWisdomUITests.xctest */,
 				80232BE21BF2F13300818B6E /* SwiftWisdomPods.app */,
 			);
 			name = Products;
@@ -225,15 +205,6 @@
 				80232BB91BF2EE2E00818B6E /* Info.plist */,
 			);
 			path = SwiftWisdomTests;
-			sourceTree = "<group>";
-		};
-		80232BC11BF2EE2E00818B6E /* SwiftWisdomUITests */ = {
-			isa = PBXGroup;
-			children = (
-				80232BC21BF2EE2E00818B6E /* SwiftWisdomUITests.swift */,
-				80232BC41BF2EE2E00818B6E /* Info.plist */,
-			);
-			path = SwiftWisdomUITests;
 			sourceTree = "<group>";
 		};
 		80232BD11BF2F05500818B6E /* Core */ = {
@@ -454,24 +425,6 @@
 			productReference = 80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		80232BBD1BF2EE2E00818B6E /* SwiftWisdomUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80232BCD1BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomUITests" */;
-			buildPhases = (
-				80232BBA1BF2EE2E00818B6E /* Sources */,
-				80232BBB1BF2EE2E00818B6E /* Frameworks */,
-				80232BBC1BF2EE2E00818B6E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				80232BC01BF2EE2E00818B6E /* PBXTargetDependency */,
-			);
-			name = SwiftWisdomUITests;
-			productName = SwiftWisdomUITests;
-			productReference = 80232BBE1BF2EE2E00818B6E /* SwiftWisdomUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		80232BD21BF2F13300818B6E /* SwiftWisdomPods */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80232BDF1BF2F13300818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomPods" */;
@@ -509,10 +462,6 @@
 						CreatedOnToolsVersion = 7.1;
 						TestTargetID = 80232B9E1BF2EE2E00818B6E;
 					};
-					80232BBD1BF2EE2E00818B6E = {
-						CreatedOnToolsVersion = 7.1;
-						TestTargetID = 80232B9E1BF2EE2E00818B6E;
-					};
 				};
 			};
 			buildConfigurationList = 80232B9A1BF2EE2E00818B6E /* Build configuration list for PBXProject "SwiftWisdom" */;
@@ -531,7 +480,6 @@
 				80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */,
 				80232BD21BF2F13300818B6E /* SwiftWisdomPods */,
 				80232BB21BF2EE2E00818B6E /* SwiftWisdomTests */,
-				80232BBD1BF2EE2E00818B6E /* SwiftWisdomUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -548,13 +496,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		80232BB11BF2EE2E00818B6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80232BBC1BF2EE2E00818B6E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -706,14 +647,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80232BBA1BF2EE2E00818B6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80232BC31BF2EE2E00818B6E /* SwiftWisdomUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		80232BD41BF2F13300818B6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -730,11 +663,6 @@
 			isa = PBXTargetDependency;
 			target = 80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */;
 			targetProxy = 80232BB41BF2EE2E00818B6E /* PBXContainerItemProxy */;
-		};
-		80232BC01BF2EE2E00818B6E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */;
-			targetProxy = 80232BBF1BF2EE2E00818B6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -844,6 +772,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftWisdom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
@@ -856,6 +785,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SwiftWisdom/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
@@ -872,7 +802,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdomDev.app/SwiftWisdomDev";
 			};
 			name = Debug;
 		};
@@ -885,31 +815,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
-			};
-			name = Release;
-		};
-		80232BCE1BF2EE2E00818B6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SwiftWisdomUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SwiftWisdom;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		80232BCF1BF2EE2E00818B6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = SwiftWisdomUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SwiftWisdom;
-				USES_XCTRUNNER = YES;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdomDev.app/SwiftWisdomDev";
 			};
 			name = Release;
 		};
@@ -919,6 +825,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "SwiftWisdom copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -931,6 +838,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "SwiftWisdom copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -963,15 +871,6 @@
 			buildConfigurations = (
 				80232BCB1BF2EE2E00818B6E /* Debug */,
 				80232BCC1BF2EE2E00818B6E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80232BCD1BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80232BCE1BF2EE2E00818B6E /* Debug */,
-				80232BCF1BF2EE2E00818B6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
