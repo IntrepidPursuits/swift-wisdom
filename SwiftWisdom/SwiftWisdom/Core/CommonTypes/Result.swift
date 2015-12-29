@@ -6,7 +6,7 @@
 //  Copyright © 2015 Intrepid. All rights reserved.
 //
 
-enum Result<T> {
+public enum Result<T> {
     case Success(T)
     case Failure(ErrorType)
 }

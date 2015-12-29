@@ -36,3 +36,10 @@ public extension Array where Element: Hashable {
         return Set(self)
     }
 }
+
+extension Array {
+    mutating func ip_removeFirst(@noescape matcher: Generator.Element -> Bool) {
+        guard let idx = indexOf(matcher) else { return }
+        removeAtIndex(idx)
+    }
+}
