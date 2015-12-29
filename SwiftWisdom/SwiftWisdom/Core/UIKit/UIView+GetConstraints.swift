@@ -73,23 +73,21 @@ public extension UIView {
      
      :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
      */
-    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, var onView view1: UIView? = nil, toView view2: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
-        if view1 == nil {
-            view1 = self
-        }
+        let onView = onView ?? self
         
-        if let toAttribute = viewAttribute, let toItem = view2 {
+        if let toAttribute = viewAttribute, let toItem = toView {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: view1!, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
+                return constraint.ip_relatesView(view: onView, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
                 }
                 .first
             
-        } else if let toItem = view2 {
+        } else if let toItem = toView {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: view1!, viaAttribute: attribute, toView: toItem)
+                return constraint.ip_relatesView(view: onView, viaAttribute: attribute, toView: toItem)
                 }
                 .first
             
@@ -98,14 +96,14 @@ public extension UIView {
             if attribute == .Height || attribute == .Width {
                 //For size constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_isIntrinsicConstraintWithView(view: view1!, andAttribute: attribute)
+                    return constraint.ip_isIntrinsicConstraintWithView(view: onView, andAttribute: attribute)
                     }
                     .first
                 
             } else {
                 // For simple positioning constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_relatesView(view: view1!, viaAttribute: attribute)
+                    return constraint.ip_relatesView(view: onView, viaAttribute: attribute)
                     }
                     .first
                 
