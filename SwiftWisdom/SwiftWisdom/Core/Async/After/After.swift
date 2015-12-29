@@ -19,21 +19,16 @@ public func Background(function: Block) {
 
 // MARK: Later
 
-public func After(after: NSTimeInterval, op: () -> ()) {
-    After(after, op: op, completion: nil)
-}
-
-public func After(after: NSTimeInterval, op: () -> (), dispatchQueue: dispatch_queue_t = dispatch_get_main_queue(), completion: (() -> Void)?) {
+public func After(after: NSTimeInterval, on queue: dispatch_queue_t = dispatch_get_main_queue(), op: Block) {
     let seconds = Int64(after * Double(NSEC_PER_SEC))
     let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, seconds)
-    dispatch_after(dispatchTime, dispatchQueue) {
-        op()
-        completion?()
-    }
+    
+    dispatch_after(dispatchTime, queue, op)
 }
 
-public func RepeatAtInterval(interval: NSTimeInterval, numberOfTimes: Int, op: () -> (), completion: Void -> Void = {}) {
+public func RepeatAtInterval(interval: NSTimeInterval, numberOfTimes: Int, op: () -> (), on queue: dispatch_queue_t = dispatch_get_main_queue(), completion: Void -> Void = {}) {
     let numberOfTimesLeft = numberOfTimes - 1
+    
     let wrappedCompletion: Void -> Void
     if numberOfTimesLeft > 0 {
         wrappedCompletion = {
@@ -43,5 +38,10 @@ public func RepeatAtInterval(interval: NSTimeInterval, numberOfTimes: Int, op: (
         wrappedCompletion = completion
     }
     
-    After(interval, op: op, completion: wrappedCompletion)
+    let wrappedOperation: Void -> Void = {
+        op()
+        wrappedCompletion()
+    }
+    
+    After(interval, on: queue, op: wrappedOperation)
 }
