@@ -12,7 +12,7 @@ public class TimeoutOperation : NSOperation {
     private(set) var block: Block?
     let duration: NSTimeInterval
     let queue: dispatch_queue_t
-    init(duration: NSTimeInterval = 30, runQueue: dispatch_queue_t = dispatch_get_main_queue(), block: Block) {
+    public init(duration: NSTimeInterval = 30, runQueue: dispatch_queue_t = dispatch_get_main_queue(), block: Block) {
         self.duration = duration
         self.block = block
         self.queue = runQueue
