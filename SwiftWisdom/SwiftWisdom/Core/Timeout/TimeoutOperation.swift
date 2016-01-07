@@ -11,23 +11,23 @@ import Foundation
 public class TimeoutOperation : NSOperation {
     private(set) var block: Block?
     let duration: NSTimeInterval
-    
-    init(duration: NSTimeInterval = 30, block: Block) {
+    let queue: dispatch_queue_t
+    init(duration: NSTimeInterval = 30, runQueue: dispatch_queue_t = dispatch_get_main_queue(), block: Block) {
         self.duration = duration
         self.block = block
+        self.queue = runQueue
         super.init()
     }
     
-    override func main() {
-        After(duration) { [weak self] in
+    override public func main() {
+        After(duration, on: queue) { [weak self] in
             if let cancelled = self?.cancelled, let block = self?.block where !cancelled {
-                // TODO: This is on MAIN because of `After`, this should be clarified
                 block()
             }
         }
     }
     
-    override func cancel() {
+    override public func cancel() {
         super.cancel()
         block = nil
     }
