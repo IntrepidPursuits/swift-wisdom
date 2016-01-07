@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class TimeoutOperation : NSOperation {
+public class TimeoutOperation : NSOperation {
     private(set) var block: Block?
     let duration: NSTimeInterval
     
