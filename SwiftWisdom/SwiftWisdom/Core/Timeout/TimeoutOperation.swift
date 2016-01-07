@@ -17,6 +17,8 @@ public class TimeoutOperation : NSOperation {
         self.block = block
         self.queue = runQueue
         super.init()
+        
+        NSOperationQueue().addOperation(self)
     }
     
     override public func main() {
