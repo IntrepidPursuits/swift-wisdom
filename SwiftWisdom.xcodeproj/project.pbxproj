@@ -50,6 +50,7 @@
 		80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */; };
 		80D63D1E1C4F211100C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */; };
 		80D63D201C4F224500C88D00 /* mock_firmware_update.dfu in Resources */ = {isa = PBXBuildFile; fileRef = 80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */; };
+		80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D211C4F22B800C88D00 /* BitMaskTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableDataAppendTests.swift; sourceTree = "<group>"; };
 		80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UnsignedInteger+Extensions.swift"; path = "Numbers/UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */ = {isa = PBXFileReference; lastKnownFileType = file; path = mock_firmware_update.dfu; sourceTree = "<group>"; };
+		80D63D211C4F22B800C88D00 /* BitMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMaskTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */,
+				80D63D211C4F22B800C88D00 /* BitMaskTests.swift */,
 				80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */,
 				80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */,
 				80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */,
@@ -543,6 +546,7 @@
 				80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */,
 				80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */,
 				80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */,
+				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
 				80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */,
 				80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
