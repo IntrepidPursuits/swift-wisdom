@@ -23,6 +23,7 @@ public extension Array where Element: Equatable {
     public mutating func ip_remove(objectToRemove: Element) -> Bool {
         for (idx, objectToCompare) in enumerate() where objectToRemove == objectToCompare {
             removeAtIndex(idx)
+            return true
         }
         return false
     }
