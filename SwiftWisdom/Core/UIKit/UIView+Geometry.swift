@@ -8,17 +8,17 @@
 
 import UIKit
 
-public extension UIView {
-    var ip_width: CGFloat {
+extension UIView {
+    public var ip_width: CGFloat {
         return CGRectGetWidth(frame)
     }
-    var ip_halfWidth: CGFloat {
+    public var ip_halfWidth: CGFloat {
         return ip_width / 2.0
     }
-    var ip_height: CGFloat {
+    public var ip_height: CGFloat {
         return CGRectGetHeight(frame)
     }
-    var ip_halfHeight: CGFloat {
+    public var ip_halfHeight: CGFloat {
         return ip_height / 2.0
     }
 }
