@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.default_subspec = "Core"
 
   s.subspec "Core" do |cs|
-    cs.source_files = "SwiftWisdom/SwiftWisdom/Core/**/**/*.swift"
+    cs.source_files = "SwiftWisdom/Core/**/**/*.swift"
   end
 end
