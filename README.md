@@ -5,7 +5,7 @@ The reason for the grab bag approach is to make it easier to facilitate the addi
 ### Core
 
 ```Ruby
-source 'https://github.com/IntrepidPursuits/swift-wisdom.git'
+source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
 pod 'IntrepidSwiftWisdom'
 use_frameworks!
 ```
@@ -13,7 +13,7 @@ use_frameworks!
 ### Testing Additions
 
 ```Ruby
-source 'https://github.com/IntrepidPursuits/swift-wisdom.git'
+source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
 target 'SwiftWisdomTests',
     use_frameworks!
     pod 'IntrepidSwiftWisdomTesting'
