@@ -24,19 +24,6 @@ public extension String {
     }
 }
 
-public extension String {
-    public subscript(range: Range<Int>) -> String {
-        let chars = Array(characters)
-        let substringCharacters = chars[range]
-        return String(substringCharacters)
-    }
-    
-    public mutating func dropFirst() {
-        guard !isEmpty else { return }
-        self = self[1..<characters.count]
-    }
-}
-
 extension String {
     
     /**

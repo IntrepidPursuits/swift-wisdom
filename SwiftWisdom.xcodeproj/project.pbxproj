@@ -42,6 +42,14 @@
 		80D63D091C4F1D6F00C88D00 /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */; };
 		80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */; };
 		80D63D0E1C4F1E3500C88D00 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */; };
+		80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */; };
+		80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */; };
+		80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */; };
+		80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D121C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift */; };
+		80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D131C4F1F3E00C88D00 /* NSDataTrimTests.swift */; };
+		80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */; };
+		80D63D1E1C4F211100C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */; };
+		80D63D201C4F224500C88D00 /* mock_firmware_update.dfu in Resources */ = {isa = PBXBuildFile; fileRef = 80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +102,14 @@
 		80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSData.swift"; sourceTree = "<group>"; };
 		80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Extensions.swift"; path = "Numbers/Int+Extensions.swift"; sourceTree = "<group>"; };
+		80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataConversionTests.swift; sourceTree = "<group>"; };
+		80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSubdataTests.swift; sourceTree = "<group>"; };
+		80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataChunksTests.swift; sourceTree = "<group>"; };
+		80D63D121C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSegmentGeneratorTests.swift; sourceTree = "<group>"; };
+		80D63D131C4F1F3E00C88D00 /* NSDataTrimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataTrimTests.swift; sourceTree = "<group>"; };
+		80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableDataAppendTests.swift; sourceTree = "<group>"; };
+		80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UnsignedInteger+Extensions.swift"; path = "Numbers/UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
+		80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */ = {isa = PBXFileReference; lastKnownFileType = file; path = mock_firmware_update.dfu; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +199,14 @@
 			isa = PBXGroup;
 			children = (
 				80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */,
+				80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */,
+				80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */,
+				80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */,
+				80D63D121C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift */,
+				80D63D131C4F1F3E00C88D00 /* NSDataTrimTests.swift */,
+				80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */,
 				80232BB91BF2EE2E00818B6E /* Info.plist */,
+				80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */,
 			);
 			path = SwiftWisdomTests;
 			sourceTree = "<group>";
@@ -371,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */,
+				80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */,
 			);
 			name = Numbers;
 			sourceTree = "<group>";
@@ -466,6 +490,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D63D201C4F224500C88D00 /* mock_firmware_update.dfu in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +512,7 @@
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
+				80D63D1E1C4F211100C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
 				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
 				802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */,
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
@@ -514,7 +540,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */,
+				80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */,
+				80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */,
+				80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */,
+				80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
+				80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

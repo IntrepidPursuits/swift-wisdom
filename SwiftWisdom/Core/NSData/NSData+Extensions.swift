@@ -86,7 +86,7 @@ public extension NSMutableData {
 
 
 internal extension NSData {
-    func ip_equalChunks(length length: Int) -> [NSData] {
+    func ip_equalChunksNoRemainder(chunkLength length: Int) -> [NSData] {
         let range = 0..<length
         let mutable = NSMutableData(data: self)
         var chunks: [NSData] = []
@@ -98,11 +98,11 @@ internal extension NSData {
         return chunks
     }
     
-    func ip_chunks(maximumLength: Int) -> [NSData] {
-        let range = 0..<maximumLength
+    func ip_chunksWithRemainder(chunkLength length: Int) -> [NSData] {
+        let range = 0..<length
         let mutable = NSMutableData(data: self)
         var chunks: [NSData] = []
-        while mutable.length >= maximumLength {
+        while mutable.length >= length {
             guard let next = mutable[range] else { break }
             chunks.append(next)
             mutable.ip_trimRange(range)
@@ -115,13 +115,13 @@ internal extension NSData {
 }
 
 internal extension NSData {
-    func ip_chunkSegmentGenerator(start start: Int = 0, length: Int) -> AnyGenerator<NSData> {
+    func ip_segmentGenerator(start start: Int = 0, chunkLength: Int) -> AnyGenerator<NSData> {
         guard let segmentToWrite = ip_suffixFrom(start) else { return anyGenerator { return nil } }
         let mutable = NSMutableData(data: segmentToWrite)
-        let range = 0..<length
+        let range = 0..<chunkLength
         return anyGenerator {
             let nextData: NSData?
-            if mutable.length >= length {
+            if mutable.length >= chunkLength {
                 nextData = mutable[range]
                 mutable.ip_trimRange(range)
             } else if mutable.length > 0 {
