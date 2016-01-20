@@ -36,6 +36,7 @@
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
 		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
 		80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */; };
+		80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
 		80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Geometry.swift"; sourceTree = "<group>"; };
+		80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nibs.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				80232BFC1BF2F1BD00818B6E /* UIView+GetConstraints.swift */,
 				80232BFD1BF2F1BD00818B6E /* UIView+Nib.swift */,
 				80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */,
+				80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
+				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
 				802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
