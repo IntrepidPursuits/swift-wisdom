@@ -41,7 +41,7 @@ public final class DirectoryManager {
         let filePath = directoryUrl.URLByAppendingPathComponent(targetName)
         guard let originPath = originUrl.path, targetPath = filePath.path else { return }
         if fileManager.fileExistsAtPath(targetPath) {
-            try deleteImageWithFileName(targetName)
+            try deleteFileWithName(targetName)
         }
         try fileManager.moveItemAtPath(originPath, toPath: targetPath)
     }
@@ -55,17 +55,17 @@ public final class DirectoryManager {
     }
     
     public func writeDataInBackground(data: NSData, withName name: String = NSUUID().UUIDString, completion: (fileName: String, success: Bool) -> Void = { _ in }) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+        Background {
             let success = self.writeData(data, withName: name)
-            dispatch_async(dispatch_get_main_queue()) {
+            Main {
                 completion(fileName: name, success: success)
             }
-        })
+        }
     }
     
     // MARK: Delete
     
-    public func deleteImageWithFileName(fileName: String) throws {
+    public func deleteFileWithName(fileName: String) throws {
         let fileUrl = directoryUrl.URLByAppendingPathComponent(fileName)
         guard let path = fileUrl.path else {
             throw Error.UnableToCreatePath(url: fileUrl)

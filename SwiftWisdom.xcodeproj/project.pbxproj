@@ -41,16 +41,19 @@
 		80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */; };
 		80D63D091C4F1D6F00C88D00 /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */; };
 		80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */; };
-		80D63D0E1C4F1E3500C88D00 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */; };
 		80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */; };
 		80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */; };
 		80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */; };
 		80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D121C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift */; };
 		80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D131C4F1F3E00C88D00 /* NSDataTrimTests.swift */; };
 		80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */; };
-		80D63D1E1C4F211100C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */; };
 		80D63D201C4F224500C88D00 /* mock_firmware_update.dfu in Resources */ = {isa = PBXBuildFile; fileRef = 80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */; };
 		80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D211C4F22B800C88D00 /* BitMaskTests.swift */; };
+		80D63D241C4F231C00C88D00 /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D231C4F231C00C88D00 /* Synchronize.swift */; };
+		80D63D261C4F236F00C88D00 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D251C4F236F00C88D00 /* Not.swift */; };
+		80D63D2D1C4F251E00C88D00 /* Bool+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2A1C4F251E00C88D00 /* Bool+Extensions.swift */; };
+		80D63D2E1C4F251E00C88D00 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */; };
+		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,16 +105,19 @@
 		80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSData.swift"; sourceTree = "<group>"; };
-		80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Int+Extensions.swift"; path = "Numbers/Int+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataConversionTests.swift; sourceTree = "<group>"; };
 		80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSubdataTests.swift; sourceTree = "<group>"; };
 		80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataChunksTests.swift; sourceTree = "<group>"; };
 		80D63D121C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSegmentGeneratorTests.swift; sourceTree = "<group>"; };
 		80D63D131C4F1F3E00C88D00 /* NSDataTrimTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataTrimTests.swift; sourceTree = "<group>"; };
 		80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableDataAppendTests.swift; sourceTree = "<group>"; };
-		80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UnsignedInteger+Extensions.swift"; path = "Numbers/UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */ = {isa = PBXFileReference; lastKnownFileType = file; path = mock_firmware_update.dfu; sourceTree = "<group>"; };
 		80D63D211C4F22B800C88D00 /* BitMaskTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BitMaskTests.swift; sourceTree = "<group>"; };
+		80D63D231C4F231C00C88D00 /* Synchronize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Synchronize.swift; sourceTree = "<group>"; };
+		80D63D251C4F236F00C88D00 /* Not.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Not.swift; sourceTree = "<group>"; };
+		80D63D2A1C4F251E00C88D00 /* Bool+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+Extensions.swift"; sourceTree = "<group>"; };
+		80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +278,8 @@
 			children = (
 				800205A01BF684C7005852C9 /* Time */,
 				80232BEC1BF2F1BD00818B6E /* Defaults.swift */,
+				80D63D231C4F231C00C88D00 /* Synchronize.swift */,
+				80D63D251C4F236F00C88D00 /* Not.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -287,7 +295,7 @@
 		80232BF01BF2F1BD00818B6E /* StandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				80D63D0C1C4F1E2500C88D00 /* Numbers */,
+				80D63D291C4F251E00C88D00 /* Numbers */,
 				80232BF11BF2F1BD00818B6E /* Array */,
 				80232BF31BF2F1BD00818B6E /* Dictionary */,
 				80232BF51BF2F1BD00818B6E /* Set */,
@@ -393,13 +401,14 @@
 			path = NSData;
 			sourceTree = "<group>";
 		};
-		80D63D0C1C4F1E2500C88D00 /* Numbers */ = {
+		80D63D291C4F251E00C88D00 /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
-				80D63D0D1C4F1E3500C88D00 /* Int+Extensions.swift */,
-				80D63D1D1C4F211100C88D00 /* UnsignedInteger+Extensions.swift */,
+				80D63D2A1C4F251E00C88D00 /* Bool+Extensions.swift */,
+				80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */,
+				80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */,
 			);
-			name = Numbers;
+			path = Numbers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,7 +516,9 @@
 				800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */,
 				80232C071BF2F1BD00818B6E /* String+Substrings.swift in Sources */,
 				80232C081BF2F1BD00818B6E /* CellConfiguring.swift in Sources */,
+				80D63D2E1C4F251E00C88D00 /* Int+Extensions.swift in Sources */,
 				80D63D091C4F1D6F00C88D00 /* NSData+Extensions.swift in Sources */,
+				80D63D241C4F231C00C88D00 /* Synchronize.swift in Sources */,
 				80232BFE1BF2F1BD00818B6E /* After.swift in Sources */,
 				80232C0D1BF2FAA100818B6E /* AppDelegate.swift in Sources */,
 				80232BFF1BF2F1BD00818B6E /* Qu.swift in Sources */,
@@ -515,17 +526,17 @@
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
-				80D63D1E1C4F211100C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
 				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
 				802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */,
+				80D63D261C4F236F00C88D00 /* Not.swift in Sources */,
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
+				80D63D2D1C4F251E00C88D00 /* Bool+Extensions.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */,
-				80D63D0E1C4F1E3500C88D00 /* Int+Extensions.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
@@ -533,6 +544,7 @@
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
 				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
+				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
 				80232C0F1BF2FB3800818B6E /* ViewController.swift in Sources */,
 				80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */,
 				800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */,

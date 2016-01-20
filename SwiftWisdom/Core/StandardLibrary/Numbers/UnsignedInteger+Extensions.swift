@@ -9,6 +9,23 @@
 import Foundation
 
 extension UnsignedIntegerType {
+    static func ip_random() -> Self {
+        let intMax = ip_maxValue.toIntMax()
+        let rand = ip_randomInRange(0...Int(intMax))
+        return self.init(ip_safely: rand)
+    }
+}
+
+func ip_randomInRange(range: Range<Int>) -> Int {
+    guard let first = range.first, let last = range.last else { return 0 }
+    assert(range.first >= 0)
+    let diff = last - first
+    let randomOffset = Int(arc4random_uniform(UInt32(diff + 1)))
+    let random = first + randomOffset
+    return random
+}
+
+extension UnsignedIntegerType {
     public init(ip_data: NSData) {
         let hexInt = ip_data.ip_hexInt ?? 0
         self.init(ip_safely: hexInt)
