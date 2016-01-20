@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func ip_synchronize(lock: AnyObject, @noescape closure: Block) {
+public func synchronize(lock: AnyObject, @noescape closure: Block) {
     objc_sync_enter(lock)
     closure()
     objc_sync_exit(lock)

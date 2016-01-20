@@ -11,12 +11,12 @@ import Foundation
 extension UnsignedIntegerType {
     static func ip_random() -> Self {
         let intMax = ip_maxValue.toIntMax()
-        let rand = ip_randomInRange(0...Int(intMax))
+        let rand = randomInRange(0...Int(intMax))
         return self.init(ip_safely: rand)
     }
 }
 
-func ip_randomInRange(range: Range<Int>) -> Int {
+func randomInRange(range: Range<Int>) -> Int {
     guard let first = range.first, let last = range.last else { return 0 }
     assert(range.first >= 0)
     let diff = last - first
