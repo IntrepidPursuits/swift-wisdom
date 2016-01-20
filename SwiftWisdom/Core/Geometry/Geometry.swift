@@ -86,7 +86,7 @@ public func random(range: Range<Int>) -> Int {
 }
 
 public func avg(numbers: CGFloat...) -> CGFloat {
-    return numbers.reduce(0) { $0 + $1 } / CGFloat(numbers.count)
+    return numbers.reduce(0, combine: +) / CGFloat(numbers.count)
 }
 
 public func circumferenceForRadius(radius: CGFloat) -> CGFloat {
@@ -182,5 +182,17 @@ public extension CGRect {
     
     public var ip_longestEdge: CGFloat {
         return max(ip_width, ip_height)
+    }
+}
+
+extension CGSize {
+    public func ip_scaledHeightAtFixedWidth(fixedWidth: CGFloat) -> CGFloat {
+        let scale = height / width
+        return fixedWidth * scale
+    }
+    
+    public func ip_scaledWidthAtFixedHeight(fixedHeight: CGFloat) -> CGFloat {
+        let scale = width / height
+        return fixedHeight * scale
     }
 }
