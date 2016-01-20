@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		265F5218D085F23CDE020365 /* Pods_SwiftWisdomPods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F70AFB7FEF9CF536BFE983 /* Pods_SwiftWisdomPods.framework */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
@@ -16,10 +15,6 @@
 		80232BAA1BF2EE2E00818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
 		80232BAD1BF2EE2E00818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
 		80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */; };
-		80232BD61BF2F13300818B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA21BF2EE2E00818B6E /* AppDelegate.swift */; };
-		80232BDA1BF2F13300818B6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BAB1BF2EE2E00818B6E /* LaunchScreen.storyboard */; };
-		80232BDB1BF2F13300818B6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA91BF2EE2E00818B6E /* Assets.xcassets */; };
-		80232BDC1BF2F13300818B6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80232BA61BF2EE2E00818B6E /* Main.storyboard */; };
 		80232BFE1BF2F1BD00818B6E /* After.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BE61BF2F1BD00818B6E /* After.swift */; };
 		80232BFF1BF2F1BD00818B6E /* Qu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BE81BF2F1BD00818B6E /* Qu.swift */; };
 		80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BEA1BF2F1BD00818B6E /* ColorDescriptor.swift */; };
@@ -35,13 +30,11 @@
 		80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BFD1BF2F1BD00818B6E /* UIView+Nib.swift */; };
 		80232C0D1BF2FAA100818B6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA21BF2EE2E00818B6E /* AppDelegate.swift */; };
 		80232C0F1BF2FB3800818B6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA41BF2EE2E00818B6E /* ViewController.swift */; };
-		80232C101BF2FB4B00818B6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80232BA41BF2EE2E00818B6E /* ViewController.swift */; };
 		802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BAE1C1A1C0200C69D80 /* PercentAnimator.swift */; };
 		802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB31C1B6E4600C69D80 /* Downloader.swift */; };
 		802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */; };
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
 		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
-		F6808688B17C75000AE80289 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB5B939423EAD00D1186E21 /* Pods_SwiftWisdomTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,18 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17F70AFB7FEF9CF536BFE983 /* Pods_SwiftWisdomPods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomPods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19E370DA22996D294084087F /* Pods-SwiftWisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.release.xcconfig"; sourceTree = "<group>"; };
-		1CB5B939423EAD00D1186E21 /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DB44DEF26BACFC1EFD6E802 /* Pods-SwiftWisdomPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomPods.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomPods/Pods-SwiftWisdomPods.debug.xcconfig"; sourceTree = "<group>"; };
-		3FD85444416B355CDFA4AE94 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
-		63759939D1B5290295D5540B /* Pods-SwiftWisdomPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomPods.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomPods/Pods-SwiftWisdomPods.release.xcconfig"; sourceTree = "<group>"; };
-		7D393937D5D484AE9D6B661F /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		800205A81BF82E5F005852C9 /* SoundFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundFile.swift; path = Sounds/SoundFile.swift; sourceTree = "<group>"; };
-		80232B9F1BF2EE2E00818B6E /* SwiftWisdomDev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWisdomDev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80232B9F1BF2EE2E00818B6E /* SwiftWisdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWisdom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80232BA21BF2EE2E00818B6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80232BA41BF2EE2E00818B6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		80232BA71BF2EE2E00818B6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,8 +62,6 @@
 		80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftWisdomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftWisdomTests.swift; sourceTree = "<group>"; };
 		80232BB91BF2EE2E00818B6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		80232BE21BF2F13300818B6E /* SwiftWisdomPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftWisdomPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		80232BE31BF2F13300818B6E /* SwiftWisdom copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SwiftWisdom copy-Info.plist"; path = "/Users/loganwright/Desktop/swift-wisdom/SwiftWisdom/SwiftWisdom copy-Info.plist"; sourceTree = "<absolute>"; };
 		80232BE61BF2F1BD00818B6E /* After.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = After.swift; sourceTree = "<group>"; };
 		80232BE81BF2F1BD00818B6E /* Qu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Qu.swift; sourceTree = "<group>"; };
 		80232BEA1BF2F1BD00818B6E /* ColorDescriptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDescriptor.swift; sourceTree = "<group>"; };
@@ -96,8 +80,6 @@
 		802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
-		89B56A937CF155C595D41B3E /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C2F2CF5CDE350389741AB1E7 /* Pods-SwiftWisdom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,15 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6808688B17C75000AE80289 /* Pods_SwiftWisdomTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80232BD71BF2F13300818B6E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				265F5218D085F23CDE020365 /* Pods_SwiftWisdomPods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,9 +103,6 @@
 		22193FAF2DE34CE7F5012589 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D393937D5D484AE9D6B661F /* Pods_SwiftWisdom.framework */,
-				1CB5B939423EAD00D1186E21 /* Pods_SwiftWisdomTests.framework */,
-				17F70AFB7FEF9CF536BFE983 /* Pods_SwiftWisdomPods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,18 +138,15 @@
 				80232BA11BF2EE2E00818B6E /* SwiftWisdom */,
 				80232BB61BF2EE2E00818B6E /* SwiftWisdomTests */,
 				80232BA01BF2EE2E00818B6E /* Products */,
-				C48E8D982480C033E8C3663F /* Pods */,
 				22193FAF2DE34CE7F5012589 /* Frameworks */,
-				80232BE31BF2F13300818B6E /* SwiftWisdom copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		80232BA01BF2EE2E00818B6E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80232B9F1BF2EE2E00818B6E /* SwiftWisdomDev.app */,
+				80232B9F1BF2EE2E00818B6E /* SwiftWisdom.app */,
 				80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */,
-				80232BE21BF2F13300818B6E /* SwiftWisdomPods.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,25 +338,12 @@
 			path = Timeout;
 			sourceTree = "<group>";
 		};
-		C48E8D982480C033E8C3663F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C2F2CF5CDE350389741AB1E7 /* Pods-SwiftWisdom.debug.xcconfig */,
-				19E370DA22996D294084087F /* Pods-SwiftWisdom.release.xcconfig */,
-				89B56A937CF155C595D41B3E /* Pods-SwiftWisdomTests.debug.xcconfig */,
-				3FD85444416B355CDFA4AE94 /* Pods-SwiftWisdomTests.release.xcconfig */,
-				2DB44DEF26BACFC1EFD6E802 /* Pods-SwiftWisdomPods.debug.xcconfig */,
-				63759939D1B5290295D5540B /* Pods-SwiftWisdomPods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */ = {
+		80232B9E1BF2EE2E00818B6E /* SwiftWisdom */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 80232BC71BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomDev" */;
+			buildConfigurationList = 80232BC71BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdom" */;
 			buildPhases = (
 				80232B9B1BF2EE2E00818B6E /* Sources */,
 				80232B9C1BF2EE2E00818B6E /* Frameworks */,
@@ -399,9 +353,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftWisdomDev;
+			name = SwiftWisdom;
 			productName = SwiftWisdom;
-			productReference = 80232B9F1BF2EE2E00818B6E /* SwiftWisdomDev.app */;
+			productReference = 80232B9F1BF2EE2E00818B6E /* SwiftWisdom.app */;
 			productType = "com.apple.product-type.application";
 		};
 		80232BB21BF2EE2E00818B6E /* SwiftWisdomTests */ = {
@@ -424,26 +378,6 @@
 			productName = SwiftWisdomTests;
 			productReference = 80232BB31BF2EE2E00818B6E /* SwiftWisdomTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		80232BD21BF2F13300818B6E /* SwiftWisdomPods */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 80232BDF1BF2F13300818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomPods" */;
-			buildPhases = (
-				80232BD31BF2F13300818B6E /* Check Pods Manifest.lock */,
-				80232BD41BF2F13300818B6E /* Sources */,
-				80232BD71BF2F13300818B6E /* Frameworks */,
-				80232BD91BF2F13300818B6E /* Resources */,
-				80232BDD1BF2F13300818B6E /* Embed Pods Frameworks */,
-				80232BDE1BF2F13300818B6E /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftWisdomPods;
-			productName = SwiftWisdom;
-			productReference = 80232BE21BF2F13300818B6E /* SwiftWisdomPods.app */;
-			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -477,8 +411,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */,
-				80232BD21BF2F13300818B6E /* SwiftWisdomPods */,
+				80232B9E1BF2EE2E00818B6E /* SwiftWisdom */,
 				80232BB21BF2EE2E00818B6E /* SwiftWisdomTests */,
 			);
 		};
@@ -499,16 +432,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		80232BD91BF2F13300818B6E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80232BDA1BF2F13300818B6E /* LaunchScreen.storyboard in Resources */,
-				80232BDB1BF2F13300818B6E /* Assets.xcassets in Resources */,
-				80232BDC1BF2F13300818B6E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,51 +466,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		80232BD31BF2F13300818B6E /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		80232BDD1BF2F13300818B6E /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomPods/Pods-SwiftWisdomPods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		80232BDE1BF2F13300818B6E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomPods/Pods-SwiftWisdomPods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AB4846A47C59A02F1D579FD4 /* Copy Pods Resources */ = {
@@ -647,21 +525,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		80232BD41BF2F13300818B6E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				80232C101BF2FB4B00818B6E /* ViewController.swift in Sources */,
-				80232BD61BF2F13300818B6E /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		80232BB51BF2EE2E00818B6E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 80232B9E1BF2EE2E00818B6E /* SwiftWisdomDev */;
+			target = 80232B9E1BF2EE2E00818B6E /* SwiftWisdom */;
 			targetProxy = 80232BB41BF2EE2E00818B6E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -795,7 +664,6 @@
 		};
 		80232BCB1BF2EE2E00818B6E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89B56A937CF155C595D41B3E /* Pods-SwiftWisdomTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SwiftWisdomTests/Info.plist;
@@ -808,7 +676,6 @@
 		};
 		80232BCC1BF2EE2E00818B6E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3FD85444416B355CDFA4AE94 /* Pods-SwiftWisdomTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SwiftWisdomTests/Info.plist;
@@ -816,32 +683,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdomDev.app/SwiftWisdomDev";
-			};
-			name = Release;
-		};
-		80232BE01BF2F13300818B6E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DB44DEF26BACFC1EFD6E802 /* Pods-SwiftWisdomPods.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "SwiftWisdom copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		80232BE11BF2F13300818B6E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63759939D1B5290295D5540B /* Pods-SwiftWisdomPods.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "SwiftWisdom copy-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -857,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		80232BC71BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomDev" */ = {
+		80232BC71BF2EE2E00818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				80232BC81BF2EE2E00818B6E /* Debug */,
@@ -871,15 +712,6 @@
 			buildConfigurations = (
 				80232BCB1BF2EE2E00818B6E /* Debug */,
 				80232BCC1BF2EE2E00818B6E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		80232BDF1BF2F13300818B6E /* Build configuration list for PBXNativeTarget "SwiftWisdomPods" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				80232BE01BF2F13300818B6E /* Debug */,
-				80232BE11BF2F13300818B6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

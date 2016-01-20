@@ -8,10 +8,6 @@
 
 import UIKit
 
-#if COCOAPODS
-import IntrepidSwiftWisdom
-#endif
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var blueView: UIView!
