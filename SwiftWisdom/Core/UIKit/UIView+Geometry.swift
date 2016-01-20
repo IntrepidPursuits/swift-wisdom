@@ -217,7 +217,7 @@ extension UIView {
         }
     }
     
-    var ip_boundsTopCenter: CGPoint {
+    public var ip_boundsTopCenter: CGPoint {
         get {
             return CGPoint(x: ip_boundsMidX, y: ip_boundsY)
         }

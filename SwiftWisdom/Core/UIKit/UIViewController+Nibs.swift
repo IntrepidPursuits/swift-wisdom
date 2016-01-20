@@ -9,14 +9,14 @@
 import UIKit
 
 extension UIViewController {
-    static func ip_fromNib() -> Self {
+    public static func ip_fromNib() -> Self {
         let controller = self.init(nibName: ip_nibName, bundle: nil)
         return controller
     }
 }
 
 extension UIViewController {
-    class var ip_nibName: String {
+    public static var ip_nibName: String {
         return "\(self)".componentsSeparatedByString(".").last!
     }
 }

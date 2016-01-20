@@ -9,14 +9,14 @@
 import Foundation
 
 extension UnsignedIntegerType {
-    static func ip_random() -> Self {
+    public static func ip_random() -> Self {
         let intMax = ip_maxValue.toIntMax()
         let rand = randomInRange(0...Int(intMax))
         return self.init(ip_safely: rand)
     }
 }
 
-func randomInRange(range: Range<Int>) -> Int {
+public func randomInRange(range: Range<Int>) -> Int {
     guard let first = range.first, let last = range.last else { return 0 }
     assert(range.first >= 0)
     let diff = last - first
@@ -63,16 +63,16 @@ extension UnsignedIntegerType {
 }
 
 extension UnsignedIntegerType {
-    static var ip_maxValue: Self {
+    public static var ip_maxValue: Self {
         return ip_bitStackOfLength(ip_maximumNumberOfBits)
     }
     
-    static var ip_maximumNumberOfBits: Self {
+    public static var ip_maximumNumberOfBits: Self {
         let size = UIntMax(sizeof(self))
         return Self(size) * 8
     }
     
-    static func ip_bitStackOfLength(length: Self) -> Self {
+    public static func ip_bitStackOfLength(length: Self) -> Self {
         let maxLength = ip_maximumNumberOfBits
         guard length <= maxLength else { return ip_bitStackOfLength(maxLength) }
         var stack: Self = 0
@@ -87,7 +87,7 @@ extension UnsignedIntegerType {
 }
 
 extension UnsignedIntegerType {
-    init<T : SignedIntegerType>(ip_safely value: T) {
+    public init<T : SignedIntegerType>(ip_safely value: T) {
         if value < 0 {
             self.init(ip_safely: UInt8(0))
         } else {
@@ -96,7 +96,7 @@ extension UnsignedIntegerType {
         }
     }
     
-    init<T : UnsignedIntegerType>(ip_safely value: T) {
+    public init<T : UnsignedIntegerType>(ip_safely value: T) {
         self = 0
         
         let maxSelf = self.dynamicType.ip_maxValue
@@ -108,8 +108,8 @@ extension UnsignedIntegerType {
     }
 }
 
-internal extension UnsignedIntegerType {
-    func ip_containsMask(mask: Self) -> Bool {
+extension UnsignedIntegerType {
+    public func ip_containsMask(mask: Self) -> Bool {
         return (self & mask) == mask
     }
 }

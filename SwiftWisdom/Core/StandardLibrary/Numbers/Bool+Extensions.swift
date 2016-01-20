@@ -9,7 +9,7 @@
 import Foundation
 
 extension Bool {
-    init(ip_string: String) {
+    public init(ip_string: String) {
         let cleaned = ip_string.lowercaseString
         let truePrefixes = [
             "t",

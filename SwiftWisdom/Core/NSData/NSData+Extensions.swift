@@ -85,8 +85,8 @@ public extension NSMutableData {
 
 
 
-internal extension NSData {
-    func ip_equalChunksNoRemainder(chunkLength length: Int) -> [NSData] {
+extension NSData {
+    public func ip_equalChunksNoRemainder(chunkLength length: Int) -> [NSData] {
         let range = 0..<length
         let mutable = NSMutableData(data: self)
         var chunks: [NSData] = []
@@ -98,7 +98,7 @@ internal extension NSData {
         return chunks
     }
     
-    func ip_chunksWithRemainder(chunkLength length: Int) -> [NSData] {
+    public func ip_chunksWithRemainder(chunkLength length: Int) -> [NSData] {
         let range = 0..<length
         let mutable = NSMutableData(data: self)
         var chunks: [NSData] = []
@@ -114,8 +114,8 @@ internal extension NSData {
     }
 }
 
-internal extension NSData {
-    func ip_segmentGenerator(start start: Int = 0, chunkLength: Int) -> AnyGenerator<NSData> {
+extension NSData {
+    public func ip_segmentGenerator(start start: Int = 0, chunkLength: Int) -> AnyGenerator<NSData> {
         guard let segmentToWrite = ip_suffixFrom(start) else { return anyGenerator { return nil } }
         let mutable = NSMutableData(data: segmentToWrite)
         let range = 0..<chunkLength
@@ -136,33 +136,33 @@ internal extension NSData {
 }
 
 extension NSData {
-    func ip_subdataFrom(idx: Int, length: Int) -> NSData? {
+    public func ip_subdataFrom(idx: Int, length: Int) -> NSData? {
         return self[idx..<(idx + length)]
     }
 }
 
-internal extension NSData {
-    convenience init(byte: UInt8) {
+extension NSData {
+    public convenience init(byte: UInt8) {
         var _byte = byte
         self.init(bytes: &_byte, length: sizeof(UInt8))
     }
 }
 
-internal extension NSMutableData {
-    func ip_appendByte(byte: UInt8) {
+extension NSMutableData {
+    public func ip_appendByte(byte: UInt8) {
         var byte = byte
         appendBytes(&byte, length: sizeof(UInt8))
     }
     
-    func appendUTF8String(string: String) {
+    public func appendUTF8String(string: String) {
         guard let data = string.ip_utf8Data else { return }
         appendData(data)
     }
 }
 
 
-public extension NSData {
-    subscript(range: Range<Int>) -> NSData? {
+extension NSData {
+    public subscript(range: Range<Int>) -> NSData? {
         guard range.startIndex >= 0 else { return nil }
         guard length >= range.endIndex else { return nil }
         let rangeLength = range.endIndex - range.startIndex

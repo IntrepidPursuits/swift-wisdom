@@ -18,7 +18,7 @@ import Foundation
 
 import Foundation
 
-public extension String {
+extension String {
     public var hexInt: UInt {
         return strtoul(self, nil, 16)
     }
