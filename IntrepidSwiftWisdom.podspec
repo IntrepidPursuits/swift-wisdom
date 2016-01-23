@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "IntrepidSwiftWisdom"
-  s.version       = "0.0.13"
+  s.version       = "0.0.14"
   s.summary       = "A collection of extensions to the Swift Standard Library"
   s.description   = <<-DESC
                     A collection of extensions to the Swift Standard Library, written by the developers of Intrepid Pursuits.
