@@ -10,13 +10,13 @@ import UIKit
 
 extension UIView {
     public var ip_width: CGFloat {
-        return CGRectGetWidth(frame)
+        return CGRectGetWidth(bounds)
     }
     public var ip_halfWidth: CGFloat {
         return ip_width / 2.0
     }
     public var ip_height: CGFloat {
-        return CGRectGetHeight(frame)
+        return CGRectGetHeight(bounds)
     }
     public var ip_halfHeight: CGFloat {
         return ip_height / 2.0
