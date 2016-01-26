@@ -26,12 +26,12 @@ public extension UITableView {
     }
     
     public func ip_dequeueCell<T: UITableViewCell>(indexPath: NSIndexPath, identifier: String = T.ip_identifier) -> T {
-        let cell = dequeueReusableCellWithIdentifier(T.ip_identifier, forIndexPath: indexPath) as! T
+        let cell = dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! T
         return cell
     }
     
     public func ip_dequeueHeader<T: UITableViewHeaderFooterView>(section: Int, identifier: String = T.ip_identifier) -> T {
-        let header = dequeueReusableHeaderFooterViewWithIdentifier(T.ip_identifier) as! T
+        let header = dequeueReusableHeaderFooterViewWithIdentifier(identifier) as! T
         return header
     }
 }
