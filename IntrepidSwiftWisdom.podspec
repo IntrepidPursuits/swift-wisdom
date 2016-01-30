@@ -16,5 +16,6 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |cs|
     cs.source_files = "SwiftWisdom/Core/**/**/*.swift"
+    cs.dependency 'IP-UIKit-Wisdom', '0.0.9'
   end
 end
