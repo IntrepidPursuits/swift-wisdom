@@ -1,0 +1,10 @@
+PODS:
+  - IP-UIKit-Wisdom (0.0.3)
+
+DEPENDENCIES:
+  - IP-UIKit-Wisdom
+
+SPEC CHECKSUMS:
+  IP-UIKit-Wisdom: 2ad1ec9e9b473d126447e6aa6e5e41625d0227ed
+
+COCOAPODS: 0.39.0
