@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: Public
+
 public enum AnimationState {
     case Began
     case InProgress(percentComplete: CGFloat)
@@ -21,7 +23,7 @@ public extension UIView {
 }
 
 extension AnimationState {
-    var isCompleted: Bool {
+    public var isCompleted: Bool {
         switch self {
         case .Completed:
             return true
@@ -30,7 +32,7 @@ extension AnimationState {
         }
     }
     
-    var percent: CGFloat {
+    public var percent: CGFloat {
         switch self {
         case .Began:
             return 0
@@ -45,7 +47,7 @@ extension AnimationState {
 // MARK: Implementation
 
 
-private class PercentAnimator {
+private final class PercentAnimator {
     
     private var animations: [Animation] = []
     
@@ -66,7 +68,7 @@ private class PercentAnimator {
     }
 }
 
-private class Animation {
+private final class Animation {
     
     private let start: NSDate
     private let duration: NSTimeInterval
@@ -77,7 +79,7 @@ private class Animation {
     private let animation: AnimationState -> Void
     private let id: String
     
-    init(id: String, duration: NSTimeInterval, animation: AnimationState -> Void) {
+    private init(id: String, duration: NSTimeInterval, animation: AnimationState -> Void) {
         self.start = NSDate()
         self.duration = duration
         self.animation = animation
@@ -90,7 +92,7 @@ private class Animation {
         animation(state)
     }
     
-    func cancel() {
+    private func cancel() {
         displayLink.invalidate()
     }
     
