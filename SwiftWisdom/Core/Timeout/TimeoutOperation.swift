@@ -8,17 +8,32 @@
 
 import Foundation
 
+/**
+ This classed is used to create a timeout operation that fires 
+ after a given amount of time
+ 
+ Setting to `nil` or calling `cancel()` will abort the timeout.
+ */
 public class TimeoutOperation : NSOperation {
+    
     private(set) var block: Block?
-    let duration: NSTimeInterval
-    let queue: dispatch_queue_t
-    public init(duration: NSTimeInterval = 30, runQueue: dispatch_queue_t = dispatch_get_main_queue(), block: Block) {
+    
+    private let duration: NSTimeInterval
+    private let queue: dispatch_queue_t
+
+    public init(
+        duration: NSTimeInterval = 30,
+        runQueue: dispatch_queue_t = dispatch_get_main_queue(),
+        block: Block,
+        timeoutQueue: NSOperationQueue = NSOperationQueue()
+        ) {
+            
         self.duration = duration
         self.block = block
         self.queue = runQueue
         super.init()
         
-        NSOperationQueue().addOperation(self)
+        timeoutQueue.addOperation(self)
     }
     
     override public func main() {
