@@ -38,6 +38,7 @@
 		805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */; };
 		805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */; };
 		805807E81C5D828500F9AFB1 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E71C5D828500F9AFB1 /* VideoPlayer.swift */; };
+		805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */; };
 		80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */; };
 		80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */; };
 		80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D031C4F18FA00C88D00 /* String+Localization.swift */; };
@@ -107,6 +108,7 @@
 		805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorImage.swift"; sourceTree = "<group>"; };
 		805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
 		805807E71C5D828500F9AFB1 /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorDescriptorTests.swift; sourceTree = "<group>"; };
 		80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Geometry.swift"; sourceTree = "<group>"; };
 		80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nibs.swift"; sourceTree = "<group>"; };
 		80D63D031C4F18FA00C88D00 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				80D63D141C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift */,
 				80232BB91BF2EE2E00818B6E /* Info.plist */,
 				80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */,
+				805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */,
 			);
 			path = SwiftWisdomTests;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
 				80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */,
 				80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */,
+				805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
 				80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */,
 			);
