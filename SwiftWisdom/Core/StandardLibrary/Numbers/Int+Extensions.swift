@@ -19,7 +19,7 @@ extension IntegerType {
 }
 
 extension IntegerType {
-    public func times(@noescape closure: Block) {
+    public func ip_times(@noescape closure: Block) {
         precondition(self >= 0)
         (0..<self).forEach { _ in closure() }
     }

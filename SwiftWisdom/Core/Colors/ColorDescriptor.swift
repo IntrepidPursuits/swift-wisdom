@@ -82,7 +82,8 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
     public init(_ string: String) {
         let rgbComponents = string.componentsSeparatedByString(",")
         if rgbComponents.count == 4 {
-            if rgbComponents.first?.containsString(".") == true {
+            // If any portion of the string has a `.`, we are in 0-1.0 scale
+            if string.containsString(".") {
                 let floats = rgbComponents
                     .flatMap { Double($0) }
                     .map { CGFloat($0) }
