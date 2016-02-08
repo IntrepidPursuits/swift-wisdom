@@ -28,3 +28,20 @@ class GetConstraintTests: XCTestCase {
         XCTAssertNil(constraint, "No constraint there")
     }
 }
+
+class NSMutableAttributedStringTests: XCTestCase {
+    func testAttributedStringApplyingAttributes() {
+        let redText = NSAttributedString(string: "RED", attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
+        let testString = NSMutableAttributedString(stringWithFormat: "This color is %@", redText)
+        let otherTestString = NSMutableAttributedString(stringWithFormat: "This color is %@", applyingAttributes: [NSForegroundColorAttributeName : UIColor.redColor()], toArgs: "RED")
+        
+        XCTAssertEqual(testString, otherTestString)
+    }
+    
+    func testAttributedStringWithFormat() {
+        let redText = NSAttributedString(string: "RED", attributes: [NSForegroundColorAttributeName : UIColor.redColor()])
+        let testString = NSMutableAttributedString(stringWithFormat: "Color: %@", redText)
+        let rangeOfRED = NSRange(location: 7, length: 3)
+        XCTAssertEqual(testString.attributedSubstringFromRange(rangeOfRED), redText)
+    }
+}
