@@ -41,8 +41,14 @@ class NSMutableAttributedStringTests: XCTestCase {
             applyingAttributes: [NSForegroundColorAttributeName : UIColor.redColor()],
             toArgs: "RED"
         )
+        let blueTestString = NSMutableAttributedString(
+            stringWithFormat: "This color is %@",
+            applyingAttributes: [NSForegroundColorAttributeName : UIColor.blueColor()],
+            toArgs: "RED"
+        )
         
         XCTAssertEqual(testString, otherTestString)
+        XCTAssertNotEqual(otherTestString, blueTestString)
     }
     
     func testAttributedStringWithFormat() {
