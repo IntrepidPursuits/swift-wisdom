@@ -21,7 +21,7 @@ class IntegerTypeTests: XCTestCase {
     func testTimes() {
         let count = 324
         var collection: [String] = []
-        count.times { collection.append("Hi") }
+        count.ip_times { collection.append("Hi") }
         XCTAssert(count == collection.count)
     }
 }

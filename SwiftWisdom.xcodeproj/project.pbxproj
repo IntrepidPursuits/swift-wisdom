@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
+		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		045F527FB87F6D21BDFC36F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
+		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
@@ -155,6 +159,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C2B1F1C1C690B6B006672D7 /* NSAttribitedString */ = {
+			isa = PBXGroup;
+			children = (
+				1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */,
+			);
+			path = NSAttribitedString;
+			sourceTree = "<group>";
+		};
 		22193FAF2DE34CE7F5012589 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +344,7 @@
 				80232BF31BF2F1BD00818B6E /* Dictionary */,
 				80232BF51BF2F1BD00818B6E /* Set */,
 				80232BF71BF2F1BD00818B6E /* String */,
+				1C2B1F1C1C690B6B006672D7 /* NSAttribitedString */,
 			);
 			path = StandardLibrary;
 			sourceTree = "<group>";
@@ -364,6 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				80232BF81BF2F1BD00818B6E /* String+Substrings.swift */,
+				1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */,
 				80D63D031C4F18FA00C88D00 /* String+Localization.swift */,
 			);
 			path = String;
@@ -621,12 +635,14 @@
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
+				1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
 				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
 				802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */,
 				80D63D261C4F236F00C88D00 /* Not.swift in Sources */,
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
+				1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,

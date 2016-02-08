@@ -2,7 +2,7 @@ PODS:
   - IP-UIKit-Wisdom (0.0.9)
 
 DEPENDENCIES:
-  - IP-UIKit-Wisdom (= 0.0.9)
+  - IP-UIKit-Wisdom
 
 SPEC CHECKSUMS:
   IP-UIKit-Wisdom: f4d6b9d3e3c9e6336b1380d8d73788c35ba03fc7
