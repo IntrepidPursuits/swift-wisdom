@@ -19,7 +19,7 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with the attributes applied to argument strings.
      */
-    convenience init(stringWithFormat string: String, applyingAttributes attributes: [String : AnyObject], toArgs args: String...) {
+    public convenience init(stringWithFormat string: String, applyingAttributes attributes: [String : AnyObject], toArgs args: String...) {
         let formattedArgs = args.map { arg in
             return NSAttributedString(string: arg, attributes: attributes)
         }
@@ -35,7 +35,7 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with arguments inserted according to format.
      */
-    convenience init(stringWithFormat string: String, _ args: NSAttributedString...) {
+     public convenience init(stringWithFormat string: String, _ args: NSAttributedString...) {
         self.init(stringWithFormat: string, withArguments: args)
     }
     
@@ -47,7 +47,7 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with arguments inserted according to format.
      */
-    convenience init(stringWithFormat string: String, withArguments args: [NSAttributedString]) {
+    private convenience init(stringWithFormat string: String, withArguments args: [NSAttributedString]) {
         let str = string as NSString
         self.init(string: string)
         var rangeLimit = NSMakeRange(0, str.length)
