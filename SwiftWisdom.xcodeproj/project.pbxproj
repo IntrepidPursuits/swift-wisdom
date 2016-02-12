@@ -10,6 +10,9 @@
 		1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */; };
 		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
 		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
+		1C466C8F1C6E7A4500A709E8 /* CollectionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */; };
+		1CE3D0681C6E61A500FB676C /* Mathable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3D0671C6E61A500FB676C /* Mathable.swift */; };
+		1CE3D06B1C6E635F00FB676C /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3D0691C6E628800FB676C /* MathableTests.swift */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
@@ -81,6 +84,9 @@
 		1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVerticalGradientLayer.swift; sourceTree = "<group>"; };
 		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
 		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
+		1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeTests.swift; sourceTree = "<group>"; };
+		1CE3D0671C6E61A500FB676C /* Mathable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mathable.swift; sourceTree = "<group>"; };
+		1CE3D0691C6E628800FB676C /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathableTests.swift; path = SwiftWisdomTests/MathableTests.swift; sourceTree = SOURCE_ROOT; };
 		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
@@ -269,6 +275,8 @@
 				80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */,
 				805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */,
 				805807ED1C5D8D9000F9AFB1 /* IntegerTypeTests.swift */,
+				1CE3D0691C6E628800FB676C /* MathableTests.swift */,
+				1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */,
 			);
 			path = SwiftWisdomTests;
 			sourceTree = "<group>";
@@ -474,6 +482,7 @@
 				80D63D2A1C4F251E00C88D00 /* Bool+Extensions.swift */,
 				80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */,
 				80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */,
+				1CE3D0671C6E61A500FB676C /* Mathable.swift */,
 			);
 			path = Numbers;
 			sourceTree = "<group>";
@@ -632,6 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				805807E81C5D828500F9AFB1 /* VideoPlayer.swift in Sources */,
+				1CE3D0681C6E61A500FB676C /* Mathable.swift in Sources */,
 				800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */,
 				80232C071BF2F1BD00818B6E /* String+Substrings.swift in Sources */,
 				80232C081BF2F1BD00818B6E /* CellConfiguring.swift in Sources */,
@@ -682,7 +692,9 @@
 				80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */,
 				80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */,
 				805807EE1C5D8D9000F9AFB1 /* IntegerTypeTests.swift in Sources */,
+				1CE3D06B1C6E635F00FB676C /* MathableTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
+				1C466C8F1C6E7A4500A709E8 /* CollectionTypeTests.swift in Sources */,
 				80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */,
 				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
 				80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */,
