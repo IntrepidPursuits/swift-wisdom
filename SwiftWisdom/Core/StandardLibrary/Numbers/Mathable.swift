@@ -24,7 +24,6 @@ extension CollectionType where Generator.Element: Mathable {
     }
     
     public func ip_mean() -> Generator.Element? {
-        // Maybe this should just spit back a float?
         let zero = Generator.Element(0.toIntMax())
         let count = Generator.Element(self.count.toIntMax())
         guard count > zero else { return nil }
@@ -32,15 +31,14 @@ extension CollectionType where Generator.Element: Mathable {
     }
     
     public func ip_median() -> Generator.Element? {
-        // Maybe this should just spit back a float?
         let zero = Generator.Element(0.toIntMax())
         let count = Generator.Element(self.count.toIntMax())
         guard count > zero else { return nil }
-        return self.sort(<).ip_middleValues?.ip_mean()
+        return sort(<).ip_middleValues?.ip_mean()
     }
     
     public func ip_mode() -> [Generator.Element]? {
-        return self.ip_mostCommonElements()
+        return ip_mostCommonElements()
     }
 }
 

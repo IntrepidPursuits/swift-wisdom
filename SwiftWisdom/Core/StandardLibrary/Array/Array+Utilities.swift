@@ -64,10 +64,10 @@ extension Array {
 extension CollectionType {
     public var ip_middleValues: [Generator.Element]? {
         guard count > 0 else { return nil }
-        let needsAverageOfTwo = self.count.toIntMax().ip_isEven
-        let middle = startIndex.advancedBy(self.count / 2)
+        let needsAverageOfTwo = count.toIntMax().ip_isEven
+        let middle = startIndex.advancedBy(count / 2)
         if needsAverageOfTwo {
-            let leftOfMiddle = startIndex.advancedBy((self.count / 2) - 1)
+            let leftOfMiddle = startIndex.advancedBy((count / 2) - 1)
             return [self[middle], self[leftOfMiddle]]
         } else {
             return [self[middle]]
@@ -75,7 +75,7 @@ extension CollectionType {
     }
 }
 
-extension CollectionType where Generator.Element: Equatable {
+extension SequenceType where Generator.Element: Equatable {
     public func ip_mostCommonElements() -> [Generator.Element]? {
         let sortedUniqueElements = self.ip_uniqueValues().sort {
                 self.ip_countOfElement($0) > self.ip_countOfElement($1)
@@ -89,7 +89,7 @@ extension CollectionType where Generator.Element: Equatable {
         
     public func ip_uniqueValues() -> [Generator.Element] {
         var buffer: [Generator.Element] = []
-        for element in self {
+        forEach { element in
             if !buffer.contains(element) {
                 buffer.append(element)
             }
