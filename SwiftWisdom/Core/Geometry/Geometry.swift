@@ -86,6 +86,11 @@ public func random(range: Range<Int>) -> Int {
 }
 
 public func avg(numbers: CGFloat...) -> CGFloat {
+    return avg(numbers)
+}
+
+public func avg(numbers: [CGFloat]) -> CGFloat {
+    guard numbers.count > 0 else { return 0 }
     return numbers.reduce(0, combine: +) / CGFloat(numbers.count)
 }
 
