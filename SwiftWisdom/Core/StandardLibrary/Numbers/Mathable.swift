@@ -15,24 +15,23 @@ public protocol Mathable: Comparable {
     func * (lhs: Self, rhs: Self) -> Self
     func - (lhs: Self, rhs: Self) -> Self
     init(_ int: IntMax)
-    var doubleValue: Double { get }
 }
 
 extension CollectionType where Generator.Element: Mathable {
     
-    public func ip_average() -> Double? {
+    public func ip_average() -> Generator.Element? {
         return ip_mean()
     }
     
-    public func ip_mean() -> Double? {
+    public func ip_mean() -> Generator.Element? {
         // Maybe this should just spit back a float?
         let zero = Generator.Element(0.toIntMax())
         let count = Generator.Element(self.count.toIntMax())
         guard count > zero else { return nil }
-        return reduce(zero.doubleValue) { $0 + $1.doubleValue } / count.doubleValue
+        return reduce(zero, combine: +) / count
     }
     
-    public func ip_median() -> Double? {
+    public func ip_median() -> Generator.Element? {
         // Maybe this should just spit back a float?
         let zero = Generator.Element(0.toIntMax())
         let count = Generator.Element(self.count.toIntMax())
@@ -45,79 +44,18 @@ extension CollectionType where Generator.Element: Mathable {
     }
 }
 
-public func avg<T: Mathable>(numbers: [T]) -> Double? {
-    guard numbers.count > 0 else { return nil }
-    return (numbers.reduce(T(0), combine: +) / T(numbers.count.toIntMax())).doubleValue
-}
-
-extension Int: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Float: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Double: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension CGFloat: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension UInt: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension UInt8: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension UInt16: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension UInt32: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension UInt64: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Int8: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Int16: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Int32: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Int64: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
-extension Float80: Mathable {
-    public var doubleValue: Double {
-        return Double(self)
-    }
-}
+extension Int: Mathable {}
+extension Float: Mathable {}
+extension Double: Mathable {}
+extension CGFloat: Mathable {}
+extension UInt: Mathable {}
+extension UInt8: Mathable {}
+extension UInt16: Mathable {}
+extension UInt32: Mathable {}
+extension UInt64: Mathable {}
+extension Int8: Mathable {}
+extension Int16: Mathable {}
+extension Int32: Mathable {}
+extension Int64: Mathable {}
+extension Float80: Mathable {}
 // Any other number types we should include?

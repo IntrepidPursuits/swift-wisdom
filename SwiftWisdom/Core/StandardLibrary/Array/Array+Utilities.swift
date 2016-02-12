@@ -77,11 +77,12 @@ extension CollectionType {
 
 extension CollectionType where Generator.Element: Equatable {
     public func ip_mostCommonElements() -> [Generator.Element]? {
-        guard let first = self.first else { return nil }
-        let uniqueElements = self.ip_uniqueValues().sort {
+        let sortedUniqueElements = self.ip_uniqueValues().sort {
                 self.ip_countOfElement($0) > self.ip_countOfElement($1)
             }
-        return uniqueElements.filter {
+        guard let first = sortedUniqueElements.first else { return nil }
+        print(sortedUniqueElements)
+        return sortedUniqueElements.filter {
             self.ip_countOfElement(first) == self.ip_countOfElement($0)
         }
     }
