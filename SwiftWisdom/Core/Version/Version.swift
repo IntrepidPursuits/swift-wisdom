@@ -13,7 +13,7 @@ public struct Version {
     public private(set) var minor: Int = 0
     public private(set) var patch: Int = 0
     
-    init?(string: String) {
+    public init?(string: String) {
         let components = string
             .componentsSeparatedByString(".")
         guard components.count > 0, let major = Int(components[0]) else { return nil }
