@@ -81,8 +81,7 @@ extension SequenceType where Generator.Element: Equatable {
                 self.ip_countOfElement($0) > self.ip_countOfElement($1)
             }
         guard let first = sortedUniqueElements.first else { return nil }
-        print(sortedUniqueElements)
-        return sortedUniqueElements.filter {
+        return sortedUniqueElements.lazy.filter {
             self.ip_countOfElement(first) == self.ip_countOfElement($0)
         }
     }

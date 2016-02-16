@@ -37,8 +37,10 @@ class MathableTests: XCTestCase {
     func testMedian() {
         let maths = [4, 5, 6, 9, 2, 4]
         let oddMaths = [4, 5, 6, 9, 4]
+        let doubleMaths = maths.map { Double($0) }
         XCTAssertEqual(maths.ip_median(), 4)
         XCTAssertEqual(oddMaths.ip_median(), 5)
+        XCTAssertEqual(doubleMaths.ip_median(), 4.5)
     }
 }
 
