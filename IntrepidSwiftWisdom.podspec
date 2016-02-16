@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "IntrepidSwiftWisdom"
-  s.version       = "0.1.1"
+  s.version       = "0.1.2-b"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     A collection of extensions to the Swift Standard Library and general Cocoa helpers written by
