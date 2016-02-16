@@ -18,20 +18,32 @@ class MathableTests: XCTestCase {
         XCTAssertEqual(maths.ip_mean(), 5)
         XCTAssertEqual(cgfloatmaths.ip_mean(), 5)
         XCTAssertEqual(floatMaths.ip_mean(), 5)
+        var none = maths
+        none.removeAll()
+        XCTAssertEqual(none.ip_average(), 0)
     }
     
     func testMode() {
         let maths = [4, 5, 6, 9, 2, 4]
         let oddMaths = [4, 5, 6, 9, 4]
-        XCTAssertEqual(maths.ip_mode()!, [4])
-        XCTAssertEqual(oddMaths.ip_mode()!, [4])
+        XCTAssertEqual(maths.ip_mode(), [4])
+        XCTAssertEqual(oddMaths.ip_mode(), [4])
     }
     
     func testManyModes() {
         let maths = [4, 5, 6, 6, 2, 4]
         let oddMaths = [4, 5, 6, 6, 4]
-        XCTAssertEqual(maths.ip_mode()!, [4, 6])
-        XCTAssertEqual(oddMaths.ip_mode()!, [4, 6])
+        let sameMaths = [1, 2, 9, 4, 5]
+        XCTAssertEqual(maths.ip_mode(), [4, 6])
+        XCTAssertEqual(oddMaths.ip_mode(), [4, 6])
+        XCTAssertEqual(sameMaths.ip_mode(), sameMaths)
+    }
+    
+    func testNoModes() {
+        let maths = [4, 5, 6, 6, 2, 4]
+        var emptyMaths = maths
+        emptyMaths.removeAll()
+        XCTAssertEqual(emptyMaths.ip_mode(), [])
     }
     
     func testMedian() {
@@ -41,6 +53,18 @@ class MathableTests: XCTestCase {
         XCTAssertEqual(maths.ip_median(), 4)
         XCTAssertEqual(oddMaths.ip_median(), 5)
         XCTAssertEqual(doubleMaths.ip_median(), 4.5)
+    }
+    
+    func testAvgFunction() {
+        let maths = [4, 5, 6, 9, 2, 4]
+        var none = maths
+        none.removeAll()
+        let cgfloatmaths = maths.map { CGFloat($0) }
+        let floatMaths = maths.map { Float($0) }
+        XCTAssertEqual(avg(maths), 5)
+        XCTAssertEqual(avg(cgfloatmaths), 5)
+        XCTAssertEqual(avg(floatMaths), 5)
+        XCTAssertEqual(avg(none), 0)
     }
 }
 
