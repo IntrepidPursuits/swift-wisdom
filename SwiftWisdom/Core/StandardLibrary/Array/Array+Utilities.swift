@@ -33,8 +33,10 @@ public extension Array where Element: Hashable {
     public func ip_toSet() -> Set<Element> {
         return Set(self)
     }
-    
-    public func ip_toArray() -> Array<Element> {
+}
+
+extension ArraySlice {
+    public func ip_toArray -> Array<Element> {
         return Array(self)
     }
 }
