@@ -36,7 +36,7 @@ public extension Array where Element: Hashable {
 }
 
 extension ArraySlice {
-    public func ip_toArray -> Array<Element> {
+    public func ip_toArray() -> Array<Element> {
         return Array(self)
     }
 }
