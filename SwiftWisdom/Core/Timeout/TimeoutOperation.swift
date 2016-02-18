@@ -24,8 +24,8 @@ public class TimeoutOperation : NSOperation {
     public init(
         duration: NSTimeInterval = 30,
         runQueue: dispatch_queue_t = dispatch_get_main_queue(),
-        block: Block,
-        timeoutQueue: NSOperationQueue = NSOperationQueue()
+        timeoutQueue: NSOperationQueue = NSOperationQueue(),
+        block: Block
         ) {
             
         self.duration = duration
