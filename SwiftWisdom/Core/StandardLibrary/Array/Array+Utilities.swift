@@ -62,7 +62,10 @@ extension Array {
 }
 
 extension CollectionType {
-    public var ip_middleValues: [Generator.Element] {
+    /// This grabs the element(s) in the middle of the array without doing any sorting.
+    /// If there's an odd number the return array is just one element.
+    /// If there are an even number it will return the two middle elements.
+    public var ip_middleElements: [Generator.Element] {
         guard count > 0 else { return [] }
         let needsAverageOfTwo = count.toIntMax().ip_isEven
         let middle = startIndex.advancedBy(count / 2)

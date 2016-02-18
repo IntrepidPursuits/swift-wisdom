@@ -21,7 +21,6 @@ class CollectionTests: XCTestCase {
         XCTAssertEqual(numbers.ip_mostCommonElements(), [6])
         XCTAssertEqual(noMode.ip_mostCommonElements(), noMode)
         XCTAssertEqual(empty.ip_mostCommonElements(), [])
-
     }
     
 }

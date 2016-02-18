@@ -24,11 +24,6 @@ extension Mathable {
 }
 
 extension CollectionType where Generator.Element: Mathable {
-    
-    public func ip_average() -> Generator.Element {
-        return ip_mean()
-    }
-    
     public func ip_mean() -> Generator.Element {
         let zero = Generator.Element.zero
         let count = Generator.Element(self.count.toIntMax())
@@ -40,7 +35,7 @@ extension CollectionType where Generator.Element: Mathable {
         let zero = Generator.Element.zero
         let count = Generator.Element(self.count.toIntMax())
         guard count > zero else { return zero }
-        return sort(<).ip_middleValues.ip_mean()
+        return sort(<).ip_middleElements.ip_mean()
     }
     
     public func ip_mode() -> [Generator.Element] {
@@ -53,7 +48,7 @@ public func avg<T: Mathable>(numbers: T...) -> T? {
 }
 
 public func avg<T: Mathable>(numbers: [T]) -> T? {
-    return numbers.ip_average()
+    return numbers.ip_mean()
 }
 
 extension Int: Mathable {}
