@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */; };
 		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
 		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		045F527FB87F6D21BDFC36F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVerticalGradientLayer.swift; sourceTree = "<group>"; };
 		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
 		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
@@ -159,6 +161,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C0438C21C751EED00069CE1 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 		1C2B1F1C1C690B6B006672D7 /* NSAttribitedString */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +396,7 @@
 		80232BF91BF2F1BD00818B6E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1C0438C21C751EED00069CE1 /* CoreAnimation */,
 				802C4BAD1C1A1BF900C69D80 /* PercentAnimator */,
 				80232BFA1BF2F1BD00818B6E /* CellConfiguring.swift */,
 				80232BFB1BF2F1BD00818B6E /* UIColor+Hex.swift */,
@@ -650,6 +661,7 @@
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
+				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,

@@ -35,6 +35,12 @@ public extension Array where Element: Hashable {
     }
 }
 
+extension ArraySlice {
+    public func ip_toArray() -> Array<Element> {
+        return Array(self)
+    }
+}
+
 extension Array {
     public mutating func ip_removeFirst(@noescape matcher: Generator.Element -> Bool) {
         guard let idx = indexOf(matcher) else { return }

@@ -196,3 +196,26 @@ extension CGSize {
         return fixedHeight * scale
     }
 }
+
+extension CGRect {
+    public var ip_topLeft: CGPoint { return CGPoint(x: minX, y: minY) }
+    public var ip_topRight: CGPoint { return CGPoint(x: maxX, y: minY) }
+    public var ip_bottomRight: CGPoint { return CGPoint(x: maxX, y: maxY) }
+    public var ip_bottomLeft: CGPoint { return CGPoint(x: minX, y: maxY) }
+    
+    public var ip_leftMiddle: CGPoint { return CGPoint(x: minX, y: midY) }
+    public var ip_topMiddle: CGPoint { return CGPoint(x: midX, y: minY) }
+    public var ip_rightMiddle: CGPoint { return CGPoint(x: maxX, y: midY) }
+    public var ip_bottomMiddle: CGPoint { return CGPoint(x: midX, y: maxY) }
+}
+
+public func avg(points: CGPoint...) -> CGPoint {
+    return avg(points)
+}
+
+public func avg(points: [CGPoint]) -> CGPoint {
+    let count = CGFloat(points.count)
+    let x = points.map { $0.x } .reduce(0, combine: +) / count
+    let y = points.map { $0.y } .reduce(0, combine: +) / count
+    return CGPoint(x: x, y: y)
+}
