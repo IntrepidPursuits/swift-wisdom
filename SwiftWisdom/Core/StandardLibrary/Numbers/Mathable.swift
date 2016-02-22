@@ -64,5 +64,5 @@ extension Int8: Mathable {}
 extension Int16: Mathable {}
 extension Int32: Mathable {}
 extension Int64: Mathable {}
-extension Float80: Mathable {}
+//extension Float80: Mathable {}
 // Any other number types we should include?
