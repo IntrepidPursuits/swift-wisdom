@@ -60,3 +60,46 @@ extension Array {
         }
     }
 }
+
+extension CollectionType {
+    /// This grabs the element(s) in the middle of the array without doing any sorting.
+    /// If there's an odd number the return array is just one element.
+    /// If there are an even number it will return the two middle elements.
+    public var ip_middleElements: [Generator.Element] {
+        guard count > 0 else { return [] }
+        let needsAverageOfTwo = count.toIntMax().ip_isEven
+        let middle = startIndex.advancedBy(count / 2)
+        if needsAverageOfTwo {
+            let leftOfMiddle = startIndex.advancedBy((count / 2) - 1)
+            return [self[middle], self[leftOfMiddle]]
+        } else {
+            return [self[middle]]
+        }
+    }
+}
+
+extension SequenceType where Generator.Element: Equatable {
+    public func ip_mostCommonElements() -> [Generator.Element] {
+        let sortedUniqueElements = self.ip_uniqueValues().sort {
+                self.ip_countOf($0) > self.ip_countOf($1)
+            }
+        guard let first = sortedUniqueElements.first else { return [] }
+        return sortedUniqueElements.lazy.filter {
+            self.ip_countOf(first) == self.ip_countOf($0)
+        }
+    }
+        
+    public func ip_uniqueValues() -> [Generator.Element] {
+        var buffer: [Generator.Element] = []
+        forEach { element in
+            if !buffer.contains(element) {
+                buffer.append(element)
+            }
+        }
+        return buffer
+    }
+    
+    public func ip_countOf(element: Generator.Element) -> Int {
+        return self.filter { $0 == element } .count
+    }
+}

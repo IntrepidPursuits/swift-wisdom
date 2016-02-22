@@ -85,10 +85,6 @@ public func random(range: Range<Int>) -> Int {
     return random
 }
 
-public func avg(numbers: CGFloat...) -> CGFloat {
-    return numbers.reduce(0, combine: +) / CGFloat(numbers.count)
-}
-
 public func circumferenceForRadius(radius: CGFloat) -> CGFloat {
     return radius * CGFloat(M_PI * 2)
 }
