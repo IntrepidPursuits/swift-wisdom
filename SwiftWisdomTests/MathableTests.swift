@@ -15,12 +15,14 @@ class MathableTests: XCTestCase {
         let maths = [4, 5, 6, 9, 2, 4]
         let cgfloatmaths = maths.map { CGFloat($0) }
         let floatMaths = maths.map { Float($0) }
+        
         XCTAssertEqual(maths.ip_mean(), 5)
         XCTAssertEqual(cgfloatmaths.ip_mean(), 5)
         XCTAssertEqual(floatMaths.ip_mean(), 5)
+        
         var none = maths
         none.removeAll()
-        XCTAssertEqual(none.ip_average(), 0)
+        XCTAssertEqual(none.ip_mean(), 0)
     }
     
     func testMode() {
