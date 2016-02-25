@@ -54,7 +54,6 @@ extension NSMutableAttributedString {
         var insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
         args.reverse().forEach { arg in
             guard insertRange.location != NSNotFound else { return }
-            print("Range is \(insertRange) and string is \(self)")
             self.replaceCharactersInRange(insertRange, withAttributedString: arg)
             rangeLimit = NSMakeRange(0, insertRange.location)
             insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
