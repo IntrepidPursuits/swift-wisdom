@@ -35,4 +35,16 @@ class VersionTests: XCTestCase {
         
         XCTAssert(highest > middle)
     }
+    
+    func testVersionLessThan() {
+        let left = Version(string: "1.0.0")!
+        let right = Version(string: "0.5.2")!
+        XCTAssertFalse(left < right)
+    }
+    
+    func testVersionGreaterThan() {
+        let left = Version(string: "0.5.0")!
+        let right = Version(string: "1.3.2")!
+        XCTAssertFalse(left > right)
+    }
 }
