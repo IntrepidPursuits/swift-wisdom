@@ -35,4 +35,38 @@ class VersionTests: XCTestCase {
         
         XCTAssert(highest > middle)
     }
+    
+    func testVersionLessThan() {
+        let pairs: [(greater: String, lesser: String)] = [
+            ("1.0.0", "0.5.2"),
+            ("0.3.1", "0.3.0"),
+            ("0.0.1", "0.0.0"),
+            ("0.2.1", "0.1.5")
+        ]
+        pairs
+            .map { return (Version(string: $0)!, Version(string: $1)!) }
+            .forEach { greater, lesser in
+                XCTAssertFalse(greater < lesser)
+            }
+    }
+    
+    func testVersionGreaterThan() {
+        
+        let pairs: [(lesser: String, greater: String)] = [
+            ("0.5.0", "1.3.2"),
+            ("0.1.5", "0.1.7"),
+            ("0.0.1", "0.1.0"),
+            ("0.2.1", "0.2.2")
+        ]
+        
+        pairs
+            .map { return (Version(string: $0)!, Version(string: $1)!) }
+            .forEach { lesser, greater in
+                XCTAssertFalse(lesser > greater)
+            }
+    }
+    
+    func testVersionInitializer() {
+        XCTAssertNil(Version(string: "Jibberish"))
+    }
 }

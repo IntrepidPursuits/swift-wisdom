@@ -48,34 +48,30 @@ public func !=(lhs: Version, rhs: Version) -> Bool {
 
 extension Version : Comparable {}
 
-public func <(lhs: Version, rhs: Version) -> Bool {
-    if lhs.major < rhs.major {
-        return true
-    } else if lhs.minor < rhs.minor {
-        return true
-    } else if lhs.patch < rhs.patch {
-        return true
+public func < (lhs: Version, rhs: Version) -> Bool {
+    if lhs.major != rhs.major {
+        return lhs.major < rhs.major
+    } else if lhs.minor != rhs.minor {
+        return lhs.minor < rhs.minor
     } else {
-        return false
+        return lhs.patch < rhs.patch
     }
 }
 
-public func <=(lhs: Version, rhs: Version) -> Bool {
+public func <= (lhs: Version, rhs: Version) -> Bool {
     return lhs < rhs || lhs == rhs
 }
 
-public func >=(lhs: Version, rhs: Version) -> Bool {
+public func >= (lhs: Version, rhs: Version) -> Bool {
     return lhs > rhs || lhs == rhs
 }
 
-public func >(lhs: Version, rhs: Version) -> Bool {
-    if lhs.major > rhs.major {
-        return true
-    } else if lhs.minor > rhs.minor {
-        return true
-    } else if lhs.patch > rhs.patch {
-        return true
+public func > (lhs: Version, rhs: Version) -> Bool {
+    if lhs.major != rhs.major {
+        return lhs.major > rhs.major
+    } else if lhs.minor != rhs.minor {
+        return lhs.minor > rhs.minor
     } else {
-        return false
+        return lhs.patch > rhs.patch
     }
 }
