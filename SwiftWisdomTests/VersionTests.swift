@@ -37,14 +37,36 @@ class VersionTests: XCTestCase {
     }
     
     func testVersionLessThan() {
-        let left = Version(string: "1.0.0")!
-        let right = Version(string: "0.5.2")!
-        XCTAssertFalse(left < right)
+        let pairs: [(greater: String, lesser: String)] = [
+            ("1.0.0", "0.5.2"),
+            ("0.3.1", "0.3.0"),
+            ("0.0.1", "0.0.0"),
+            ("0.2.1", "0.1.5")
+        ]
+        pairs
+            .map { return (Version(string: $0)!, Version(string: $1)!) }
+            .forEach { greater, lesser in
+                XCTAssertFalse(greater < lesser)
+            }
     }
     
     func testVersionGreaterThan() {
-        let left = Version(string: "0.5.0")!
-        let right = Version(string: "1.3.2")!
-        XCTAssertFalse(left > right)
+        
+        let pairs: [(lesser: String, greater: String)] = [
+            ("0.5.0", "1.3.2"),
+            ("0.1.5", "0.1.7"),
+            ("0.0.1", "0.1.0"),
+            ("0.2.1", "0.2.2")
+        ]
+        
+        pairs
+            .map { return (Version(string: $0)!, Version(string: $1)!) }
+            .forEach { lesser, greater in
+                XCTAssertFalse(lesser > greater)
+            }
+    }
+    
+    func testVersionInitializer() {
+        XCTAssertNil(Version(string: "Jibberish"))
     }
 }
