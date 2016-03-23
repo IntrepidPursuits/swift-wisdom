@@ -25,7 +25,7 @@ public extension UIView {
             name = nibName
         } else {
             // Most nibs are demangled by practice, if not, just declare string explicitly
-            name = "\(T.self)".componentsSeparatedByString(".").last!
+            name = ip_nibName
         }
         let nibViews = NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)
         for v in nibViews {
@@ -34,6 +34,18 @@ public extension UIView {
             }
         }
         return view
+    }
+
+    public class var ip_nibName: String {
+        let name = "\(self)".componentsSeparatedByString(".").first ?? ""
+        return name
+    }
+    public class var ip_nib: UINib? {
+        if let _ = NSBundle.mainBundle().pathForResource(ip_nibName, ofType: "nib") {
+            return UINib(nibName: ip_nibName, bundle: nil)
+        } else {
+            return nil
+        }
     }
 }
 

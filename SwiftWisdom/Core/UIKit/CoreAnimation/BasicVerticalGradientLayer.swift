@@ -12,7 +12,6 @@ public final class BasicVerticalGradientLayer : CAGradientLayer {
     public init(topColor: UIColor = .grayColor(), bottomColor: UIColor = .blackColor()) {
         super.init()
         colors = [topColor.CGColor, bottomColor.CGColor]
-        locations = [0, 1.0]
     }
     
     // I know this seems unnecessary, but swift gets mad about changing the frame without this.

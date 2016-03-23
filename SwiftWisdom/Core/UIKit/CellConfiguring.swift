@@ -8,22 +8,6 @@
 
 import UIKit
 
-// MARK: Nibs
-
-extension UIView {
-    public class var ip_nibName: String {
-        let name = "\(self)".componentsSeparatedByString(".").first ?? ""
-        return name
-    }
-    public class var ip_nib: UINib? {
-        if let _ = NSBundle.mainBundle().pathForResource(ip_nibName, ofType: "nib") {
-            return UINib(nibName: ip_nibName, bundle: nil)
-        } else {
-            return nil
-        }
-    }
-}
-
 // MARK: TypeIdentifiable
 
 public protocol TypeIdentifiable {
@@ -46,7 +30,11 @@ extension UICollectionReusableView: TypeIdentifiable {}
 public extension UICollectionView {
     
     // MARK: Register
-    
+
+    public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(type: T.Type) {
+        return ip_registerCell(type, identifier: type.ip_identifier)
+    }
+
     public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String) {
         if let nib = T.ip_nib {
             registerNib(nib, forCellWithReuseIdentifier: identifier)
@@ -96,7 +84,11 @@ public extension UICollectionView {
 public extension UITableView {
     
     // MARK: Register
-    
+
+    public func ip_registerCell<T where T: UITableViewCell, T: TypeIdentifiable>(type: T.Type) {
+        return ip_registerCell(type, identifier: type.ip_identifier)
+    }
+
     public func ip_registerCell<T where T: UITableViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
         if let nib = T.ip_nib {
             registerNib(nib, forCellReuseIdentifier: identifier)
