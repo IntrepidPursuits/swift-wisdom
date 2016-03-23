@@ -22,4 +22,15 @@ class StringTests: XCTestCase {
         XCTAssertFalse("ab".ip_isEmptyOrWhitespace())
     }
 
+    func testValidEmail() {
+        XCTAssertFalse("".ip_isValidEmail())
+        XCTAssertFalse("@".ip_isValidEmail())
+        XCTAssertFalse("@.".ip_isValidEmail())
+        XCTAssertFalse("@.com".ip_isValidEmail())
+        XCTAssertFalse("foo@.com".ip_isValidEmail())
+        XCTAssertFalse("@foo.com".ip_isValidEmail())
+        XCTAssertTrue("f@b.c".ip_isValidEmail())
+        XCTAssertTrue("foo@bar.com".ip_isValidEmail())
+    }
+
 }

@@ -69,6 +69,7 @@
 		92963E2C26083AFF019711F4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94555EC02E932CF736415F8E /* Pods.framework */; };
 		FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */; };
 		FFCA61B41C8A1F7C00FD35A7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61B31C8A1F7C00FD35A7 /* StringTests.swift */; };
+		FFCA61B61C8A259100FD35A7 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +151,7 @@
 		BBCCF1C7EA1A88308F10B504 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
 		FFCA61B31C8A1F7C00FD35A7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +405,7 @@
 				1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */,
 				80D63D031C4F18FA00C88D00 /* String+Localization.swift */,
 				FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */,
+				FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
+				FFCA61B61C8A259100FD35A7 /* String+EmailValidation.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
