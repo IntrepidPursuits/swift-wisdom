@@ -135,7 +135,7 @@ public final class VideoPlayer : UIViewController {
     private func setupItemNotification(item: AVPlayerItem) {
         NSNotificationCenter.defaultCenter().addObserver(
             self,
-            selector: "videoDidFinish:",
+            selector: #selector(VideoPlayer.videoDidFinish(_:)),
             name: AVPlayerItemDidPlayToEndTimeNotification,
             object: item
         )

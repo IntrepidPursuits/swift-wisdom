@@ -20,8 +20,10 @@ public extension NSData {
         bufer.forEach {
             let hi  = Int(($0 & 0xf0) >> 4)
             let low = Int($0 & 0x0f)
-            output[ix++] = hexChars[ hi]
-            output[ix++] = hexChars[low]
+            output[ix] = hexChars[hi]
+            ix += 1
+            output[ix] = hexChars[low]
+            ix += 1
         }
         let result = String.fromCString(UnsafePointer(output))
         return result
@@ -116,10 +118,10 @@ extension NSData {
 
 extension NSData {
     public func ip_segmentGenerator(start start: Int = 0, chunkLength: Int) -> AnyGenerator<NSData> {
-        guard let segmentToWrite = ip_suffixFrom(start) else { return anyGenerator { return nil } }
+        guard let segmentToWrite = ip_suffixFrom(start) else { return AnyGenerator { return nil } }
         let mutable = NSMutableData(data: segmentToWrite)
         let range = 0..<chunkLength
-        return anyGenerator {
+        return AnyGenerator {
             let nextData: NSData?
             if mutable.length >= chunkLength {
                 nextData = mutable[range]

@@ -87,7 +87,7 @@ private final class Animation {
         self.id = id
         
         
-        displayLink = CADisplayLink(target: self, selector: "displayLinkFired")
+        displayLink = CADisplayLink(target: self, selector: #selector(Animation.displayLinkFired))
         displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
         animation(state)
     }
