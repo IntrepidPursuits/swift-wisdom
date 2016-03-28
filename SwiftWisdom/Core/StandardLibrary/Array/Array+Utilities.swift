@@ -52,7 +52,7 @@ extension Array {
     public var ip_generator: AnyGenerator<Element> {
         var idx = 0
         let count = self.count
-        return anyGenerator {
+        return AnyGenerator {
             guard idx < count else { return nil }
             let this = idx
             idx += 1
