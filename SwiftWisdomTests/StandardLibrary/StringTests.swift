@@ -31,6 +31,7 @@ class StringTests: XCTestCase {
         XCTAssertFalse("@foo.com".ip_isValidEmail())
         XCTAssertTrue("f@b.c".ip_isValidEmail())
         XCTAssertTrue("foo@bar.com".ip_isValidEmail())
+        XCTAssertFalse("f@b.".ip_isValidEmail())
     }
 
 }

@@ -17,6 +17,6 @@ extension String {
      - returns: True if the string contains an @ followed by a . with characters before between and after.
      */
     public func ip_isValidEmail() -> Bool {
-        return rangeOfString(".@.+\\.", options: .RegularExpressionSearch) != nil
+        return rangeOfString(".@.+\\..", options: .RegularExpressionSearch) != nil
     }
 }
