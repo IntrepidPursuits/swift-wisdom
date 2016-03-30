@@ -5,9 +5,7 @@ The reason for the grab bag approach is to make it easier to facilitate the addi
 ### Core
 
 ```Ruby
-source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
-pod 'IntrepidSwiftWisdom'
-use_frameworks!
+pod 'Intrepid'
 ```
 
 ### Testing Additions
@@ -223,3 +221,5 @@ All contributions and updates are welcome!  Here's some basic guidelines when su
 - Follow appropriate folder conventions
 - Prefix all extension methods and variables with `ip_` to avoid namespacing.  Swift namespacing doesn't apply the same way to extensions and prefixes help avoid issues.
 - Document functionality if it is ambiguous
+- Bump podspec and tag on branch before merging
+- On approval, push the podspec to trunk using `pod trunk push Intrepid.podspec`. 
