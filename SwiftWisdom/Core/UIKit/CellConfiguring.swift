@@ -31,11 +31,7 @@ public extension UICollectionView {
     
     // MARK: Register
 
-    public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(type: T.Type) {
-        return ip_registerCell(type, identifier: type.ip_identifier)
-    }
-
-    public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String) {
+    public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
         if let nib = T.ip_nib {
             registerNib(nib, forCellWithReuseIdentifier: identifier)
         } else {
@@ -84,10 +80,6 @@ public extension UICollectionView {
 public extension UITableView {
     
     // MARK: Register
-
-    public func ip_registerCell<T where T: UITableViewCell, T: TypeIdentifiable>(type: T.Type) {
-        return ip_registerCell(type, identifier: type.ip_identifier)
-    }
 
     public func ip_registerCell<T where T: UITableViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
         if let nib = T.ip_nib {
