@@ -21,6 +21,7 @@ infix operator >>> {
 precedence 100
 }
 
+@warn_unused_result(message="http://git.io/rxs.uo")
 func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
     let bindToUIDisposable = variable
         .asObservable()
@@ -38,16 +39,19 @@ func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable 
     return StableCompositeDisposable.create(bindToUIDisposable, bindToVariable)
 }
 
+@warn_unused_result(message="http://git.io/rxs.uo")
 func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
     return variable
         .observeOn(MainScheduler.instance)
         .bindTo(property)
 }
 
+@warn_unused_result(message="http://git.io/rxs.uo")
 func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposable {
     return property <- variable.asObservable()
 }
 
+@warn_unused_result(message="http://git.io/rxs.uo")
 func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
     return property.subscribeNext({ variable.value = $0 })
 }
