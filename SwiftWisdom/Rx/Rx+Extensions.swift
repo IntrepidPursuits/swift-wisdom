@@ -22,7 +22,34 @@ precedence 100
 }
 
 @warn_unused_result(message="http://git.io/rxs.uo")
-func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
+public func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
+    return variable
+        .observeOn(MainScheduler.instance)
+        .bindTo(property)
+}
+
+@warn_unused_result(message="http://git.io/rxs.uo")
+public func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposable {
+    return property <- variable.asObservable()
+}
+
+@warn_unused_result(message="http://git.io/rxs.uo")
+public func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
+    return property.subscribeNext({ variable.value = $0 })
+}
+
+public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
+    disposeBag.addDisposable(disposable)
+}
+
+//  Operators.swift
+//  RxExample
+//
+//  Created by Krunoslav Zaher on 12/6/15.
+//  Copyright © 2015 Krunoslav Zaher. All rights reserved.
+//  https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Operators.swift
+@warn_unused_result(message="http://git.io/rxs.uo")
+public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
     let bindToUIDisposable = variable
         .asObservable()
         .bindTo(property)
@@ -34,28 +61,7 @@ func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable 
             onCompleted:  {
                 bindToUIDisposable.dispose()
             }
-        )
+    )
     
     return StableCompositeDisposable.create(bindToUIDisposable, bindToVariable)
-}
-
-@warn_unused_result(message="http://git.io/rxs.uo")
-func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
-    return variable
-        .observeOn(MainScheduler.instance)
-        .bindTo(property)
-}
-
-@warn_unused_result(message="http://git.io/rxs.uo")
-func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposable {
-    return property <- variable.asObservable()
-}
-
-@warn_unused_result(message="http://git.io/rxs.uo")
-func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
-    return property.subscribeNext({ variable.value = $0 })
-}
-
-func >>> (disposable: Disposable, disposeBag: DisposeBag) {
-    disposeBag.addDisposable(disposable)
 }
