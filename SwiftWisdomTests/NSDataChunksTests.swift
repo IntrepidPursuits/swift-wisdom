@@ -16,7 +16,7 @@ class NSDataChunksTest: XCTestCase {
             .ip_dataFromHexadecimalString()!
         
         let equalChunks = longData
-            .ip_equalChunksNoRemainder(chunkLength: 4)
+            .ip_chunks(ofLength: 4, includeRemainder: false)
         
         let equalChunksCount = equalChunks
             .filter { $0.length == 4 }
@@ -25,7 +25,7 @@ class NSDataChunksTest: XCTestCase {
         XCTAssert(equalChunksCount == equalChunks.count)
         XCTAssert(equalChunksCount == 3)
         
-        let overflowChunks = longData.ip_chunksWithRemainder(chunkLength: 4)
+        let overflowChunks = longData.ip_chunks(ofLength: 4)
         
         XCTAssert(overflowChunks.last?.length == 3)
         XCTAssert(overflowChunks.count == 4)

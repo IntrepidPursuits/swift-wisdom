@@ -34,3 +34,14 @@ extension Result {
         return error
     }
 }
+
+extension Result {
+    public func extract() throws -> T {
+        switch self {
+        case .Success(let val):
+            return val
+        case .Failure(let err):
+            throw err
+        }
+    }
+}

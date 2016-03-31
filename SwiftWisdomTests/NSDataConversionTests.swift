@@ -45,4 +45,14 @@ class NSDataConversionTests: XCTestCase {
         let utf8String = data.ip_utf8String!
         XCTAssert(utf8String == "Hello, World!")
     }
+    
+    func testUInt8() {
+        let data = NSData(byte: 42)
+        XCTAssert(data.ip_uint8Value == 42)
+    }
+    
+    func testASCII() {
+        let numberString = "321".dataUsingEncoding(NSASCIIStringEncoding)
+        XCTAssert(numberString?.ip_asciiString == "321")
+    }
 }

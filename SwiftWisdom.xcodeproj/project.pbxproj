@@ -42,6 +42,12 @@
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
 		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
 		8037D86E1CAD9981008F324C /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D86D1CAD9981008F324C /* Rx+Extensions.swift */; };
+		8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8701CADEBAB008F324C /* RawRepresentable.swift */; };
+		8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8721CADEE48008F324C /* Sequence+Utilities.swift */; };
+		8037D8771CADF3DC008F324C /* String+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8761CADF3DC008F324C /* String+Data.swift */; };
+		8037D8791CADF9E6008F324C /* SequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8781CADF9E6008F324C /* SequenceTests.swift */; };
+		8037D87B1CADFA1B008F324C /* IntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D87A1CADFA1B008F324C /* IntTests.swift */; };
+		8037D87E1CAEB2FD008F324C /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D87D1CAEB2FD008F324C /* RawRepresentableTests.swift */; };
 		805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */; };
 		805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */; };
 		805807E81C5D828500F9AFB1 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E71C5D828500F9AFB1 /* VideoPlayer.swift */; };
@@ -124,6 +130,12 @@
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
 		8037D86D1CAD9981008F324C /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
+		8037D8701CADEBAB008F324C /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RawRepresentable.swift; path = RawRepresentable/RawRepresentable.swift; sourceTree = "<group>"; };
+		8037D8721CADEE48008F324C /* Sequence+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Utilities.swift"; sourceTree = "<group>"; };
+		8037D8761CADF3DC008F324C /* String+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Data.swift"; sourceTree = "<group>"; };
+		8037D8781CADF9E6008F324C /* SequenceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTests.swift; sourceTree = "<group>"; };
+		8037D87A1CADFA1B008F324C /* IntTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntTests.swift; sourceTree = "<group>"; };
+		8037D87D1CAEB2FD008F324C /* RawRepresentableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
 		805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorImage.swift"; sourceTree = "<group>"; };
 		805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
 		805807E71C5D828500F9AFB1 /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
@@ -367,6 +379,7 @@
 		80232BF01BF2F1BD00818B6E /* StandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				8037D86F1CADEB91008F324C /* RawRepresentable */,
 				80D63D291C4F251E00C88D00 /* Numbers */,
 				80232BF11BF2F1BD00818B6E /* Array */,
 				80232BF31BF2F1BD00818B6E /* Dictionary */,
@@ -381,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				80232BF21BF2F1BD00818B6E /* Array+Utilities.swift */,
+				8037D8721CADEE48008F324C /* Sequence+Utilities.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -409,6 +423,7 @@
 				80D63D031C4F18FA00C88D00 /* String+Localization.swift */,
 				FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */,
 				FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */,
+				8037D8761CADF3DC008F324C /* String+Data.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -479,6 +494,14 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
+		8037D86F1CADEB91008F324C /* RawRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				8037D8701CADEBAB008F324C /* RawRepresentable.swift */,
+			);
+			name = RawRepresentable;
+			sourceTree = "<group>";
+		};
 		805807E61C5D827000F9AFB1 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +534,9 @@
 			isa = PBXGroup;
 			children = (
 				FFCA61B31C8A1F7C00FD35A7 /* StringTests.swift */,
+				8037D8781CADF9E6008F324C /* SequenceTests.swift */,
+				8037D87A1CADFA1B008F324C /* IntTests.swift */,
+				8037D87D1CAEB2FD008F324C /* RawRepresentableTests.swift */,
 			);
 			path = StandardLibrary;
 			sourceTree = "<group>";
@@ -681,6 +707,7 @@
 				80232BFF1BF2F1BD00818B6E /* Qu.swift in Sources */,
 				805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */,
 				802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */,
+				8037D8771CADF3DC008F324C /* String+Data.swift in Sources */,
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
@@ -693,6 +720,7 @@
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */,
+				8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
@@ -702,6 +730,7 @@
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				FFCA61B61C8A259100FD35A7 /* String+EmailValidation.swift in Sources */,
+				8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,
 				80232C031BF2F1BD00818B6E /* Geometry.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
@@ -727,9 +756,12 @@
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				1C466C8F1C6E7A4500A709E8 /* CollectionTypeTests.swift in Sources */,
 				80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */,
+				8037D87B1CADFA1B008F324C /* IntTests.swift in Sources */,
 				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
+				8037D8791CADF9E6008F324C /* SequenceTests.swift in Sources */,
 				80D63D181C4F1F3E00C88D00 /* NSDataSegmentGeneratorTests.swift in Sources */,
 				80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */,
+				8037D87E1CAEB2FD008F324C /* RawRepresentableTests.swift in Sources */,
 				FFCA61B41C8A1F7C00FD35A7 /* StringTests.swift in Sources */,
 				805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
