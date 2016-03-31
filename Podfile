@@ -1,7 +1,8 @@
-source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
-
 platform :ios, '8.0'
 
 use_frameworks!
 
 pod 'IP-UIKit-Wisdom'
+
+pod 'RxSwift', '~> 2.0.0'
+pod 'RxCocoa', '~> 2.0.0'

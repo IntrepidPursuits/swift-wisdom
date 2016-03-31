@@ -8,6 +8,12 @@ The reason for the grab bag approach is to make it easier to facilitate the addi
 pod 'Intrepid'
 ```
 
+### Subspecs
+
+```Ruby
+pod 'Intrepid/Rx' # Intrepid's RxSwift Extensions
+```
+
 ### Testing Additions
 
 ```Ruby
@@ -222,4 +228,4 @@ All contributions and updates are welcome!  Here's some basic guidelines when su
 - Prefix all extension methods and variables with `ip_` to avoid namespacing.  Swift namespacing doesn't apply the same way to extensions and prefixes help avoid issues.
 - Document functionality if it is ambiguous
 - Bump podspec and tag on branch before merging
-- On approval, push the podspec to trunk using `pod trunk push Intrepid.podspec`. 
+- On approval, push the podspec to trunk using `pod trunk push Intrepid.podspec`.

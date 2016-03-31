@@ -41,6 +41,7 @@
 		802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */; };
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
 		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
+		8037D86E1CAD9981008F324C /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D86D1CAD9981008F324C /* Rx+Extensions.swift */; };
 		805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */; };
 		805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */; };
 		805807E81C5D828500F9AFB1 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E71C5D828500F9AFB1 /* VideoPlayer.swift */; };
@@ -122,6 +123,7 @@
 		802C4BB61C1B6F3700C69D80 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
+		8037D86D1CAD9981008F324C /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
 		805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorImage.swift"; sourceTree = "<group>"; };
 		805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
 		805807E71C5D828500F9AFB1 /* VideoPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				80232BD11BF2F05500818B6E /* Core */,
+				8037D86C1CAD9979008F324C /* Rx */,
 				80232BA21BF2EE2E00818B6E /* AppDelegate.swift */,
 				80232BA41BF2EE2E00818B6E /* ViewController.swift */,
 				80232BA61BF2EE2E00818B6E /* Main.storyboard */,
@@ -468,6 +471,14 @@
 			path = Timeout;
 			sourceTree = "<group>";
 		};
+		8037D86C1CAD9979008F324C /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				8037D86D1CAD9981008F324C /* Rx+Extensions.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		805807E61C5D827000F9AFB1 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +689,7 @@
 				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
 				802C4BB41C1B6E4600C69D80 /* Downloader.swift in Sources */,
 				80D63D261C4F236F00C88D00 /* Not.swift in Sources */,
+				8037D86E1CAD9981008F324C /* Rx+Extensions.swift in Sources */,
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */,
@@ -844,7 +856,7 @@
 				INFOPLIST_FILE = SwiftWisdom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT";
+				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -858,7 +870,7 @@
 				INFOPLIST_FILE = SwiftWisdom/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT";
+				OTHER_SWIFT_FLAGS = "-D DEVELOPMENT $(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
