@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.2.4"
+  s.version       = "0.2.5"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at intrepid pursuits.
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |rx|
     rx.source_files = "SwiftWisdom/Rx/**/**/*.swift"
-    rx.dependency 'RxSwift', '~> 2.0.0'
-    rx.dependency 'RxCocoa', '~>2.0.0'
+    rx.dependency 'RxSwift', '~> 2.0'
+    rx.dependency 'RxCocoa', '~>2.0'
   end
 end
