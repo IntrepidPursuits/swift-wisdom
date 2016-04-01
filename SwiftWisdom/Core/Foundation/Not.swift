@@ -7,12 +7,10 @@
 //
 
 /**
- Inverts a given boolean return closure
+ Inverts a given boolean closure
  
- Good for things like `array.filter(not(matchesThing))`
+      let newNames = ["Joe", "Betty"].filter(!existingNames.contains)
  */
-public func not<T>(original: T -> Bool) -> T -> Bool {
-    return {
-        return !original($0)
-    }
+public prefix func ! <T>(original: T -> Bool) -> T -> Bool {
+    return { !original($0) }
 }

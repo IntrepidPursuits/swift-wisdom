@@ -21,13 +21,11 @@ public class TimeoutOperation : NSOperation {
     private let duration: NSTimeInterval
     private let queue: dispatch_queue_t
 
-    public init(
-        duration: NSTimeInterval = 30,
-        runQueue: dispatch_queue_t = dispatch_get_main_queue(),
-        timeoutQueue: NSOperationQueue = NSOperationQueue(),
-        block: Block
-        ) {
-            
+    public init(duration: NSTimeInterval = 30,
+                runQueue: dispatch_queue_t = dispatch_get_main_queue(),
+                timeoutQueue: NSOperationQueue = NSOperationQueue(),
+                block: Block) {
+        
         self.duration = duration
         self.block = block
         self.queue = runQueue

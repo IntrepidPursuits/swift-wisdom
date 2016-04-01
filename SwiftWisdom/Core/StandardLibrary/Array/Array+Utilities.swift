@@ -35,9 +35,10 @@ public extension Array where Element: Hashable {
     }
 }
 
-extension ArraySlice {
-    public func ip_toArray() -> Array<Element> {
-        return Array(self)
+extension Array {
+    public subscript(ip_safe safe: Int) -> Element? {
+        guard 0 <= safe && safe < count else { return nil }
+        return self[safe]
     }
 }
 

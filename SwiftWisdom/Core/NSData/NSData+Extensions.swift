@@ -40,8 +40,18 @@ public extension NSData {
         return val
     }
     
+    public var ip_uint8Value: UInt8? {
+        var val: UInt8 = 0
+        getBytes(&val, length: sizeof(UInt8))
+        return val
+    }
+    
     public var ip_utf8String: String? {
         return String(data: self, encoding: NSUTF8StringEncoding)
+    }
+    
+    public var ip_asciiString: String? {
+        return String(data: self, encoding: NSASCIIStringEncoding)
     }
 }
 
@@ -88,19 +98,7 @@ public extension NSMutableData {
 
 
 extension NSData {
-    public func ip_equalChunksNoRemainder(chunkLength length: Int) -> [NSData] {
-        let range = 0..<length
-        let mutable = NSMutableData(data: self)
-        var chunks: [NSData] = []
-        while mutable.length >= length {
-            guard let next = mutable[range] else { break }
-            chunks.append(next)
-            mutable.ip_trimRange(range)
-        }
-        return chunks
-    }
-    
-    public func ip_chunksWithRemainder(chunkLength length: Int) -> [NSData] {
+    public func ip_chunks(ofLength length: Int, includeRemainder: Bool = true) -> [NSData] {
         let range = 0..<length
         let mutable = NSMutableData(data: self)
         var chunks: [NSData] = []
@@ -110,8 +108,11 @@ extension NSData {
             mutable.ip_trimRange(range)
         }
         
-        let trailingData = NSData(data: mutable)
-        chunks.append(trailingData)
+        if includeRemainder && mutable.length > 0 {
+            let trailingData = NSData(data: mutable)
+            chunks.append(trailingData)
+        }
+        
         return chunks
     }
 }

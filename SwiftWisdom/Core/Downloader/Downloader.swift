@@ -57,12 +57,12 @@ public final class Downloader : NSObject, NSURLSessionDownloadDelegate {
     }
     
     public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        updater?(.InProgress(downloadTask.percentageDownloaded))
+        updater?(.InProgress(downloadTask.ip_percentageDownloaded))
     }
     
     public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
         updater?(.Began)
-        updater?(.InProgress(downloadTask.percentageDownloaded))
+        updater?(.InProgress(downloadTask.ip_percentageDownloaded))
     }
 }
 
@@ -75,7 +75,7 @@ func !=(lhs: Downloader, rhs: Downloader) -> Bool {
 }
 
 extension NSURLSessionTask {
-    var percentageDownloaded: CGFloat {
+    public var ip_percentageDownloaded: CGFloat {
         let received = CGFloat(countOfBytesReceived)
         let expected = CGFloat(countOfBytesExpectedToReceive)
         let percentage = received / expected

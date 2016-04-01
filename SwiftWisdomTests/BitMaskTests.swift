@@ -11,6 +11,13 @@ import XCTest
 
 class BitMaskTests: XCTestCase {
     
+    func testSelectedIndexes() {
+        let data = "0x1f".ip_dataFromHexadecimalString()!
+        let mask = data.ip_hexInt!
+        let selectedIndexes = mask.ip_maskedIndexes
+        XCTAssert(selectedIndexes == [0, 1, 2, 3, 4])
+    }
+    
     func testBitmaskContains() {
         let one: UInt8 = 0b1
         let two: UInt8 = 0b10
