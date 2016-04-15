@@ -74,6 +74,7 @@
 		80D63D2E1C4F251E00C88D00 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */; };
 		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
 		92963E2C26083AFF019711F4 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94555EC02E932CF736415F8E /* Pods.framework */; };
+		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
 		FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */; };
 		FFCA61B41C8A1F7C00FD35A7 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61B31C8A1F7C00FD35A7 /* StringTests.swift */; };
 		FFCA61B61C8A259100FD35A7 /* String+EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */; };
@@ -163,6 +164,7 @@
 		80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
 		94555EC02E932CF736415F8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBCCF1C7EA1A88308F10B504 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
 		FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
 		FFCA61B31C8A1F7C00FD35A7 /* StringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		FFCA61B51C8A259100FD35A7 /* String+EmailValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+EmailValidation.swift"; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */,
 				805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */,
 				805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */,
+				CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				80232C051BF2F1BD00818B6E /* Dictionary+KeyPaths.swift in Sources */,
 				805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
+				CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */,
 				1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */,
 				80232C091BF2F1BD00818B6E /* UIColor+Hex.swift in Sources */,
 				80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */,
