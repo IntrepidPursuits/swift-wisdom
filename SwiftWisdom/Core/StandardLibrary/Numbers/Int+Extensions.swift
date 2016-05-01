@@ -34,7 +34,7 @@ extension IntegerType {
         
         let value = Double(self.toIntMax())
         
-        var magnitude: Int = Int(log10(value) / 3.0) // the order of magnitude of our like count in thousands
+        var magnitude: Int = Int(log10(value) / 3.0) // the order of magnitude of our value in thousands
         
         // divide value by 1000^magnitude to get hundreds value, then round to desired decimal places
         var roundedHundredsValue = (value / pow(1000.0, Double(magnitude))).ip_roundToDecimalPlaces(decimalPlaces)
@@ -45,13 +45,14 @@ extension IntegerType {
             magnitude += 1
         }
         
+        // if our number exceeds our current magnitude system return the scientific notation
+        let magnitudeSuffix = units[ip_safe: magnitude - 1] ?? "E\(magnitude * 3)"
+        
         let formatter = DecimalFormatter.sharedInstance
-        guard let likesFormatted = formatter.stringFromNumber(roundedHundredsValue) else {
-            return "\(roundedHundredsValue)\(units[magnitude-1])"
+        guard let valueFormatted = formatter.stringFromNumber(roundedHundredsValue) else {
+            return "\(roundedHundredsValue)\(magnitudeSuffix)"
         }
         
-        // if our number exceeds our current magnitude system return the rounded scientific notation
-        guard magnitude <= units.count else { return "\(likesFormatted)E\(magnitude * 3)" }
-        return "\(likesFormatted)\(units[magnitude-1])"
+        return "\(valueFormatted)\(magnitudeSuffix)"
     }
 }
