@@ -26,39 +26,32 @@ extension IntegerType {
 }
 
 extension IntegerType {
-    public func ip_toMagnitudeString(decimalPlaces decimals: Double = 1) -> String {
-        
-        print(self)
+    public func ip_toMagnitudeString(decimalPlaces decimalPlaces: Int = 1) -> String {
         
         guard self > 999 else { return "\(self)" }
         
-        let likes = Double(self.toIntMax())
+        let units = ["K", "M", "B", "T", "Q"]
         
-        let units = ["K", "M", "B", "T"]
-        var magnitude: Int = Int(log10(likes) / 3.0) // the order of magnitude of our like count in thousands
+        let value = Double(self.toIntMax())
         
-        // this formula rounds the likes to the nearest 1000s magnitude with X decimal points
-        // E.G. - 75633 becomes 75.63
-        // if X is 2
-        // pow(1000.0, Double(magnitude)) = 1000^1 = 1000
-        // 10 ^ 2 * likes / 1000 = 7563.3
-        // round(7563.3) = 7563
-        // 7563 / 10 ^ 2 = 75.63
-        var roundedLikes = round(pow(10.0, decimals) * likes / pow(1000.0, Double(magnitude))) / pow(10.0, decimals)
+        var magnitude: Int = Int(log10(value) / 3.0) // the order of magnitude of our like count in thousands
         
-        // if rounding brings our display number over 1000, divide by 1000 and then bump the magnitude
-        if roundedLikes >= 1000 {
-            roundedLikes /= 1000.0
+        // divide value by 1000^magnitude to get hundreds value, then round to desired decimal places
+        var roundedHundredsValue = (value / pow(1000.0, Double(magnitude))).ip_roundToDecimalPlaces(decimalPlaces)
+        
+        // if rounding brings our display value over 1000, divide by 1000 and then bump the magnitude
+        if roundedHundredsValue >= 1000 {
+            roundedHundredsValue /= 1000.0
             magnitude += 1
         }
         
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = Int(decimals)
+        let formatter = DecimalFormatter.sharedInstance
+        guard let likesFormatted = formatter.stringFromNumber(roundedHundredsValue) else {
+            return "\(roundedHundredsValue)\(units[magnitude-1])"
+        }
         
-        guard let likesFormatted = formatter.stringFromNumber(roundedLikes) else { return "\(roundedLikes)\(units[magnitude-1])" }
-        
-        return "\(likesFormatted)\(units[magnitude-1])";
+        // if our number exceeds our current magnitude system return the rounded scientific notation
+        guard magnitude <= units.count else { return "\(likesFormatted)E\(magnitude * 3)" }
+        return "\(likesFormatted)\(units[magnitude-1])"
     }
 }

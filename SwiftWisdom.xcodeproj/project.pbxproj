@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		134882551CDB87C500CA27BA /* CellConfiguringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134882541CDB87C500CA27BA /* CellConfiguringTests.swift */; };
+		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
+		0CED7D6A1CD6989D00672913 /* DoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D691CD6989D00672913 /* DoubleTests.swift */; };
+		0CED7D6D1CD69D9F00672913 /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D6C1CD69D9F00672913 /* DecimalFormatter.swift */; };
 		1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */; };
 		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
 		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
@@ -95,6 +98,10 @@
 
 /* Begin PBXFileReference section */
 		134882541CDB87C500CA27BA /* CellConfiguringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguringTests.swift; sourceTree = "<group>"; };
+		045F527FB87F6D21BDFC36F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		0CED7D691CD6989D00672913 /* DoubleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTests.swift; sourceTree = "<group>"; };
+		0CED7D6C1CD69D9F00672913 /* DecimalFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 		1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVerticalGradientLayer.swift; sourceTree = "<group>"; };
 		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
 		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
@@ -199,6 +206,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CED7D6B1CD69D3400672913 /* NSFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				0CED7D6C1CD69D9F00672913 /* DecimalFormatter.swift */,
+			);
+			path = NSFormatter;
+			sourceTree = "<group>";
+		};
 		1C0438C21C751EED00069CE1 /* CoreAnimation */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +329,7 @@
 				80D63D1F1C4F224500C88D00 /* mock_firmware_update.dfu */,
 				805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */,
 				805807ED1C5D8D9000F9AFB1 /* IntegerTypeTests.swift */,
+				0CED7D691CD6989D00672913 /* DoubleTests.swift */,
 				1CE3D0691C6E628800FB676C /* MathableTests.swift */,
 				1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */,
 				134882541CDB87C500CA27BA /* CellConfiguringTests.swift */,
@@ -334,6 +350,7 @@
 				8002059C1BF683CB005852C9 /* CommonTypes */,
 				80232BEB1BF2F1BD00818B6E /* Foundation */,
 				80D63D071C4F1D6100C88D00 /* NSData */,
+				0CED7D6B1CD69D3400672913 /* NSFormatter */,
 				80232BEE1BF2F1BD00818B6E /* Geometry */,
 				80232BF01BF2F1BD00818B6E /* StandardLibrary */,
 				80232BF91BF2F1BD00818B6E /* UIKit */,
@@ -545,6 +562,7 @@
 				80D63D2B1C4F251E00C88D00 /* Int+Extensions.swift */,
 				80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */,
 				1CE3D0671C6E61A500FB676C /* Mathable.swift */,
+				0CED7D661CD6971400672913 /* Double+Extensions.swift */,
 			);
 			path = Numbers;
 			sourceTree = "<group>";
@@ -813,8 +831,10 @@
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
 				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
+				0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */,
 				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
 				80232C0F1BF2FB3800818B6E /* ViewController.swift in Sources */,
+				0CED7D6D1CD69D9F00672913 /* DecimalFormatter.swift in Sources */,
 				80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */,
 				FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */,
 				800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */,
@@ -843,6 +863,7 @@
 				FFCA61B41C8A1F7C00FD35A7 /* StringTests.swift in Sources */,
 				805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
+				0CED7D6A1CD6989D00672913 /* DoubleTests.swift in Sources */,
 				80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
