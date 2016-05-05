@@ -106,5 +106,8 @@ public extension UITableView {
     public func ip_dequeueHeader<T where T: UITableViewHeaderFooterView, T: TypeIdentifiable>(section: Int, identifier: String = T.ip_identifier) -> T {
         return dequeueReusableHeaderFooterViewWithIdentifier(identifier) as! T
     }
-    
+
+    public func ip_cellForRowAtIndexPath<T where T: UITableViewCell, T: TypeIdentifiable>(indexPath: NSIndexPath) -> T {
+        return cellForRowAtIndexPath(indexPath) as! T
+    }
 }
