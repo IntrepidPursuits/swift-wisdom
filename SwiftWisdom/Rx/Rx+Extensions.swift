@@ -42,6 +42,10 @@ public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
     disposeBag.addDisposable(disposable)
 }
 
+public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposable) {
+    compositeDisposable.addDisposable(disposable)
+}
+
 //  Operators.swift
 //  RxExample
 //
