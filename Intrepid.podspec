@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage      = "https://github.com/IntrepidPursuits/swift-wisdom"
   s.license       = "MIT"
   s.authors       = { "Intrepid Pursuits" => "logan@intrepid.io" }
-  s.social_media_url = 'https://twitter.com/itpd'
+  s.social_media_url = 'https://twitter.com/intpd'
   s.source        = { :git => "https://github.com/IntrepidPursuits/swift-wisdom.git", :tag => "#{s.version}" }
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
