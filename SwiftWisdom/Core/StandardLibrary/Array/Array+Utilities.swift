@@ -27,6 +27,22 @@ public extension Array where Element: Equatable {
         }
         return false
     }
+    
+    public mutating func ip_removeElements(elements: [Element]) {
+        self = self.filter { element in
+            return !elements.contains(element)
+        }
+    }
+    
+    public func ip_indicesOf(elements: [Element]) -> [Int] {
+        return self.enumerate()
+            .filter { _, element in
+                return elements.contains(element)
+            }
+            .map { index, _ in
+                return index
+            }
+    }
 }
 
 public extension Array where Element: Hashable {
@@ -102,5 +118,12 @@ extension SequenceType where Generator.Element: Equatable {
     
     public func ip_countOf(element: Generator.Element) -> Int {
         return self.filter { $0 == element } .count
+    }
+    
+    public func ip_containsAll<T: SequenceType where T.Generator.Element == Generator.Element>(all: T) -> Bool {
+        for e in all where !contains(e) {
+            return false
+        }
+        return true
     }
 }

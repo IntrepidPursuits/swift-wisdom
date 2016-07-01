@@ -51,6 +51,14 @@ public func avg<T: Mathable>(numbers: [T]) -> T? {
     return numbers.ip_mean()
 }
 
+extension Comparable {
+    public func ip_constrainedBetween(low low: Self, high: Self) -> Self {
+        var val = Swift.min(self, high)
+        val = Swift.max(val, low)
+        return val
+    }
+}
+
 extension Int: Mathable {}
 extension Float: Mathable {}
 extension Double: Mathable {}
