@@ -1,3 +1,5 @@
+import Foundation
+
 public extension Array {
     public func ip_subArrayFromIndices(indices: [Int]) -> [Element] {
         var subArray: [Element] = []
@@ -34,13 +36,16 @@ public extension Array where Element: Equatable {
         }
     }
     
+    /**
+     Returns NSNotFound for any element in elements that does not exist.
+     
+     - parameter elements: Array of Equatable elements
+     
+     - returns: Array of indexes or NSNotFound if element does not exist in self; count is equal to the count of `elements`
+     */
     public func ip_indicesOf(elements: [Element]) -> [Int] {
-        return self.enumerate()
-            .filter { _, element in
-                return elements.contains(element)
-            }
-            .map { index, _ in
-                return index
+        return elements.map { element in
+                return self.indexOf(element) ?? NSNotFound
             }
     }
 }

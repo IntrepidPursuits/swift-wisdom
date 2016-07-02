@@ -42,7 +42,14 @@ class CollectionTests: XCTestCase {
     func testIndicesOf() {
         let testArray = [4, 8, 15, 16, 23, 42]
         XCTAssert(testArray.ip_indicesOf([4, 16, 42]) == [0, 3, 5])
-        XCTAssert(testArray.ip_indicesOf([0, 1, 4]) == [0])
+        XCTAssert(testArray.ip_indicesOf([0, 1, 4]) == [NSNotFound, NSNotFound, 0])
+    }
+    
+    func testSubArrayFromIndicesOf() {
+        let testArray = [4, 8, 15, 16, 23, 42]
+        let indices = testArray.ip_indicesOf([15, 16, 19])
+        let subTestArray = testArray.ip_subArrayFromIndices(indices)
+        XCTAssert(subTestArray == [15, 16])
     }
     
 }
