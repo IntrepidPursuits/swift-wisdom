@@ -48,11 +48,20 @@ extension IntegerType {
         // if our number exceeds our current magnitude system return the scientific notation
         let magnitudeSuffix = units[ip_safe: magnitude - 1] ?? "E\(magnitude * 3)"
         
-        let formatter = DecimalFormatter.sharedInstance
+        let formatter = NSNumberFormatter.decimalFormatter
         guard let valueFormatted = formatter.stringFromNumber(roundedHundredsValue) else {
             return "\(roundedHundredsValue)\(magnitudeSuffix)"
         }
         
         return "\(valueFormatted)\(magnitudeSuffix)"
+    }
+}
+
+extension NSNumberFormatter {
+    private static var decimalFormatter: NSNumberFormatter {
+        let decimalFormatter = NSNumberFormatter()
+        decimalFormatter.numberStyle = .DecimalStyle
+        decimalFormatter.minimumFractionDigits = 0
+        return decimalFormatter
     }
 }
