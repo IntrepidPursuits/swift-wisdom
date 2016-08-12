@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		134882551CDB87C500CA27BA /* CellConfiguringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134882541CDB87C500CA27BA /* CellConfiguringTests.swift */; };
 		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
 		0CED7D6A1CD6989D00672913 /* DoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D691CD6989D00672913 /* DoubleTests.swift */; };
+		134882551CDB87C500CA27BA /* CellConfiguringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134882541CDB87C500CA27BA /* CellConfiguringTests.swift */; };
 		1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */; };
 		1C16E3031D27029D008A1001 /* NSLock+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */; };
 		1C16E3051D2807F9008A1001 /* Comparables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3041D2807F9008A1001 /* Comparables.swift */; };
-		1C16E3071D280897008A1001 /* TimeFromNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3061D280897008A1001 /* TimeFromNumberTests.swift */; };
 		1C16E3091D2809C5008A1001 /* ComparablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3081D2809C5008A1001 /* ComparablesTests.swift */; };
 		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
 		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
@@ -100,14 +99,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		134882541CDB87C500CA27BA /* CellConfiguringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguringTests.swift; sourceTree = "<group>"; };
-		045F527FB87F6D21BDFC36F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0CED7D691CD6989D00672913 /* DoubleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoubleTests.swift; sourceTree = "<group>"; };
+		134882541CDB87C500CA27BA /* CellConfiguringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguringTests.swift; sourceTree = "<group>"; };
 		1C0438C31C751F2100069CE1 /* BasicVerticalGradientLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicVerticalGradientLayer.swift; sourceTree = "<group>"; };
 		1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLock+Extensions.swift"; path = "SwiftWisdom/Core/Async/NSLock/NSLock+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1C16E3041D2807F9008A1001 /* Comparables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comparables.swift; sourceTree = "<group>"; };
-		1C16E3061D280897008A1001 /* TimeFromNumberTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFromNumberTests.swift; sourceTree = "<group>"; };
 		1C16E3081D2809C5008A1001 /* ComparablesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparablesTests.swift; sourceTree = "<group>"; };
 		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
 		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
@@ -337,7 +334,6 @@
 				805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */,
 				805807ED1C5D8D9000F9AFB1 /* IntegerTypeTests.swift */,
 				0CED7D691CD6989D00672913 /* DoubleTests.swift */,
-				1C16E3061D280897008A1001 /* TimeFromNumberTests.swift */,
 				1CE3D0691C6E628800FB676C /* MathableTests.swift */,
 				1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */,
 				134882541CDB87C500CA27BA /* CellConfiguringTests.swift */,
@@ -877,7 +873,6 @@
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
 				0CED7D6A1CD6989D00672913 /* DoubleTests.swift in Sources */,
 				80D63D1A1C4F1F3E00C88D00 /* NSMutableDataAppendTests.swift in Sources */,
-				1C16E3071D280897008A1001 /* TimeFromNumberTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

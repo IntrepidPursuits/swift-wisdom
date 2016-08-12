@@ -65,11 +65,3 @@ extension NSNumberFormatter {
         return decimalFormatter
     }
 }
-
-public extension Int {
-    public var minutesAndSecondsString: String {
-        let minutes = self / 60
-        let seconds = self % 60
-        return String(format: "%d:%02d", minutes, seconds)
-    }
-}
