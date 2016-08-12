@@ -1,3 +1,5 @@
+import Foundation
+
 public extension Array {
     public func ip_subArrayFromIndices(indices: [Int]) -> [Element] {
         var subArray: [Element] = []
@@ -26,6 +28,25 @@ public extension Array where Element: Equatable {
             return true
         }
         return false
+    }
+    
+    public mutating func ip_removeElements(elements: [Element]) {
+        self = self.filter { element in
+            return !elements.contains(element)
+        }
+    }
+    
+    /**
+     Returns NSNotFound for any element in elements that does not exist.
+     
+     - parameter elements: Array of Equatable elements
+     
+     - returns: Array of indexes or NSNotFound if element does not exist in self; count is equal to the count of `elements`
+     */
+    public func ip_indicesOf(elements: [Element]) -> [Int] {
+        return elements.map { element in
+                return self.indexOf(element) ?? NSNotFound
+            }
     }
 }
 
@@ -102,5 +123,12 @@ extension SequenceType where Generator.Element: Equatable {
     
     public func ip_countOf(element: Generator.Element) -> Int {
         return self.filter { $0 == element } .count
+    }
+    
+    public func ip_containsAll<T: SequenceType where T.Generator.Element == Generator.Element>(all: T) -> Bool {
+        for e in all where !contains(e) {
+            return false
+        }
+        return true
     }
 }
