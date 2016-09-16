@@ -28,7 +28,7 @@ public extension UIView {
             name = ip_nibName
         }
         let nibViews = NSBundle.mainBundle().loadNibNamed(name, owner: nil, options: nil)
-        for v in nibViews {
+        for v in nibViews ?? [] {
             if let tog = v as? T {
                 view = tog
             }
