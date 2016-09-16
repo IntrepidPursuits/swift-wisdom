@@ -11,7 +11,7 @@ import Foundation
 public final class DirectoryManager {
     
     enum Error : ErrorType {
-        case UnableToCreatePath(url: NSURL?)
+        case UnableToCreatePath(url: NSURL?) // TODO: review, 2.3 changes
     }
     
     private let directoryName: String
