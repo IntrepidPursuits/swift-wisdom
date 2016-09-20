@@ -24,6 +24,6 @@ extension UIImage {
         overlayImage.drawInRect(innerRect)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return img
+        return img ?? UIImage()
     }
 }
