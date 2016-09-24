@@ -14,6 +14,12 @@ public extension String {
         let substringCharacters = chars[range]
         return String(substringCharacters)
     }
+
+    public subscript(range: CountableClosedRange<Int>) -> String {
+        let chars = Array(characters)
+        let substringCharacters = chars[range]
+        return String(substringCharacters)
+    }
     
     public mutating func dropFirst() {
         guard !isEmpty else { return }

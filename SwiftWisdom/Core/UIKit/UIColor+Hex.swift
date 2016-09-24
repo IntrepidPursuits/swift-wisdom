@@ -10,22 +10,22 @@ import UIKit
 
 public extension UIColor {
     public convenience init(ip_hex hex: String) {
-        var cleanHex: String = hex.uppercaseString
+        var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {
             cleanHex.dropFirst()
         }
         if cleanHex.characters.count != 6 {
             cleanHex = "FFFFFF"
         }
-        
-        let rString = cleanHex[0...1]
-        let gString = cleanHex[2...3]
-        let bString = cleanHex[4...5]
+
+        let rString = cleanHex.substring(with: cleanHex.range(from: 0...1))
+        let gString = cleanHex.substring(with: cleanHex.range(from: 2...3))
+        let bString = cleanHex.substring(with: cleanHex.range(from: 4...5))
         
         var r: CUnsignedInt = 0, g: CUnsignedInt = 0, b: CUnsignedInt = 0;
-        NSScanner(string: rString).scanHexInt(&r)
-        NSScanner(string: gString).scanHexInt(&g)
-        NSScanner(string: bString).scanHexInt(&b)
+        Scanner(string: rString).scanHexInt32(&r)
+        Scanner(string: gString).scanHexInt32(&g)
+        Scanner(string: bString).scanHexInt32(&b)
         
         
         self.init(

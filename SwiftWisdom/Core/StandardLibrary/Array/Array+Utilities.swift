@@ -1,9 +1,9 @@
 import Foundation
 
 public extension Array {
-    public func ip_subArrayFromIndices(indices: [Int]) -> [Element] {
+    public func ip_subArrayFromIndices(_ indices: [Int]) -> [Element] {
         var subArray: [Element] = []
-        for (idx, element) in enumerate() {
+        for (idx, element) in enumerated() {
             if indices.contains(idx) {
                 subArray.append(element)
             }
@@ -11,9 +11,9 @@ public extension Array {
         return subArray
     }
 
-    public func ip_passesTest(@noescape test: (element: Element) -> Bool) -> Bool {
+    public func ip_passes(test: (Element) -> Bool) -> Bool {
         for ob in self {
-            if test(element: ob) {
+            if test(ob) {
                 return true
             }
         }
@@ -22,9 +22,9 @@ public extension Array {
 }
 
 public extension Array where Element: Equatable {
-    public mutating func ip_remove(objectToRemove: Element) -> Bool {
-        for (idx, objectToCompare) in enumerate() where objectToRemove == objectToCompare {
-            removeAtIndex(idx)
+    public mutating func ip_remove(_ objectToRemove: Element) -> Bool {
+        for (idx, objectToCompare) in enumerated() where objectToRemove == objectToCompare {
+            remove(at: idx)
             return true
         }
         return false
@@ -45,7 +45,7 @@ public extension Array where Element: Equatable {
      */
     public func ip_indicesOf(elements: [Element]) -> [Int] {
         return elements.map { element in
-                return self.indexOf(element) ?? NSNotFound
+                return index(of: element) ?? NSNotFound
             }
     }
 }
@@ -64,17 +64,17 @@ extension Array {
 }
 
 extension Array {
-    public mutating func ip_removeFirst(@noescape matcher: Generator.Element -> Bool) {
-        guard let idx = indexOf(matcher) else { return }
-        removeAtIndex(idx)
+    public mutating func ip_removeFirst(_ matcher: (Iterator.Element) -> Bool) {
+        guard let idx = index(where: matcher) else { return }
+        remove(at: idx)
     }
 }
 
 extension Array {
-    public var ip_generator: AnyGenerator<Element> {
+    public var ip_generator: AnyIterator<Element> {
         var idx = 0
         let count = self.count
-        return AnyGenerator {
+        return AnyIterator {
             guard idx < count else { return nil }
             let this = idx
             idx += 1
@@ -83,16 +83,17 @@ extension Array {
     }
 }
 
-extension CollectionType {
+extension Collection {
     /// This grabs the element(s) in the middle of the array without doing any sorting.
     /// If there's an odd number the return array is just one element.
     /// If there are an even number it will return the two middle elements.
-    public var ip_middleElements: [Generator.Element] {
+    public var ip_middleElements: [Iterator.Element] {
         guard count > 0 else { return [] }
         let needsAverageOfTwo = count.toIntMax().ip_isEven
-        let middle = startIndex.advancedBy(count / 2)
+
+        let middle = index(startIndex, offsetBy: count / 2) // TODO: needs test, was: index.index(startIndex, offsetBy: count / 2)
         if needsAverageOfTwo {
-            let leftOfMiddle = startIndex.advancedBy((count / 2) - 1)
+            let leftOfMiddle = index(middle, offsetBy: -1)
             return [self[middle], self[leftOfMiddle]]
         } else {
             return [self[middle]]
@@ -100,9 +101,9 @@ extension CollectionType {
     }
 }
 
-extension SequenceType where Generator.Element: Equatable {
-    public func ip_mostCommonElements() -> [Generator.Element] {
-        let sortedUniqueElements = self.ip_uniqueValues().sort {
+extension Sequence where Iterator.Element: Equatable {
+    public func ip_mostCommonElements() -> [Iterator.Element] {
+        let sortedUniqueElements = self.ip_uniqueValues().sorted {
                 self.ip_countOf($0) > self.ip_countOf($1)
             }
         guard let first = sortedUniqueElements.first else { return [] }
@@ -111,8 +112,8 @@ extension SequenceType where Generator.Element: Equatable {
         }
     }
         
-    public func ip_uniqueValues() -> [Generator.Element] {
-        var buffer: [Generator.Element] = []
+    public func ip_uniqueValues() -> [Iterator.Element] {
+        var buffer: [Iterator.Element] = []
         forEach { element in
             if !buffer.contains(element) {
                 buffer.append(element)
@@ -121,11 +122,11 @@ extension SequenceType where Generator.Element: Equatable {
         return buffer
     }
     
-    public func ip_countOf(element: Generator.Element) -> Int {
+    public func ip_countOf(_ element: Iterator.Element) -> Int {
         return self.filter { $0 == element } .count
     }
     
-    public func ip_containsAll<T: SequenceType where T.Generator.Element == Generator.Element>(all: T) -> Bool {
+    public func ip_containsAll<T: Sequence where T.Iterator.Element == Iterator.Element>(all: T) -> Bool {
         for e in all where !contains(e) {
             return false
         }

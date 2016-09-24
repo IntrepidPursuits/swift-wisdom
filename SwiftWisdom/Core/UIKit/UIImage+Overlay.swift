@@ -17,11 +17,11 @@ extension UIImage {
      
      - returns: the combination of the two images as a new UIImage object
      */
-    public final func ip_overlayImage(overlayImage: UIImage, inRect innerRect: CGRect) -> UIImage {
-        let outerRect = CGRect(origin: CGPointZero, size: size)
+    public final func ip_overlayImage(_ overlayImage: UIImage, inRect innerRect: CGRect) -> UIImage {
+        let outerRect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContext(outerRect.size)
-        self.drawInRect(outerRect)
-        overlayImage.drawInRect(innerRect)
+        draw(in: outerRect)
+        overlayImage.draw(in: innerRect)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img ?? UIImage()

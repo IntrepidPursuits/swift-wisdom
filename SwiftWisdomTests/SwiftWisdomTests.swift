@@ -18,32 +18,32 @@ class StringLocalizationTests: XCTestCase {
 class GetConstraintTests: XCTestCase {
     func testConstraints_NilToView() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController
-        let constraint = vc?.view.ip_constraintForAttribute(.Top, onView: nil, toView: vc?.blueView, viewAttribute: .Top)
+        let constraint = vc?.view.ip_constraintForAttribute(.top, onView: nil, toView: vc?.blueView, viewAttribute: .top)
         XCTAssertEqual(constraint?.constant, 165, "Top constraint found with nil view")
     }
     
     func testConstraints_NoConstraint() {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController
-        let constraint = vc?.view.ip_constraintForAttribute(.Bottom, onView: nil, toView: vc?.blueView, viewAttribute: .Top)
+        let constraint = vc?.view.ip_constraintForAttribute(.bottom, onView: nil, toView: vc?.blueView, viewAttribute: .top)
         XCTAssertNil(constraint, "No constraint there")
     }
 }
 
 class NSMutableAttributedStringTests: XCTestCase {
     func testAttributedStringApplyingAttributes() {
-        let redText = NSAttributedString(
+        let redText = AttributedString(
             string: "RED",
-            attributes: [NSForegroundColorAttributeName : UIColor.redColor()]
+            attributes: [NSForegroundColorAttributeName : UIColor.red()]
         )
         let testString = NSMutableAttributedString(stringWithFormat: "This color is %@", redText)
         let otherTestString = NSMutableAttributedString(
             stringWithFormat: "This color is %@",
-            applyingAttributes: [NSForegroundColorAttributeName : UIColor.redColor()],
+            applyingAttributes: [NSForegroundColorAttributeName : UIColor.red],
             toArgs: "RED"
         )
         let blueTestString = NSMutableAttributedString(
             stringWithFormat: "This color is %@",
-            applyingAttributes: [NSForegroundColorAttributeName : UIColor.blueColor()],
+            applyingAttributes: [NSForegroundColorAttributeName : UIColor.blue],
             toArgs: "RED"
         )
         
@@ -52,12 +52,12 @@ class NSMutableAttributedStringTests: XCTestCase {
     }
     
     func testAttributedStringWithFormat() {
-        let redText = NSAttributedString(
+        let redText = AttributedString(
             string: "RED",
-            attributes: [NSForegroundColorAttributeName : UIColor.redColor()]
+            attributes: [NSForegroundColorAttributeName : UIColor.red()]
         )
         let testString = NSMutableAttributedString(stringWithFormat: "Color: %@", redText)
         let rangeOfRED = NSRange(location: 7, length: 3)
-        XCTAssertEqual(testString.attributedSubstringFromRange(rangeOfRED), redText)
+        XCTAssertEqual(testString.attributedSubstring(from: rangeOfRED), redText)
     }
 }

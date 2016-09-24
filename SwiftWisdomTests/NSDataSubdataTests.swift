@@ -20,11 +20,11 @@ class NSDataSubdataTests: XCTestCase {
     let four = "88 99 aa bb cc dd ee ff"
         .ip_dataFromHexadecimalString()!
     
-    lazy var subdataArray: [NSData] = [self.one, self.two, self.three, self.four]
-    lazy var data: NSData = self.subdataArray.combine()
+    lazy var subdataArray: [Data] = [self.one, self.two, self.three, self.four]
+    lazy var data: Data = self.subdataArray.combine()
 
     func testSubdata() {
-        let fullSubData = data.ip_subdataFrom(0, length: data.length)
+        let fullSubData = data.ip_subdataFrom(0, length: data.count)
         XCTAssert(data == fullSubData)
         
         let emptySubDataValidIdx = data.ip_subdataFrom(5, length: 0)
@@ -33,16 +33,16 @@ class NSDataSubdataTests: XCTestCase {
         let emptySubDataInvalidIdx = data.ip_subdataFrom(1000, length: 234)
         XCTAssert(emptySubDataInvalidIdx == nil)
         
-        let outOfRange = data.ip_subdataFrom(0, length: data.length + 1)
+        let outOfRange = data.ip_subdataFrom(0, length: data.count + 1)
         XCTAssert(outOfRange == nil)
         
-        subdataArray.enumerate().forEach { idx, compareSubdata in
+        subdataArray.enumerated().forEach { idx, compareSubdata in
             let previousData = subdataArray
-                .prefixUpTo(idx)
+                .prefix(upTo: idx)
                 .combine()
             
             
-            let subdata = data.ip_subdataFrom(previousData.length, length: compareSubdata.length)
+            let subdata = data.ip_subdataFrom(previousData.count, length: compareSubdata.count)
             XCTAssert(subdata == compareSubdata)
         }
     }
@@ -52,7 +52,7 @@ class NSDataSubdataTests: XCTestCase {
         let one = "87"
         let two = "4f"
         let three = "a0"
-        let combination = [zero, one, two, three].joinWithSeparator("")
+        let combination = [zero, one, two, three].joined(separator: "")
         let data = combination.ip_dataFromHexadecimalString()!
         
         let zeroData = data[0]!
@@ -76,13 +76,13 @@ class NSDataSubdataTests: XCTestCase {
         let suffix = "f4b4 2343".ip_dataFromHexadecimalString()!
         
         let data = NSMutableData()
-        data.appendData(prefix)
-        data.appendData(suffix)
+        data.append(prefix)
+        data.append(suffix)
         
-        let gotPrefix = data.ip_prefixThrough(prefix.length - 1)
+        let gotPrefix = data.ip_prefixThrough(prefix.count - 1)
         XCTAssert(gotPrefix == prefix)
         
-        let gotSuffix = data.ip_suffixFrom(prefix.length)
+        let gotSuffix = data.ip_suffixFrom(prefix.count)
         XCTAssert(gotSuffix == suffix)
         
         let emptyPrefix = data.ip_prefixThrough(-1)
@@ -97,7 +97,7 @@ class NSDataSubdataTests: XCTestCase {
         let one = "87"
         let two = "4f"
         let three = "a0"
-        let combination = [zero, one, two, three].joinWithSeparator("")
+        let combination = [zero, one, two, three].joined(separator: "")
         let data = combination.ip_dataFromHexadecimalString()!
         
         let getZeroAndOne = data[0...1]
@@ -116,18 +116,18 @@ class NSDataSubdataTests: XCTestCase {
     }
 }
 
-extension ArraySlice where Element : NSData {
-    func combine() -> NSData {
+extension ArraySlice where Element : Data {
+    func combine() -> Data {
         let data = NSMutableData()
-        forEach(data.appendData)
-        return NSData(data: data)
+        forEach(data.append(_:))
+        return (NSData(data: data) as Data)
     }
 }
 
-extension Array where Element : NSData {
-    func combine() -> NSData {
+extension Array where Element : Data {
+    func combine() -> Data {
         let data = NSMutableData()
-        forEach(data.appendData)
-        return NSData(data: data)
+        forEach(data.append(_:))
+        return (NSData(data: data) as Data)
     }
 }

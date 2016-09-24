@@ -8,15 +8,16 @@
 
 import Foundation
 
-extension RawRepresentable where RawValue: IntegerType {
+extension RawRepresentable where RawValue: Integer {
     public static var ip_allCases: [Self] {
-        var caseIndex: RawValue = RawValue.allZeros//RawValue.init(0)
+        var caseIndex: RawValue = RawValue.allZeros
         let generator: () -> Self? = {
             let next = Self.init(rawValue: caseIndex)
-            caseIndex = caseIndex.successor()
+            caseIndex = caseIndex.advanced(by: 1) // TODO: needs testing, was caseIndex.successor()
             return next
         }
-        let sequence = AnyGenerator(body: generator)
+        
+        let sequence = AnyIterator(generator)
         return [Self](sequence)
     }
 }

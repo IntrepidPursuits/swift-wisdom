@@ -31,19 +31,19 @@ public struct TimeOfDay {
     public var displayString: String {
         // Backing Format
         dateFormatter.dateFormat = "HH:mm"
-        guard let date = dateFormatter.dateFromString(stringRepresentation) else {
+        guard let date = dateFormatter.date(from: stringRepresentation) else {
             return ""
         }
 
         // Display format
         dateFormatter.dateFormat = displayFormat
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
-    private let dateFormatter: NSDateFormatter = {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.timeZone = NSTimeZone.systemTimeZone()
-        dateFormatter.locale = NSLocale.currentLocale()
+    private let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+        dateFormatter.locale = Locale.current
         return dateFormatter
     }()
     
@@ -57,9 +57,9 @@ public struct TimeOfDay {
         self.minutes = minutes
     }
     
-    public init?(_ date: NSDate) {
+    public init?(_ date: Date) {
         dateFormatter.dateFormat = "HH:mm"
-        let formattedStringRepresentation = dateFormatter.stringFromDate(date)
+        let formattedStringRepresentation = dateFormatter.string(from: date)
         guard let (hours, minutes) = formattedStringRepresentation.ip_hoursAndMinutes() else {
             return nil
         }
@@ -69,23 +69,23 @@ public struct TimeOfDay {
     
     // MARK: Date Conversion
     
-    public func timeToday() -> NSDate? {
-        return timeOnDate(NSDate())
+    public func timeToday() -> Date? {
+        return timeOnDate(Date())
     }
     
-    public func timeOnDate(date: NSDate) -> NSDate? {
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = calendar.components([.Year, .Month, .Day, .Hour, .Minute], fromDate: date)
+    public func timeOnDate(_ date: Date) -> Date? {
+        let calendar = Calendar.current
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         dateComponents.hour = hours
         dateComponents.minute = minutes
-        return calendar.dateFromComponents(dateComponents)
+        return calendar.date(from: dateComponents)
     }
     
 }
 
 private extension String {
     func ip_hoursAndMinutes() -> (hours: Int, minutes: Int)? {
-        let components = componentsSeparatedByString(":")
+        let components = self.components(separatedBy: ":")
         guard
             components.count == 2,
             let hoursString = components.first,

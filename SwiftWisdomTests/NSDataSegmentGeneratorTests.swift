@@ -11,10 +11,10 @@ import XCTest
 
 class NSDataSegmentGeneratorTests: XCTestCase {
 
-    let dataPath = NSBundle(forClass: NSDataSegmentGeneratorTests.self)
-        .pathForResource("mock_firmware_update", ofType: ".dfu")!
+    let dataPath = Bundle(for: NSDataSegmentGeneratorTests.self)
+        .path(forResource: "mock_firmware_update", ofType: ".dfu")!
     
-    lazy var originalData: NSData = NSData(contentsOfFile: self.dataPath)!
+    lazy var originalData: Data = try! Data(contentsOf: URL(fileURLWithPath: self.dataPath))
     
     let segmentLength = 100
 
@@ -22,8 +22,8 @@ class NSDataSegmentGeneratorTests: XCTestCase {
         let generator = originalData.ip_segmentGenerator(chunkLength: segmentLength)
         
         let reassembly = NSMutableData()
-        while let next = generator.next() where next.length <= segmentLength {
-            reassembly.appendData(next)
+        while let next = generator.next() where next.count <= segmentLength {
+            reassembly.append(next)
         }
         
         XCTAssert(reassembly == originalData)
@@ -39,8 +39,8 @@ class NSDataSegmentGeneratorTests: XCTestCase {
                 .ip_segmentGenerator(start: startPoint, chunkLength: segmentLength)
 
             let reassembly = NSMutableData()
-            while let next = generator.next() where next.length <= segmentLength {
-                reassembly.appendData(next)
+            while let next = generator.next() where next.count <= segmentLength {
+                reassembly.append(next)
             }
             
             if let compareSuffix = compareSuffix {

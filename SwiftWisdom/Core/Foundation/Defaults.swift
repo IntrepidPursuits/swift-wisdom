@@ -9,25 +9,25 @@ import Foundation
 
 public protocol SettingsKeyAccessible {
     var key: String { get }
-    var defaults: NSUserDefaults { get }
+    var defaults: UserDefaults { get }
 }
 
 extension SettingsKeyAccessible {
-    public var defaults: NSUserDefaults {
-        return NSUserDefaults.standardUserDefaults()
+    public var defaults: UserDefaults {
+        return UserDefaults.standard
     }
     
-    public func writeToDefaults(any: AnyObject?) {
+    public func writeToDefaults(_ any: AnyObject?) {
         if let any = any {
             defaults.setValue(any, forKey: key)
         } else {
-            defaults.removeObjectForKey(key)
+            defaults.removeObject(forKey: key)
         }
         defaults.synchronize()
     }
     
     public func readFromDefaults<T>() -> T? {
-        return defaults.objectForKey(key) as? T
+        return defaults.object(forKey: key) as? T
     }
 }
 

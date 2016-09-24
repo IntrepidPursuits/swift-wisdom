@@ -30,7 +30,7 @@ class NSMutableDataAppendTests: XCTestCase {
         let mutable = NSMutableData()
         mutable.appendUTF8String(string)
         
-        let stringData = string.dataUsingEncoding(NSUTF8StringEncoding)!
+        let stringData = string.data(using: String.Encoding.utf8)!
         XCTAssert(mutable == stringData)
     }
     

@@ -7,30 +7,30 @@
 //
 
 public enum Result<T> {
-    case Success(T)
-    case Failure(ErrorType)
+    case success(T)
+    case failure(Error)
 }
 
 extension Result {
     public var isSuccess: Bool {
-        guard case .Success(_) = self else { return false }
+        guard case .success(_) = self else { return false }
         return true
     }
     
     public var isFailure: Bool {
-        guard case .Failure(_) = self else { return false }
+        guard case .failure(_) = self else { return false }
         return true
     }
 }
 
 extension Result {
     public var value: T? {
-        guard case let .Success(value) = self else { return nil }
+        guard case let .success(value) = self else { return nil }
         return value
     }
     
-    public var error: ErrorType? {
-        guard case let .Failure(error) = self else { return nil }
+    public var error: Error? {
+        guard case let .failure(error) = self else { return nil }
         return error
     }
 }
@@ -38,9 +38,9 @@ extension Result {
 extension Result {
     public func extract() throws -> T {
         switch self {
-        case .Success(let val):
+        case .success(let val):
             return val
-        case .Failure(let err):
+        case .failure(let err):
             throw err
         }
     }

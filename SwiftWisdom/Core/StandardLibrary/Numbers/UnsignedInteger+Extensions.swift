@@ -8,41 +8,43 @@
 
 import Foundation
 
-extension UnsignedIntegerType {
+extension UnsignedInteger {
     public static func ip_random() -> Self {
-        let intMax = ip_maxValue.toIntMax()
-        let rand = randomInRange(0...Int(intMax))
+        let intMax = Int(ip_maxValue.toIntMax())
+        let rand = randomInRange(0...intMax)
         return self.init(ip_safely: rand)
     }
 }
 
-public func randomInRange(range: Range<Int>) -> Int {
-    guard let first = range.first, let last = range.last else { return 0 }
-    assert(range.first >= 0)
-    let diff = last - first
+public func randomInRange(_ range: ClosedRange<Int>) -> Int {
+    // TODO: Not good API design - since closed range does not assume positive only. We should either
+    // a) rename method to indicate positive only
+    // b) remove lower bound restriction
+    assert(range.lowerBound >= 0)
+    let diff = range.upperBound - range.lowerBound
     let randomOffset = Int(arc4random_uniform(UInt32(diff + 1)))
-    let random = first + randomOffset
+    let random = range.lowerBound + randomOffset
     return random
 }
 
-extension UnsignedIntegerType {
+extension UnsignedInteger {
     public init(ip_data: NSData) {
         let hexInt = ip_data.ip_hexInt ?? 0
         self.init(ip_safely: hexInt)
     }
 }
 
-extension UnsignedIntegerType {
-    public func ip_containsBitMask(bitMask: Self) -> Bool {
+extension UnsignedInteger {
+    public func ip_containsBitMask(_ bitMask: Self) -> Bool {
         return (self & bitMask) == bitMask
     }
 }
 
-extension UnsignedIntegerType {
+extension UnsignedInteger {
     
-    public var ip_data: NSData {
+    public var ip_data: Data {
         var copy = self
-        return NSData(bytes: &copy, length: sizeof(Self))
+        return Data(bytes: &copy, count: MemoryLayout<Self>.size)
     }
     
     /// Converts a bit mask into its given indexes. For example, `0b101` will return `[0,2]`
@@ -62,17 +64,18 @@ extension UnsignedIntegerType {
     }
 }
 
-extension UnsignedIntegerType {
+extension UnsignedInteger {
     public static var ip_maxValue: Self {
         return ip_bitStackOfLength(ip_maximumNumberOfBits)
     }
-    
-    public static var ip_maximumNumberOfBits: Self {
-        let size = UIntMax(sizeof(self))
-        return Self(size) * 8
+
+    // TODO: review!
+    public static var ip_maximumNumberOfBits: Int {
+        return MemoryLayout<Self>.size * 8
     }
-    
-    public static func ip_bitStackOfLength(length: Self) -> Self {
+
+    // TODO: needs documentation - what is this bitstack stuff?
+    public static func ip_bitStackOfLength(_ length: Int) -> Self {
         let maxLength = ip_maximumNumberOfBits
         guard length <= maxLength else { return ip_bitStackOfLength(maxLength) }
         var stack: Self = 0
@@ -86,8 +89,8 @@ extension UnsignedIntegerType {
     }
 }
 
-extension UnsignedIntegerType {
-    public init<T : SignedIntegerType>(ip_safely value: T) {
+extension UnsignedInteger {
+    public init<T : SignedInteger>(ip_safely value: T) {
         if value < 0 {
             self.init(ip_safely: UInt8(0))
         } else {
@@ -96,10 +99,10 @@ extension UnsignedIntegerType {
         }
     }
     
-    public init<T : UnsignedIntegerType>(ip_safely value: T) {
+    public init<T : UnsignedInteger>(ip_safely value: T) {
         self = 0
         
-        let maxSelf = self.dynamicType.ip_maxValue
+        let maxSelf = type(of: self).ip_maxValue
         if maxSelf.toUIntMax() >= value.toUIntMax() {
             self = .init(value.toUIntMax())
         } else {
@@ -108,8 +111,8 @@ extension UnsignedIntegerType {
     }
 }
 
-extension UnsignedIntegerType {
-    public func ip_containsMask(mask: Self) -> Bool {
+extension UnsignedInteger {
+    public func ip_containsMask(_ mask: Self) -> Bool {
         return (self & mask) == mask
     }
 }

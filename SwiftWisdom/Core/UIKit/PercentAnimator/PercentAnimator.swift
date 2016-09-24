@@ -11,13 +11,13 @@ import UIKit
 // MARK: Public
 
 public enum AnimationState {
-    case Began
-    case InProgress(percentComplete: CGFloat)
-    case Completed
+    case began
+    case inProgress(percentComplete: CGFloat)
+    case completed
 }
 
 public extension UIView {
-    public static func pa_percentAnimate(duration: NSTimeInterval, animation: AnimationState -> Void) {
+    public static func pa_percentAnimate(_ duration: TimeInterval, animation: @escaping (AnimationState) -> Void) {
         PercentAnimator.animateWithDuration(duration, animation: animation)
     }
 }
@@ -25,7 +25,7 @@ public extension UIView {
 extension AnimationState {
     public var isCompleted: Bool {
         switch self {
-        case .Completed:
+        case .completed:
             return true
         default:
             return false
@@ -34,11 +34,11 @@ extension AnimationState {
     
     public var percent: CGFloat {
         switch self {
-        case .Began:
+        case .began:
             return 0
-        case let .InProgress(percentComplete: percent):
+        case let .inProgress(percentComplete: percent):
             return percent
-        case .Completed:
+        case .completed:
             return 1
         }
     }
@@ -53,11 +53,11 @@ private final class PercentAnimator {
     
     private static let shared = PercentAnimator()
     
-    private static func animateWithDuration(
-        duration: NSTimeInterval,
-        animation: AnimationState -> Void) {
-            let id = NSUUID().UUIDString
-            let wrapped: AnimationState -> Void = { state in
+    static func animateWithDuration(
+        _ duration: TimeInterval,
+        animation: @escaping (AnimationState) -> Void) {
+            let id = UUID().uuidString
+            let wrapped: (AnimationState) -> Void = { state in
                 if state.isCompleted {
                     shared.animations.ip_removeFirst { $0.id == id }
                 }
@@ -68,27 +68,27 @@ private final class PercentAnimator {
     }
 }
 
-private final class Animation {
+final class Animation {
     
-    private let start: NSDate
-    private let duration: NSTimeInterval
+    private let start: Date
+    private let duration: TimeInterval
     
     private var displayLink: CADisplayLink!
     
     private(set) var state: AnimationState
-    private let animation: AnimationState -> Void
-    private let id: String
+    private let animation: (AnimationState) -> Void
+    fileprivate let id: String
     
-    private init(id: String, duration: NSTimeInterval, animation: AnimationState -> Void) {
-        self.start = NSDate()
+    fileprivate init(id: String, duration: TimeInterval, animation: @escaping (AnimationState) -> Void) {
+        self.start = Date()
         self.duration = duration
         self.animation = animation
-        self.state = .Began
+        self.state = .began
         self.id = id
         
         
         displayLink = CADisplayLink(target: self, selector: #selector(Animation.displayLinkFired))
-        displayLink.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
+        displayLink.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
         animation(state)
     }
     
@@ -99,17 +99,17 @@ private final class Animation {
     dynamic private func displayLinkFired() {
         let percent = percentageCompleted()
         if percent < 1 {
-            state = .InProgress(percentComplete: percent)
+            state = .inProgress(percentComplete: percent)
         } else {
-            state = .Completed
+            state = .completed
             displayLink.invalidate()
         }
         animation(state)
     }
     
     private func percentageCompleted() -> CGFloat {
-        let now = NSDate()
-        let timePassed = now.timeIntervalSinceDate(start)
+        let now = Date()
+        let timePassed = now.timeIntervalSince(start)
         return CGFloat(timePassed / duration)
     }
 }

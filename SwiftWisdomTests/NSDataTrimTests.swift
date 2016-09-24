@@ -11,29 +11,29 @@ import XCTest
 
 
 class NSDataTrimTests: XCTestCase {
-    let ProductName = "Hello, Headphone Name!".dataUsingEncoding(NSUTF8StringEncoding)!
+    let ProductName = "Hello, Headphone Name!".data(using: String.Encoding.utf8)!
     let ProductInfoProductNameRawPacketPrefix = "<0102a616>"
         .ip_dataFromHexadecimalString()!
     
     let extraAppendedData = "2342 afa2 ffed 2222"
         .ip_dataFromHexadecimalString()!
     
-    lazy var ProductInfoProductNameRawPacketData: NSData = {
+    lazy var ProductInfoProductNameRawPacketData: Data = {
         let mutable = NSMutableData()
-        mutable.appendData(self.ProductInfoProductNameRawPacketPrefix)
-        mutable.appendData(self.ProductName)
-        mutable.appendData(self.extraAppendedData)
-        return NSData(data: mutable)
+        mutable.append(self.ProductInfoProductNameRawPacketPrefix)
+        mutable.append(self.ProductName)
+        mutable.append(self.extraAppendedData)
+        return (NSData(data: mutable as Data) as Data)
     }()
     
     func testTrimRange() {
         let data = "aa 11 11 11 11 11 bb".ip_dataFromHexadecimalString()!
-        let mutable = NSMutableData(data: data)
+        let mutable = NSData(data: data) as Data
         mutable.ip_trimRange(0...3)
         XCTAssert(mutable == data.ip_suffixFrom(4)!)
         
         
-        let endMutable = NSMutableData(data: data)
+        let endMutable = NSData(data: data) as Data
         endMutable.ip_trimRange(3...100)
         XCTAssert(endMutable == data.ip_prefixThrough(2))
     }

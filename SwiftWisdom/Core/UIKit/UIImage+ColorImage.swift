@@ -17,12 +17,12 @@ extension UIImage {
      
      - returns: a plain image of the given color
      */
-    public static func ip_fromColor(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        let rect = CGRect(origin: CGPointZero, size: size)
+    public static func ip_fromColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+        let rect = CGRect(origin: CGPoint.zero, size: size)
         UIGraphicsBeginImageContext(rect.size)
         guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
-        CGContextSetFillColorWithColor(context, color.CGColor)
-        CGContextFillRect(context, rect)
+        context.setFillColor(color.cgColor)
+        context.fill(rect)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img ?? UIImage()

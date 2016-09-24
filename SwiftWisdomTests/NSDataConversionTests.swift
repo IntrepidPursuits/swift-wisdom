@@ -17,7 +17,7 @@ class NSDataConversionTests: XCTestCase {
         let hexString = data.ip_hexString!
         XCTAssert(hexString == "bd1c8500")
         
-        let emptyData = NSData()
+        let emptyData = Data()
         let emptyHexString = emptyData.ip_hexString
         XCTAssert(emptyHexString == nil)
     }
@@ -27,7 +27,7 @@ class NSDataConversionTests: XCTestCase {
         let hexInt = data.ip_hexInt!
         XCTAssert(hexInt == 0x1342_fa2a)
         
-        let emptyData = NSData()
+        let emptyData = Data()
         let emptyHexInt = emptyData.ip_hexInt
         XCTAssert(emptyHexInt == nil)
     }
@@ -47,12 +47,12 @@ class NSDataConversionTests: XCTestCase {
     }
     
     func testUInt8() {
-        let data = NSData(byte: 42)
+        let data = Data(byte: 42)
         XCTAssert(data.ip_uint8Value == 42)
     }
     
     func testASCII() {
-        let numberString = "321".dataUsingEncoding(NSASCIIStringEncoding)
+        let numberString = "321".data(using: String.Encoding.ascii)
         XCTAssert(numberString?.ip_asciiString == "321")
     }
 }

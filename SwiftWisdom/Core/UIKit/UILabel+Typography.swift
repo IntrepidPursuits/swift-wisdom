@@ -16,7 +16,7 @@ extension UILabel {
      - Parameter value: The value in points that each character is kerned to
      */
     
-    public func ip_setCharacterSpacing(value: CGFloat) {
+    public func ip_setCharacterSpacing(_ value: CGFloat) {
         addAttribute(NSKernAttributeName, value: value)
     }
     
@@ -25,7 +25,7 @@ extension UILabel {
      - Parameter value: The space, in points, between each line.
      */
     
-    public func ip_setLineSpacing(value: CGFloat) {
+    public func ip_setLineSpacing(_ value: CGFloat) {
         let paragraphSpacing = NSMutableParagraphStyle()
         paragraphSpacing.lineSpacing = value
         paragraphSpacing.alignment = textAlignment
@@ -34,7 +34,7 @@ extension UILabel {
     
     // MARK: Private
     
-    private func addAttribute(attr: String, value: AnyObject) {
+    private func addAttribute(_ attr: String, value: Any) {
         let attrText = mutableAttributedText()
         attrText.addAttributes([attr:value], range: NSMakeRange(0, attrText.length))
         text = nil

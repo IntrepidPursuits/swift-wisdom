@@ -9,27 +9,27 @@ import Foundation
 
 // MARK: Now
 
-public func Main(function: Block) {
-    dispatch_async(dispatch_get_main_queue(), function)
+public func Main(_ function: @escaping Block) {
+    DispatchQueue.main.async(execute: function)
 }
 
-public func Background(function: Block) {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), function)
+public func Background(_ function: @escaping Block) {
+    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async(execute: function)
 }
 
 // MARK: Later
 
-public func After(after: NSTimeInterval, on queue: dispatch_queue_t = dispatch_get_main_queue(), op: Block) {
+public func After(_ after: TimeInterval, on queue: DispatchQueue = DispatchQueue.main, op: @escaping Block) {
     let seconds = Int64(after * Double(NSEC_PER_SEC))
-    let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, seconds)
+    let dispatchTime = DispatchTime.now() + Double(seconds) / Double(NSEC_PER_SEC)
     
-    dispatch_after(dispatchTime, queue, op)
+    queue.asyncAfter(deadline: dispatchTime, execute: op)
 }
 
-public func RepeatAtInterval(interval: NSTimeInterval, numberOfTimes: Int, op: () -> (), on queue: dispatch_queue_t = dispatch_get_main_queue(), completion: Void -> Void = {}) {
+public func RepeatAtInterval(_ interval: TimeInterval, numberOfTimes: Int, op: @escaping () -> (), on queue: DispatchQueue = DispatchQueue.main, completion: @escaping (Void) -> Void = {}) {
     let numberOfTimesLeft = numberOfTimes - 1
     
-    let wrappedCompletion: Void -> Void
+    let wrappedCompletion: (Void) -> Void
     if numberOfTimesLeft > 0 {
         wrappedCompletion = {
             RepeatAtInterval(interval, numberOfTimes: numberOfTimesLeft, op: op, completion: completion)
@@ -38,7 +38,7 @@ public func RepeatAtInterval(interval: NSTimeInterval, numberOfTimes: Int, op: (
         wrappedCompletion = completion
     }
     
-    let wrappedOperation: Void -> Void = {
+    let wrappedOperation: (Void) -> Void = {
         op()
         wrappedCompletion()
     }

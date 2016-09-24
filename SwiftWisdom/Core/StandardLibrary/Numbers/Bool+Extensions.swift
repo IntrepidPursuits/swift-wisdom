@@ -14,7 +14,7 @@ extension Bool {
      */
     public init(ip_string: String) {
         let cleaned = ip_string
-            .lowercaseString
+            .lowercased()
             .characters
             .first ?? "n"
         
@@ -22,7 +22,7 @@ extension Bool {
         case "t", "y", "1":
             self = true
         default:
-            if let int = Int(String(cleaned)) where int > 0 {
+            if let int = Int(String(cleaned)), int > 0 {
                 self = true
             } else {
                 self = false

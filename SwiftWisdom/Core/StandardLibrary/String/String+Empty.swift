@@ -10,6 +10,6 @@ import Foundation
 
 extension String {
     public func ip_isEmptyOrWhitespace() -> Bool {
-        return stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).isEmpty
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty
     }
 }

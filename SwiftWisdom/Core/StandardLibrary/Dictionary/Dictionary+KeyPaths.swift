@@ -1,13 +1,13 @@
 
 public extension Dictionary {
-    public mutating func ip_setValue(val: AnyObject, forKeyPath keyPath: String) {
+    public mutating func ip_setValue(_ val: AnyObject, forKeyPath keyPath: String) {
         var keys = keyPath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return }
-        keys.removeAtIndex(0)
+        keys.remove(at: 0)
         if keys.isEmpty, let settable = val as? Value {
             self[first] = settable
         } else {
-            let rejoined = keys.joinWithSeparator(".")
+            let rejoined = keys.joined(separator: ".")
             var subdict: [String : AnyObject] = [:]
             if let sub = self[first] as? [String : AnyObject] {
                 subdict = sub
@@ -16,19 +16,19 @@ public extension Dictionary {
             if let settable = subdict as? Value {
                 self[first] = settable
             } else {
-                print("Unable to set value: \(subdict) to dictionary of type: \(self.dynamicType)")
+                print("Unable to set value: \(subdict) to dictionary of type: \(type(of: self))")
             }
         }
         
     }
     
-    public func ip_valueForKeyPath<T>(keyPath: String) -> T? {
+    public func ip_valueForKeyPath<T>(_ keyPath: String) -> T? {
         var keys = keyPath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return nil }
-        guard let value = self[first] as? AnyObject else { return nil }
-        keys.removeAtIndex(0)
+        guard let value = self[first] else { return nil }
+        keys.remove(at: 0)
         if !keys.isEmpty, let subDict = value as? [String : AnyObject] {
-            let rejoined = keys.joinWithSeparator(".")
+            let rejoined = keys.joined(separator: ".")
             return subDict.ip_valueForKeyPath(rejoined)
         }
         return value as? T

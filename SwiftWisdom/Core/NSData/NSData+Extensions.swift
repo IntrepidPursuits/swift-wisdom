@@ -12,10 +12,10 @@ public extension NSData {
     // From here: http://stackoverflow.com/a/30415543/2611971
     public var ip_hexString: String? {
         guard length > 0 else { return nil }
-        
+
         let  hexChars = Array("0123456789abcdef".utf8) as [UInt8]
-        let bufer = UnsafeBufferPointer<UInt8>(start: UnsafePointer(bytes), count: length)
-        var output = [UInt8](count: (length * 2) + 1, repeatedValue: 0)
+        let bufer = UnsafeBufferPointer<UInt8>(start: bytes.assumingMemoryBound(to: UInt8.self), count: length)
+        var output = [UInt8](repeating: 0, count: (length * 2) + 1)
         var ix: Int = 0
         bufer.forEach {
             let hi  = Int(($0 & 0xf0) >> 4)
@@ -25,7 +25,7 @@ public extension NSData {
             output[ix] = hexChars[low]
             ix += 1
         }
-        let result = String.fromCString(UnsafePointer(output))
+        let result = String(cString: UnsafePointer(output))
         return result
     }
     
@@ -36,62 +36,74 @@ public extension NSData {
     
     public var ip_intValue: Int? {
         var val: Int = 0
-        getBytes(&val, length: sizeof(Int))
+        getBytes(&val, length: MemoryLayout<Int>.size)
         return val
     }
     
     public var ip_uint8Value: UInt8? {
         var val: UInt8 = 0
-        getBytes(&val, length: sizeof(UInt8))
+        getBytes(&val, length: MemoryLayout<UInt8>.size)
         return val
     }
     
     public var ip_utf8String: String? {
-        return String(data: self, encoding: NSUTF8StringEncoding)
+        return String(data: self as Data, encoding: .utf8)
     }
     
     public var ip_asciiString: String? {
-        return String(data: self, encoding: NSASCIIStringEncoding)
+        return String(data: self as Data, encoding: .ascii)
     }
 }
 
 public extension NSData {
+
     public subscript(idx: Int) -> NSData? {
         guard length >= idx + 1 else { return nil }
-        return subdataWithRange(NSMakeRange(idx, 1))
+        return subdata(with: NSMakeRange(idx, 1)) as NSData
     }
-}
 
-public extension NSData {
+    public subscript(range: CountableRange<Int>) -> NSData? {
+        return ip_subdataFrom(range.startIndex, length: range.count)
+    }
+
     /*
     Inclusive, ie: 1 will include index 1
     */
-    public func ip_suffixFrom(startIdx: Int) -> NSData? {
+    public func ip_suffixFrom(_ startIdx: Int) -> NSData? {
         let end = length - 1
         guard startIdx <= end else { return nil }
-        return self[startIdx...end]
+        return self.ip_subdataFrom(startIdx, length: length - startIdx) // TODO: need to test
     }
     
     /*
     Inclusive, ie: 1 will include index 1
     */
-    public func ip_prefixThrough(endIdx: Int) -> NSData? {
+    public func ip_prefixThrough(_ endIdx: Int) -> NSData? {
         guard endIdx >= 0 else { return nil }
-        return self[0...endIdx]
+        return self.ip_subdataFrom(0, length: endIdx + 1) // TODO: need to test
+    }
+
+    public func ip_subdataFrom(_ idx: Int, length: Int) -> NSData? {
+        return subdata(with: NSMakeRange(idx, length)) as NSData
     }
 }
 
 public extension NSMutableData {
-    public func ip_trimRange(range: Range<Int>) {
-        let frontRange = range.startIndex - 1
-        let endRange = range.endIndex
-        
-        let prefix = ip_prefixThrough(frontRange) ?? NSData()
-        let suffix = ip_suffixFrom(endRange) ?? NSData()
-        
+    public func ip_trimRange(_ range: Range<Int>) {
+        ip_trimRange(CountableRange<Int>(range))
+    }
+
+    public func ip_trimRange(_ range: CountableRange<Int>) { // TODO: This function not tested
+        ip_trimRange(start: range.lowerBound - 1, end: range.upperBound)
+    }
+
+    private func ip_trimRange(start: Int, end: Int) { // TODO: This function not tested
+        let prefix = ip_prefixThrough(start)  ?? NSData()
+        let suffix = ip_suffixFrom(end) ?? NSData()
+
         length = 0
-        appendData(prefix)
-        appendData(suffix)
+        append(prefix as Data)
+        append(suffix as Data)
     }
 }
 
@@ -100,7 +112,7 @@ public extension NSMutableData {
 extension NSData {
     public func ip_chunks(ofLength length: Int, includeRemainder: Bool = true) -> [NSData] {
         let range = 0..<length
-        let mutable = NSMutableData(data: self)
+        let mutable = NSMutableData(data: self as Data)
         var chunks: [NSData] = []
         while mutable.length >= length {
             guard let next = mutable[range] else { break }
@@ -109,7 +121,7 @@ extension NSData {
         }
         
         if includeRemainder && mutable.length > 0 {
-            let trailingData = NSData(data: mutable)
+            let trailingData = NSData(data: mutable as Data)
             chunks.append(trailingData)
         }
         
@@ -118,17 +130,17 @@ extension NSData {
 }
 
 extension NSData {
-    public func ip_segmentGenerator(start start: Int = 0, chunkLength: Int) -> AnyGenerator<NSData> {
-        guard let segmentToWrite = ip_suffixFrom(start) else { return AnyGenerator { return nil } }
-        let mutable = NSMutableData(data: segmentToWrite)
+    public func ip_segmentGenerator(start: Int = 0, chunkLength: Int) -> AnyIterator<NSData> {
+        guard let segmentToWrite = ip_suffixFrom(start) else { return AnyIterator { return nil } }
+        let mutable = NSMutableData(data: segmentToWrite as Data)
         let range = 0..<chunkLength
-        return AnyGenerator {
+        return AnyIterator {
             let nextData: NSData?
             if mutable.length >= chunkLength {
                 nextData = mutable[range]
                 mutable.ip_trimRange(range)
             } else if mutable.length > 0 {
-                nextData = NSData(data: mutable)
+                nextData = NSData(data: mutable as Data)
                 mutable.length = 0
             } else {
                 nextData = nil
@@ -139,38 +151,31 @@ extension NSData {
 }
 
 extension NSData {
-    public func ip_subdataFrom(idx: Int, length: Int) -> NSData? {
-        return self[idx..<(idx + length)]
-    }
-}
-
-extension NSData {
     public convenience init(byte: UInt8) {
         var _byte = byte
-        self.init(bytes: &_byte, length: sizeof(UInt8))
+        self.init(bytes: &_byte, length: MemoryLayout<UInt8>.size)
     }
 }
 
 extension NSMutableData {
-    public func ip_appendByte(byte: UInt8) {
+    public func ip_appendByte(_ byte: UInt8) {
         var byte = byte
-        appendBytes(&byte, length: sizeof(UInt8))
+        append(&byte, length: MemoryLayout<UInt8>.size)
     }
     
-    public func appendUTF8String(string: String) {
+    public func appendUTF8String(_ string: String) {
         guard let data = string.ip_utf8Data else { return }
-        appendData(data)
+        append(data as Data)
     }
 }
 
 
-extension NSData {
-    public subscript(range: Range<Int>) -> NSData? {
-        guard range.startIndex >= 0 else { return nil }
-        guard length >= range.endIndex else { return nil }
-        let rangeLength = range.endIndex - range.startIndex
+extension Data {
+    public subscript(range: Range<Int>) -> Data? {
+        guard range.lowerBound >= 0 else { return nil }
+        guard count >= range.upperBound else { return nil }
+        let rangeLength = range.upperBound - range.lowerBound
         guard rangeLength > 0 else { return nil }
-        let nsrange = NSMakeRange(range.startIndex, rangeLength)
-        return subdataWithRange(nsrange)
+        return subdata(in: range)
     }
 }

@@ -6,16 +6,16 @@
 //  Copyright © 2016 Intrepid. All rights reserved.
 //
 
-extension SequenceType {
-    public func ip_toArray() -> Array<Generator.Element> {
+extension Sequence {
+    public func ip_toArray() -> Array<Iterator.Element> {
         return Array(self)
     }
 }
 
-extension SequenceType {
-    public func ip_splitFilter(@noescape filter: (Generator.Element) throws -> Bool) rethrows -> (passed: [Generator.Element], failed: [Generator.Element]) {
-        var passed: [Generator.Element] = []
-        var failed: [Generator.Element] = []
+extension Sequence {
+    public func ip_splitFilter(filter: @noescape (Iterator.Element) throws -> Bool) rethrows -> (passed: [Iterator.Element], failed: [Iterator.Element]) {
+        var passed: [Iterator.Element] = []
+        var failed: [Iterator.Element] = []
         try forEach {
             if try filter($0) {
                 passed.append($0)

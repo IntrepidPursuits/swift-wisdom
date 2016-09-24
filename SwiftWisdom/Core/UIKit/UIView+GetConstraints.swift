@@ -20,47 +20,47 @@ import UIKit
 public extension UIView {
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_widthConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Width)
+        return ip_constraintForAttribute(.width)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_heightConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Height)
+        return ip_constraintForAttribute(.height)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_topConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Top)
+        return ip_constraintForAttribute(.top)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_bottomConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Bottom)
+        return ip_constraintForAttribute(.bottom)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_leadingConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Leading)
+        return ip_constraintForAttribute(.leading)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_trailingConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Trailing)
+        return ip_constraintForAttribute(.trailing)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_centerXConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.CenterX)
+        return ip_constraintForAttribute(.centerX)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_centerYConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.CenterY)
+        return ip_constraintForAttribute(.centerY)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_aspectRatioConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.Height, toView: self, viewAttribute: .Width)
+        return ip_constraintForAttribute(.height, toView: self, viewAttribute: .width)
     }
     
     /**
@@ -73,7 +73,7 @@ public extension UIView {
      
      :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
      */
-    public func ip_constraintForAttribute(attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func ip_constraintForAttribute(_ attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
         let onView = onView ?? self
         
@@ -93,7 +93,7 @@ public extension UIView {
             
         } else {
             
-            if attribute == .Height || attribute == .Width {
+            if attribute == .height || attribute == .width {
                 //For size constraints
                 return constraints.filter { constraint in
                     return constraint.ip_isIntrinsicConstraintWithView(view: onView, andAttribute: attribute)

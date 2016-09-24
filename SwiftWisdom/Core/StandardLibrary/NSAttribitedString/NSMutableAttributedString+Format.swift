@@ -21,6 +21,7 @@ extension NSMutableAttributedString {
      */
     public convenience init(stringWithFormat string: String, applyingAttributes attributes: [String : AnyObject], toArgs args: String...) {
         let formattedArgs = args.map { arg in
+
             return NSAttributedString(string: arg, attributes: attributes)
         }
         
@@ -51,12 +52,12 @@ extension NSMutableAttributedString {
         let str = string as NSString
         self.init(string: string)
         var rangeLimit = NSMakeRange(0, str.length)
-        var insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
-        args.reverse().forEach { arg in
+        var insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
+        args.reversed().forEach { arg in
             guard insertRange.location != NSNotFound else { return }
-            self.replaceCharactersInRange(insertRange, withAttributedString: arg)
+            self.replaceCharacters(in: insertRange, with: arg)
             rangeLimit = NSMakeRange(0, insertRange.location)
-            insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
+            insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
         }
     }
 }

@@ -23,20 +23,20 @@ class CellConfiguringTests: XCTestCase, UITableViewDataSource {
     }
 
     func testIpCellForRowAtIndexPath() {
-        testTableView.registerClass(TestCell.self, forCellReuseIdentifier: TestCellIdentifier)
+        testTableView.register(TestCell.self, forCellReuseIdentifier: TestCellIdentifier)
         testTableView.reloadData()
-        let cell = testTableView.ip_cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        let cell = testTableView.ip_cellForRowAtIndexPath(IndexPath(row: 0, section: 0))
         XCTAssert(cell is TestCell)
     }
 
     // MARK: UITableViewDataSource
 
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rows.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(TestCellIdentifier)!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TestCellIdentifier)!
         return cell
     }
 }

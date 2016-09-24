@@ -9,7 +9,7 @@
 import Foundation
 
 extension NSLock {
-    public func ip_locked(@noescape closure: () throws -> Void) rethrows {
+    public func ip_locked(closure: () throws -> Void) rethrows {
         lock()
         defer { unlock() }
         try closure()

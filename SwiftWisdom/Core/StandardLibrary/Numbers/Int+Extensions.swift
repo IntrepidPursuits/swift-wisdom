@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension IntegerType {
+extension Integer {
     public var ip_isEven: Bool {
         return (self % 2) == 0
     }
@@ -18,15 +18,15 @@ extension IntegerType {
     }
 }
 
-extension IntegerType {
-    public func ip_times(@noescape closure: Block) {
+extension Integer where Self : _Strideable & Comparable, Self.Stride : SignedInteger  {
+    public func ip_times(_ closure: @escaping Block) {
         precondition(self >= 0)
         (0..<self).forEach { _ in closure() }
     }
 }
 
-extension IntegerType {
-    public func ip_toMagnitudeString(decimalPlaces decimalPlaces: Int = 1) -> String {
+extension Integer {
+    public func ip_toMagnitudeString(_ decimalPlaces: Int = 1) -> String {
         
         guard self > 999 else { return "\(self)" }
         
@@ -37,7 +37,7 @@ extension IntegerType {
         var magnitude: Int = Int(log10(value) / 3.0) // the order of magnitude of our value in thousands
         
         // divide value by 1000^magnitude to get hundreds value, then round to desired decimal places
-        var roundedHundredsValue = (value / pow(1000.0, Double(magnitude))).ip_roundToDecimalPlaces(decimalPlaces)
+        var roundedHundredsValue = (value / pow(1000.0, Double(magnitude))).round(toDecimalPlaces: decimalPlaces)
         
         // if rounding brings our display value over 1000, divide by 1000 and then bump the magnitude
         if roundedHundredsValue >= 1000 {
@@ -48,8 +48,8 @@ extension IntegerType {
         // if our number exceeds our current magnitude system return the scientific notation
         let magnitudeSuffix = units[ip_safe: magnitude - 1] ?? "E\(magnitude * 3)"
         
-        let formatter = NSNumberFormatter.decimalFormatter
-        guard let valueFormatted = formatter.stringFromNumber(roundedHundredsValue) else {
+        let formatter = NumberFormatter.decimalFormatter
+        guard let valueFormatted = formatter.string(from: NSNumber(value: roundedHundredsValue)) else {
             return "\(roundedHundredsValue)\(magnitudeSuffix)"
         }
         
@@ -57,10 +57,10 @@ extension IntegerType {
     }
 }
 
-extension NSNumberFormatter {
-    private static var decimalFormatter: NSNumberFormatter {
-        let decimalFormatter = NSNumberFormatter()
-        decimalFormatter.numberStyle = .DecimalStyle
+extension NumberFormatter {
+    fileprivate static var decimalFormatter: NumberFormatter {
+        let decimalFormatter = NumberFormatter()
+        decimalFormatter.numberStyle = .decimal
         decimalFormatter.minimumFractionDigits = 0
         return decimalFormatter
     }

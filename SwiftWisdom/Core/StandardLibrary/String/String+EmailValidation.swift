@@ -58,7 +58,7 @@ extension String {
      - returns: True if the string contains an @ followed by a . with characters before between and after.
      */
     public func ip_isValidEmail() -> Bool {
-        return rangeOfString(".@.+\\..", options: .RegularExpressionSearch) != nil
+        return range(of: ".@.+\\..", options: .regularExpression) != nil
     }
 
 
@@ -72,7 +72,7 @@ extension String {
      */
     func ip_isValidPassword(passwordRequirements: [PasswordRequirement]) -> Bool {
         for requirement in passwordRequirements {
-            let found = rangeOfString(requirement.expression, options: .RegularExpressionSearch) != nil
+            let found = range(of: requirement.expression, options: .regularExpression) != nil
             if (!requirement.exclude && !found) || (requirement.exclude && found) {
                 return false
             }
