@@ -14,7 +14,7 @@ public func Main(_ function: @escaping Block) {
 }
 
 public func Background(_ function: @escaping Block) {
-    DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.background).async(execute: function)
+    DispatchQueue.global(qos: .background).async(execute: function)
 }
 
 // MARK: Later

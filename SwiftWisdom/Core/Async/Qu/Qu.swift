@@ -115,11 +115,9 @@ public class Qu {
     
     // MARK: Completion
     
-    public func Finally(_ block: @escaping Block) -> Self {
+    @discardableResult public func Finally(_ block: @escaping Block) -> Self {
         let op = Operation(block: block)
         completion = op
-        // TODO: _ =  ... was added during Swift 3 conversion because compiler complains about unused result - evaluate whether we can remove this.
-        _ = operationQueue.setCompletion(op)
         return self
     }
     
@@ -149,7 +147,7 @@ public class Qu {
 
 // MARK: Operation
 
-class Operation : BlockOperation {
+class Operation: BlockOperation {
     
     private(set) var block: Block!
     
@@ -166,15 +164,6 @@ extension Operation {
     }
 }
 
-// MARK: Operators
-
-func +=(operationQueue: OperationQueue, block: @escaping Block) {
-    operationQueue.addOperation(block)
-}
-func +=(operationQueue: OperationQueue, operation: Foundation.Operation) {
-    operationQueue.addOperation(operation)
-}
-
 // MARK: NSOperationQueue+Operations
 
 private extension OperationQueue {
@@ -183,7 +172,8 @@ private extension OperationQueue {
     var lastOperation: Operation? {
         return ops.last
     }
-    
+
+    /// May contain operations that are currently executing or waiting to execute. These may also include opeations that were executing when the array was accessed but have subsequently finished.
     var ops: [Operation] {
         return operations as? [Operation] ?? []
     }
@@ -199,5 +189,14 @@ private extension OperationQueue {
         }
         addOperation(blockOp)
         return blockOp
+    }
+
+    // MARK: Operators
+
+    static func +=(operationQueue: OperationQueue, block: @escaping Block) {
+        operationQueue.addOperation(block)
+    }
+    static func +=(operationQueue: OperationQueue, operation: Foundation.Operation) {
+        operationQueue.addOperation(operation)
     }
 }
