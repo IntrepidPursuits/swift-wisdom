@@ -9,17 +9,19 @@
 import RxSwift
 import RxCocoa
 
-infix operator <-> {
-precedence 110
+precedencegroup Binding {
+    associativity: left
+    higherThan: Disposing
+    lowerThan: AssignmentPrecedence
 }
 
-infix operator <- {
-precedence 110
+precedencegroup Disposing {
+    associativity: left
 }
 
-infix operator >>> {
-precedence 100
-}
+infix operator <-> : Binding
+infix operator <- : Binding
+infix operator >>> : Disposing
 
 public func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
     return variable
@@ -32,7 +34,7 @@ public func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposabl
 }
 
 public func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
-    return property.subscribeNext({ variable.value = $0 })
+    return property.bindTo(variable)
 }
 
 public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
