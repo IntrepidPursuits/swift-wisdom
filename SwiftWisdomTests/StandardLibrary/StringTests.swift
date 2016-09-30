@@ -34,6 +34,10 @@ class StringTests: XCTestCase {
         XCTAssertFalse("f@b.".ip_isValidEmail())
     }
 
+
+    /** 
+    // TODO: move into PasswordRequirements file
+
     func testNoRequirements() {
         let passwordRequirements = [PasswordRequirement]()
         XCTAssert("".ip_isValidPassword(passwordRequirements))
@@ -198,4 +202,6 @@ class StringTests: XCTestCase {
         XCTAssert("^%$#a12".ip_isValidPassword(requirements))
         XCTAssert("@%@$#at12".ip_isValidPassword(requirements))
     }
+ 
+ */
 }
