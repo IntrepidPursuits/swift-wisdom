@@ -19,7 +19,7 @@ extension Integer {
 }
 
 extension Integer where Self : _Strideable & Comparable, Self.Stride : SignedInteger  {
-    public func ip_times(_ closure: @escaping Block) {
+    public func ip_times(_ closure: @escaping (Void) -> Void) {
         precondition(self >= 0)
         (0..<self).forEach { _ in closure() }
     }
