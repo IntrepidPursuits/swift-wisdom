@@ -42,7 +42,7 @@ class NSDataSubdataTests: XCTestCase {
                 .combine()
             
             
-            let subdata = data.ip_subdataFrom(previousData.count, length: compareSubdata.count)
+            let subdata = data.ip_subdataFrom(previousData.length, length: compareSubdata.length)
             XCTAssert(subdata == compareSubdata)
         }
     }
@@ -116,18 +116,18 @@ class NSDataSubdataTests: XCTestCase {
     }
 }
 
-extension ArraySlice where Element : Data {
-    func combine() -> Data {
+extension ArraySlice where Element: NSData {
+    func combine() -> NSData {
         let data = NSMutableData()
-        self.forEach(data.append(_:))
-        return (NSData(data: data) as Data)
+        self.forEach { data.append($0 as Data) }
+        return data as NSData
     }
 }
 
-extension Array where Element : Data {
-    func combine() -> Data {
+extension Array where Element: NSData {
+    func combine() -> NSData {
         let data = NSMutableData()
-        self.forEach(data.append(_:))
-        return (NSData(data: data) as Data)
+        self.forEach { data.append($0 as Data) }
+        return data as NSData
     }
 }

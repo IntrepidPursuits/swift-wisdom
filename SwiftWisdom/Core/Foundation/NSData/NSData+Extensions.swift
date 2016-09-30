@@ -74,9 +74,7 @@ public extension NSData {
     Inclusive, ie: 1 will include index 1
     */
     public func ip_suffixFrom(_ startIdx: Int) -> NSData? {
-        let end = length - 1
-        guard startIdx <= end else { return nil }
-        return self.ip_subdataFrom(startIdx, length: length - startIdx) // TODO: need to test
+        return self.ip_subdataFrom(startIdx, length: length - startIdx)
     }
     
     /*
@@ -84,11 +82,14 @@ public extension NSData {
     */
     public func ip_prefixThrough(_ endIdx: Int) -> NSData? {
         guard endIdx >= 0 else { return nil }
-        return self.ip_subdataFrom(0, length: endIdx + 1) // TODO: need to test
+        return self.ip_subdataFrom(0, length: endIdx + 1)
     }
 
     public func ip_subdataFrom(_ idx: Int, length: Int) -> NSData? {
-        return subdata(with: NSMakeRange(idx, length)) as NSData
+        let end = self.length - 1
+        guard idx <= end && idx + length <= self.length else { return nil }
+        let data = subdata(with: NSMakeRange(idx, length))
+        return data.count > 0 ? data as NSData : nil // Would expect an empty Data object to just return nil.
     }
 }
 
@@ -97,17 +98,17 @@ public extension NSMutableData {
         ip_trimRange(CountableRange<Int>(range))
     }
 
-    public func ip_trimRange(_ range: CountableRange<Int>) { // TODO: This function not tested
-        ip_trimRange(start: range.lowerBound - 1, end: range.upperBound)
+    public func ip_trimRange(_ range: CountableRange<Int>) {
+        ip_trimRange(start: range.lowerBound, end: range.upperBound - 1) // CountableRange = (non inclusive)
     }
     
-    public func ip_trimRange(_ range: CountableClosedRange<Int>) { // TODO: This function not tested
-        ip_trimRange(start: range.lowerBound - 1, end: range.upperBound)
+    public func ip_trimRange(_ range: CountableClosedRange<Int>) {
+        ip_trimRange(start: range.lowerBound, end: range.upperBound)
     }
 
-    private func ip_trimRange(start: Int, end: Int) { // TODO: This function not tested
-        let prefix = ip_prefixThrough(start)  ?? NSData()
-        let suffix = ip_suffixFrom(end) ?? NSData()
+    private func ip_trimRange(start: Int, end: Int) {
+        let prefix = ip_prefixThrough(start - 1)  ?? NSData() // Don't want to include the bottom of the range being trimmed.
+        let suffix = ip_suffixFrom(end + 1) ?? NSData() // Don't want to include the top of the range being trimmed.
 
         length = 0
         append(prefix as Data)
