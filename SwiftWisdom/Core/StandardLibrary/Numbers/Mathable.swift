@@ -43,11 +43,11 @@ extension Collection where Iterator.Element: Mathable {
     }
 }
 
-public func avg<T: Mathable>(_ numbers: T...) -> T? {
-    return avg(numbers)
+public func avg<T: Mathable>(of numbers: T...) -> T? {
+    return avg(of: numbers)
 }
 
-public func avg<T: Mathable>(_ numbers: [T]) -> T? {
+public func avg<T: Mathable>(of numbers: [T]) -> T? {
     return numbers.ip_mean()
 }
 

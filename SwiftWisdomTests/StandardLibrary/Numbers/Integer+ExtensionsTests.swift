@@ -9,7 +9,7 @@
 import XCTest
 import SwiftWisdom
 
-class IntegerTypeTests: XCTestCase {
+class IntegerExtensionTests: XCTestCase {
 
     func testEvenOdd() {
         XCTAssert(32.ip_isEven)
@@ -30,13 +30,13 @@ class IntegerTypeTests: XCTestCase {
         let formattedNumbersOnePlace = ["14", "1.2K", "15.4M", "5.7B", "8.9T", "1M", "7.7Q", "1.2E18"]
         let formattedNumbersTwoPlaces = ["14", "1.23K", "15.42M", "5.68B", "8.89T", "1M", "7.67Q", "1.23E18"]
         
-        for (index, number) in numbers.enumerate() {
+        for (index, number) in numbers.enumerated() {
             let formattedNumber = number.ip_toMagnitudeString()
             XCTAssertEqual(formattedNumber, formattedNumbersOnePlace[index])
         }
         
-        for (index, number) in numbers.enumerate() {
-            let formattedNumber = number.ip_toMagnitudeString(decimalPlaces: 2)
+        for (index, number) in numbers.enumerated() {
+            let formattedNumber = number.ip_toMagnitudeString(withDecimalPlaces: 2)
             XCTAssertEqual(formattedNumber, formattedNumbersTwoPlaces[index])
         }
     }

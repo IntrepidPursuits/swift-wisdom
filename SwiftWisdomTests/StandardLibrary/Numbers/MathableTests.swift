@@ -63,10 +63,10 @@ class MathableTests: XCTestCase {
         none.removeAll()
         let cgfloatmaths = maths.map { CGFloat($0) }
         let floatMaths = maths.map { Float($0) }
-        XCTAssertEqual(avg(maths), 5)
-        XCTAssertEqual(avg(cgfloatmaths), 5)
-        XCTAssertEqual(avg(floatMaths), 5)
-        XCTAssertEqual(avg(none), 0)
+        XCTAssertEqual(avg(of: maths), 5)
+        XCTAssertEqual(avg(of: cgfloatmaths), 5)
+        XCTAssertEqual(avg(of: floatMaths), 5)
+        XCTAssertEqual(avg(of: none), 0)
     }
 }
 

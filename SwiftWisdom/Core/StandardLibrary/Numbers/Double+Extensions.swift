@@ -9,7 +9,7 @@
 import Foundation
 
 extension Double {
-    public func round(toDecimalPlaces decimalPlaces: Int) -> Double {
+    public func ip_round(toDecimalPlaces decimalPlaces: Int) -> Double {
         let decimalShiftBase10 = pow(10.0, Double(decimalPlaces))
         let roundedNumber = (self * decimalShiftBase10).rounded()
         let shiftDecimalPlaces = roundedNumber / decimalShiftBase10

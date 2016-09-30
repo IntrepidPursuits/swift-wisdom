@@ -11,42 +11,40 @@ import Foundation
 extension UnsignedInteger {
     public static func ip_random() -> Self {
         let intMax = Int(ip_maxValue.toIntMax())
-        let rand = randomInRange(0...intMax)
+        let rand = random(inRange: 0...intMax)
         return self.init(ip_safely: rand)
     }
 }
 
-public func randomInRange(_ range: ClosedRange<Int>) -> Int {
-    // TODO: Not good API design - since closed range does not assume positive only. We should either
-    // a) rename method to indicate positive only
-    // b) remove lower bound restriction
-    assert(range.lowerBound >= 0)
+// TODO: evaluate whether we should move random to be a member of CountableClosedRange
+public func random(inRange range: CountableClosedRange<Int>) -> Int {
     let diff = range.upperBound - range.lowerBound
     let randomOffset = Int(arc4random_uniform(UInt32(diff + 1)))
     let random = range.lowerBound + randomOffset
     return random
 }
 
+// TODO: write tests for this extension
 extension UnsignedInteger {
     public init(ip_data: NSData) {
         let hexInt = ip_data.ip_hexInt ?? 0
         self.init(ip_safely: hexInt)
     }
-}
 
-extension UnsignedInteger {
+    init(ip_data: Data) {
+        // TODO: if/when Data gets ip_hexInt, use that here instead of converting
+        self.init(ip_data: NSData(data: ip_data))
+    }
+
     public func ip_containsBitMask(_ bitMask: Self) -> Bool {
         return (self & bitMask) == bitMask
     }
-}
 
-extension UnsignedInteger {
-    
     public var ip_data: Data {
         var copy = self
         return Data(bytes: &copy, count: MemoryLayout<Self>.size)
     }
-    
+
     /// Converts a bit mask into its given indexes. For example, `0b101` will return `[0,2]`
     public var ip_maskedIndexes: [Self] {
         var copy = self
@@ -62,8 +60,13 @@ extension UnsignedInteger {
         }
         return selectedIndexes
     }
+
+    public func ip_containsMask(_ mask: Self) -> Bool {
+        return (self & mask) == mask
+    }
 }
 
+// TODO: write tests for this extension
 extension UnsignedInteger {
     public static var ip_maxValue: Self {
         return ip_bitStackOfLength(ip_maximumNumberOfBits)
@@ -89,6 +92,7 @@ extension UnsignedInteger {
     }
 }
 
+// TODO: write tests for this extension
 extension UnsignedInteger {
     public init<T : SignedInteger>(ip_safely value: T) {
         if value < 0 {
@@ -110,10 +114,3 @@ extension UnsignedInteger {
         }
     }
 }
-
-extension UnsignedInteger {
-    public func ip_containsMask(_ mask: Self) -> Bool {
-        return (self & mask) == mask
-    }
-}
-
