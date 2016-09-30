@@ -88,8 +88,8 @@ public extension NSData {
     public func ip_subdataFrom(_ idx: Int, length: Int) -> NSData? {
         let end = self.length - 1
         guard idx <= end && idx + length <= self.length else { return nil }
-        let data = subdata(with: NSMakeRange(idx, length))
-        return data.count > 0 ? data as NSData : nil // Would expect an empty Data object to just return nil.
+        let data = subdata(with: NSMakeRange(idx, length)) as NSData
+        return data.length > 0 ? data : nil // Would expect an empty Data object to just return nil.
     }
 }
 
