@@ -65,6 +65,10 @@ public extension NSData {
     public subscript(range: CountableRange<Int>) -> NSData? {
         return ip_subdataFrom(range.startIndex, length: range.count)
     }
+    
+    public subscript(range: CountableClosedRange<Int>) -> NSData? {
+        return ip_subdataFrom(range.lowerBound, length: range.count)
+    }
 
     /*
     Inclusive, ie: 1 will include index 1
@@ -94,6 +98,10 @@ public extension NSMutableData {
     }
 
     public func ip_trimRange(_ range: CountableRange<Int>) { // TODO: This function not tested
+        ip_trimRange(start: range.lowerBound - 1, end: range.upperBound)
+    }
+    
+    public func ip_trimRange(_ range: CountableClosedRange<Int>) { // TODO: This function not tested
         ip_trimRange(start: range.lowerBound - 1, end: range.upperBound)
     }
 

@@ -17,6 +17,8 @@
 		1C2B1F1E1C690B6B006672D7 /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */; };
 		1C2B1F201C690F44006672D7 /* String+NSRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */; };
 		1C466C8F1C6E7A4500A709E8 /* CollectionTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */; };
+		1CE093C61D9ED0F600D825DB /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */; };
+		1CE093C71D9ED0F600D825DB /* String+NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE093C51D9ED0F600D825DB /* String+NSData.swift */; };
 		1CE3D0681C6E61A500FB676C /* Mathable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3D0671C6E61A500FB676C /* Mathable.swift */; };
 		1CE3D06B1C6E635F00FB676C /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3D0691C6E628800FB676C /* MathableTests.swift */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
@@ -64,8 +66,6 @@
 		80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */; };
 		80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D031C4F18FA00C88D00 /* String+Localization.swift */; };
 		80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */; };
-		80D63D091C4F1D6F00C88D00 /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */; };
-		80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */; };
 		80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */; };
 		80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */; };
 		80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */; };
@@ -109,6 +109,8 @@
 		1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
 		1C2B1F1F1C690F44006672D7 /* String+NSRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSRange.swift"; sourceTree = "<group>"; };
 		1C466C8E1C6E7A4500A709E8 /* CollectionTypeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionTypeTests.swift; sourceTree = "<group>"; };
+		1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
+		1CE093C51D9ED0F600D825DB /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSData.swift"; sourceTree = "<group>"; };
 		1CE3D0671C6E61A500FB676C /* Mathable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mathable.swift; sourceTree = "<group>"; };
 		1CE3D0691C6E628800FB676C /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathableTests.swift; path = SwiftWisdomTests/MathableTests.swift; sourceTree = SOURCE_ROOT; };
 		2023F99068FFCFAB6FAD725D /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,8 +166,6 @@
 		80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nibs.swift"; sourceTree = "<group>"; };
 		80D63D031C4F18FA00C88D00 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
 		80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
-		80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
-		80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSData.swift"; sourceTree = "<group>"; };
 		80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataConversionTests.swift; sourceTree = "<group>"; };
 		80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSubdataTests.swift; sourceTree = "<group>"; };
 		80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataChunksTests.swift; sourceTree = "<group>"; };
@@ -232,6 +232,15 @@
 				1C2B1F1D1C690B6B006672D7 /* NSMutableAttributedString+Format.swift */,
 			);
 			path = NSAttribitedString;
+			sourceTree = "<group>";
+		};
+		1CE093C31D9ED0F600D825DB /* NSData */ = {
+			isa = PBXGroup;
+			children = (
+				1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */,
+				1CE093C51D9ED0F600D825DB /* String+NSData.swift */,
+			);
+			path = NSData;
 			sourceTree = "<group>";
 		};
 		22193FAF2DE34CE7F5012589 /* Frameworks */ = {
@@ -354,7 +363,6 @@
 				80232BE91BF2F1BD00818B6E /* Colors */,
 				8002059C1BF683CB005852C9 /* CommonTypes */,
 				80232BEB1BF2F1BD00818B6E /* Foundation */,
-				80D63D071C4F1D6100C88D00 /* NSData */,
 				80232BEE1BF2F1BD00818B6E /* Geometry */,
 				80232BF01BF2F1BD00818B6E /* StandardLibrary */,
 				80232BF91BF2F1BD00818B6E /* UIKit */,
@@ -400,6 +408,7 @@
 		80232BEB1BF2F1BD00818B6E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				1CE093C31D9ED0F600D825DB /* NSData */,
 				800205A01BF684C7005852C9 /* Time */,
 				80232BEC1BF2F1BD00818B6E /* Defaults.swift */,
 				80D63D231C4F231C00C88D00 /* Synchronize.swift */,
@@ -550,15 +559,6 @@
 				805807E71C5D828500F9AFB1 /* VideoPlayer.swift */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		80D63D071C4F1D6100C88D00 /* NSData */ = {
-			isa = PBXGroup;
-			children = (
-				80D63D081C4F1D6F00C88D00 /* NSData+Extensions.swift */,
-				80D63D0A1C4F1DF600C88D00 /* String+NSData.swift */,
-			);
-			path = NSData;
 			sourceTree = "<group>";
 		};
 		80D63D291C4F251E00C88D00 /* Numbers */ = {
@@ -725,7 +725,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		953E60F126E3074E7E036185 /* [CP] Check Pods Manifest.lock */ = {
@@ -740,7 +740,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BEF9BEE75F4DA119E2BF60A2 /* [CP] Embed Pods Frameworks */ = {
@@ -801,7 +801,6 @@
 				80232C071BF2F1BD00818B6E /* String+Substrings.swift in Sources */,
 				80232C081BF2F1BD00818B6E /* CellConfiguring.swift in Sources */,
 				80D63D2E1C4F251E00C88D00 /* Int+Extensions.swift in Sources */,
-				80D63D091C4F1D6F00C88D00 /* NSData+Extensions.swift in Sources */,
 				80D63D241C4F231C00C88D00 /* Synchronize.swift in Sources */,
 				80232BFE1BF2F1BD00818B6E /* After.swift in Sources */,
 				80232C0D1BF2FAA100818B6E /* AppDelegate.swift in Sources */,
@@ -829,7 +828,6 @@
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
 				80D63D2D1C4F251E00C88D00 /* Bool+Extensions.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
-				80D63D0B1C4F1DF600C88D00 /* String+NSData.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				FFCA61B61C8A259100FD35A7 /* String+EmailValidation.swift in Sources */,
@@ -844,9 +842,11 @@
 				0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */,
 				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
 				80232C0F1BF2FB3800818B6E /* ViewController.swift in Sources */,
+				1CE093C71D9ED0F600D825DB /* String+NSData.swift in Sources */,
 				80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */,
 				FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */,
 				800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */,
+				1CE093C61D9ED0F600D825DB /* NSData+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

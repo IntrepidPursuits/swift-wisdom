@@ -8,16 +8,6 @@
 
 import Foundation
 
-//
-//  String+Extensions.swift
-//  bmap
-//
-//  Created by Logan Wright on 11/25/15.
-//  Copyright © 2015 Intrepid. All rights reserved.
-//
-
-import Foundation
-
 extension String {
     public var hexInt: UInt {
         return strtoul(self, nil, 16)

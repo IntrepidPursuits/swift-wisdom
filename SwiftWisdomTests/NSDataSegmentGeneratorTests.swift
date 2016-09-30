@@ -14,7 +14,7 @@ class NSDataSegmentGeneratorTests: XCTestCase {
     let dataPath = Bundle(for: NSDataSegmentGeneratorTests.self)
         .path(forResource: "mock_firmware_update", ofType: ".dfu")!
     
-    lazy var originalData: Data = try! Data(contentsOf: URL(fileURLWithPath: self.dataPath))
+    lazy var originalData: NSData = try! NSData(contentsOf: URL(fileURLWithPath: self.dataPath))
     
     let segmentLength = 100
 
@@ -22,7 +22,7 @@ class NSDataSegmentGeneratorTests: XCTestCase {
         let generator = originalData.ip_segmentGenerator(chunkLength: segmentLength)
         
         let reassembly = NSMutableData()
-        while let next = generator.next() where next.count <= segmentLength {
+        while let next = generator.next() as? Data, next.count <= segmentLength {
             reassembly.append(next)
         }
         
@@ -39,7 +39,7 @@ class NSDataSegmentGeneratorTests: XCTestCase {
                 .ip_segmentGenerator(start: startPoint, chunkLength: segmentLength)
 
             let reassembly = NSMutableData()
-            while let next = generator.next() where next.count <= segmentLength {
+            while let next = generator.next() as? Data, next.count <= segmentLength {
                 reassembly.append(next)
             }
             

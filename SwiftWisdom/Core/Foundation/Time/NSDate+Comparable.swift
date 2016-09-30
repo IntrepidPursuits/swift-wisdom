@@ -7,18 +7,19 @@
 
 import Foundation
 
-// TODO: review https://github.com/apple/swift-evolution/blob/fa75ca35911a8d20f5f38d0f19e3ab38457b4ab9/proposals/0005-objective-c-name-translation.md
-//extension Date : Comparable {}
-//
-//public func <(lhs: Date, rhs: Date) -> Bool {
-//    return lhs.timeIntervalSince1970 < rhs.timeIntervalSince1970
-//}
-//public func <=(lhs: Date, rhs: Date) -> Bool {
-//    return lhs.timeIntervalSince1970 <= rhs.timeIntervalSince1970
-//}
-//public func >=(lhs: Date, rhs: Date) -> Bool {
-//    return lhs.timeIntervalSince1970 >= rhs.timeIntervalSince1970
-//}
-//public func >(lhs: Date, rhs: Date) -> Bool {
-//    return lhs.timeIntervalSince1970 > rhs.timeIntervalSince1970
-//}
+// Date already conforms to comparable. But NSDate does not.
+
+extension NSDate : Comparable {}
+
+public func < (lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.timeIntervalSince1970 < rhs.timeIntervalSince1970
+}
+public func <= (lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.timeIntervalSince1970 <= rhs.timeIntervalSince1970
+}
+public func >= (lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.timeIntervalSince1970 >= rhs.timeIntervalSince1970
+}
+public func > (lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.timeIntervalSince1970 > rhs.timeIntervalSince1970
+}
