@@ -18,7 +18,7 @@ extension UIImage {
      - returns: a plain image of the given color
      */
     public static func ip_fromColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
-        let rect = CGRect(origin: CGPoint.zero, size: size)
+        let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContext(rect.size)
         guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }
         context.setFillColor(color.cgColor)

@@ -18,7 +18,7 @@ extension UIImage {
      - returns: the combination of the two images as a new UIImage object
      */
     public final func ip_overlayImage(_ overlayImage: UIImage, inRect innerRect: CGRect) -> UIImage {
-        let outerRect = CGRect(origin: CGPoint.zero, size: size)
+        let outerRect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContext(outerRect.size)
         draw(in: outerRect)
         overlayImage.draw(in: innerRect)

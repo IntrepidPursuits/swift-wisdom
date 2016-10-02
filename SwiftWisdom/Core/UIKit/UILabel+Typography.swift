@@ -15,7 +15,6 @@ extension UILabel {
      Sets the text of the UILabel instance to an attributed string with tracking applied
      - Parameter value: The value in points that each character is kerned to
      */
-    
     public func ip_setCharacterSpacing(_ value: CGFloat) {
         addAttribute(NSKernAttributeName, value: value)
     }
@@ -24,7 +23,6 @@ extension UILabel {
      Sets the text of the UILabel instance to an attributed string with the specified line spacing
      - Parameter value: The space, in points, between each line.
      */
-    
     public func ip_setLineSpacing(_ value: CGFloat) {
         let paragraphSpacing = NSMutableParagraphStyle()
         paragraphSpacing.lineSpacing = value
@@ -36,12 +34,12 @@ extension UILabel {
     
     private func addAttribute(_ attr: String, value: Any) {
         let attrText = mutableAttributedText()
-        attrText.addAttributes([attr:value], range: NSMakeRange(0, attrText.length))
+        attrText.addAttributes([attr : value], range: NSMakeRange(0, attrText.length))
         text = nil
         attributedText = attrText
     }
     
-    private func baseAttributes() -> [String:AnyObject] {
+    private func baseAttributes() -> [String : AnyObject] {
         return [NSFontAttributeName : font, NSForegroundColorAttributeName : textColor]
     }
     
@@ -51,7 +49,7 @@ extension UILabel {
         if let attributedText = attributedText {
             return NSMutableAttributedString(attributedString: attributedText)
         } else {
-            return NSMutableAttributedString(string: bareText, attributes: self.baseAttributes())
+            return NSMutableAttributedString(string: bareText, attributes: baseAttributes())
         }
     }
     
