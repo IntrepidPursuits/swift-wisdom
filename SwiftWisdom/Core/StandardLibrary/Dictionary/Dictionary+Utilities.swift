@@ -1,10 +1,18 @@
+//
+//  Dictionary+Utilities.swift
+//  SwiftWisdom
+//
 
-public extension Dictionary {
-    public mutating func ip_setValue(_ val: AnyObject, forKeyPath keyPath: String) {
-        var keys = keyPath.ip_keypathComponents()
+extension Dictionary {
+    /// Sets a value within a dictionary
+    ///
+    /// - parameter value:   Value to be stored
+    /// - parameter keypath: Keypath of where to store `value`
+    public mutating func ip_set(value: AnyObject, forKeypath keypath: String) {
+        var keys = keypath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return }
         keys.remove(at: 0)
-        if keys.isEmpty, let settable = val as? Value {
+        if keys.isEmpty, let settable = value as? Value {
             self[first] = settable
         } else {
             let rejoined = keys.joined(separator: ".")
@@ -12,7 +20,7 @@ public extension Dictionary {
             if let sub = self[first] as? [String : AnyObject] {
                 subdict = sub
             }
-            subdict.ip_setValue(val, forKeyPath: rejoined)
+            subdict.ip_set(value: value, forKeypath: rejoined)
             if let settable = subdict as? Value {
                 self[first] = settable
             } else {
@@ -22,14 +30,19 @@ public extension Dictionary {
         
     }
     
-    public func ip_valueForKeyPath<T>(_ keyPath: String) -> T? {
-        var keys = keyPath.ip_keypathComponents()
+    /// Finds a value (if it exists) for a provided `keypath`
+    ///
+    /// - parameter keypath: The keypath to access
+    ///
+    /// - returns: The `value` if found, else returns `nil`
+    public func ip_value<T>(forKeypath keypath: String) -> T? {
+        var keys = keypath.ip_keypathComponents()
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return nil }
         guard let value = self[first] else { return nil }
         keys.remove(at: 0)
         if !keys.isEmpty, let subDict = value as? [String : AnyObject] {
             let rejoined = keys.joined(separator: ".")
-            return subDict.ip_valueForKeyPath(rejoined)
+            return subDict.ip_value(forKeypath: rejoined)
         }
         return value as? T
     }
