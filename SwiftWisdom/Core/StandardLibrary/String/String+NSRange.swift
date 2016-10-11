@@ -25,7 +25,7 @@ extension String {
     // TODO: Ying to write tests and resolve any merge conflicts
     func range(from range: ClosedRange<Int>) -> Range<String.Index> {
         let from = index(startIndex, offsetBy: range.lowerBound)
-        let to = index(from, offsetBy: range.count - 1)
+        let to = index(from, offsetBy: range.count)
         return from..<to
     }
 }
