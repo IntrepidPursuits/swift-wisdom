@@ -1,11 +1,3 @@
-//
-//  String+Localization.swift
-//  SwiftWisdom
-//
-//  Created by Logan Wright on 1/19/16.
-//  Copyright © 2016 Intrepid. All rights reserved.
-//
-
 import Foundation
 
 extension String {

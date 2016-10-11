@@ -1,11 +1,3 @@
-//
-//  String+Substrings.swift
-//  ChristmasCheer
-//
-//  Created by Logan Wright on 10/27/15.
-//  Copyright © 2015 lowriDevs. All rights reserved.
-//
-
 import Foundation
 
 public extension String {
@@ -28,21 +20,33 @@ public extension String {
         self = self[1..<characters.count]
     }
 
-    // From http://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index/32379600#32379600
-    func ip_range(fromNSRange nsRange: NSRange) -> Range<String.Index>? {
+    /// From http://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index/32379600#32379600
+    /// Returns a String range based on an NSRange
+    ///
+    /// - parameter range: The input NSRange
+    ///
+    /// - returns: The string range
+    func ip_range(from range: NSRange) -> Range<String.Index>? {
+        guard range.location >= 0 else { return nil }
         guard
-            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),
-            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),
+            let from16 = utf16.index(utf16.startIndex, offsetBy: range.location, limitedBy: utf16.endIndex),
+            let to16 = utf16.index(from16, offsetBy: range.length, limitedBy: utf16.endIndex),
             let from = String.Index(from16, within: self),
             let to = String.Index(to16, within: self)
             else { return nil }
-        return from ..< to
+        return from..<to
     }
 
-    // TODO: consider naming 'unchecked'
-    func ip_range(from range: ClosedRange<Int>) -> Range<String.Index> {
-        let from = index(startIndex, offsetBy: range.lowerBound)
-        let to = index(startIndex, offsetBy: range.count)
+
+    /// Returns a String range based on an Int range. It is up to the caller to ensure that the
+    /// int range is not out of bounds.
+    ///
+    /// - parameter uncheckedRange: An unchecked range, meaning the range could be out of bounds.
+    ///
+    /// - returns: The string range
+    func ip_range(from uncheckedRange: ClosedRange<Int>) -> Range<String.Index> {
+        let from = index(startIndex, offsetBy: uncheckedRange.lowerBound)
+        let to = index(from, offsetBy: uncheckedRange.count)
         return from..<to
     }
 }

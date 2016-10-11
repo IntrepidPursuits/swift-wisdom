@@ -13,7 +13,7 @@ extension RawRepresentable where RawValue: Integer {
         var caseIndex: RawValue = RawValue.allZeros
         let generator: () -> Self? = {
             let next = Self.init(rawValue: caseIndex)
-            caseIndex = caseIndex.advanced(by: 1) // TODO: needs testing, was caseIndex.successor()
+            caseIndex = caseIndex.advanced(by: 1)
             return next
         }
         

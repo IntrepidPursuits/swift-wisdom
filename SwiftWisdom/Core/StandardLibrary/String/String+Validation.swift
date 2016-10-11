@@ -1,11 +1,3 @@
-//
-//  String+EmailValidation.swift
-//  SwiftWisdom
-//
-//  Created by Benjamin Wu on 3/4/16.
-//  Copyright © 2016 Intrepid. All rights reserved.
-//
-
 import Foundation
 
 public enum PasswordRequirement {
@@ -67,7 +59,7 @@ extension String {
      requirments can define if they should be excluded or appear at least once. Minimum and maximum
      length are also requirment types. Does not define any expectation beyond what is in the array of
      requirements (i.e. this function will always return true if the password requirement array is empty)
-
+     - parameter requirements: The PasswordRequirements object
      - returns: True if the string meets all of the requirments passed in
      */
     func ip_isValidPassword(requirements: [PasswordRequirement]) -> Bool {
