@@ -42,8 +42,8 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
         let task = session.downloadTask(with: url)
         task.resume()
     }
-    
-    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: NSError?) {
+
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let error = error else { return }
         updater?(.completed(.failure(error)))
         updater = nil
