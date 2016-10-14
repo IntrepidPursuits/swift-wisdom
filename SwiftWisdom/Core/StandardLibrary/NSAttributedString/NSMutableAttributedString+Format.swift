@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     
     /**
      Create a mutable attributed string with the attributes applied to all arguments.
