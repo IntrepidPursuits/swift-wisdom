@@ -11,11 +11,7 @@ import Foundation
 public final class DirectoryManager {
     
     enum DirectoryError : Error {
-        // TODO: When upgrading to 2.3 Swift, this type changed from NSURL -> NSURL?. 
-        // In swift 2.3, there are more cases in which NSURL creation can fail resulting in an error. 
-        // The existing UnableToCreatePath error was modified to capture this case rather than creating a new url-less error case.
         case unableToCreatePath(url: NSURL)
-        case unableToFindPath(url: NSURL)
         case unableToFindDirectory(name: String)
     }
     
@@ -46,22 +42,22 @@ public final class DirectoryManager {
         let filePath = directoryUrl.appendingPathComponent(targetName)
         guard let originPath = originUrl.path, let targetPath = filePath?.path else { return }
         if fileManager.fileExists(atPath: targetPath) {
-            try deleteFileWithName(targetName)
+            try deleteFile(withName: targetName)
         }
         try fileManager.moveItem(atPath: originPath, toPath: targetPath)
     }
     
     // MARK: Write
     
-    public func writeData(_ data: Data, withName name: String = UUID().uuidString) -> Bool {
+    public func write(_ data: Data, withName name: String = UUID().uuidString) -> Bool {
         let filePath = directoryUrl.appendingPathComponent(name)
         guard let path = filePath?.path else { return false }
         return ((try? data.write(to: URL(fileURLWithPath: path), options: [.atomicWrite])) != nil)
     }
     
-    public func writeDataInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _ in }) {
+    public func writeInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _ in }) {
         Background {
-            let success = self.writeData(data, withName: name)
+            let success = self.write(data, withName: name)
             Main {
                 completion(name, success)
             }
@@ -70,7 +66,7 @@ public final class DirectoryManager {
     
     // MARK: Delete
     
-    public func deleteFileWithName(_ fileName: String) throws {
+    public func deleteFile(withName fileName: String) throws {
         let fileUrl = directoryUrl.appendingPathComponent(fileName)
         guard let path = fileUrl?.path else {
             throw DirectoryError.unableToFindDirectory(name: fileName)
@@ -80,7 +76,7 @@ public final class DirectoryManager {
     
     // MARK: Fetch
     
-    public func fetchFileWithName(_ fileName: String) -> Data? {
+    public func fetchFile(withName fileName: String) -> Data? {
         let filePath = directoryUrl.appendingPathComponent(fileName)
         guard let path = filePath?.path else { return nil }
         return (try? Data(contentsOf: URL(fileURLWithPath: path)))

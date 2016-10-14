@@ -65,5 +65,5 @@ public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disp
             }
     )
     
-    return StableCompositeDisposable.create(bindToUIDisposable, bindToVariable)
+    return Disposables.create(bindToUIDisposable, bindToVariable)
 }

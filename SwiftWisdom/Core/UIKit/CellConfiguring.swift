@@ -31,7 +31,7 @@ public extension UICollectionView {
     
     // MARK: Register
 
-    public func ip_register<T>(cell: T.Type, identifier: String = T.ip_identifier) where T: UICollectionViewCell, T: TypeIdentifiable {
+    public func ip_registerCell<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionViewCell, T: TypeIdentifiable {
         if let nib = T.ip_nib {
             register(nib, forCellWithReuseIdentifier: identifier)
         } else {

@@ -1,9 +1,9 @@
 
-public func +=<T>(lhs: inout Set<T>, rhs: Set<T>) {
+public func += <T>(lhs: inout Set<T>, rhs: Set<T>) {
     lhs = lhs.union(rhs)
 }
 
-public func -=<T>(lhs: inout Set<T>, rhs: Set<T>) {
+public func -= <T>(lhs: inout Set<T>, rhs: Set<T>) {
     lhs = lhs.subtracting(rhs)
 }
 

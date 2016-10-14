@@ -65,7 +65,7 @@ public extension NSMutableAttributedString {
      - parameter arguments: comma separated list of arguments (NSAttributedString)
      */
     func ip_format(withArguments arguments: [NSAttributedString]) {
-        var rangeLimit = string.ip_nsrange
+        var rangeLimit = string.ip_fullrange
         let str = string as NSString
         var insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
         arguments.reversed().forEach { arg in
@@ -74,12 +74,5 @@ public extension NSMutableAttributedString {
             rangeLimit = NSMakeRange(0, insertRange.location)
             insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
         }
-    }
-}
-
-// TODO: move to String extensions before merging nyc/standard-library
-fileprivate extension String {
-    var ip_nsrange: NSRange {
-        return NSRange(location: 0, length: ip_length);
     }
 }

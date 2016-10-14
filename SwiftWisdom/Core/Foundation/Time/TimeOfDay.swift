@@ -42,8 +42,8 @@ public struct TimeOfDay {
     
     private let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.autoupdatingCurrent
-        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = .autoupdatingCurrent
+        dateFormatter.locale = .current
         return dateFormatter
     }()
     

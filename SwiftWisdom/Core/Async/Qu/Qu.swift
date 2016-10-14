@@ -193,10 +193,10 @@ private extension OperationQueue {
 
     // MARK: Operators
 
-    static func +=(operationQueue: OperationQueue, block: @escaping Block) {
+    static func += (operationQueue: OperationQueue, block: @escaping Block) {
         operationQueue.addOperation(block)
     }
-    static func +=(operationQueue: OperationQueue, operation: Foundation.Operation) {
+    static func += (operationQueue: OperationQueue, operation: Foundation.Operation) {
         operationQueue.addOperation(operation)
     }
 }

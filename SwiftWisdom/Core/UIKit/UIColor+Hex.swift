@@ -12,15 +12,15 @@ public extension UIColor {
     public convenience init(ip_hex hex: String) {
         var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {
-            cleanHex.dropFirst()
+            cleanHex.ip_dropFirst()
         }
         if cleanHex.characters.count != 6 {
             cleanHex = "FFFFFF"
         }
 
-        let rString = cleanHex.substring(with: cleanHex.range(from: 0...1))
-        let gString = cleanHex.substring(with: cleanHex.range(from: 2...3))
-        let bString = cleanHex.substring(with: cleanHex.range(from: 4...5))
+        let rString = cleanHex.substring(with: cleanHex.ip_range(from: 0...1))
+        let gString = cleanHex.substring(with: cleanHex.ip_range(from: 2...3))
+        let bString = cleanHex.substring(with: cleanHex.ip_range(from: 4...5))
         
         var r: CUnsignedInt = 0, g: CUnsignedInt = 0, b: CUnsignedInt = 0;
         Scanner(string: rString).scanHexInt32(&r)
