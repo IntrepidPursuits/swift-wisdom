@@ -72,7 +72,6 @@ extension UnsignedInteger {
         return ip_bitStackOfLength(ip_maximumNumberOfBits)
     }
 
-    // TODO: review!
     public static var ip_maximumNumberOfBits: Int {
         return MemoryLayout<Self>.size * 8
     }

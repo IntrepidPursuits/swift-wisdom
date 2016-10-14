@@ -9,12 +9,6 @@
 import Foundation
 
 extension String {
-    public var hexInt: UInt {
-        return strtoul(self, nil, 16)
-    }
-}
-
-extension String {
     
     /**
      Convert a hex string to NSData.  Mostly for testing
@@ -33,7 +27,7 @@ extension String {
 
         for i in stride(from: 0, through: trimmed.characters.count - 2, by: 2) {
             let byteString = trimmed[i...i + 1]
-            var byte = byteString.hexInt // was `byteString.withCString { strtoul($0, nil, 16) }`, test
+            var byte = byteString.ip_hexInt // was `byteString.withCString { strtoul($0, nil, 16) }`, test
             data?.append(&byte, length: MemoryLayout<UInt8>.size)
         }
         

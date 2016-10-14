@@ -49,10 +49,4 @@ class ArrayUtilities: XCTestCase {
         XCTAssertFalse(testArray.ip_contains(all: [14, 16]))
         XCTAssertFalse(testArray.ip_contains(all: [1, 5, 9, 10]))
     }
-
-
-
-
-
-
 }

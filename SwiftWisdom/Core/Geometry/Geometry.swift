@@ -27,7 +27,7 @@ public extension CGFloat {
 }
 
 public extension CGPoint {
-    public func ip_angleToPoint(_ comparisonPoint: CGPoint) -> CGFloat {
+    public func ip_angle(to comparisonPoint: CGPoint) -> CGFloat {
         let originX = comparisonPoint.x - self.x
         let originY = comparisonPoint.y - self.y
         let bearingRadians = atan2f(Float(originY), Float(originX))
@@ -38,7 +38,7 @@ public extension CGPoint {
         return bearingDegrees
     }
     
-    public func ip_distanceToPoint(_ point: CGPoint) -> CGFloat {
+    public func ip_distance(to point: CGPoint) -> CGFloat {
         let distX = point.x - self.x
         let distY = point.y - self.y
         let distance = sqrt(distX.ip_squared + distY.ip_squared)
@@ -46,45 +46,33 @@ public extension CGPoint {
     }
 }
 
-public func +=(left: inout CGPoint, right: CGPoint) {
+public func += (left: inout CGPoint, right: CGPoint) {
     left.x += right.x
     left.y += right.y
 }
 
-public func *(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+public func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
     return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
 }
 
-public func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+public func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 }
 
-public func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+public func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 }
 
-public func +(lhs: CGSize, rhs: CGSize) -> CGSize {
+public func + (lhs: CGSize, rhs: CGSize) -> CGSize {
     return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
 }
 
-public func -(lhs: CGSize, rhs: CGSize) -> CGSize {
+public func - (lhs: CGSize, rhs: CGSize) -> CGSize {
     return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
 }
 
-public func *(lhs: CGSize, rhs: CGFloat) -> CGSize {
+public func * (lhs: CGSize, rhs: CGFloat) -> CGSize {
     return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
-}
-
-public func random(_ range: CountableClosedRange<Int>) -> Int {
-    let first = range.lowerBound
-    let last = range.upperBound
-
-    assert(first >= 0)
-    
-    let diff = last - first
-    let randomOffset = Int(arc4random_uniform(UInt32(diff)))
-    let random = first + randomOffset
-    return random
 }
 
 public func circumferenceForRadius(_ radius: CGFloat) -> CGFloat {
@@ -175,21 +163,21 @@ public extension CGRect {
     }
     
     public var ip_shortestEdge: CGFloat {
-        return min(ip_width, ip_height)
+        return min(width, height)
     }
     
     public var ip_longestEdge: CGFloat {
-        return max(ip_width, ip_height)
+        return max(width, height)
     }
 }
 
 extension CGSize {
-    public func ip_scaledHeightAtFixedWidth(_ fixedWidth: CGFloat) -> CGFloat {
+    public func ip_scaledHeight(keepingWidth fixedWidth: CGFloat) -> CGFloat {
         let scale = height / width
         return fixedWidth * scale
     }
     
-    public func ip_scaledWidthAtFixedHeight(_ fixedHeight: CGFloat) -> CGFloat {
+    public func ip_scaledWidth(keepingHeight fixedHeight: CGFloat) -> CGFloat {
         let scale = width / height
         return fixedHeight * scale
     }

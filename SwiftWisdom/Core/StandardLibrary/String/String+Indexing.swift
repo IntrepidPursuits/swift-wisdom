@@ -15,7 +15,7 @@ public extension String {
         return String(substringCharacters)
     }
 
-    public mutating func dropFirst() {
+    public mutating func ip_dropFirst() {
         guard !isEmpty else { return }
         self = self[1..<characters.count]
     }
@@ -48,5 +48,9 @@ public extension String {
         let from = index(startIndex, offsetBy: uncheckedRange.lowerBound)
         let to = index(from, offsetBy: uncheckedRange.count)
         return from..<to
+    }
+
+    var ip_fullrange: NSRange {
+        return NSRange(location: 0, length: ip_length);
     }
 }
