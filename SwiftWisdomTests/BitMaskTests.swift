@@ -41,7 +41,6 @@ class BitMaskTests: XCTestCase {
         
         let empty = Data()
         let emptyMask = UInt8(ip_data: empty)
-        let emptyHex = empty.ip_hexInt ?? 0
-        XCTAssert(UInt8(ip_safely: emptyHex) == emptyMask)
+        XCTAssert(UInt8(0) == emptyMask)
     }
 }

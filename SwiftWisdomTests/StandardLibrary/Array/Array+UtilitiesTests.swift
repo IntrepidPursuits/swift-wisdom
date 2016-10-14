@@ -14,7 +14,7 @@ class ArrayUtilities: XCTestCase {
     func testSubArrayFromIndicesOf() {
         let testArray = [4, 8, 15, 16, 23, 42]
         let indices = testArray.ip_indices(ofElements: [15, 16, 19])
-        let subTestArray = testArray.ip_subArrayFrom(indices: indices)
+        let subTestArray = testArray.ip_subArray(fromIndices: indices)
         XCTAssert(subTestArray == [15, 16])
     }
 

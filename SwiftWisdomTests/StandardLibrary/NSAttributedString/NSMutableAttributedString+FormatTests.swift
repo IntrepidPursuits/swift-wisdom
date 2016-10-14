@@ -9,6 +9,9 @@
 import XCTest
 import SwiftWisdom
 
+private let redAttribute = [NSForegroundColorAttributeName : UIColor.red]
+private let blueAttribute = [NSForegroundColorAttributeName : UIColor.blue]
+
 class NSMutableAttributedString_FormatTests: XCTestCase {
 
     func testip_formatSetStrings() {
@@ -20,8 +23,8 @@ class NSMutableAttributedString_FormatTests: XCTestCase {
     }
 
     func testip_formatSetsAttributes() {
-        let hello = NSAttributedString(string: "hello", attributes: [NSForegroundColorAttributeName: UIColor.red])
-        let world = NSAttributedString(string: "world", attributes: [NSForegroundColorAttributeName: UIColor.blue])
+        let hello = NSAttributedString(string: "hello", attributes: redAttribute)
+        let world = NSAttributedString(string: "world", attributes: blueAttribute)
         let subject = NSMutableAttributedString(string: "%@%@")
         subject.ip_format(withArguments: [hello, world])
         XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == UIColor.red)
@@ -30,10 +33,35 @@ class NSMutableAttributedString_FormatTests: XCTestCase {
 
     func testInitFormatStringAttributesArgumentsShouldSetAttributes() {
         let subject = NSMutableAttributedString(formatString: "%@%@",
-                                                attributes: [NSForegroundColorAttributeName : UIColor.blue],
+                                                attributes: blueAttribute,
                                                 arguments: "hello", "world")
         XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == UIColor.blue)
     }
+
+
+    func testAttributedStringApplyingAttributes() {
+        let redText = NSAttributedString(string: "RED", attributes: redAttribute)
+        let testString = NSMutableAttributedString(formatString: "This color is %@",
+                                                   arguments: redText)
+
+        let otherTestString = NSMutableAttributedString(formatString: "This color is %@",
+                                                        attributes: redAttribute,
+                                                        arguments: "RED")
+
+        let blueTestString = NSMutableAttributedString(formatString: "This color is %@",
+                                                       attributes: blueAttribute,
+                                                       arguments: "RED")
+        XCTAssertEqual(testString, otherTestString)
+        XCTAssertNotEqual(otherTestString, blueTestString)
+    }
+
+    func testAttributedStringWithFormat() {
+        let redText = NSAttributedString(string: "RED", attributes: redAttribute)
+        let testString = NSMutableAttributedString(formatString: "Color: %@", arguments: redText)
+        let rangeOfRED = NSRange(location: 7, length: 3)
+        XCTAssertEqual(testString.attributedSubstring(from: rangeOfRED), redText)
+    }
+
 }
 
 // test helpers
