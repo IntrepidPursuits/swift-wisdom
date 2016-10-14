@@ -13,7 +13,7 @@ class ArrayUtilities: XCTestCase {
 
     func testSubArrayFromIndicesOf() {
         let testArray = [4, 8, 15, 16, 23, 42]
-        let indices = testArray.ip_indicesOf(elements: [15, 16, 19])
+        let indices = testArray.ip_indices(ofElements: [15, 16, 19])
         let subTestArray = testArray.ip_subArrayFrom(indices: indices)
         XCTAssert(subTestArray == [15, 16])
     }
@@ -22,11 +22,11 @@ class ArrayUtilities: XCTestCase {
         var testArray = [1, 5, 9, 14, 12]
         var result = testArray.ip_remove(object: 9)
         XCTAssertTrue(result)
-        XCTAssert(testArray = [1, 5, 14, 12])
+        XCTAssert(testArray == [1, 5, 14, 12])
 
         result = testArray.ip_remove(object: 42)
         XCTAssertFalse(result)
-        XCTAssert(testArray = [1, 5, 14, 12])
+        XCTAssert(testArray == [1, 5, 14, 12])
     }
 
     func testRemoveElements() {
@@ -39,15 +39,15 @@ class ArrayUtilities: XCTestCase {
 
     func testIndicesOf() {
         let testArray = [4, 8, 15, 16, 23, 42]
-        XCTAssert(testArray.ip_indicesOf(elements: [4, 16, 42]) == [0, 3, 5])
-        XCTAssert(testArray.ip_indicesOf(elements: [0, 1, 4]) == [NSNotFound, NSNotFound, 0])
+        XCTAssert(testArray.ip_indices(ofElements: [4, 16, 42]) == [0, 3, 5])
+        XCTAssert(testArray.ip_indices(ofElements: [0, 1, 4]) == [NSNotFound, NSNotFound, 0])
     }
 
     func testContainsAll() {
         let testArray = [1, 5, 9, 14, 12]
-        XCTAssert(testArray.ip_containsAll([1, 12]))
-        XCTAssertFalse(testArray.ip_containsAll([14, 16]))
-        XCTAssertFalse(testArray.ip_containsAll([1, 5, 9, 10]))
+        XCTAssert(testArray.ip_contains(all: [1, 12]))
+        XCTAssertFalse(testArray.ip_contains(all: [14, 16]))
+        XCTAssertFalse(testArray.ip_contains(all: [1, 5, 9, 10]))
     }
 
 
