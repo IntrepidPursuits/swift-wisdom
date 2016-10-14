@@ -1,11 +1,3 @@
-//
-//  OperatorTests.swift
-//  SwiftWisdom
-//
-//  Created by Benjamin Wu on 5/6/16.
-//  Copyright © 2016 Intrepid. All rights reserved.
-//
-
 import XCTest
 import RxSwift
 import RxCocoa
