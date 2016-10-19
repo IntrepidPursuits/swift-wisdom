@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.5.2"
+  s.version       = "0.6.0"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at intrepid pursuits.
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
   s.ios.deployment_target = "8.0"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '2.3' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
   s.default_subspec = "Core"
 
   s.subspec "Core" do |cs|
