@@ -7,7 +7,19 @@ Pod::Spec.new do |s|
                     DESC
   s.homepage      = "https://github.com/IntrepidPursuits/swift-wisdom"
   s.license       = "MIT"
-  s.authors       = { "Intrepid Pursuits" => "logan@intrepid.io" }
+  s.authors       = { "Logan Wright" => "logan@intrepid.io",
+                      "Eric Peterson" => "eric@intrepid.io",
+                      "Ying Quan Tan" => "ying@intrepid.io",
+                      "Colden Prime" => "colden@intrepid.io",
+                      "Ben Wu" => "ben@intrepid.io",
+                      "Maya Saxena" => "maya@intrepid.io",
+                      "Alex Persian" => "alex@intrepid.io",
+                      "Tom O'Malley" => "tom@intrepid.io",
+                      "Alan Scarpa" => "alan@intrepid.io",
+                      "Paul Rolfe" => "paul@intrepid.io",
+                      "Colin Tan" => "ctan@intrepid.io",
+                      "Stephen Wingchi Wong" => "stephenwong@intrepid.io"
+                    }
   s.social_media_url = 'https://twitter.com/intpd'
   s.source        = { :git => "https://github.com/IntrepidPursuits/swift-wisdom.git", :tag => "#{s.version}" }
   s.exclude_files = "tests/**/*"
