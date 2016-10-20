@@ -10,7 +10,7 @@ class OperatorTests: XCTestCase {
         let compositeDisposable = CompositeDisposable()
         let observable = Observable<String?>.never()
         XCTAssertEqual(0, compositeDisposable.count)
-        let _ = UILabel().rx.text <- observable >>> compositeDisposable
+        UILabel().rx.text <- observable >>> compositeDisposable
         XCTAssertEqual(1, compositeDisposable.count)
     }
 
