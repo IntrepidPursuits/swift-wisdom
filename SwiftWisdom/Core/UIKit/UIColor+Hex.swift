@@ -12,7 +12,7 @@ public extension UIColor {
     public convenience init(ip_hex hex: String) {
         var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {
-            cleanHex.dropFirst()
+            cleanHex.ip_dropFirst()
         }
         if cleanHex.characters.count != 6 {
             cleanHex = "FFFFFF"
