@@ -38,11 +38,11 @@ public func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Dispo
 }
 
 public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
-    return disposeBag.insert(disposable)
+    disposeBag.insert(disposable)
 }
 
-public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposable) -> CompositeDisposable.DisposeKey? {
-    return compositeDisposable.insert(disposable)
+public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposable) {
+    let _ = compositeDisposable.insert(disposable)
 }
 
 //  Operators.swift
