@@ -15,6 +15,6 @@ extension UIViewController {
     }
     
     public static var ip_nibName: String {
-        return "\(self)".componentsSeparatedByString(".").last!
+        return "\(self)".components(separatedBy: ".").last!
     }
 }

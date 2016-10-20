@@ -1,11 +1,3 @@
-//
-//  ColorDescriptorTests.swift
-//  SwiftWisdom
-//
-//  Created by Logan Wright on 1/30/16.
-//  Copyright © 2016 Intrepid. All rights reserved.
-//
-
 import XCTest
 @testable import SwiftWisdom
 
@@ -23,10 +15,10 @@ class ColorDescriptorTests: XCTestCase {
         XCTAssert(descriptor.color == color)
     }
     
-    func testHex() {
-        let hex = "#4fdac1"
-        let descriptor = ColorDescriptor(hex)
-        let color = UIColor(ip_hex: hex)
-        XCTAssert(descriptor.color == color)
+    func testIpHex() {
+        XCTAssert(UIColor(ip_hex: "#FFFFFF") == UIColor(red: 1, green: 1, blue: 1, alpha: 1))
+        XCTAssert(UIColor(ip_hex: "#00FFFF") == UIColor(red: 0, green: 1, blue: 1, alpha: 1))
+        XCTAssert(UIColor(ip_hex: "#FF00FF") == UIColor(red: 1, green: 0, blue: 1, alpha: 1))
+        XCTAssert(UIColor(ip_hex: "#FFFF00") == UIColor(red: 1, green: 1, blue: 0, alpha: 1))
     }
 }

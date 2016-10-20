@@ -17,11 +17,10 @@ class DoubleTests: XCTestCase {
         let roundedToTwoDecimalPlaces = [3.14, 5.02, 10.01, 9999.99]
         let roundedToFiveDecimalPlaces = [3.14159, 5.0156, 10.014, 9999.99499]
         
-        for (index, unroundedDouble) in unroundedDoubles.enumerate() {
-            XCTAssertEqual(unroundedDouble.ip_roundToDecimalPlaces(1), roundedToOneDecimalPlaces[index])
-            XCTAssertEqual(unroundedDouble.ip_roundToDecimalPlaces(2), roundedToTwoDecimalPlaces[index])
-            XCTAssertEqual(unroundedDouble.ip_roundToDecimalPlaces(5), roundedToFiveDecimalPlaces[index])
+        for (index, unroundedDouble) in unroundedDoubles.enumerated() {
+            XCTAssertEqual(unroundedDouble.ip_round(toDecimalPlaces: 1), roundedToOneDecimalPlaces[index])
+            XCTAssertEqual(unroundedDouble.ip_round(toDecimalPlaces: 2), roundedToTwoDecimalPlaces[index])
+            XCTAssertEqual(unroundedDouble.ip_round(toDecimalPlaces: 5), roundedToFiveDecimalPlaces[index])
         }
-        
     }
 }

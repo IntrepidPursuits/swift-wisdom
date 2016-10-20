@@ -11,6 +11,6 @@
  
       let newNames = ["Joe", "Betty"].filter(!existingNames.contains)
  */
-public prefix func ! <T>(original: T -> Bool) -> T -> Bool {
+public prefix func ! <T>(original: @escaping (T) -> Bool) -> (T) -> Bool {
     return { !original($0) }
 }

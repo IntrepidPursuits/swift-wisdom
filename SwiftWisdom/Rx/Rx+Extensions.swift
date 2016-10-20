@@ -9,41 +9,40 @@
 import RxSwift
 import RxCocoa
 
-infix operator <-> {
-precedence 110
+precedencegroup Binding {
+    associativity: left
+    higherThan: Disposing
+    lowerThan: AssignmentPrecedence
 }
 
-infix operator <- {
-precedence 110
+precedencegroup Disposing {
+    associativity: left
 }
 
-infix operator >>> {
-precedence 100
-}
+infix operator <-> : Binding
+infix operator <- : Binding
+infix operator >>> : Disposing
 
-@warn_unused_result(message="http://git.io/rxs.uo")
 public func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
     return variable
         .observeOn(MainScheduler.instance)
         .bindTo(property)
 }
 
-@warn_unused_result(message="http://git.io/rxs.uo")
 public func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposable {
     return property <- variable.asObservable()
 }
 
-@warn_unused_result(message="http://git.io/rxs.uo")
 public func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
-    return property.subscribeNext({ variable.value = $0 })
+    return property.bindTo(variable)
 }
 
 public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
-    disposeBag.addDisposable(disposable)
+    disposeBag.insert(disposable)
 }
 
 public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposable) {
-    compositeDisposable.addDisposable(disposable)
+    let _ = compositeDisposable.insert(disposable)
 }
 
 //  Operators.swift
@@ -52,7 +51,6 @@ public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposabl
 //  Created by Krunoslav Zaher on 12/6/15.
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //  https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Operators.swift
-@warn_unused_result(message="http://git.io/rxs.uo")
 public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
     let bindToUIDisposable = variable
         .asObservable()
@@ -67,5 +65,5 @@ public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disp
             }
     )
     
-    return StableCompositeDisposable.create(bindToUIDisposable, bindToVariable)
+    return Disposables.create(bindToUIDisposable, bindToVariable)
 }

@@ -15,7 +15,7 @@ import IP_UIKit_Wisdom
 
 extension AVAsset {
     public var naturalVideoSize: CGSize? {
-        return tracksWithMediaType(AVMediaTypeVideo).first?.naturalSize
+        return tracks(withMediaType: AVMediaTypeVideo).first?.naturalSize
     }
 }
 
@@ -28,7 +28,7 @@ extension AVPlayerViewController {
 
 extension AVURLAsset {
     public convenience init(video: Video) {
-        self.init(URL: video.url)
+        self.init(url: video.url)
     }
 }
 
@@ -44,15 +44,15 @@ extension AVPlayerItem {
 public struct Video {
     public let fileName: String
     public let type: String
-    public let bundle: NSBundle
+    public let bundle: Bundle
     
-    public let url: NSURL
+    public let url: URL
     
-    public init?(fileName: String, type: String, bundle: NSBundle = NSBundle.mainBundle()) {
+    public init?(fileName: String, type: String, bundle: Bundle = Bundle.main) {
         self.fileName = fileName
         self.type = type
         self.bundle = bundle
-        guard let url = bundle.URLForResource(fileName, withExtension: type) else { return nil }
+        guard let url = bundle.url(forResource: fileName, withExtension: type) else { return nil }
         self.url = url
     }
 }
@@ -68,7 +68,7 @@ public protocol VideoPlayerDelegate : class {
      
      - returns: a boolean indicating whether or not the video should start again
      */
-    func videoPlayerDidFinish(player: VideoPlayer) -> Bool
+    func videoPlayerDidFinish(_ player: VideoPlayer) -> Bool
 }
 
 /**
@@ -91,7 +91,7 @@ public final class VideoPlayer : UIViewController {
         
         let item = AVPlayerItem(video: video)
         self.player = AVQueuePlayer(items: [item])
-        self.player.actionAtItemEnd = .Pause
+        self.player.actionAtItemEnd = .pause
         
         self.playerController.player = self.player
         super.init(nibName: nil, bundle: nil)
@@ -122,30 +122,30 @@ public final class VideoPlayer : UIViewController {
     
     public func finishEarly() {
         player.pause()
-        delegate?.videoPlayerDidFinish(self)
+        _ = delegate?.videoPlayerDidFinish(self)
     }
     
     // MARK: Setup
     
     private func setup() {
         setupPlayer()
-        view.backgroundColor = .whiteColor()
+        view.backgroundColor = .white
     }
     
-    private func setupItemNotification(item: AVPlayerItem) {
-        NSNotificationCenter.defaultCenter().addObserver(
+    private func setupItemNotification(_ item: AVPlayerItem) {
+        NotificationCenter.default.addObserver(
             self,
             selector: #selector(VideoPlayer.videoDidFinish(_:)),
-            name: AVPlayerItemDidPlayToEndTimeNotification,
+            name: NSNotification.Name.AVPlayerItemDidPlayToEndTime,
             object: item
         )
     }
     
     private func setupPlayer() {
         playerController.showsPlaybackControls = false
-        playerController.view.backgroundColor = UIColor.whiteColor()
+        playerController.view.backgroundColor = UIColor.white
         ip_addChildViewController(playerController)
-        view.constrainViewToAllEdges(playerController.view)
+        view.constrainView(toAllEdges: playerController.view)
     }
     
     // MARK: Completion
@@ -158,13 +158,13 @@ public final class VideoPlayer : UIViewController {
     }
     
     public func restartVideoFromBeginning()  {
-        player.seekToTime(kCMTimeZero)
+        player.seek(to: kCMTimeZero)
         play()
     }
     
     // MARK: Notifications
     
-    dynamic private func videoDidFinish(note: NSNotification) {
+    dynamic private func videoDidFinish(_ note: Notification) {
         videoQueueComplete()
     }
 }

@@ -15,7 +15,7 @@ protocol SoundFile {
 extension SoundFile {
     
     private var nameComponents: [String] {
-        return soundFile.componentsSeparatedByString(".")
+        return soundFile.components(separatedBy: ".")
     }
     
     private var name: String {
@@ -27,16 +27,16 @@ extension SoundFile {
     }
     
     private var path: String {
-        return NSBundle.mainBundle().pathForResource(name, ofType: type)!
+        return Bundle.main.path(forResource: name, ofType: type)!
     }
     
-    private var url: NSURL {
-        return NSURL.fileURLWithPath(path)
+    private var url: URL {
+        return URL(fileURLWithPath: path)
     }
     
     func play() {
         var soundID: SystemSoundID = SystemSoundID(kSystemSoundID_Vibrate)
-        AudioServicesCreateSystemSoundID((url as CFURLRef), &soundID)
+        AudioServicesCreateSystemSoundID((url as CFURL), &soundID)
         AudioServicesPlaySystemSound(soundID)
     }
 }

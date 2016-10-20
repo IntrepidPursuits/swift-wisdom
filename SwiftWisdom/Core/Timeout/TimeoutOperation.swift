@@ -14,17 +14,17 @@ import Foundation
  
  Setting to `nil` or calling `cancel()` will abort the timeout.
  */
-public class TimeoutOperation : NSOperation {
+public class TimeoutOperation : Foundation.Operation {
     
     private(set) var block: Block?
     
-    private let duration: NSTimeInterval
-    private let queue: dispatch_queue_t
+    private let duration: TimeInterval
+    private let queue: DispatchQueue
 
-    public init(duration: NSTimeInterval = 30,
-                runQueue: dispatch_queue_t = dispatch_get_main_queue(),
-                timeoutQueue: NSOperationQueue = NSOperationQueue(),
-                block: Block) {
+    public init(duration: TimeInterval = 30,
+                runQueue: DispatchQueue = DispatchQueue.main,
+                timeoutQueue: OperationQueue = OperationQueue(),
+                block: @escaping Block) {
         
         self.duration = duration
         self.block = block
@@ -36,7 +36,7 @@ public class TimeoutOperation : NSOperation {
     
     override public func main() {
         After(duration, on: queue) { [weak self] in
-            if let cancelled = self?.cancelled, let block = self?.block where !cancelled {
+            if let cancelled = self?.isCancelled, let block = self?.block, !cancelled {
                 block()
             }
         }

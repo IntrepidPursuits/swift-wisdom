@@ -27,7 +27,7 @@ public extension CGFloat {
 }
 
 public extension CGPoint {
-    public func ip_angleToPoint(comparisonPoint: CGPoint) -> CGFloat {
+    public func ip_angle(to comparisonPoint: CGPoint) -> CGFloat {
         let originX = comparisonPoint.x - self.x
         let originY = comparisonPoint.y - self.y
         let bearingRadians = atan2f(Float(originY), Float(originX))
@@ -38,7 +38,7 @@ public extension CGPoint {
         return bearingDegrees
     }
     
-    public func ip_distanceToPoint(point: CGPoint) -> CGFloat {
+    public func ip_distance(to point: CGPoint) -> CGFloat {
         let distX = point.x - self.x
         let distY = point.y - self.y
         let distance = sqrt(distX.ip_squared + distY.ip_squared)
@@ -46,62 +46,52 @@ public extension CGPoint {
     }
 }
 
-public func +=(inout left: CGPoint, right: CGPoint) {
+public func += (left: inout CGPoint, right: CGPoint) {
     left.x += right.x
     left.y += right.y
 }
 
-public func *(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+public func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
     return CGPoint(x: lhs.x * rhs, y: lhs.y * rhs)
 }
 
-public func -(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+public func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 }
 
-public func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+public func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
     return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 }
 
-public func +(lhs: CGSize, rhs: CGSize) -> CGSize {
+public func + (lhs: CGSize, rhs: CGSize) -> CGSize {
     return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
 }
 
-public func -(lhs: CGSize, rhs: CGSize) -> CGSize {
+public func - (lhs: CGSize, rhs: CGSize) -> CGSize {
     return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
 }
 
-public func *(lhs: CGSize, rhs: CGFloat) -> CGSize {
+public func * (lhs: CGSize, rhs: CGFloat) -> CGSize {
     return CGSize(width: lhs.width * rhs, height: lhs.height * rhs)
 }
 
-public func random(range: Range<Int>) -> Int {
-    guard let first = range.first, let last = range.last else { return 0 }
-    assert(range.first >= 0)
-    
-    let diff = last - first
-    let randomOffset = Int(arc4random_uniform(UInt32(diff)))
-    let random = first + randomOffset
-    return random
-}
-
-public func circumferenceForRadius(radius: CGFloat) -> CGFloat {
+public func circumferenceForRadius(_ radius: CGFloat) -> CGFloat {
     return radius * CGFloat(M_PI * 2)
 }
 
-public func lengthOfArcForDegrees(degrees: CGFloat, radius: CGFloat) -> CGFloat {
+public func lengthOfArcForDegrees(_ degrees: CGFloat, radius: CGFloat) -> CGFloat {
     let circumference = circumferenceForRadius(radius)
     let percentage = degrees / 360.0
     return circumference * percentage
 }
 
-public func degreesForLengthOfArc(lengthOfArc: CGFloat, radius: CGFloat) -> CGFloat {
+public func degreesForLengthOfArc(_ lengthOfArc: CGFloat, radius: CGFloat) -> CGFloat {
     let circumference = circumferenceForRadius(radius)
     let percentage = lengthOfArc / circumference
     return percentage * 360
 }
 
-public func pointWithCenter(center: CGPoint, radius: CGFloat, angleDegrees: CGFloat) -> CGPoint {
+public func pointWithCenter(_ center: CGPoint, radius: CGFloat, angleDegrees: CGFloat) -> CGPoint {
     let x = radius * cos(angleDegrees.ip_radians) + center.x
     let y = radius * sin(angleDegrees.ip_radians) + center.y
     return CGPoint(x: x, y: y)
@@ -110,7 +100,7 @@ public func pointWithCenter(center: CGPoint, radius: CGFloat, angleDegrees: CGFl
 public extension CGRect {
     public var ip_width: CGFloat {
         get {
-            return CGRectGetWidth(self)
+            return self.width
         }
         set(width) {
             size.width = width
@@ -128,7 +118,7 @@ public extension CGRect {
     
     public var ip_height: CGFloat {
         get {
-            return CGRectGetHeight(self)
+            return self.height
         }
         set(height) {
             size.height = height
@@ -156,7 +146,7 @@ public extension CGRect {
     
     public var ip_midX: CGFloat {
         get {
-            return CGRectGetMidX(self)
+            return self.midX
         }
         set {
             origin.x = newValue - ip_halfWidth
@@ -165,7 +155,7 @@ public extension CGRect {
     
     public var ip_midY: CGFloat {
         get {
-            return CGRectGetMidY(self)
+            return self.midY
         }
         set {
             origin.y = newValue - ip_halfHeight
@@ -173,21 +163,21 @@ public extension CGRect {
     }
     
     public var ip_shortestEdge: CGFloat {
-        return min(ip_width, ip_height)
+        return min(width, height)
     }
     
     public var ip_longestEdge: CGFloat {
-        return max(ip_width, ip_height)
+        return max(width, height)
     }
 }
 
 extension CGSize {
-    public func ip_scaledHeightAtFixedWidth(fixedWidth: CGFloat) -> CGFloat {
+    public func ip_scaledHeight(keepingWidth fixedWidth: CGFloat) -> CGFloat {
         let scale = height / width
         return fixedWidth * scale
     }
     
-    public func ip_scaledWidthAtFixedHeight(fixedHeight: CGFloat) -> CGFloat {
+    public func ip_scaledWidth(keepingHeight fixedHeight: CGFloat) -> CGFloat {
         let scale = width / height
         return fixedHeight * scale
     }
@@ -205,13 +195,13 @@ extension CGRect {
     public var ip_bottomMiddle: CGPoint { return CGPoint(x: midX, y: maxY) }
 }
 
-public func avg(points: CGPoint...) -> CGPoint {
+public func avg(_ points: CGPoint...) -> CGPoint {
     return avg(points)
 }
 
-public func avg(points: [CGPoint]) -> CGPoint {
+public func avg(_ points: [CGPoint]) -> CGPoint {
     let count = CGFloat(points.count)
-    let x = points.map { $0.x } .reduce(0, combine: +) / count
-    let y = points.map { $0.y } .reduce(0, combine: +) / count
+    let x = points.map { $0.x } .reduce(0, +) / count
+    let y = points.map { $0.y } .reduce(0, +) / count
     return CGPoint(x: x, y: y)
 }

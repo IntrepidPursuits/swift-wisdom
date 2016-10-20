@@ -15,7 +15,7 @@ public struct Version {
     
     public init?(string: String) {
         let components = string
-            .componentsSeparatedByString(".")
+            .components(separatedBy: ".")
         guard components.count > 0, let major = Int(components[0]) else { return nil }
         self.major = major
         

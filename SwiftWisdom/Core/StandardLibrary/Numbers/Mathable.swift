@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 public protocol Mathable: Comparable {
-    func + (lhs: Self, rhs: Self) -> Self
-    func / (lhs: Self, rhs: Self) -> Self
-    func * (lhs: Self, rhs: Self) -> Self
-    func - (lhs: Self, rhs: Self) -> Self
+    static func + (lhs: Self, rhs: Self) -> Self
+    static func / (lhs: Self, rhs: Self) -> Self
+    static func * (lhs: Self, rhs: Self) -> Self
+    static func - (lhs: Self, rhs: Self) -> Self
     init(_ int: IntMax)
 }
 
@@ -23,31 +23,31 @@ extension Mathable {
     }
 }
 
-extension CollectionType where Generator.Element: Mathable {
-    public func ip_mean() -> Generator.Element {
-        let zero = Generator.Element.zero
-        let count = Generator.Element(self.count.toIntMax())
+extension Collection where Iterator.Element: Mathable {
+    public func ip_mean() -> Iterator.Element {
+        let zero = Iterator.Element.zero
+        let count = Iterator.Element(self.count.toIntMax())
         guard count > zero else { return zero }
-        return reduce(zero, combine: +) / count
+        return reduce(zero, +) / count
     }
     
-    public func ip_median() -> Generator.Element {
-        let zero = Generator.Element.zero
-        let count = Generator.Element(self.count.toIntMax())
+    public func ip_median() -> Iterator.Element {
+        let zero = Iterator.Element.zero
+        let count = Iterator.Element(self.count.toIntMax())
         guard count > zero else { return zero }
-        return sort(<).ip_middleElements.ip_mean()
+        return sorted(by: <).ip_middleElements.ip_mean()
     }
     
-    public func ip_mode() -> [Generator.Element] {
+    public func ip_mode() -> [Iterator.Element] {
         return ip_mostCommonElements()
     }
 }
 
-public func avg<T: Mathable>(numbers: T...) -> T? {
-    return avg(numbers)
+public func avg<T: Mathable>(of numbers: T...) -> T? {
+    return avg(of: numbers)
 }
 
-public func avg<T: Mathable>(numbers: [T]) -> T? {
+public func avg<T: Mathable>(of numbers: [T]) -> T? {
     return numbers.ip_mean()
 }
 

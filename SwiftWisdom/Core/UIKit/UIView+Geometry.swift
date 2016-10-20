@@ -10,13 +10,13 @@ import UIKit
 
 extension UIView {
     public var ip_width: CGFloat {
-        return CGRectGetWidth(bounds)
+        return bounds.width
     }
     public var ip_halfWidth: CGFloat {
         return ip_width / 2.0
     }
     public var ip_height: CGFloat {
-        return CGRectGetHeight(bounds)
+        return bounds.height
     }
     public var ip_halfHeight: CGFloat {
         return ip_height / 2.0
@@ -26,7 +26,7 @@ extension UIView {
 extension UIView {
     public var ip_frameOrigin: CGPoint {
         get {
-            return CGRectStandardize(frame).origin
+            return frame.standardized.origin
         }
         set {
             frame.origin = newValue
@@ -35,7 +35,7 @@ extension UIView {
 
     public var ip_frameSize: CGSize {
         get {
-            return CGRectStandardize(frame).size
+            return frame.standardized.size
         }
         set {
             frame.size = newValue
@@ -44,7 +44,7 @@ extension UIView {
     
     public var ip_frameX: CGFloat {
         get {
-            return CGRectGetMinX(frame)
+            return frame.minX
         }
         set {
             frame.origin.x = newValue
@@ -53,7 +53,7 @@ extension UIView {
     
     public var ip_frameY: CGFloat {
         get {
-            return CGRectGetMinY(frame)
+            return frame.minY
         }
         set {
             frame.origin.y = newValue
@@ -62,7 +62,7 @@ extension UIView {
     
     public var ip_frameWidth: CGFloat {
         get {
-            return CGRectGetWidth(frame)
+            return frame.width
         }
         set {
             frame.size.width = newValue
@@ -71,7 +71,7 @@ extension UIView {
     
     public var ip_frameHeight: CGFloat {
         get {
-            return CGRectGetHeight(frame)
+            return frame.height
         }
         set {
             frame.size.height = newValue
@@ -80,7 +80,7 @@ extension UIView {
     
     public var ip_frameMidX: CGFloat {
         get {
-            return CGRectGetMidX(frame)
+            return frame.midX
         }
         set {
             frame.origin.x = newValue - ip_halfWidth
@@ -89,7 +89,7 @@ extension UIView {
     
     public var ip_frameMidY: CGFloat {
         get {
-            return CGRectGetMidY(frame)
+            return frame.midY
         }
         set {
             frame.origin.y = newValue - ip_halfHeight
@@ -98,7 +98,7 @@ extension UIView {
     
     public var ip_frameMaxX: CGFloat {
         get {
-            return CGRectGetMaxX(frame)
+            return frame.maxX
         }
         set {
             frame.origin.x = newValue - ip_width
@@ -107,7 +107,7 @@ extension UIView {
     
     public var ip_frameMaxY: CGFloat {
         get {
-            return CGRectGetMaxY(frame)
+            return frame.maxY
         }
         set {
             frame.origin.y = newValue - ip_height
@@ -129,7 +129,7 @@ extension UIView {
 extension UIView {
     public var ip_boundsOrigin: CGPoint {
         get {
-            return CGRectStandardize(bounds).origin
+            return bounds.standardized.origin
         }
         set {
             bounds.origin = newValue
@@ -138,7 +138,7 @@ extension UIView {
     
     public var ip_boundsSize: CGSize {
         get {
-            return CGRectStandardize(bounds).size
+            return bounds.standardized.size
         }
         set {
             bounds.size = newValue
@@ -147,7 +147,7 @@ extension UIView {
     
     public var ip_boundsX: CGFloat {
         get {
-            return CGRectGetMinX(bounds)
+            return bounds.minX
         }
         set {
             bounds.origin.x = newValue
@@ -156,7 +156,7 @@ extension UIView {
     
     public var ip_boundsY: CGFloat {
         get {
-            return CGRectGetMinY(bounds)
+            return bounds.minY
         }
         set {
             bounds.origin.y = newValue
@@ -165,7 +165,7 @@ extension UIView {
     
     public var ip_boundsWidth: CGFloat {
         get {
-            return CGRectGetWidth(bounds)
+            return bounds.width
         }
         set {
             bounds.size.width = newValue
@@ -174,7 +174,7 @@ extension UIView {
     
     public var ip_boundsHeight: CGFloat {
         get {
-            return CGRectGetHeight(bounds)
+            return bounds.height
         }
         set {
             bounds.size.height = newValue
@@ -183,7 +183,7 @@ extension UIView {
     
     public var ip_boundsMidX: CGFloat {
         get {
-            return CGRectGetMidX(bounds)
+            return bounds.midX
         }
         set {
             bounds.origin.x = newValue - ip_halfWidth
@@ -192,7 +192,7 @@ extension UIView {
     
     public var ip_boundsMidY: CGFloat {
         get {
-            return CGRectGetMidY(bounds)
+            return bounds.midY
         }
         set {
             bounds.origin.y = newValue - ip_halfHeight
@@ -201,7 +201,7 @@ extension UIView {
     
     public var ip_boundsMaxX: CGFloat {
         get {
-            return CGRectGetMaxX(frame)
+            return frame.maxX
         }
         set {
             bounds.origin.x = newValue - ip_width
@@ -210,7 +210,7 @@ extension UIView {
     
     public var ip_boundsMaxY: CGFloat {
         get {
-            return CGRectGetMaxY(bounds)
+            return bounds.maxY
         }
         set {
             bounds.origin.y = newValue - ip_height

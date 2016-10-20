@@ -36,9 +36,9 @@ class NSDataSubdataTests: XCTestCase {
         let outOfRange = data.ip_subdataFrom(0, length: data.length + 1)
         XCTAssert(outOfRange == nil)
         
-        subdataArray.enumerate().forEach { idx, compareSubdata in
+        subdataArray.enumerated().forEach { idx, compareSubdata in
             let previousData = subdataArray
-                .prefixUpTo(idx)
+                .prefix(upTo: idx)
                 .combine()
             
             
@@ -52,7 +52,7 @@ class NSDataSubdataTests: XCTestCase {
         let one = "87"
         let two = "4f"
         let three = "a0"
-        let combination = [zero, one, two, three].joinWithSeparator("")
+        let combination = [zero, one, two, three].joined(separator: "")
         let data = combination.ip_dataFromHexadecimalString()!
         
         let zeroData = data[0]!
@@ -72,17 +72,17 @@ class NSDataSubdataTests: XCTestCase {
     }
     
     func testPrefixSuffix() {
-        let prefix = "af43 efda 651a".ip_dataFromHexadecimalString()!
-        let suffix = "f4b4 2343".ip_dataFromHexadecimalString()!
+        let prefix = "af43 efda 651a".ip_dataFromHexadecimalString() as! Data
+        let suffix = "f4b4 2343".ip_dataFromHexadecimalString() as! Data
         
         let data = NSMutableData()
-        data.appendData(prefix)
-        data.appendData(suffix)
+        data.append(prefix)
+        data.append(suffix)
         
-        let gotPrefix = data.ip_prefixThrough(prefix.length - 1)
+        let gotPrefix = data.ip_prefixThrough(prefix.count - 1) as? Data
         XCTAssert(gotPrefix == prefix)
         
-        let gotSuffix = data.ip_suffixFrom(prefix.length)
+        let gotSuffix = data.ip_suffixFrom(prefix.count) as? Data
         XCTAssert(gotSuffix == suffix)
         
         let emptyPrefix = data.ip_prefixThrough(-1)
@@ -97,7 +97,7 @@ class NSDataSubdataTests: XCTestCase {
         let one = "87"
         let two = "4f"
         let three = "a0"
-        let combination = [zero, one, two, three].joinWithSeparator("")
+        let combination = [zero, one, two, three].joined(separator: "")
         let data = combination.ip_dataFromHexadecimalString()!
         
         let getZeroAndOne = data[0...1]
@@ -116,18 +116,18 @@ class NSDataSubdataTests: XCTestCase {
     }
 }
 
-extension ArraySlice where Element : NSData {
+extension ArraySlice where Element: NSData {
     func combine() -> NSData {
         let data = NSMutableData()
-        forEach(data.appendData)
-        return NSData(data: data)
+        self.forEach { data.append($0 as Data) }
+        return data as NSData
     }
 }
 
-extension Array where Element : NSData {
+extension Array where Element: NSData {
     func combine() -> NSData {
         let data = NSMutableData()
-        forEach(data.appendData)
-        return NSData(data: data)
+        self.forEach { data.append($0 as Data) }
+        return data as NSData
     }
 }

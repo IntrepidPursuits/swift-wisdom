@@ -19,44 +19,44 @@ extension ColorPalette {
 }
 
 public enum ColorDescriptor {
-    case PatternImage(imageName: String)
-    case RGB255(r: Int, g: Int, b: Int, a: Int)
-    case RGBFloat(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat)
-    case Hex(hex: String)
+    case patternImage(imageName: String)
+    case rgb255(r: Int, g: Int, b: Int, a: Int)
+    case rgbFloat(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat)
+    case hex(hex: String)
 }
 
-extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatable {
+extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equatable {
     public typealias RawValue = StringLiteralType
     public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
     public typealias UnicodeScalarLiteralType = StringLiteralType
     
     public var color: UIColor {
         switch self {
-        case let .PatternImage(imageName: imageName):
+        case let .patternImage(imageName: imageName):
             let image = UIImage(named: imageName)!
             return UIColor(patternImage: image)
-        case let .RGB255(r: ri, g: gi, b: bi, a: ai):
+        case let .rgb255(r: ri, g: gi, b: bi, a: ai):
             let r = CGFloat(ri)
             let g = CGFloat(gi)
             let b = CGFloat(bi)
             let a = CGFloat(ai)
             return UIColor(red: r / 255, green: g / 255, blue: b / 255, alpha: a / 255)
-        case let .RGBFloat(r: r, g: g, b: b, a: a):
+        case let .rgbFloat(r: r, g: g, b: b, a: a):
             return UIColor(red: r, green: g, blue: b, alpha: a)
-        case let .Hex(hex: hex):
+        case let .hex(hex: hex):
             return UIColor(ip_hex: hex)
         }
     }
     
     public var rawValue: RawValue {
         switch self {
-        case let .PatternImage(imageName: imageName):
+        case let .patternImage(imageName: imageName):
             return imageName
-        case let .RGB255(r: r, g: g, b: b, a: a):
+        case let .rgb255(r: r, g: g, b: b, a: a):
             return "\(r),\(g),\(b),\(a)"
-        case let .RGBFloat(r: r, g: g, b: b, a: a):
+        case let .rgbFloat(r: r, g: g, b: b, a: a):
             return "\(r),\(g),\(b),\(a)"
-        case let .Hex(hex: hex):
+        case let .hex(hex: hex):
             return hex
         }
     }
@@ -80,22 +80,22 @@ extension ColorDescriptor : StringLiteralConvertible, RawRepresentable, Equatabl
     }
     
     public init(_ string: String) {
-        let rgbComponents = string.componentsSeparatedByString(",")
+        let rgbComponents = string.components(separatedBy: ",")
         if rgbComponents.count == 4 {
             // If any portion of the string has a `.`, we are in 0-1.0 scale
-            if string.containsString(".") {
+            if string.contains(".") {
                 let floats = rgbComponents
                     .flatMap { Double($0) }
                     .map { CGFloat($0) }
-                self = .RGBFloat(r: floats[0], g: floats[1], b: floats[2], a: floats[3])
+                self = .rgbFloat(r: floats[0], g: floats[1], b: floats[2], a: floats[3])
             } else {
                 let ints = rgbComponents.flatMap { Int($0) }
-                self = .RGB255(r: ints[0], g: ints[1], b: ints[2], a: ints[3])
+                self = .rgb255(r: ints[0], g: ints[1], b: ints[2], a: ints[3])
             }
         } else if string.hasPrefix("#") {
-            self = .Hex(hex: string)
+            self = .hex(hex: string)
         } else if let _ = UIImage(named: string) {
-            self = .PatternImage(imageName: string)
+            self = .patternImage(imageName: string)
         } else {
             fatalError(
                 "Unrecognized color literal! Use format `r,g,b,a` on 255 or 0-1.0 scale, a valid UIImage name, or a 6 character hex string w/ `#` prefix")

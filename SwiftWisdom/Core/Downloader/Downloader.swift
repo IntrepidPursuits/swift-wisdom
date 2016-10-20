@@ -8,61 +8,61 @@
 
 import UIKit
 
-public final class Downloader : NSObject, NSURLSessionDownloadDelegate {
+public final class Downloader : NSObject, URLSessionDownloadDelegate {
     
     public enum State {
-        case Began
-        case InProgress(CGFloat)
-        case Completed(Result<NSURL>)
+        case began
+        case inProgress(CGFloat)
+        case completed(Result<URL>)
     }
     
-    public let url: NSURL
-    public let id = NSUUID().UUIDString
+    public let url: URL
+    public let id = UUID().uuidString
     
-    private var updater: (State -> Void)?
+    private var updater: ((State) -> Void)?
     
-    private lazy var session: NSURLSession =
-    NSURLSession(
-        configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+    private lazy var session: Foundation.URLSession =
+    Foundation.URLSession(
+        configuration: URLSessionConfiguration.default,
         delegate: self,
-        delegateQueue: NSOperationQueue.currentQueue()
+        delegateQueue: OperationQueue.current
     )
     
-    public init(url: NSURL) {
+    public init(url: URL) {
         self.url = url
     }
     
-    public func start(updater: State -> Void) {
+    public func start(_ updater: @escaping (State) -> Void) {
         self.updater = updater
-        self.updater?(.Began)
+        self.updater?(.began)
         downloadFileFromRemoteUrl(url)
     }
     
-    private func downloadFileFromRemoteUrl(url: NSURL) {
-        let task = session.downloadTaskWithURL(url)
+    private func downloadFileFromRemoteUrl(_ url: URL) {
+        let task = session.downloadTask(with: url)
         task.resume()
     }
-    
-    public func URLSession(session: NSURLSession, task: NSURLSessionTask, didCompleteWithError error: NSError?) {
+
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         guard let error = error else { return }
-        updater?(.Completed(.Failure(error)))
+        updater?(.completed(.failure(error)))
         updater = nil
     }
     
     // MARK: NSURLSessionDownloadDelegate
     
-    public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
-        updater?(.Completed(.Success(location)))
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        updater?(.completed(.success(location)))
         updater = nil
     }
     
-    public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        updater?(.InProgress(downloadTask.ip_percentageDownloaded))
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        updater?(.inProgress(downloadTask.ip_percentageDownloaded))
     }
     
-    public func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
-        updater?(.Began)
-        updater?(.InProgress(downloadTask.ip_percentageDownloaded))
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
+        updater?(.began)
+        updater?(.inProgress(downloadTask.ip_percentageDownloaded))
     }
 }
 
@@ -74,7 +74,7 @@ func !=(lhs: Downloader, rhs: Downloader) -> Bool {
     return !(lhs == rhs)
 }
 
-extension NSURLSessionTask {
+extension URLSessionTask {
     public var ip_percentageDownloaded: CGFloat {
         let received = CGFloat(countOfBytesReceived)
         let expected = CGFloat(countOfBytesExpectedToReceive)

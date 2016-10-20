@@ -16,48 +16,28 @@ class StringLocalizationTests: XCTestCase {
 }
 
 class GetConstraintTests: XCTestCase {
-    func testConstraints_NilToView() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController
-        let constraint = vc?.view.ip_constraintForAttribute(.Top, onView: nil, toView: vc?.blueView, viewAttribute: .Top)
-        XCTAssertEqual(constraint?.constant, 165, "Top constraint found with nil view")
+
+    func testConstraints_TopConstraint() {
+        let parent = UIView()
+        let child = UIView()
+        parent.addSubview(child)
+        let vconstraint = NSLayoutConstraint(item: parent,
+                                            attribute: .top,
+                                            relatedBy: .equal,
+                                            toItem: child,
+                                            attribute: .top,
+                                            multiplier: 1,
+                                            constant: 165)
+        parent.addConstraint(vconstraint)
+        let constraint = parent.ip_constraintForAttribute(.top, onView: nil, toView: child, viewAttribute: .top)
+        XCTAssertEqual(constraint?.constant, 165, "Constraint is nil or constant does not match expected")
     }
     
     func testConstraints_NoConstraint() {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? ViewController
-        let constraint = vc?.view.ip_constraintForAttribute(.Bottom, onView: nil, toView: vc?.blueView, viewAttribute: .Top)
-        XCTAssertNil(constraint, "No constraint there")
-    }
-}
-
-class NSMutableAttributedStringTests: XCTestCase {
-    func testAttributedStringApplyingAttributes() {
-        let redText = NSAttributedString(
-            string: "RED",
-            attributes: [NSForegroundColorAttributeName : UIColor.redColor()]
-        )
-        let testString = NSMutableAttributedString(stringWithFormat: "This color is %@", redText)
-        let otherTestString = NSMutableAttributedString(
-            stringWithFormat: "This color is %@",
-            applyingAttributes: [NSForegroundColorAttributeName : UIColor.redColor()],
-            toArgs: "RED"
-        )
-        let blueTestString = NSMutableAttributedString(
-            stringWithFormat: "This color is %@",
-            applyingAttributes: [NSForegroundColorAttributeName : UIColor.blueColor()],
-            toArgs: "RED"
-        )
-        
-        XCTAssertEqual(testString, otherTestString)
-        XCTAssertNotEqual(otherTestString, blueTestString)
-    }
-    
-    func testAttributedStringWithFormat() {
-        let redText = NSAttributedString(
-            string: "RED",
-            attributes: [NSForegroundColorAttributeName : UIColor.redColor()]
-        )
-        let testString = NSMutableAttributedString(stringWithFormat: "Color: %@", redText)
-        let rangeOfRED = NSRange(location: 7, length: 3)
-        XCTAssertEqual(testString.attributedSubstringFromRange(rangeOfRED), redText)
+        let parent = UIView()
+        let child = UIView()
+        parent.addSubview(child)
+        let constraint = parent.ip_constraintForAttribute(.bottom, onView: nil, toView: child, viewAttribute: .top)
+        XCTAssertNil(constraint, "Constraint found, expected nil constraint")
     }
 }

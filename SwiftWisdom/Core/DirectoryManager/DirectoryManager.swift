@@ -10,96 +10,98 @@ import Foundation
 
 public final class DirectoryManager {
     
-    enum Error : ErrorType {
-        // TODO: When upgrading to 2.3 Swift, this type changed from NSURL -> NSURL?. 
-        // In swift 2.3, there are more cases in which NSURL creation can fail resulting in an error. 
-        // The existing UnableToCreatePath error was modified to capture this case rather than creating a new url-less error case.
-        case UnableToCreatePath(url: NSURL?) 
+    enum DirectoryError : Error {
+        case unableToCreatePath(url: NSURL)
+        case unableToFindDirectory(name: String)
     }
     
     private let directoryName: String
-    private let fileManager: NSFileManager
+    private let fileManager: FileManager
     private let directoryUrl: NSURL
     
     // MARK: All Files
     
     public var allFilesInDirectory: [String] {
         guard let path = directoryUrl.path else { return [] }
-        let all = try? fileManager.subpathsOfDirectoryAtPath(path)
+        let all = try? fileManager.subpathsOfDirectory(atPath: path)
         return all ?? []
     }
     
     // MARK: Initializer
     
-    public init(directoryName: String, fileManager: NSFileManager = NSFileManager.defaultManager()) {
+    public init(directoryName: String, fileManager: FileManager = FileManager.default) {
         self.directoryName = directoryName
         self.fileManager = fileManager
         // Should fail if not available
-        self.directoryUrl = try! fileManager.directoryPathWithName(directoryName)
+        self.directoryUrl = try! fileManager.directoryPath(withName: directoryName)
     }
     
     // MARK: Move
     
-    public func moveFileIntoDirectory(originUrl originUrl: NSURL, targetName: String) throws {
-        let filePath = directoryUrl.URLByAppendingPathComponent(targetName)
-        guard let originPath = originUrl.path, targetPath = filePath?.path else { return }
-        if fileManager.fileExistsAtPath(targetPath) {
-            try deleteFileWithName(targetName)
+    public func moveFileIntoDirectory(originUrl: NSURL, targetName: String) throws {
+        let filePath = directoryUrl.appendingPathComponent(targetName)
+        guard let originPath = originUrl.path, let targetPath = filePath?.path else { return }
+        if fileManager.fileExists(atPath: targetPath) {
+            try deleteFile(withName: targetName)
         }
-        try fileManager.moveItemAtPath(originPath, toPath: targetPath)
+        try fileManager.moveItem(atPath: originPath, toPath: targetPath)
     }
     
     // MARK: Write
     
-    public func writeData(data: NSData, withName name: String = NSUUID().UUIDString) -> Bool {
-        let filePath = directoryUrl.URLByAppendingPathComponent(name)
+    public func write(_ data: Data, withName name: String = UUID().uuidString) -> Bool {
+        let filePath = directoryUrl.appendingPathComponent(name)
         guard let path = filePath?.path else { return false }
-        return data.writeToFile(path, atomically: true)
+        return ((try? data.write(to: URL(fileURLWithPath: path), options: [.atomicWrite])) != nil)
     }
     
-    public func writeDataInBackground(data: NSData, withName name: String = NSUUID().UUIDString, completion: (fileName: String, success: Bool) -> Void = { _ in }) {
+    public func writeInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _ in }) {
         Background {
-            let success = self.writeData(data, withName: name)
+            let success = self.write(data, withName: name)
             Main {
-                completion(fileName: name, success: success)
+                completion(name, success)
             }
         }
     }
     
     // MARK: Delete
     
-    public func deleteFileWithName(fileName: String) throws {
-        let fileUrl = directoryUrl.URLByAppendingPathComponent(fileName)
+    public func deleteFile(withName fileName: String) throws {
+        let fileUrl = directoryUrl.appendingPathComponent(fileName)
         guard let path = fileUrl?.path else {
-            throw Error.UnableToCreatePath(url: fileUrl)
+            throw DirectoryError.unableToFindDirectory(name: fileName)
         }
-        try fileManager.removeItemAtPath(path)
+        try fileManager.removeItem(atPath: path)
     }
     
     // MARK: Fetch
     
-    public func fetchFileWithName(fileName: String) -> NSData? {
-        let filePath = directoryUrl.URLByAppendingPathComponent(fileName)
+    public func fetchFile(withName fileName: String) -> Data? {
+        let filePath = directoryUrl.appendingPathComponent(fileName)
         guard let path = filePath?.path else { return nil }
-        return NSData(contentsOfFile: path)
+        return (try? Data(contentsOf: URL(fileURLWithPath: path)))
     }
 }
 
-extension NSFileManager {
-    private func directoryPathWithName(directoryName: String) throws -> NSURL {
-        let pathsArray = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        guard let pathString = pathsArray.first, let documentsDirectoryPath = NSURL(string: pathString) else { fatalError("Unable to create directory") }
-        if let directoryPath = documentsDirectoryPath.URLByAppendingPathComponent(directoryName) {
-            try createDirectoryIfNecessary(directoryPath)
-            return directoryPath
-        } else {
-            throw DirectoryManager.Error.UnableToCreatePath(url: nil)
+extension FileManager {
+    fileprivate func directoryPath(withName directoryName: String) throws -> NSURL {
+        let pathsArray = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        guard let pathString = pathsArray.first else { fatalError("Unable to create directory") }
+        guard let documentsDirectoryPath = NSURL(string: pathString) else {
+            throw DirectoryManager.DirectoryError.unableToFindDirectory(name: directoryName)
         }
+
+        guard let directoryPath = documentsDirectoryPath.appendingPathComponent(directoryName) else {
+            throw DirectoryManager.DirectoryError.unableToCreatePath(url: documentsDirectoryPath as NSURL)
+        }
+        try createDirectoryIfNecessary(directoryPath as NSURL)
+        return directoryPath as NSURL
     }
+
     
-    private func createDirectoryIfNecessary(directoryPath: NSURL) throws {
-        guard let path = directoryPath.path else { throw DirectoryManager.Error.UnableToCreatePath(url: directoryPath) }
-        guard !fileExistsAtPath(path) else { return }
-        try createDirectoryAtPath(path, withIntermediateDirectories: false, attributes: nil)
+    private func createDirectoryIfNecessary(_ directoryPath: NSURL) throws {
+        guard let path = directoryPath.path else { return }
+        guard !fileExists(atPath: path) else { return }
+        try createDirectory(atPath: path, withIntermediateDirectories: false, attributes: nil)
     }
 }

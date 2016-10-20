@@ -8,7 +8,7 @@
 
 import Foundation
 
-public func synchronize(lock: AnyObject, @noescape closure: Block) {
+public func synchronize(_ lock: AnyObject, closure: Block) {
     objc_sync_enter(lock)
     closure()
     objc_sync_exit(lock)

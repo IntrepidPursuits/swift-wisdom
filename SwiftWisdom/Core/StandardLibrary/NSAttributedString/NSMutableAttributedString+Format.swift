@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
     
     /**
      Create a mutable attributed string with the attributes applied to all arguments.
@@ -19,12 +19,11 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with the attributes applied to argument strings.
      */
-    public convenience init(stringWithFormat string: String, applyingAttributes attributes: [String : AnyObject], toArgs args: String...) {
-        let formattedArgs = args.map { arg in
-            return NSAttributedString(string: arg, attributes: attributes)
-        }
-        
-        self.init(stringWithFormat: string, formattedArgs)
+
+    convenience init(formatString: String, attributes: [String : AnyObject], arguments: String...) {
+        let arguments = arguments.map { NSAttributedString(string: $0, attributes: attributes) }
+        self.init(string: formatString)
+        ip_format(withArguments: arguments)
     }
     
     /**
@@ -35,8 +34,9 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with arguments inserted according to format.
      */
-     public convenience init(stringWithFormat string: String, _ args: NSAttributedString...) {
-        self.init(stringWithFormat: string, args)
+    convenience init(formatString: String, arguments: NSAttributedString...) {
+        self.init(string: formatString)
+        ip_format(withArguments: arguments)
     }
     
     /**
@@ -47,16 +47,32 @@ extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with arguments inserted according to format.
      */
-    public convenience init(stringWithFormat string: String, _ args: [NSAttributedString]) {
+
+    convenience init(formatString: String, arguments: [NSAttributedString]) {
+        self.init(string: formatString)
+        ip_format(withArguments: arguments)
+    }
+
+    // See ip_format(arguments: [NSAttributedString])
+    func ip_format(withArguments arguments: NSAttributedString...) {
+        ip_format(withArguments: arguments)
+    }
+
+    /**
+     Assumes that the received is a attributed string with format placeholders "%@". Inserts the
+     NSAttributedString in args into each of the placeholders.
+
+     - parameter arguments: comma separated list of arguments (NSAttributedString)
+     */
+    func ip_format(withArguments arguments: [NSAttributedString]) {
+        var rangeLimit = string.ip_fullrange
         let str = string as NSString
-        self.init(string: string)
-        var rangeLimit = NSMakeRange(0, str.length)
-        var insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
-        args.reverse().forEach { arg in
+        var insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
+        arguments.reversed().forEach { arg in
             guard insertRange.location != NSNotFound else { return }
-            self.replaceCharactersInRange(insertRange, withAttributedString: arg)
+            replaceCharacters(in: insertRange, with: arg)
             rangeLimit = NSMakeRange(0, insertRange.location)
-            insertRange = str.rangeOfString("%@", options: .BackwardsSearch, range: rangeLimit)
+            insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
         }
     }
 }

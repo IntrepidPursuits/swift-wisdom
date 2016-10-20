@@ -31,46 +31,46 @@ public extension UICollectionView {
     
     // MARK: Register
 
-    public func ip_registerCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
+    public func ip_registerCell<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionViewCell, T: TypeIdentifiable {
         if let nib = T.ip_nib {
-            registerNib(nib, forCellWithReuseIdentifier: identifier)
+            register(nib, forCellWithReuseIdentifier: identifier)
         } else {
-            registerClass(T.self, forCellWithReuseIdentifier: identifier)
+            register(T.self, forCellWithReuseIdentifier: identifier)
         }
     }
     
-    public func ip_registerHeader<T where T: UICollectionReusableView, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
+    public func ip_registerHeader<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionReusableView, T: TypeIdentifiable {
         ip_registerSupplementary(T.self, kind: UICollectionElementKindSectionHeader, identifier: identifier)
     }
     
-    public func ip_registerFooter<T where T: UICollectionReusableView, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
+    public func ip_registerFooter<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionReusableView, T: TypeIdentifiable {
         ip_registerSupplementary(T.self, kind: UICollectionElementKindSectionFooter, identifier: identifier)
     }
     
-    public func ip_registerSupplementary<T where T: UICollectionReusableView, T: TypeIdentifiable>(_: T.Type, kind: String, identifier: String = T.ip_identifier) {
+    public func ip_registerSupplementary<T>(_: T.Type, kind: String, identifier: String = T.ip_identifier) where T: UICollectionReusableView, T: TypeIdentifiable {
         if let nib = T.ip_nib {
-            registerNib(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
+            register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
         } else {
-            registerClass(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
+            register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: identifier)
         }
     }
     
     // MARK: Dequeue
     
-    public func ip_dequeueCell<T where T: UICollectionViewCell, T: TypeIdentifiable>(indexPath: NSIndexPath, identifier: String = T.ip_identifier) -> T {
-        return dequeueReusableCellWithReuseIdentifier(identifier, forIndexPath: indexPath) as! T
+    public func ip_dequeueCell<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionViewCell, T: TypeIdentifiable {
+        return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
     }
     
-    public func ip_dequeueHeader<T where T: UICollectionReusableView, T: TypeIdentifiable>(indexPath: NSIndexPath, identifier: String = T.ip_identifier) -> T {
+    public func ip_dequeueHeader<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView, T: TypeIdentifiable {
         return ip_dequeueSupplementary(indexPath, kind: UICollectionElementKindSectionHeader, identifier: identifier)
     }
     
-    public func ip_dequeueFooter<T where T: UICollectionReusableView, T: TypeIdentifiable>(indexPath: NSIndexPath, identifier: String = T.ip_identifier) -> T {
+    public func ip_dequeueFooter<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView, T: TypeIdentifiable {
         return ip_dequeueSupplementary(indexPath, kind: UICollectionElementKindSectionFooter, identifier: identifier)
     }
     
-    public func ip_dequeueSupplementary<T where T: UICollectionReusableView, T: TypeIdentifiable>(indexPath: NSIndexPath, kind: String, identifier: String = T.ip_identifier) -> T {
-        return dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: identifier, forIndexPath: indexPath) as! T
+    public func ip_dequeueSupplementary<T>(_ indexPath: IndexPath, kind: String, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView, T: TypeIdentifiable {
+        return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as! T
     }
     
 }
@@ -81,33 +81,33 @@ public extension UITableView {
     
     // MARK: Register
 
-    public func ip_registerCell<T where T: UITableViewCell, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
+    public func ip_registerCell<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UITableViewCell, T: TypeIdentifiable {
         if let nib = T.ip_nib {
-            registerNib(nib, forCellReuseIdentifier: identifier)
+            register(nib, forCellReuseIdentifier: identifier)
         } else {
-            registerClass(T.self, forCellReuseIdentifier: identifier)
+            register(T.self, forCellReuseIdentifier: identifier)
         }
     }
     
-    public func ip_registerHeader<T where T: UITableViewHeaderFooterView, T: TypeIdentifiable>(_: T.Type, identifier: String = T.ip_identifier) {
+    public func ip_registerHeader<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UITableViewHeaderFooterView, T: TypeIdentifiable {
         if let nib = T.ip_nib {
-            registerNib(nib, forHeaderFooterViewReuseIdentifier: identifier)
+            register(nib, forHeaderFooterViewReuseIdentifier: identifier)
         } else {
-            registerClass(T.self, forHeaderFooterViewReuseIdentifier: identifier)
+            register(T.self, forHeaderFooterViewReuseIdentifier: identifier)
         }
     }
     
     // MARK: Dequeue
     
-    public func ip_dequeueCell<T where T: UITableViewCell, T: TypeIdentifiable>(indexPath: NSIndexPath, identifier: String = T.ip_identifier) -> T {
-        return dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! T
+    public func ip_dequeueCell<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UITableViewCell, T: TypeIdentifiable {
+        return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
     }
     
-    public func ip_dequeueHeader<T where T: UITableViewHeaderFooterView, T: TypeIdentifiable>(section: Int, identifier: String = T.ip_identifier) -> T {
-        return dequeueReusableHeaderFooterViewWithIdentifier(identifier) as! T
+    public func ip_dequeueHeader<T>(_ section: Int, identifier: String = T.ip_identifier) -> T where T: UITableViewHeaderFooterView, T: TypeIdentifiable {
+        return dequeueReusableHeaderFooterView(withIdentifier: identifier) as! T
     }
 
-    public func ip_cellForRowAtIndexPath<T where T: UITableViewCell, T: TypeIdentifiable>(indexPath: NSIndexPath) -> T {
-        return cellForRowAtIndexPath(indexPath) as! T
+    public func ip_cellForRowAtIndexPath<T>(_ indexPath: IndexPath) -> T where T: UITableViewCell, T: TypeIdentifiable {
+        return cellForRow(at: indexPath) as! T
     }
 }
