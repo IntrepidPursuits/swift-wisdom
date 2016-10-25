@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIColor {
+extension Intrepid where Base: UIColor {
     public convenience init(ip_hex hex: String) {
         var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {

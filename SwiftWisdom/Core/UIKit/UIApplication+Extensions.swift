@@ -12,8 +12,8 @@ enum OpenSettingsError: Error {
     case cannotOpenURL
 }
 
-extension UIApplication {
-    public func ip_openSettingsApp() throws {
+extension Intrepid where Base: UIApplication {
+    public func openSettingsApp() throws {
         guard let url = URL(string: UIApplicationOpenSettingsURLString), canOpenURL(url) else {
             throw OpenSettingsError.cannotOpenURL
         }

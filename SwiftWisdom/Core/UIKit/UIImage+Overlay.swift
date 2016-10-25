@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+extension Intrepid where Base: UIImage {
     /**
      Takes an image and overlays it onto the calling image within its own coordinate space
      
@@ -17,10 +17,10 @@ extension UIImage {
      
      - returns: the combination of the two images as a new UIImage object
      */
-    public final func ip_overlayImage(_ overlayImage: UIImage, inRect innerRect: CGRect) -> UIImage {
-        let outerRect = CGRect(origin: .zero, size: size)
+    public func overlayImage(_ overlayImage: UIImage, inRect innerRect: CGRect) -> UIImage {
+        let outerRect = CGRect(origin: .zero, size: base.size)
         UIGraphicsBeginImageContext(outerRect.size)
-        draw(in: outerRect)
+        base.draw(in: outerRect)
         overlayImage.draw(in: innerRect)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

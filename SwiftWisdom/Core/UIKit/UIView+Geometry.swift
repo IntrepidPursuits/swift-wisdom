@@ -8,23 +8,23 @@
 
 import UIKit
 
-extension UIView {
-    public var ip_width: CGFloat {
+extension Intrepid where Base: UIView {
+    public var width: CGFloat {
         return bounds.width
     }
-    public var ip_halfWidth: CGFloat {
-        return ip_width / 2.0
+    public var halfWidth: CGFloat {
+        return ip.width / 2.0
     }
-    public var ip_height: CGFloat {
+    public var height: CGFloat {
         return bounds.height
     }
-    public var ip_halfHeight: CGFloat {
-        return ip_height / 2.0
+    public var halfHeight: CGFloat {
+        return ip.height / 2.0
     }
 }
 
-extension UIView {
-    public var ip_frameOrigin: CGPoint {
+extension Intrepid where Base: UIView {
+    public var frameOrigin: CGPoint {
         get {
             return frame.standardized.origin
         }
@@ -33,7 +33,7 @@ extension UIView {
         }
     }
 
-    public var ip_frameSize: CGSize {
+    public var frameSize: CGSize {
         get {
             return frame.standardized.size
         }
@@ -42,7 +42,7 @@ extension UIView {
         }
     }
     
-    public var ip_frameX: CGFloat {
+    public var frameX: CGFloat {
         get {
             return frame.minX
         }
@@ -51,7 +51,7 @@ extension UIView {
         }
     }
     
-    public var ip_frameY: CGFloat {
+    public var frameY: CGFloat {
         get {
             return frame.minY
         }
@@ -60,7 +60,7 @@ extension UIView {
         }
     }
     
-    public var ip_frameWidth: CGFloat {
+    public var frameWidth: CGFloat {
         get {
             return frame.width
         }
@@ -69,7 +69,7 @@ extension UIView {
         }
     }
     
-    public var ip_frameHeight: CGFloat {
+    public var frameHeight: CGFloat {
         get {
             return frame.height
         }
@@ -78,56 +78,56 @@ extension UIView {
         }
     }
     
-    public var ip_frameMidX: CGFloat {
+    public var frameMidX: CGFloat {
         get {
             return frame.midX
         }
         set {
-            frame.origin.x = newValue - ip_halfWidth
+            frame.origin.x = newValue - ip.halfWidth
         }
     }
     
-    public var ip_frameMidY: CGFloat {
+    public var frameMidY: CGFloat {
         get {
             return frame.midY
         }
         set {
-            frame.origin.y = newValue - ip_halfHeight
+            frame.origin.y = newValue - ip.halfHeight
         }
     }
     
-    public var ip_frameMaxX: CGFloat {
+    public var frameMaxX: CGFloat {
         get {
             return frame.maxX
         }
         set {
-            frame.origin.x = newValue - ip_width
+            frame.origin.x = newValue - ip.width
         }
     }
     
-    public var ip_frameMaxY: CGFloat {
+    public var frameMaxY: CGFloat {
         get {
             return frame.maxY
         }
         set {
-            frame.origin.y = newValue - ip_height
+            frame.origin.y = newValue - ip.height
         }
     }
     
-    var ip_frameTopCenter: CGPoint {
+    var frameTopCenter: CGPoint {
         get {
-            return CGPoint(x: ip_frameMidX, y: ip_frameY)
+            return CGPoint(x: ip.frameMidX, y: ip.frameY)
         }
         set(newTopCenter) {
-            ip_frameY = newTopCenter.y
-            ip_frameMidX = newTopCenter.x
+            ip.frameY = newTopCenter.y
+            ip.frameMidX = newTopCenter.x
         }
     }
 }
 
 
-extension UIView {
-    public var ip_boundsOrigin: CGPoint {
+extension Intrepid where Base: UIView {
+    public var boundsOrigin: CGPoint {
         get {
             return bounds.standardized.origin
         }
@@ -136,7 +136,7 @@ extension UIView {
         }
     }
     
-    public var ip_boundsSize: CGSize {
+    public var boundsSize: CGSize {
         get {
             return bounds.standardized.size
         }
@@ -145,7 +145,7 @@ extension UIView {
         }
     }
     
-    public var ip_boundsX: CGFloat {
+    public var boundsX: CGFloat {
         get {
             return bounds.minX
         }
@@ -154,7 +154,7 @@ extension UIView {
         }
     }
     
-    public var ip_boundsY: CGFloat {
+    public var boundsY: CGFloat {
         get {
             return bounds.minY
         }
@@ -163,7 +163,7 @@ extension UIView {
         }
     }
     
-    public var ip_boundsWidth: CGFloat {
+    public var boundsWidth: CGFloat {
         get {
             return bounds.width
         }
@@ -172,7 +172,7 @@ extension UIView {
         }
     }
     
-    public var ip_boundsHeight: CGFloat {
+    public var boundsHeight: CGFloat {
         get {
             return bounds.height
         }
@@ -181,49 +181,49 @@ extension UIView {
         }
     }
     
-    public var ip_boundsMidX: CGFloat {
+    public var boundsMidX: CGFloat {
         get {
             return bounds.midX
         }
         set {
-            bounds.origin.x = newValue - ip_halfWidth
+            bounds.origin.x = newValue - ip.halfWidth
         }
     }
     
-    public var ip_boundsMidY: CGFloat {
+    public var boundsMidY: CGFloat {
         get {
             return bounds.midY
         }
         set {
-            bounds.origin.y = newValue - ip_halfHeight
+            bounds.origin.y = newValue - ip.halfHeight
         }
     }
     
-    public var ip_boundsMaxX: CGFloat {
+    public var boundsMaxX: CGFloat {
         get {
             return frame.maxX
         }
         set {
-            bounds.origin.x = newValue - ip_width
+            bounds.origin.x = newValue - ip.width
         }
     }
     
-    public var ip_boundsMaxY: CGFloat {
+    public var boundsMaxY: CGFloat {
         get {
             return bounds.maxY
         }
         set {
-            bounds.origin.y = newValue - ip_height
+            bounds.origin.y = newValue - ip.height
         }
     }
     
-    public var ip_boundsTopCenter: CGPoint {
+    public var boundsTopCenter: CGPoint {
         get {
-            return CGPoint(x: ip_boundsMidX, y: ip_boundsY)
+            return CGPoint(x: ip.boundsMidX, y: ip.boundsY)
         }
         set {
-            ip_boundsY = newValue.y
-            ip_boundsMidX = newValue.x
+            ip.boundsY = newValue.y
+            ip.boundsMidX = newValue.x
         }
     }
 }

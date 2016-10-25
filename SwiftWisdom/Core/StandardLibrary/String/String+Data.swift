@@ -1,7 +1,7 @@
 import Foundation
 
-public extension String {
-    public var ip_hexInt: UInt {
-        return strtoul(self, nil, 16)
+extension Intrepid where Base: String {
+    public var hexInt: UInt {
+        return strtoul(base, nil, 16)
     }
 }

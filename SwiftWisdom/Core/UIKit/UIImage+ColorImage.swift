@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIImage {
+extension Intrepid where Base: UIImage {
     /**
      Generates a plain image of a given color and size
      
@@ -17,7 +17,7 @@ extension UIImage {
      
      - returns: a plain image of the given color
      */
-    public static func ip_fromColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
+    public static func fromColor(_ color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) -> UIImage {
         let rect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContext(rect.size)
         guard let context = UIGraphicsGetCurrentContext() else { return UIImage() }

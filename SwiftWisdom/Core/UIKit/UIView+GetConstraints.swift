@@ -17,50 +17,50 @@ Optionally you can use the base function ip_constraintForAttribute() and pass in
 import Foundation
 import UIKit
 
-public extension UIView {
+extension Intrepid where Base: UIView {
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_widthConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.width)
+    public var widthConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.width)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_heightConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.height)
+    public var heightConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.height)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_topConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.top)
+    public var topConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.top)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_bottomConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.bottom)
+    public var bottomConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.bottom)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_leadingConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.leading)
+    public var leadingConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.leading)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_trailingConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.trailing)
+    public var trailingConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.trailing)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_centerXConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.centerX)
+    public var centerXConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.centerX)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_centerYConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.centerY)
+    public var centerYConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.centerY)
     }
     
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
-    public var ip_aspectRatioConstraint: NSLayoutConstraint? {
-        return ip_constraintForAttribute(.height, toView: self, viewAttribute: .width)
+    public var aspectRatioConstraint: NSLayoutConstraint? {
+        return ip.constraintForAttribute(.height, toView: self, viewAttribute: .width)
     }
     
     /**
@@ -73,21 +73,21 @@ public extension UIView {
      
      :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
      */
-    public func ip_constraintForAttribute(_ attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func constraintForAttribute(_ attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
         
         let onView = onView ?? self
         
         if let toAttribute = viewAttribute, let toItem = toView {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: onView, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
+                return constraint.ip.relatesView(view: onView, viaAttribute: attribute, toView: toItem, andItsAttribute: toAttribute)
                 }
                 .first
             
         } else if let toItem = toView {
             
             return constraints.filter { constraint in
-                return constraint.ip_relatesView(view: onView, viaAttribute: attribute, toView: toItem)
+                return constraint.ip.relatesView(view: onView, viaAttribute: attribute, toView: toItem)
                 }
                 .first
             
@@ -96,14 +96,14 @@ public extension UIView {
             if attribute == .height || attribute == .width {
                 //For size constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_isIntrinsicConstraintWithView(view: onView, andAttribute: attribute)
+                    return constraint.ip.isIntrinsicConstraintWithView(view: onView, andAttribute: attribute)
                     }
                     .first
                 
             } else {
                 // For simple positioning constraints
                 return constraints.filter { constraint in
-                    return constraint.ip_relatesView(view: onView, viaAttribute: attribute)
+                    return constraint.ip.relatesView(view: onView, viaAttribute: attribute)
                     }
                     .first
                 
@@ -113,9 +113,9 @@ public extension UIView {
     }
 }
 
-extension NSLayoutConstraint {
+extension Intrepid where Base: NSLayoutConstraint {
     
-    public func ip_relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView,
         andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
@@ -127,7 +127,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func ip_relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute,
         toView view2: UIView) -> Bool {
             
@@ -138,7 +138,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func ip_relatesView(view view1: UIView,
+    public func relatesView(view view1: UIView,
         viaAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
@@ -148,7 +148,7 @@ extension NSLayoutConstraint {
             return possibility1 || possibility2
     }
     
-    public func ip_isIntrinsicConstraintWithView(view view1: UIView,
+    public func isIntrinsicConstraintWithView(view view1: UIView,
         andAttribute attribute1: NSLayoutAttribute) -> Bool {
             
             return (firstItem as? UIView == view1 && firstAttribute == attribute1)

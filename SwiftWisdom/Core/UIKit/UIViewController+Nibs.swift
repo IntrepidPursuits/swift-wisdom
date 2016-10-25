@@ -8,13 +8,13 @@
 
 import UIKit
 
-extension UIViewController {
-    public static func ip_fromNib() -> Self {
-        let controller = self.init(nibName: ip_nibName, bundle: nil)
+extension Intrepid where Base: UIViewController {
+    public static func fromNib() -> Base {
+        let controller = Base.init(nibName: UIViewController.ip.nibName, bundle: nil)
         return controller
     }
     
-    public static var ip_nibName: String {
+    public static var nibName: String {
         return "\(self)".components(separatedBy: ".").last!
     }
 }

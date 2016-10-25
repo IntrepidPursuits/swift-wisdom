@@ -8,24 +8,24 @@
 
 import UIKit
 
-public extension UIView {
-    public class func ip_fromNib(_ nibNameOrNil: String? = nil) -> Self {
-        return ip_fromNib(nibNameOrNil, type: self)
+extension Intrepid where Base: UIView {
+    public static func fromNib(_ nibNameOrNil: String? = nil) -> UIView {
+        return UIView.ip.fromNib(nibNameOrNil, type: UIView.self)
     }
     
-    public class func ip_fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
-        let v: T? = ip_fromNib(nibNameOrNil, type: T.self)
+    public static func fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
+        let v: T? = UIView.ip.fromNib(nibNameOrNil, type: T.self)
         return v!
     }
     
-    public class func ip_fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
+    public static func fromNib<T : UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {
             name = nibName
         } else {
             // Most nibs are demangled by practice, if not, just declare string explicitly
-            name = ip_nibName
+            name = UIView.ip.nibName
         }
         let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
         for v in nibViews ?? [] {
@@ -35,14 +35,14 @@ public extension UIView {
         }
         return view
     }
-
-    public class var ip_nibName: String {
+    
+    public static var nibName: String {
         let name = "\(self)".components(separatedBy: ".").first ?? ""
         return name
     }
-    public class var ip_nib: UINib? {
-        if let _ = Bundle.main.path(forResource: ip_nibName, ofType: "nib") {
-            return UINib(nibName: ip_nibName, bundle: nil)
+    public static var nib: UINib? {
+        if let _ = Bundle.main.path(forResource: UIView.ip.nibName, ofType: "nib") {
+            return UINib(nibName: UIView.ip.nibName, bundle: nil)
         } else {
             return nil
         }
