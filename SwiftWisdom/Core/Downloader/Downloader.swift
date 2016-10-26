@@ -66,19 +66,23 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
     }
 }
 
-func ==(lhs: Downloader, rhs: Downloader) -> Bool {
-    return lhs.id == rhs.id
-}
-
-func !=(lhs: Downloader, rhs: Downloader) -> Bool {
-    return !(lhs == rhs)
-}
-
 extension URLSessionTask {
     public var ip_percentageDownloaded: CGFloat {
         let received = CGFloat(countOfBytesReceived)
         let expected = CGFloat(countOfBytesExpectedToReceive)
         let percentage = received / expected
         return min(percentage, 1)
+    }
+}
+
+// MARK: Operator Overloads
+
+extension Downloader {
+    public static func == (lhs: Downloader, rhs: Downloader) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    public static func != (lhs: Downloader, rhs: Downloader) -> Bool {
+        return !(lhs == rhs)
     }
 }

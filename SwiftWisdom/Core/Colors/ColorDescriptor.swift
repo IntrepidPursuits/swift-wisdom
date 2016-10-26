@@ -103,6 +103,10 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
     }
 }
 
-public func ==(lhs: ColorDescriptor, rhs: ColorDescriptor) -> Bool {
-    return lhs.rawValue == rhs.rawValue
+// MARK: Operator Overloads
+
+extension ColorDescriptor {
+    public static func == (lhs: ColorDescriptor, rhs: ColorDescriptor) -> Bool {
+        return lhs.rawValue == rhs.rawValue
+    }
 }
