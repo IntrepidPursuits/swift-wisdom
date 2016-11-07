@@ -1,4 +1,5 @@
 [![Build Status](http://ci.intrepid.io:8080/buildStatus/icon?job=Swift Wisdom)](http://ci.intrepid.io:8080/job/Swift%20Wisdom/)
+[![Coverage](http://ci.intrepid.io:9913/jenkins/cobertura/Swift%20Wisdom/)](http://ci.intrepid.io:8080/job/Swift%20Wisdom/8/cobertura/)
 
 This library is mean to be a general grab bag of Swift methods made by the engineers at IntrepidPursuits.  As this library goes, useful components will be isolated into separate podspecs where appropriate.
 
