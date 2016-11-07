@@ -42,10 +42,6 @@ extension Version : Equatable {
         guard lhs.patch == rhs.patch else { return false }
         return true
     }
-
-    public static func != (lhs: Version, rhs: Version) -> Bool {
-        return !(lhs == rhs)
-    }
 }
 
 extension Version : Comparable {
@@ -56,24 +52,6 @@ extension Version : Comparable {
             return lhs.minor < rhs.minor
         } else {
             return lhs.patch < rhs.patch
-        }
-    }
-
-    public static func <= (lhs: Version, rhs: Version) -> Bool {
-        return lhs < rhs || lhs == rhs
-    }
-
-    public static func >= (lhs: Version, rhs: Version) -> Bool {
-        return lhs > rhs || lhs == rhs
-    }
-
-    public static func > (lhs: Version, rhs: Version) -> Bool {
-        if lhs.major != rhs.major {
-            return lhs.major > rhs.major
-        } else if lhs.minor != rhs.minor {
-            return lhs.minor > rhs.minor
-        } else {
-            return lhs.patch > rhs.patch
         }
     }
 }
