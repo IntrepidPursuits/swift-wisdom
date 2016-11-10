@@ -139,7 +139,7 @@ extension NSData {
 }
 
 extension NSData {
-    public func ip_segmentGenerator(start: Int = 0, chunkLength: Int) -> AnyIterator<NSData> {
+    public func ip_segmentIterator(start: Int = 0, chunkLength: Int) -> AnyIterator<NSData> {
         guard let segmentToWrite = ip_suffixFrom(start) else { return AnyIterator { return nil } }
         let mutable = NSMutableData(data: segmentToWrite as Data)
         let range = 0..<chunkLength

@@ -9,17 +9,17 @@
 import XCTest
 @testable import SwiftWisdom
 
-class NSDataSegmentGeneratorTests: XCTestCase {
+class NSDataSegmentIteratorTests: XCTestCase {
 
-    let dataPath = Bundle(for: NSDataSegmentGeneratorTests.self)
+    let dataPath = Bundle(for: NSDataSegmentIteratorTests.self)
         .path(forResource: "mock_firmware_update", ofType: ".dfu")!
     
     lazy var originalData: NSData = try! NSData(contentsOf: URL(fileURLWithPath: self.dataPath))
     
     let segmentLength = 100
 
-    func testGenerator() {
-        let generator = originalData.ip_segmentGenerator(chunkLength: segmentLength)
+    func testIterator() {
+        let generator = originalData.ip_segmentIterator(chunkLength: segmentLength)
         
         let reassembly = NSMutableData()
         while let next = generator.next() as? Data, next.count <= segmentLength {
@@ -29,14 +29,14 @@ class NSDataSegmentGeneratorTests: XCTestCase {
         XCTAssert(reassembly == originalData)
     }
 
-    func testGeneratorSuffix() {
+    func testIteratorSuffix() {
         let suffixStartPoints = [0, 500, 1235, 89999, 123042]
         
         suffixStartPoints.forEach { startPoint in
             let compareSuffix = originalData.ip_suffixFrom(startPoint)
             
             let generator = originalData
-                .ip_segmentGenerator(start: startPoint, chunkLength: segmentLength)
+                .ip_segmentIterator(start: startPoint, chunkLength: segmentLength)
 
             let reassembly = NSMutableData()
             while let next = generator.next() as? Data, next.count <= segmentLength {
