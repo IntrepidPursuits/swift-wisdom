@@ -23,7 +23,7 @@ class NSDataConversionTests: XCTestCase {
     }
 
     func testHexInt() {
-        let data = "1342 fa2a".ip_dataFromHexadecimalString()!
+        let data = "1342 fa2a".ip_nsdataFromHexadecimalString()!
         let hexInt = data.ip_hexInt!
         XCTAssert(hexInt == 0x1342_fa2a)
         
@@ -41,7 +41,7 @@ class NSDataConversionTests: XCTestCase {
     }
     
     func testUTF8() {
-        let data = "<48656c6c 6f2c2057 6f726c64 21>".ip_dataFromHexadecimalString()!
+        let data = "<48656c6c 6f2c2057 6f726c64 21>".ip_nsdataFromHexadecimalString()!
         let utf8String = data.ip_utf8String!
         XCTAssert(utf8String == "Hello, World!")
     }

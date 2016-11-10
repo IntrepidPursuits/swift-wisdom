@@ -12,13 +12,13 @@ import XCTest
 class NSDataSubdataTests: XCTestCase {
     
     let one = "00 11 22"
-        .ip_dataFromHexadecimalString()!
+        .ip_nsdataFromHexadecimalString()!
     let two = "33 44 55 66 77"
-        .ip_dataFromHexadecimalString()!
+        .ip_nsdataFromHexadecimalString()!
     let three = "xx"
-        .ip_dataFromHexadecimalString()!
+        .ip_nsdataFromHexadecimalString()!
     let four = "88 99 aa bb cc dd ee ff"
-        .ip_dataFromHexadecimalString()!
+        .ip_nsdataFromHexadecimalString()!
     
     lazy var subdataArray: [NSData] = [self.one, self.two, self.three, self.four]
     lazy var data: NSData = self.subdataArray.combine()
@@ -53,27 +53,27 @@ class NSDataSubdataTests: XCTestCase {
         let two = "4f"
         let three = "a0"
         let combination = [zero, one, two, three].joined(separator: "")
-        let data = combination.ip_dataFromHexadecimalString()!
+        let data = combination.ip_nsdataFromHexadecimalString()!
         
         let zeroData = data[0]!
-        XCTAssert(zeroData == zero.ip_dataFromHexadecimalString()!)
+        XCTAssert(zeroData == zero.ip_nsdataFromHexadecimalString()!)
         
         let oneData = data[1]!
-        XCTAssert(oneData == one.ip_dataFromHexadecimalString()!)
+        XCTAssert(oneData == one.ip_nsdataFromHexadecimalString()!)
         
         let twoData = data[2]!
-        XCTAssert(twoData == two.ip_dataFromHexadecimalString()!)
+        XCTAssert(twoData == two.ip_nsdataFromHexadecimalString()!)
         
         let threeData = data[3]!
-        XCTAssert(threeData == three.ip_dataFromHexadecimalString()!)
+        XCTAssert(threeData == three.ip_nsdataFromHexadecimalString()!)
         
         let empty = data[100]
         XCTAssert(empty == nil)
     }
     
     func testPrefixSuffix() {
-        let prefix = "af43 efda 651a".ip_dataFromHexadecimalString() as! Data
-        let suffix = "f4b4 2343".ip_dataFromHexadecimalString() as! Data
+        let prefix = "af43 efda 651a".ip_nsdataFromHexadecimalString() as! Data
+        let suffix = "f4b4 2343".ip_nsdataFromHexadecimalString() as! Data
         
         let data = NSMutableData()
         data.append(prefix)
@@ -98,14 +98,14 @@ class NSDataSubdataTests: XCTestCase {
         let two = "4f"
         let three = "a0"
         let combination = [zero, one, two, three].joined(separator: "")
-        let data = combination.ip_dataFromHexadecimalString()!
+        let data = combination.ip_nsdataFromHexadecimalString()!
         
         let getZeroAndOne = data[0...1]
-        let zeroAndOne = (zero + one).ip_dataFromHexadecimalString()!
+        let zeroAndOne = (zero + one).ip_nsdataFromHexadecimalString()!
         XCTAssert(getZeroAndOne == zeroAndOne)
         
         let getOneTwoThree = data[1...3]
-        let oneTwoThree = (one + two + three).ip_dataFromHexadecimalString()!
+        let oneTwoThree = (one + two + three).ip_nsdataFromHexadecimalString()!
         XCTAssert(oneTwoThree == getOneTwoThree)
         
         let outOfRange = data[2...250]

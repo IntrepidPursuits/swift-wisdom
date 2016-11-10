@@ -30,7 +30,9 @@
 		1C16E3031D27029D008A1001 /* NSLock+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */; };
 		1C16E3051D2807F9008A1001 /* Comparables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3041D2807F9008A1001 /* Comparables.swift */; };
 		1C16E3091D2809C5008A1001 /* ComparablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3081D2809C5008A1001 /* ComparablesTests.swift */; };
+		1C99FB561DD51DC0009FC493 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */; };
 		1C99FB581DD51DEC009FC493 /* String+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C99FB571DD51DEC009FC493 /* String+Data.swift */; };
+		1C99FB5C1DD525FF009FC493 /* String+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C99FB5B1DD525FF009FC493 /* String+Numbers.swift */; };
 		1CE093C61D9ED0F600D825DB /* NSData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */; };
 		1CE093C71D9ED0F600D825DB /* String+NSData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE093C51D9ED0F600D825DB /* String+NSData.swift */; };
 		1CE3D0681C6E61A500FB676C /* Mathable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE3D0671C6E61A500FB676C /* Mathable.swift */; };
@@ -124,9 +126,11 @@
 		1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLock+Extensions.swift"; path = "SwiftWisdom/Core/Async/NSLock/NSLock+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1C16E3041D2807F9008A1001 /* Comparables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comparables.swift; sourceTree = "<group>"; };
 		1C16E3081D2809C5008A1001 /* ComparablesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparablesTests.swift; sourceTree = "<group>"; };
+		1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
 		1C99FB571DD51DEC009FC493 /* String+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Data.swift"; sourceTree = "<group>"; };
+		1C99FB5B1DD525FF009FC493 /* String+Numbers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Numbers.swift"; sourceTree = "<group>"; };
 		1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Extensions.swift"; sourceTree = "<group>"; };
-		1CE093C51D9ED0F600D825DB /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+NSData.swift"; sourceTree = "<group>"; };
+		1CE093C51D9ED0F600D825DB /* String+NSData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+NSData.swift"; path = "../../Foundation/NSData/String+NSData.swift"; sourceTree = "<group>"; };
 		1CE3D0671C6E61A500FB676C /* Mathable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mathable.swift; sourceTree = "<group>"; };
 		2023F99068FFCFAB6FAD725D /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DD89A5540B26BFF3E2EB5A1 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -313,11 +317,18 @@
 			path = NSAttributedString;
 			sourceTree = "<group>";
 		};
+		1C99FB541DD51D74009FC493 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		1CE093C31D9ED0F600D825DB /* NSData */ = {
 			isa = PBXGroup;
 			children = (
 				1CE093C41D9ED0F600D825DB /* NSData+Extensions.swift */,
-				1CE093C51D9ED0F600D825DB /* String+NSData.swift */,
 			);
 			path = NSData;
 			sourceTree = "<group>";
@@ -483,6 +494,7 @@
 		80232BEB1BF2F1BD00818B6E /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				1C99FB541DD51D74009FC493 /* Data */,
 				1CE093C31D9ED0F600D825DB /* NSData */,
 				800205A01BF684C7005852C9 /* Time */,
 				1C2B1F1C1C690B6B006672D7 /* NSAttributedString */,
@@ -548,6 +560,8 @@
 				80D63D031C4F18FA00C88D00 /* String+Localization.swift */,
 				FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */,
 				1C99FB571DD51DEC009FC493 /* String+Data.swift */,
+				1CE093C51D9ED0F600D825DB /* String+NSData.swift */,
+				1C99FB5B1DD525FF009FC493 /* String+Numbers.swift */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -870,6 +884,7 @@
 				805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */,
 				802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */,
 				805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */,
+				1C99FB5C1DD525FF009FC493 /* String+Numbers.swift in Sources */,
 				802C4BB71C1B6F3700C69D80 /* DirectoryManager.swift in Sources */,
 				1C16E3031D27029D008A1001 /* NSLock+Extensions.swift in Sources */,
 				CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */,
@@ -887,6 +902,7 @@
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
+				1C99FB561DD51DC0009FC493 /* Data+Extensions.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */,
 				80232C041BF2F1BD00818B6E /* Array+Utilities.swift in Sources */,

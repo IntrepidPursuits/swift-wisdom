@@ -177,14 +177,3 @@ extension NSMutableData {
         append(data as Data)
     }
 }
-
-
-extension Data {
-    public subscript(range: Range<Int>) -> Data? {
-        guard range.lowerBound >= 0 else { return nil }
-        guard count >= range.upperBound else { return nil }
-        let rangeLength = range.upperBound - range.lowerBound
-        guard rangeLength > 0 else { return nil }
-        return subdata(in: range)
-    }
-}

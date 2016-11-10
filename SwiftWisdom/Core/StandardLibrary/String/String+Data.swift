@@ -32,21 +32,3 @@ extension String {
         return data(using: .utf8)
     }
 }
-
-extension String {
-    public var ip_hexInt: UInt {
-        return strtoul(self, nil, 16)
-    }
-    
-    public var ip_intValue: Int? {
-        return Int(self)
-    }
-    
-    public func ip_contains(_ find: String) -> Bool {
-        return self.range(of: find) != nil
-    }
-    
-    public var ip_length: Int {
-        return self.characters.count
-    }
-}
