@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: Conversion
 
-public extension Data {
+extension Data {
     // From here: http://stackoverflow.com/questions/39075043/how-to-convert-data-to-hex-string-in-swift
     public var ip_hexString: String? {
         guard self.count > 0 else { return nil }

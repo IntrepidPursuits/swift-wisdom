@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension NSData {
+extension NSData {
     // From here: http://stackoverflow.com/a/30415543/2611971
     public var ip_hexString: String? {
         guard length > 0 else { return nil }
@@ -55,7 +55,7 @@ public extension NSData {
     }
 }
 
-public extension NSData {
+extension NSData {
 
     public subscript(idx: Int) -> NSData? {
         guard length >= idx + 1 else { return nil }
@@ -93,7 +93,7 @@ public extension NSData {
     }
 }
 
-public extension NSMutableData {
+extension NSMutableData {
     public func ip_trimRange(_ range: Range<Int>) {
         ip_trimRange(CountableRange<Int>(range))
     }
