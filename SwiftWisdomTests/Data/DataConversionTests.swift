@@ -1,40 +1,40 @@
 //
-//  NSDataExtensionsTests.swift
-//  bmap
+//  DataConversionTests.swift
+//  SwiftWisdom
 //
-//  Created by Logan Wright on 12/14/15.
-//  Copyright © 2015 Intrepid. All rights reserved.
+//  Created by Paul Rolfe on 11/11/16.
+//  Copyright © 2016 Intrepid. All rights reserved.
 //
 
 import XCTest
 @testable import SwiftWisdom
 
-class NSDataConversionTests: XCTestCase {
+class DataConversionTests: XCTestCase {
     
     func testHexString() {
         let number: UInt32 = 8723645
-        let data = number.ip_data as NSData
+        let data = number.ip_data
         let hexString = data.ip_hexString!
         XCTAssert(hexString == "bd1c8500")
         
-        let emptyData = NSData()
+        let emptyData = Data()
         let emptyHexString = emptyData.ip_hexString
         XCTAssert(emptyHexString == nil)
     }
-
+    
     func testHexInt() {
         let data = "1342 fa2a".ip_dataFromHexadecimalString()!
         let hexInt = data.ip_hexInt!
         XCTAssert(hexInt == 0x1342_fa2a)
         
-        let emptyData = NSData()
+        let emptyData = Data()
         let emptyHexInt = emptyData.ip_hexInt
         XCTAssert(emptyHexInt == nil)
     }
     
     func testUIntValue() {
         let originalInt: UInt = 987267519
-        let data = originalInt.ip_data as NSData
+        let data = originalInt.ip_data
         
         let hexInt = UInt(data.ip_intValue!)
         XCTAssert(hexInt == originalInt)
@@ -47,12 +47,12 @@ class NSDataConversionTests: XCTestCase {
     }
     
     func testUInt8() {
-        let data = NSData(byte: 42)
+        let data = Data(byte: 42)
         XCTAssert(data.ip_uint8Value == 42)
     }
     
     func testASCII() {
         let numberString = "321".data(using: String.Encoding.ascii)!
-        XCTAssert((numberString as NSData).ip_asciiString == "321")
+        XCTAssert((numberString as Data).ip_asciiString == "321")
     }
 }

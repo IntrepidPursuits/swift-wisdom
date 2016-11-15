@@ -38,7 +38,7 @@ extension Array where Element: Equatable {
     /// - parameter object: Element to remove
     ///
     /// - returns: Boolean value indicating the success/failure of removing the element.
-    public mutating func ip_remove(object: Element) -> Bool {
+    @discardableResult public mutating func ip_remove(object: Element) -> Bool {
         for (idx, objectToCompare) in enumerated() where object == objectToCompare {
             remove(at: idx)
             return true

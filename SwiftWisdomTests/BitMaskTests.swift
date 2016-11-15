@@ -12,7 +12,7 @@ import XCTest
 class BitMaskTests: XCTestCase {
     
     func testSelectedIndexes() {
-        let data = "0x1f".ip_dataFromHexadecimalString()!
+        let data = "0x1f".ip_nsdataFromHexadecimalString()!
         let mask = data.ip_hexInt!
         let selectedIndexes = mask.ip_maskedIndexes
         XCTAssert(selectedIndexes == [0, 1, 2, 3, 4])
@@ -34,7 +34,7 @@ class BitMaskTests: XCTestCase {
     }
     
     func testDataInitializer() {
-        let data = "0x1f".ip_dataFromHexadecimalString()!
+        let data = "0x1f".ip_nsdataFromHexadecimalString()!
         let mask = UInt8(ip_data: data)
         let hex = data.ip_hexInt!
         XCTAssert(hex == UInt(mask))

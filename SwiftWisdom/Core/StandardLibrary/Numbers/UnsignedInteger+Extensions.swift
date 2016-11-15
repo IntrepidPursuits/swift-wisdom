@@ -31,9 +31,9 @@ extension UnsignedInteger {
         self.init(ip_safely: hexInt)
     }
 
-    init(ip_data: Data) {
-        // TODO: if/when Data gets ip_hexInt, use that here instead of converting
-        self.init(ip_data: NSData(data: ip_data))
+    public init(ip_data: Data) {
+        let hexInt = ip_data.ip_hexInt ?? 0
+        self.init(ip_safely: hexInt)
     }
 
     public func ip_containsBitMask(_ bitMask: Self) -> Bool {
@@ -43,6 +43,11 @@ extension UnsignedInteger {
     public var ip_data: Data {
         var copy = self
         return Data(bytes: &copy, count: MemoryLayout<Self>.size)
+    }
+    
+    public var ip_nsdata: NSData {
+        var copy = self
+        return NSData(bytes: &copy, length: MemoryLayout<Self>.size)
     }
 
     /// Converts a bit mask into its given indexes. For example, `0b101` will return `[0,2]`

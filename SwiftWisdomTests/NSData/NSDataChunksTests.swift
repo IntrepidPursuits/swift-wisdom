@@ -13,7 +13,7 @@ class NSDataChunksTest: XCTestCase {
     
     func testChunks() {
         let longData = "aa aa aa aa aa aa aa aa aa aa aa aa aa aa aa"
-            .ip_dataFromHexadecimalString()!
+            .ip_nsdataFromHexadecimalString()!
         
         let equalChunks = longData
             .ip_chunks(ofLength: 4, includeRemainder: false)

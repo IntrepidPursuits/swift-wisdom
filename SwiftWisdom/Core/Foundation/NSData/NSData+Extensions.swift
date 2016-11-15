@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension NSData {
+extension NSData {
     // From here: http://stackoverflow.com/a/30415543/2611971
     public var ip_hexString: String? {
         guard length > 0 else { return nil }
@@ -55,7 +55,7 @@ public extension NSData {
     }
 }
 
-public extension NSData {
+extension NSData {
 
     public subscript(idx: Int) -> NSData? {
         guard length >= idx + 1 else { return nil }
@@ -93,7 +93,7 @@ public extension NSData {
     }
 }
 
-public extension NSMutableData {
+extension NSMutableData {
     public func ip_trimRange(_ range: Range<Int>) {
         ip_trimRange(CountableRange<Int>(range))
     }
@@ -139,7 +139,7 @@ extension NSData {
 }
 
 extension NSData {
-    public func ip_segmentGenerator(start: Int = 0, chunkLength: Int) -> AnyIterator<NSData> {
+    public func ip_segmentIterator(start: Int = 0, chunkLength: Int) -> AnyIterator<NSData> {
         guard let segmentToWrite = ip_suffixFrom(start) else { return AnyIterator { return nil } }
         let mutable = NSMutableData(data: segmentToWrite as Data)
         let range = 0..<chunkLength
@@ -175,16 +175,5 @@ extension NSMutableData {
     public func appendUTF8String(_ string: String) {
         guard let data = string.ip_utf8Data else { return }
         append(data as Data)
-    }
-}
-
-
-extension Data {
-    public subscript(range: Range<Int>) -> Data? {
-        guard range.lowerBound >= 0 else { return nil }
-        guard count >= range.upperBound else { return nil }
-        let rangeLength = range.upperBound - range.lowerBound
-        guard rangeLength > 0 else { return nil }
-        return subdata(in: range)
     }
 }
