@@ -58,10 +58,9 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         if let httpResponse = downloadTask.response as? HTTPURLResponse, !httpResponse.isSuccess {
             updater?(.completed(.failure(DownloaderError.httpRequestFailed)))
-            return
+        } else {
+            updater?(.completed(.success(location)))
         }
-
-        updater?(.completed(.success(location)))
         updater = nil
     }
     
