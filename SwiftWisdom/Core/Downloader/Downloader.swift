@@ -15,6 +15,10 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
         case inProgress(CGFloat)
         case completed(Result<URL>)
     }
+
+    public enum DownloaderError : Error {
+        case httpRequestFailed
+    }
     
     public let url: URL
     public let id = UUID().uuidString
@@ -52,7 +56,11 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
     // MARK: NSURLSessionDownloadDelegate
     
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        updater?(.completed(.success(location)))
+        if let httpResponse = downloadTask.response as? HTTPURLResponse, !httpResponse.isSuccess {
+            updater?(.completed(.failure(DownloaderError.httpRequestFailed)))
+        } else {
+            updater?(.completed(.success(location)))
+        }
         updater = nil
     }
     
@@ -84,5 +92,11 @@ extension Downloader {
 
     public static func != (lhs: Downloader, rhs: Downloader) -> Bool {
         return !(lhs == rhs)
+    }
+}
+
+extension HTTPURLResponse {
+    public var isSuccess: Bool {
+        return 200...299 ~= statusCode
     }
 }
