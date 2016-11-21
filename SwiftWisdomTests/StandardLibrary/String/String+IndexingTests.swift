@@ -35,6 +35,18 @@ class String_IndexingTests: XCTestCase {
         XCTAssert("hello"[0..<1] == "h")
         XCTAssert("hello"[0..<5] == "hello")
     }
+
+    func testIpDropFirstWithNonEmptyString() {
+        var testString = "Hello"
+        testString.ip_dropFirst()
+        XCTAssertEqual("ello", testString)
+    }
+
+    func testIpDropFirstWithEmptyString() {
+        var emptyString = ""
+        emptyString.ip_dropFirst()
+        XCTAssert(emptyString.isEmpty)
+    }
 }
 
 
