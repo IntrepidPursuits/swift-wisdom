@@ -11,17 +11,9 @@ import Foundation
 extension UnsignedInteger {
     public static func ip_random() -> Self {
         let intMax = Int(ip_maxValue.toIntMax())
-        let rand = random(inRange: 0...intMax)
+        let rand = (0...intMax).ip_random()
         return self.init(ip_safely: rand)
     }
-}
-
-// TODO: evaluate whether we should move random to be a member of CountableClosedRange
-public func random(inRange range: CountableClosedRange<Int>) -> Int {
-    let diff = range.upperBound - range.lowerBound
-    let randomOffset = Int(arc4random_uniform(UInt32(diff + 1)))
-    let random = range.lowerBound + randomOffset
-    return random
 }
 
 // TODO: write tests for this extension
