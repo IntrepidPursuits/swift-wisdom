@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.6.3"
+  s.version       = "0.6.4"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
-                    Collection of extensions and utility classes by and for the developers at intrepid pursuits.
+                    Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
                     DESC
   s.homepage      = "https://github.com/IntrepidPursuits/swift-wisdom"
   s.license       = "MIT"
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
                       "Colden Prime" => "colden@intrepid.io",
                       "Ben Wu" => "ben@intrepid.io",
                       "Maya Saxena" => "maya@intrepid.io",
-                      "Alex Persian" => "alex@intrepid.io",
+                      "Alex Persian" => "alexander@intrepid.io",
                       "Tom O'Malley" => "tom@intrepid.io",
                       "Alan Scarpa" => "alan@intrepid.io",
                       "Paul Rolfe" => "paul@intrepid.io",
