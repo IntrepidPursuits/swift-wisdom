@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
                       "Alan Scarpa" => "alan@intrepid.io",
                       "Paul Rolfe" => "paul@intrepid.io",
                       "Colin Tan" => "ctan@intrepid.io",
-                      "Stephen Wingchi Wong" => "stephenwong@intrepid.io"
+                      "Stephen Wingchi Wong" => "stephenwong@intrepid.io",
+                      "Andrew Dolce" => "andrew@intrepid.io"
                     }
   s.social_media_url = 'https://twitter.com/intpd'
   s.source        = { :git => "https://github.com/IntrepidPursuits/swift-wisdom.git", :tag => "#{s.version}" }
