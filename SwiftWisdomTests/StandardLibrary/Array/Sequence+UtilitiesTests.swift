@@ -11,7 +11,10 @@ import XCTest
 class SequenceTests: XCTestCase {
 
     func testToArray() {
-        //TODO: do we need to test ip_toArray?
+        XCTAssertEqual([0], (0...0).ip_toArray())
+        XCTAssertEqual([0,1], (0...1).ip_toArray())
+        XCTAssertEqual([0,1,2,3,4,5,6,7,8,9,10], (0...10).ip_toArray())
+        XCTAssertEqual([-10,-9,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10], (-10...10).ip_toArray())
     }
 
     func testSplitWithFilter() {
