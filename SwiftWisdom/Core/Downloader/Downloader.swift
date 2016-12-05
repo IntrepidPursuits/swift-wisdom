@@ -86,11 +86,11 @@ extension URLSessionTask {
 // MARK: Operator Overloads
 
 extension Downloader {
-    public static func == (lhs: Downloader, rhs: Downloader) -> Bool {
+    @nonobjc public static func == (lhs: Downloader, rhs: Downloader) -> Bool {
         return lhs.id == rhs.id
     }
 
-    public static func != (lhs: Downloader, rhs: Downloader) -> Bool {
+    @nonobjc public static func != (lhs: Downloader, rhs: Downloader) -> Bool {
         return !(lhs == rhs)
     }
 }
