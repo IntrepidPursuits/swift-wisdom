@@ -23,18 +23,20 @@ infix operator <-> : Binding
 infix operator <- : Binding
 infix operator >>> : Disposing
 
-public func <- <T>(property: AnyObserver<T>, variable: Observable<T>) -> Disposable {
-    return variable
-        .observeOn(MainScheduler.instance)
-        .bindTo(property)
+public func <- <T: ObserverType, O: ObservableType>(observer: T, observable: O) -> Disposable where T.E == O.E {
+    return observable.observeOn(MainScheduler.instance).bindTo(observer)
 }
 
-public func <- <T>(property: AnyObserver<T>, variable: Variable<T>) -> Disposable {
-    return property <- variable.asObservable()
+public func <- <T: ObserverType, O>(observer: T, variable: Variable<O>) -> Disposable where T.E == O {
+    return observer <- variable.asObservable()
 }
 
-public func <- <T>(variable: Variable<T>, property: ControlProperty<T>) -> Disposable {
-    return property.bindTo(variable)
+public func <- <T, O: ObservableType>(variable: Variable<T>, observable: O) -> Disposable where O.E == T {
+    return observable.bindTo(variable)
+}
+
+public func <- <T>(observer: Variable<T>, observable: Variable<T>) -> Disposable {
+    return observer <- observable.asObservable()
 }
 
 public func >>> (disposable: Disposable, disposeBag: DisposeBag) {

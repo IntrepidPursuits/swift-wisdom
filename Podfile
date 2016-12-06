@@ -6,8 +6,8 @@ use_frameworks!
 
 def commonpods
   pod 'IP-UIKit-Wisdom'
-    pod 'RxSwift', '~> 3.0.0-beta.2'
-    pod 'RxCocoa', '~> 3.0.0-beta.2'
+    pod 'RxSwift', '~> 3.0'
+    pod 'RxCocoa', '~> 3.0'
 end
 
 target 'SwiftWisdom' do
