@@ -32,6 +32,43 @@ extension Array {
     }
 }
 
+extension Array {
+    /// Separates this array's elements into chunks with a given length. Elements in these chunks and the chunks themselves
+    /// are ordered the same way they are ordered in this array.
+    ///
+    /// If this array is empty, we always return an empty array.
+    ///
+    /// If `length` is not a positive number or if it's greater than or equal to this array's length, we return a new array
+    /// with no chunks at all, plus the "remainder" which is this array itself iff `includeRemainder` is `true`.
+    ///
+    /// - parameter length: Number of elements in each chunk.
+    /// - parameter includeRemainder: If set to `true`, include the remainder in returned array even if its length is less than
+    ///   `length`. If set to `false`, discard the remainder. Defaults to `true`.
+    ///
+    /// - returns: New array of chunks of elements in this array.
+    public func ip_chunks(of length: Int, includeRemainder: Bool = true) -> [[Element]] {
+        guard !isEmpty else { return [] }
+        guard length > 0 else { return includeRemainder ? [self] : [] }
+
+        var chunks = [[Element]]()
+        var nextChunkLeftIndex = 0
+        let nextChunkRightIndex = { nextChunkLeftIndex + length - 1 }
+
+        while nextChunkRightIndex() < count {
+            let nextChunk = Array(self[nextChunkLeftIndex...nextChunkRightIndex()])
+            chunks.append(nextChunk)
+            nextChunkLeftIndex += length
+        }
+
+        if includeRemainder && nextChunkLeftIndex < count {
+            let remainder = Array(self[nextChunkLeftIndex..<count])
+            chunks.append(remainder)
+        }
+
+        return chunks
+    }
+}
+
 extension Array where Element: Equatable {
     /// Removes a single element from the array.
     ///
