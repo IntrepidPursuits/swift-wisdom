@@ -38,4 +38,11 @@ Pod::Spec.new do |s|
     rx.dependency 'RxSwift', '~> 3.0'
     rx.dependency 'RxCocoa', '~> 3.0'
   end
+
+  s.subspec "App-Extension" do |ext|
+    ext.source_files = "SwiftWisdom/Core/**/**/*.swift"
+    ext.exclude_files = "SwiftWisdom/Core/UIKit/UIApplication+Extensions.swift"
+    ext.dependency 'IP-UIKit-Wisdom', '0.0.10'
+  end
+
 end
