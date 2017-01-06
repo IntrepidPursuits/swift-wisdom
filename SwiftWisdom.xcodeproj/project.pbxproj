@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
+		133732FB1E2034AC005AA075 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133732FA1E2034AC005AA075 /* UIApplication+Extensions.swift */; };
 		13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */; };
 		13425F741DB073F300F446BE /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F691DB073F300F446BE /* MathableTests.swift */; };
 		13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */; };
@@ -76,7 +77,6 @@
 		80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */; };
 		80D63D021C4F16FE00C88D00 /* UIViewController+Nibs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */; };
 		80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D031C4F18FA00C88D00 /* String+Localization.swift */; };
-		80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */; };
 		80D63D151C4F1F3E00C88D00 /* NSDataConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */; };
 		80D63D161C4F1F3E00C88D00 /* NSDataSubdataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */; };
 		80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */; };
@@ -107,6 +107,7 @@
 
 /* Begin PBXFileReference section */
 		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		133732FA1E2034AC005AA075 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIApplication+Extensions.swift"; path = "Application/UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F691DB073F300F446BE /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathableTests.swift; sourceTree = "<group>"; };
 		13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
@@ -183,7 +184,6 @@
 		80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Geometry.swift"; sourceTree = "<group>"; };
 		80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Nibs.swift"; sourceTree = "<group>"; };
 		80D63D031C4F18FA00C88D00 /* String+Localization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
-		80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		80D63D0F1C4F1F3E00C88D00 /* NSDataConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataConversionTests.swift; sourceTree = "<group>"; };
 		80D63D101C4F1F3E00C88D00 /* NSDataSubdataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataSubdataTests.swift; sourceTree = "<group>"; };
 		80D63D111C4F1F3E00C88D00 /* NSDataChunksTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDataChunksTests.swift; sourceTree = "<group>"; };
@@ -223,6 +223,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		133732F91E20347C005AA075 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				133732FA1E2034AC005AA075 /* UIApplication+Extensions.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 		13425F601DB073F300F446BE /* StandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +439,7 @@
 		80232BA11BF2EE2E00818B6E /* SwiftWisdom */ = {
 			isa = PBXGroup;
 			children = (
+				133732F91E20347C005AA075 /* Application */,
 				80232BD11BF2F05500818B6E /* Core */,
 				8037D86C1CAD9979008F324C /* Rx */,
 				80232BA21BF2EE2E00818B6E /* AppDelegate.swift */,
@@ -602,7 +611,6 @@
 				80232BFD1BF2F1BD00818B6E /* UIView+Nib.swift */,
 				80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */,
 				80D63D011C4F16FE00C88D00 /* UIViewController+Nibs.swift */,
-				80D63D051C4F1AC900C88D00 /* UIApplication+Extensions.swift */,
 				805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */,
 				805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */,
 				CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */,
@@ -922,11 +930,11 @@
 				1C99FB581DD51DEC009FC493 /* String+Data.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */,
-				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
+				133732FB1E2034AC005AA075 /* UIApplication+Extensions.swift in Sources */,
 				1C99FB561DD51DC0009FC493 /* Data+Extensions.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */,

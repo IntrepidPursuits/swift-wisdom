@@ -26,11 +26,15 @@ Pod::Spec.new do |s|
   s.platform      = :ios
   s.ios.deployment_target = "8.0"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
-  s.default_subspec = "Core"
+  s.default_subspecs = "Core", "Application"
 
   s.subspec "Core" do |cs|
     cs.source_files = "SwiftWisdom/Core/**/**/*.swift"
     cs.dependency 'IP-UIKit-Wisdom', '0.0.9'
+  end
+
+  s.subspec "Application" do |ss|
+    ss.source_files = "SwiftWisdom/Application/**/**/*.swift"
   end
 
   s.subspec "Rx" do |rx|
