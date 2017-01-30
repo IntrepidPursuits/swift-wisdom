@@ -91,6 +91,8 @@
 		AF6BD1F891BFB99B619B7478 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2023F99068FFCFAB6FAD725D /* Pods_SwiftWisdomTests.framework */; };
 		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
 		D9A869DF60F46262C58F2C25 /* Pods_SwiftWisdom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA1744EA1E3C385DDDF3342 /* Pods_SwiftWisdom.framework */; };
+		E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */; };
+		E7E2576C1E3F99FF00CA3DBD /* Rx+DelayElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E2576B1E3F99FF00CA3DBD /* Rx+DelayElements.swift */; };
 		FF44B77B1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF44B77A1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift */; };
 		FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */; };
 /* End PBXBuildFile section */
@@ -199,6 +201,8 @@
 		94555EC02E932CF736415F8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA1744EA1E3C385DDDF3342 /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
+		E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+DelayElementsTests.swift"; sourceTree = "<group>"; };
+		E7E2576B1E3F99FF00CA3DBD /* Rx+DelayElements.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+DelayElements.swift"; sourceTree = "<group>"; };
 		FF44B77A1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+ExtensionsTest.swift"; sourceTree = "<group>"; };
 		FFCA61AF1C8A1F1B00FD35A7 /* String+Empty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Empty.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -654,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				8037D86D1CAD9981008F324C /* Rx+Extensions.swift */,
+				E7E2576B1E3F99FF00CA3DBD /* Rx+DelayElements.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -689,6 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				FF44B77A1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift */,
+				E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -924,6 +930,7 @@
 				8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
+				E7E2576C1E3F99FF00CA3DBD /* Rx+DelayElements.swift in Sources */,
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
@@ -958,6 +965,7 @@
 				80D63D191C4F1F3E00C88D00 /* NSDataTrimTests.swift in Sources */,
 				13425F7A1DB0751C00F446BE /* Dictionary+UtilitiesTests.swift in Sources */,
 				13425F901DB0761500F446BE /* String+IndexingTests.swift in Sources */,
+				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				80D63D171C4F1F3E00C88D00 /* NSDataChunksTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */,
