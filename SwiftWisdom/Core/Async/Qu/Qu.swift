@@ -118,10 +118,11 @@ public class Qu {
     @discardableResult public func Finally(_ block: @escaping Block) -> Self {
         let op = Operation(block: block)
         completion = op
+        operationQueue.setCompletion(op)
         return self
     }
     
-    public func FinallyOn(_ priority: Priority, block: @escaping Block) -> Self {
+    @discardableResult public func FinallyOn(_ priority: Priority, block: @escaping Block) -> Self {
         let wrapped: Block = {
             if let queue = priority.queue.underlyingQueue {
                 queue.async(execute: block)
@@ -183,7 +184,7 @@ private extension OperationQueue {
         return setCompletion(blockOp)
     }
     
-    func setCompletion(_ blockOp: Operation) -> Operation {
+    @discardableResult func setCompletion(_ blockOp: Operation) -> Operation {
         for op in ops {
             blockOp.addDependency(op)
         }
