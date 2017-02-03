@@ -71,9 +71,9 @@ class DataConversionTests: XCTestCase {
     }
     
     func testIntegerConversion() {
-        let data = Int(-10005500055).ip_data
+        let data = Int(-100055).ip_data
         let backToNum = Int(ip_data: data)
-        XCTAssert(backToNum == -10005500055)
+        XCTAssert(backToNum == -100055)
     }
     
     func testDoubleConversion() {
