@@ -5,6 +5,7 @@
 //  Created by Paul Rolfe on 2/3/17.
 //  Copyright © 2017 Intrepid. All rights reserved.
 //
+//  Protocol adapted from http://stackoverflow.com/questions/38023838/round-trip-swift-number-types-to-from-data
 
 import Foundation
 import UIKit
