@@ -13,7 +13,7 @@ extension String {
         let trimmed = clean.trimmingCharacters(in: allowed.inverted)
         guard !trimmed.isEmpty && trimmed.characters.count.ip_isEven else { return nil }
         
-        // everything ok, so now let's build NSData
+        // everything ok, so now let's build the Data
         
         var data = Data(capacity: trimmed.characters.count / 2)
         
