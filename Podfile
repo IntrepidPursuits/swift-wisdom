@@ -16,6 +16,7 @@ end
 
 target 'SwiftWisdomTests' do
   commonpods()
+  pod 'RxTest', '~> 3.0'
 end
 
 post_install do |installer|
