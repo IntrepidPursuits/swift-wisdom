@@ -32,6 +32,10 @@ extension Data {
         return self.to(type: Int.self)
     }
     
+    public var ip_int8Value: Int8? {
+        return self.to(type: Int8.self)
+    }
+    
     public var ip_uint8Value: UInt8? {
         return self.to(type: UInt8.self)
     }

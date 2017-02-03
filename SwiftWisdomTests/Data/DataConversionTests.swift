@@ -55,4 +55,40 @@ class DataConversionTests: XCTestCase {
         let numberString = "321".data(using: String.Encoding.ascii)!
         XCTAssert((numberString as Data).ip_asciiString == "321")
     }
+    
+    // MARK: Testing DataConvertible protocol
+    
+    func testInt8Conversion() {
+        let data = Int8(-42).ip_data
+        let backToNum = Int8(ip_data: data)
+        XCTAssert(backToNum == -42)
+    }
+    
+    func testInt64Conversion() {
+        let data = Int64(-4232).ip_data
+        let backToNum = Int64(ip_data: data)
+        XCTAssert(backToNum == -4232)
+    }
+    
+    func testIntegerConversion() {
+        let data = Int(-10005500055).ip_data
+        let backToNum = Int(ip_data: data)
+        XCTAssert(backToNum == -10005500055)
+    }
+    
+    func testDoubleConversion() {
+        let data = Double(421.4566).ip_data
+        let backToNum = Double(ip_data: data)
+        XCTAssert(backToNum == 421.4566)
+    }
+    
+    func testBitsOfIntegerConversion() {
+        let data = Int8(2).ip_data
+        if let bitMask = data.ip_uint8Value?.ip_maskedIndexes {
+            XCTAssert(bitMask == [1])
+        } else {
+            XCTFail()
+        }
+    }
+    
 }

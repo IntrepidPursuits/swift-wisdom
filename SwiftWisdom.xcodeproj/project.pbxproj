@@ -30,6 +30,7 @@
 		1C16E3031D27029D008A1001 /* NSLock+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */; };
 		1C16E3051D2807F9008A1001 /* Comparables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3041D2807F9008A1001 /* Comparables.swift */; };
 		1C16E3091D2809C5008A1001 /* ComparablesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C16E3081D2809C5008A1001 /* ComparablesTests.swift */; };
+		1C34ED371E44D86E001D5208 /* DataConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C34ED361E44D86E001D5208 /* DataConvertible.swift */; };
 		1C70C4ED1DD61FD900F2C80B /* DataIteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70C4EC1DD61FD900F2C80B /* DataIteratorTests.swift */; };
 		1C70C4EF1DD6217100F2C80B /* DataConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C70C4EE1DD6217100F2C80B /* DataConversionTests.swift */; };
 		1C99FB561DD51DC0009FC493 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */; };
@@ -133,6 +134,7 @@
 		1C16E3021D27029D008A1001 /* NSLock+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLock+Extensions.swift"; path = "SwiftWisdom/Core/Async/NSLock/NSLock+Extensions.swift"; sourceTree = SOURCE_ROOT; };
 		1C16E3041D2807F9008A1001 /* Comparables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comparables.swift; sourceTree = "<group>"; };
 		1C16E3081D2809C5008A1001 /* ComparablesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComparablesTests.swift; sourceTree = "<group>"; };
+		1C34ED361E44D86E001D5208 /* DataConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConvertible.swift; sourceTree = "<group>"; };
 		1C70C4EC1DD61FD900F2C80B /* DataIteratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataIteratorTests.swift; sourceTree = "<group>"; };
 		1C70C4EE1DD6217100F2C80B /* DataConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConversionTests.swift; sourceTree = "<group>"; };
 		1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
@@ -346,8 +348,9 @@
 			isa = PBXGroup;
 			children = (
 				1C99FB551DD51DC0009FC493 /* Data+Extensions.swift */,
+				1C34ED361E44D86E001D5208 /* DataConvertible.swift */,
 			);
-			name = Data;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		1C99FB5D1DD52EA4009FC493 /* NSData */ = {
@@ -940,6 +943,7 @@
 				80D63D001C4F132E00C88D00 /* UIView+Geometry.swift in Sources */,
 				80232C011BF2F1BD00818B6E /* Defaults.swift in Sources */,
 				80232C0A1BF2F1BD00818B6E /* UIView+GetConstraints.swift in Sources */,
+				1C34ED371E44D86E001D5208 /* DataConvertible.swift in Sources */,
 				1C99FB561DD51DC0009FC493 /* Data+Extensions.swift in Sources */,
 				1C0438C41C751F2100069CE1 /* BasicVerticalGradientLayer.swift in Sources */,
 				8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */,
