@@ -51,6 +51,11 @@ class DataConversionTests: XCTestCase {
         XCTAssert(data.ip_uint8Value == 42)
     }
     
+    func testInt8() {
+        let data = "ff".ip_dataFromHexadecimalString() //two's complement
+        XCTAssert(data?.ip_int8Value == -1)
+    }
+    
     func testASCII() {
         let numberString = "321".data(using: String.Encoding.ascii)!
         XCTAssert((numberString as Data).ip_asciiString == "321")
@@ -71,7 +76,7 @@ class DataConversionTests: XCTestCase {
     }
     
     func testIntegerConversion() {
-        let data = Int(-100055).ip_data
+        let data = Int(-100055).ip_data // Be careful with the signed bit boundary.
         let backToNum = Int(ip_data: data)
         XCTAssert(backToNum == -100055)
     }
