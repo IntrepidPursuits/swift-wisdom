@@ -83,6 +83,8 @@
 		80D63D261C4F236F00C88D00 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D251C4F236F00C88D00 /* Not.swift */; };
 		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
 		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
+		E7280FC31E4D2F3C0050B327 /* Multicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC21E4D2F3C0050B327 /* Multicast.swift */; };
+		E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC51E4D2F510050B327 /* MulticastTests.swift */; };
 		E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */; };
 		E7A613981E3FB27F006382DA /* Rx+RepeatingTimeouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A613971E3FB27F006382DA /* Rx+RepeatingTimeouts.swift */; };
 		E7A6139A1E3FB521006382DA /* Rx+RepeatingTimeoutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A613991E3FB521006382DA /* Rx+RepeatingTimeoutsTests.swift */; };
@@ -188,6 +190,8 @@
 		96E808C6BB3914E0E49C738D /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
 		D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7280FC21E4D2F3C0050B327 /* Multicast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = CommonTypes/Multicast.swift; sourceTree = "<group>"; };
+		E7280FC51E4D2F510050B327 /* MulticastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastTests.swift; sourceTree = "<group>"; };
 		E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+DelayElementsTests.swift"; sourceTree = "<group>"; };
 		E7A613971E3FB27F006382DA /* Rx+RepeatingTimeouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+RepeatingTimeouts.swift"; sourceTree = "<group>"; };
 		E7A613991E3FB521006382DA /* Rx+RepeatingTimeoutsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+RepeatingTimeoutsTests.swift"; sourceTree = "<group>"; };
@@ -360,6 +364,7 @@
 		8002059C1BF683CB005852C9 /* CommonTypes */ = {
 			isa = PBXGroup;
 			children = (
+				E7280FC21E4D2F3C0050B327 /* Multicast.swift */,
 				8002059D1BF683E0005852C9 /* Result.swift */,
 			);
 			name = CommonTypes;
@@ -424,6 +429,7 @@
 				13425F601DB073F300F446BE /* StandardLibrary */,
 				FF44B7791CDCD10C00764AB0 /* Rx */,
 				1C99FB601DD52EDC009FC493 /* Data */,
+				E7280FC41E4D2F510050B327 /* CommonTypes */,
 				80D63D211C4F22B800C88D00 /* BitMaskTests.swift */,
 				805807EB1C5D8B3C00F9AFB1 /* VersionTests.swift */,
 				80232BB91BF2EE2E00818B6E /* Info.plist */,
@@ -658,6 +664,14 @@
 			path = Numbers;
 			sourceTree = "<group>";
 		};
+		E7280FC41E4D2F510050B327 /* CommonTypes */ = {
+			isa = PBXGroup;
+			children = (
+				E7280FC51E4D2F510050B327 /* MulticastTests.swift */,
+			);
+			path = CommonTypes;
+			sourceTree = "<group>";
+		};
 		FF44B7791CDCD10C00764AB0 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
@@ -873,6 +887,7 @@
 			files = (
 				805807E81C5D828500F9AFB1 /* VideoPlayer.swift in Sources */,
 				1CE3D0681C6E61A500FB676C /* Mathable.swift in Sources */,
+				E7280FC31E4D2F3C0050B327 /* Multicast.swift in Sources */,
 				13425F891DB075E000F446BE /* String+Indexing.swift in Sources */,
 				13425F781DB074FA00F446BE /* Dictionary+Utilities.swift in Sources */,
 				800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */,
@@ -949,6 +964,7 @@
 				13425F911DB0761500F446BE /* String+ValidationTests.swift in Sources */,
 				13425F861DB075B300F446BE /* Integer+ExtensionsTests.swift in Sources */,
 				1C70C4ED1DD61FD900F2C80B /* DataIteratorTests.swift in Sources */,
+				E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */,
 				13425F7E1DB0757000F446BE /* NSMutableAttributedString+FormatTests.swift in Sources */,
 				13425F871DB075B300F446BE /* UnsignedInteger+ExtensionsTests.swift in Sources */,
 				13425F741DB073F300F446BE /* MathableTests.swift in Sources */,
