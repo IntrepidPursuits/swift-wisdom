@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.7.1"
+  s.version       = "0.7.2"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
