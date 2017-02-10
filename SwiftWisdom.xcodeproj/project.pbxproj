@@ -83,6 +83,7 @@
 		80D63D261C4F236F00C88D00 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D251C4F236F00C88D00 /* Not.swift */; };
 		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
 		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
+		E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A8C801E4E5751004E0663 /* QuTests.swift */; };
 		E7280FC31E4D2F3C0050B327 /* Multicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC21E4D2F3C0050B327 /* Multicast.swift */; };
 		E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC51E4D2F510050B327 /* MulticastTests.swift */; };
 		E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */; };
@@ -190,6 +191,7 @@
 		96E808C6BB3914E0E49C738D /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
 		D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E69A8C801E4E5751004E0663 /* QuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuTests.swift; sourceTree = "<group>"; };
 		E7280FC21E4D2F3C0050B327 /* Multicast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = CommonTypes/Multicast.swift; sourceTree = "<group>"; };
 		E7280FC51E4D2F510050B327 /* MulticastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastTests.swift; sourceTree = "<group>"; };
 		E7A613951E3FA2B6006382DA /* Rx+DelayElementsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+DelayElementsTests.swift"; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				80232BB71BF2EE2E00818B6E /* SwiftWisdomTests.swift */,
+				E69A8C7F1E4E5751004E0663 /* Async */,
 				13425F601DB073F300F446BE /* StandardLibrary */,
 				FF44B7791CDCD10C00764AB0 /* Rx */,
 				1C99FB601DD52EDC009FC493 /* Data */,
@@ -662,6 +665,14 @@
 				0CED7D661CD6971400672913 /* Double+Extensions.swift */,
 			);
 			path = Numbers;
+			sourceTree = "<group>";
+		};
+		E69A8C7F1E4E5751004E0663 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				E69A8C801E4E5751004E0663 /* QuTests.swift */,
+			);
+			path = Async;
 			sourceTree = "<group>";
 		};
 		E7280FC41E4D2F510050B327 /* CommonTypes */ = {
@@ -947,6 +958,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13425F7A1DB0751C00F446BE /* Dictionary+UtilitiesTests.swift in Sources */,
+				E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */,
 				13425F901DB0761500F446BE /* String+IndexingTests.swift in Sources */,
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
