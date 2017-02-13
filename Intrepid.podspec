@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.7.2"
+  s.version       = "0.7.3"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Core" do |cs|
     cs.source_files = "SwiftWisdom/Core/**/**/*.swift"
-    cs.dependency 'IP-UIKit-Wisdom', '0.0.9'
+    cs.dependency 'IP-UIKit-Wisdom', '0.0.10'
   end
 
   s.subspec "Rx" do |rx|
