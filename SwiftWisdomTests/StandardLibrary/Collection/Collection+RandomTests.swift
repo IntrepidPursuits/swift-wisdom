@@ -1,5 +1,5 @@
 //
-//  CountableClosedRange+ExtensionsTests.swift
+//  Collection+RandomTests.swift
 //  SwiftWisdom
 //
 //  Created by Andrew Dolce on 11/21/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwiftWisdom
 
-class CountableClosedRangeExtensionTests: XCTestCase {
+class CollectionRandomTests: XCTestCase {
 
     // This test is complex. Here is an explanation as to why:
     //
@@ -41,7 +41,7 @@ class CountableClosedRangeExtensionTests: XCTestCase {
 
         // We do not want to assume that we know the upper bound argument provided to the random number generator
         // function. Instead we will make one call and capture the input.
-        var capturedRNGUpperBound: Int? = nil
+        var capturedRNGUpperBound: UInt32? = nil
         let _ = testRange.ip_random(withUniformRNGFunction: { upperBound in
             capturedRNGUpperBound = upperBound
             return 0
