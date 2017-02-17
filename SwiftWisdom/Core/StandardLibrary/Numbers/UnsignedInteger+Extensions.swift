@@ -72,10 +72,26 @@ extension UnsignedInteger {
         return MemoryLayout<Self>.size * 8
     }
 
-    // TODO: needs documentation - what is this bitstack stuff?
+    /**
+     * Returns a type with a particular bit pattern of ones. 
+     *
+     * If length > MemoryLayout<Self>.size, the function computes 
+     * ip_bitStackOfLength(MemoryLayout<Self>.size). If length <= 0, the function computes
+     * ip_bitStackOfLength(0)
+     *
+     * Example:                         Corresponding Memory Layout
+     * UInt8.ip_bitStackOfLength(2)        | 0 0 0 0 0 0 1 1 |
+     * UInt8.ip_bitStackOfLength(3)        | 0 0 0 0 0 1 1 1 |
+     *
+     * @param length the number of ones in the bit pattern.
+     *
+     * @return a typed bit pattern
+     */
     public static func ip_bitStackOfLength(_ length: Int) -> Self {
         let maxLength = ip_maximumNumberOfBits
+        guard length > 0 else { return Self(0) }
         guard length <= maxLength else { return ip_bitStackOfLength(maxLength) }
+
         var stack: Self = 0
         for _ in 1...length {
             // stack <<= 1
