@@ -8,14 +8,6 @@
 
 import Foundation
 
-extension UnsignedInteger {
-    public static func ip_random() -> Self {
-        let intMax = Int(ip_maxValue.toIntMax())
-        let rand = (0...intMax).ip_random()
-        return self.init(ip_safely: rand)
-    }
-}
-
 // TODO: write tests for this extension
 extension UnsignedInteger {
 
