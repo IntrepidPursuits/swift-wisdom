@@ -86,6 +86,7 @@
 		CDCDE2561E67A6EC007B3784 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2551E67A6EC007B3784 /* ResultTests.swift */; };
 		CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */; };
 		CDCDE25B1E67C8F7007B3784 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25A1E67C8F7007B3784 /* SetTests.swift */; };
+		CDCDE25D1E67D785007B3784 /* TimeOfDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */; };
 		E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A8C801E4E5751004E0663 /* QuTests.swift */; };
 		E7280FC31E4D2F3C0050B327 /* Multicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC21E4D2F3C0050B327 /* Multicast.swift */; };
 		E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC51E4D2F510050B327 /* MulticastTests.swift */; };
@@ -196,6 +197,7 @@
 		CDCDE2551E67A6EC007B3784 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateComparableTests.swift; path = Date/NSDateComparableTests.swift; sourceTree = "<group>"; };
 		CDCDE25A1E67C8F7007B3784 /* SetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
+		CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeOfDayTests.swift; path = Date/TimeOfDayTests.swift; sourceTree = "<group>"; };
 		D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E69A8C801E4E5751004E0663 /* QuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuTests.swift; sourceTree = "<group>"; };
 		E7280FC21E4D2F3C0050B327 /* Multicast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = CommonTypes/Multicast.swift; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */,
+				CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -986,6 +989,7 @@
 				13425F8F1DB0761500F446BE /* String+EmptyTests.swift in Sources */,
 				13425F851DB075B300F446BE /* Double+ExtensionsTests.swift in Sources */,
 				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
+				CDCDE25D1E67D785007B3784 /* TimeOfDayTests.swift in Sources */,
 				E7A6139A1E3FB521006382DA /* Rx+RepeatingTimeoutsTests.swift in Sources */,
 				CDCDE2561E67A6EC007B3784 /* ResultTests.swift in Sources */,
 				134882551CDB87C500CA27BA /* CellConfiguringTests.swift in Sources */,

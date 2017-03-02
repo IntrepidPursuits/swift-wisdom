@@ -24,7 +24,9 @@ public struct TimeOfDay {
     
     public var stringRepresentation: String {
         var stringRepresentation = hours < 10 ? "0" : ""
-        stringRepresentation += "\(hours):\(minutes)"
+        stringRepresentation += "\(hours):"
+        stringRepresentation += (minutes < 10) ? "0" : ""
+        stringRepresentation += "\(minutes)"
         return stringRepresentation
     }
     
