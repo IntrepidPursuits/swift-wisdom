@@ -11,10 +11,16 @@ import XCTest
 import SwiftWisdom
 
 final class TimeOfDayTests: XCTestCase {
-    // Corresponds to Jan 1st, 2017, 3:16 AM Eastern Standard Time
-    private let testSingleHourDigitEpochTime: TimeInterval = 1483258560
-    // Corresponds to Jan 1st, 2017, 11:00 AM Eastern Standard Time
-    private let testDoubleHourDigitEpochTime: TimeInterval = 1483286400
+    // Corresponds to Jan 1st, 2017, 3:16 AM GMT
+    private var testSingleHourDigitEpochTime: TimeInterval = 1483240560
+    // Corresponds to Jan 1st, 2017, 11:00 AM GMT
+    private var testDoubleHourDigitEpochTime: TimeInterval = 1483268400
+    
+    override func setUp() {
+        let offset = TimeZone.current.secondsFromGMT()
+        testSingleHourDigitEpochTime -= TimeInterval(offset)
+        testDoubleHourDigitEpochTime -= TimeInterval(offset)
+    }
     
     func testTimeFromDate() {
         let td1 = TimeOfDay(Date(timeIntervalSince1970: testSingleHourDigitEpochTime))

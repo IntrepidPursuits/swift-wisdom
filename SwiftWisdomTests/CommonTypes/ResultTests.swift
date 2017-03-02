@@ -36,13 +36,7 @@ class ResultTests: XCTestCase {
     
     func testFailureResultStorage() {
         XCTAssertNil(failureResult.value)
-        do {
-          let _ = try failureResult.extract()
-        } catch {
-            return XCTAssertNotNil(error)
-        }
-        
-        XCTFail("Extract call should throw exception")
+        XCTAssertThrowsError(try failureResult.extract())
     }
     
     func testFailureResultErrorExists() {

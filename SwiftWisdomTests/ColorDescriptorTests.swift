@@ -50,22 +50,22 @@ class ColorDescriptorTests: XCTestCase {
     }
     
     func testUnicodeScalarColor() {
-        let color: ColorDescriptor = ColorDescriptor.init(unicodeScalarLiteral: "#0000FF")
+        let color: ColorDescriptor = ColorDescriptor(unicodeScalarLiteral: "#0000FF")
         XCTAssert(color.color == UIColor(red: 0, green: 0, blue: 1, alpha: 1))
     }
     
     func testStringLiteralColor() {
-        let color: ColorDescriptor = ColorDescriptor.init(stringLiteral: "#0000FF")
+        let color: ColorDescriptor = ColorDescriptor(stringLiteral: "#0000FF")
         XCTAssert(color.color == UIColor(red: 0, green: 0, blue: 1, alpha: 1))
     }
     
     func testExtendedGraphemeClusterLiteralColor() {
-        let color: ColorDescriptor = ColorDescriptor.init(extendedGraphemeClusterLiteral: "#0000FF")
+        let color: ColorDescriptor = ColorDescriptor(extendedGraphemeClusterLiteral: "#0000FF")
         XCTAssert(color.color == UIColor(red: 0, green: 0, blue: 1, alpha: 1))
     }
     
     func testRawValueColor() {
-        let color: ColorDescriptor? = ColorDescriptor.init(rawValue: "#FF0000")
+        let color: ColorDescriptor? = ColorDescriptor(rawValue: "#FF0000")
         XCTAssertNotNil(color)
         XCTAssert(color?.color == UIColor(red: 1, green: 0, blue: 0, alpha: 1))
     }
