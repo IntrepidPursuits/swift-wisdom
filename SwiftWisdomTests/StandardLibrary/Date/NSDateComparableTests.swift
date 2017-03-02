@@ -16,6 +16,7 @@ final class NSDateComparableTests: XCTestCase {
     
     func testLessThanDate() {
         XCTAssert(olderDate < moreRecentDate)
+        XCTAssertFalse(olderDate < olderDateCopy)
     }
     
     func testLessThanOrEqual() {
@@ -25,6 +26,7 @@ final class NSDateComparableTests: XCTestCase {
     
     func testGreaterThan() {
         XCTAssert(moreRecentDate > olderDate)
+        XCTAssertFalse(olderDateCopy > olderDate)
     }
     
     func testGreaterThanOrEqual() {
