@@ -17,7 +17,7 @@ final class TimeOfDayTests: XCTestCase {
     private var testDoubleHourDigitEpochTime: TimeInterval = 1483268400
     
     override func setUp() {
-        let offset = TimeZone.current.secondsFromGMT()
+        let offset = TimeZone.autoupdatingCurrent.secondsFromGMT(for: Date(timeIntervalSince1970: testSingleHourDigitEpochTime)) // Was breaking on Daylight savings time.
         testSingleHourDigitEpochTime -= TimeInterval(offset)
         testDoubleHourDigitEpochTime -= TimeInterval(offset)
     }

@@ -13,7 +13,7 @@ import XCTest
 class ResultTests: XCTestCase {
     fileprivate enum ResultError: Error { case error }
     private final let successfulResult = Result<Int>.success(1)
-    private final let failureResult = Result<Any?>.failure(ResultError.error)
+    private final let failureResult = Result<Any>.failure(ResultError.error)
     
     func testSuccessResult() {
         XCTAssert(successfulResult.isSuccess)
