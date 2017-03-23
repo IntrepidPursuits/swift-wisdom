@@ -1,3 +1,4 @@
+
 //
 //  DataConversionTests.swift
 //  SwiftWisdom
@@ -50,7 +51,79 @@ class DataConversionTests: XCTestCase {
         let data = Data(byte: 42)
         XCTAssert(data.ip_uint8Value == 42)
     }
-    
+
+    func testUInt16() {
+        var data = Data(bytes: [0x00, 0x01])
+        XCTAssertEqual(data.ip_uint16Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_uint16Value?.littleEndian, 1)
+
+        data = Data()
+        XCTAssertEqual(data.ip_uint16Value?.bigEndian, nil)
+        XCTAssertEqual(Data(data.reversed()).ip_uint16Value?.littleEndian, nil)
+    }
+
+    func testUInt32() {
+        var data = Data(bytes: [0x00, 0x00, 0x00, 0x01])
+        XCTAssertEqual(data.ip_uint32Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_uint32Value?.littleEndian, 1)
+
+        data = Data()
+        XCTAssertEqual(data.ip_uint32Value?.bigEndian, nil)
+        XCTAssertEqual(Data(data.reversed()).ip_uint32Value?.littleEndian, nil)
+    }
+
+    func testUInt64() {
+        var data = Data(bytes: [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
+        XCTAssertEqual(data.ip_uint64Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_uint64Value?.littleEndian, 1)
+
+        data = Data()
+        XCTAssertEqual(data.ip_uint64Value?.bigEndian, nil)
+        XCTAssertEqual(Data(data.reversed()).ip_uint64Value?.littleEndian, nil)
+    }
+
+    func testInt16() {
+        var data = Data(bytes: [0x00, 0x01])
+        XCTAssertEqual(data.ip_int16Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_int16Value?.littleEndian, 1)
+
+        data = Data(bytes: [0xFF, 0xFE])
+        XCTAssertEqual(data.ip_int16Value?.bigEndian, -2)
+        XCTAssertEqual(Data(data.reversed()).ip_int16Value?.littleEndian, -2)
+
+        data = Data()
+        XCTAssertEqual(data.ip_int16Value?.bigEndian, nil)
+        XCTAssertEqual(data.ip_int16Value?.littleEndian, nil)
+    }
+
+    func testInt32() {
+        var data = Data(bytes: [0x00, 0x00, 0x00, 0x01])
+        XCTAssertEqual(data.ip_int32Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_int32Value?.littleEndian, 1)
+
+        data = Data(bytes: [0xFF, 0xFF, 0xFF, 0xFE])
+        XCTAssertEqual(data.ip_int32Value?.bigEndian, -2)
+        XCTAssertEqual(Data(data.reversed()).ip_int32Value?.littleEndian, -2)
+
+        data = Data()
+        XCTAssertEqual(data.ip_int32Value?.bigEndian, nil)
+        XCTAssertEqual(data.ip_int32Value?.littleEndian, nil)
+    }
+
+    func testInt64() {
+        var data = Data(bytes: [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
+        XCTAssertEqual(data.ip_int64Value?.bigEndian, 1)
+        XCTAssertEqual(Data(data.reversed()).ip_int64Value?.littleEndian, 1)
+
+        data = Data(bytes: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE])
+        XCTAssertEqual(data.ip_int64Value?.bigEndian, -2)
+        XCTAssertEqual(Data(data.reversed()).ip_int64Value?.littleEndian, -2)
+
+        data = Data()
+        XCTAssertEqual(data.ip_int64Value?.bigEndian, nil)
+        XCTAssertEqual(data.ip_int64Value?.littleEndian, nil)
+    }
+
     func testInt8() {
         let data = "ff".ip_dataFromHexadecimalString() //two's complement
         XCTAssert(data?.ip_int8Value == -1)

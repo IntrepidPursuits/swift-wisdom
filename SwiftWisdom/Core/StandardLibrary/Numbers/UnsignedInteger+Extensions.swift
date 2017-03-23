@@ -125,3 +125,33 @@ extension UnsignedInteger {
         }
     }
 }
+
+extension UInt16 {
+    public var ip_bigEndianData: Data {
+        return CFSwapInt16HostToBig(self).ip_data
+    }
+
+    public var ip_littleEndianData: Data {
+        return CFSwapInt16HostToLittle(self).ip_data
+    }
+}
+
+extension UInt32 {
+    public var ip_bigEndianData: Data {
+        return CFSwapInt32HostToBig(self).ip_data
+    }
+
+    public var ip_littleEndianData: Data {
+        return CFSwapInt32HostToLittle(self).ip_data
+    }
+}
+
+extension UInt64 {
+    public var ip_bigEndianData: Data {
+        return CFSwapInt64HostToBig(self).ip_data
+    }
+
+    public var ip_littleEndianData: Data {
+        return CFSwapInt64HostToLittle(self).ip_data
+    }
+}

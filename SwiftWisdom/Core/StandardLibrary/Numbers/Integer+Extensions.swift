@@ -56,3 +56,32 @@ extension NumberFormatter {
         return decimalFormatter
     }
 }
+
+extension Integer {
+    fileprivate var ip_data: Data {
+        var copy = self
+        return Data(bytes: &copy, count: MemoryLayout<Self>.size)
+    }
+
+    public var ip_bigEndianData: Data? {
+        switch UInt32(CFByteOrderGetCurrent()) {
+        case CFByteOrderLittleEndian.rawValue:
+            return Data(self.ip_data.reversed())
+        case CFByteOrderBigEndian.rawValue:
+            return self.ip_data
+        default:
+            return nil
+        }
+    }
+
+    public var ip_littleEndianData: Data? {
+        switch UInt32(CFByteOrderGetCurrent()) {
+        case CFByteOrderLittleEndian.rawValue:
+            return self.ip_data
+        case CFByteOrderBigEndian.rawValue:
+            return Data(self.ip_data.reversed())
+        default:
+            return nil
+        }
+    }
+}
