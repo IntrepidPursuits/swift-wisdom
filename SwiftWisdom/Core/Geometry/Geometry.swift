@@ -13,10 +13,10 @@ public extension Int {
 }
 public extension CGFloat {
     public var ip_radians: CGFloat {
-        return CGFloat(Double(self) * (M_PI / 180))
+        return CGFloat(Double(self) * (.pi / 180))
     }
     public var ip_degrees: CGFloat {
-        return self * CGFloat(180.0 / M_PI)
+        return self * CGFloat(180.0 / .pi)
     }
 }
 
@@ -47,7 +47,7 @@ public extension CGPoint {
 }
 
 public func circumferenceForRadius(_ radius: CGFloat) -> CGFloat {
-    return radius * CGFloat(M_PI * 2)
+    return radius * CGFloat.pi * 2
 }
 
 public func lengthOfArcForDegrees(_ degrees: CGFloat, radius: CGFloat) -> CGFloat {
