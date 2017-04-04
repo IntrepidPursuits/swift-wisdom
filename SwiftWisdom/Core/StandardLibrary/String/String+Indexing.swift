@@ -14,6 +14,24 @@ extension String {
         return String(substringCharacters)
     }
 
+    /// Returns a substring in the given range.
+    /// If the range is beyond the string's length, returns the original string.
+    public subscript(ip_safely range: Range<Int>) -> String {
+        let chars = Array(characters)
+        guard range.upperBound < chars.count else { return self }
+        let substringCharacters = chars[range]
+        return String(substringCharacters)
+    }
+
+    /// Returns a substring in the given range.
+    /// If the range is beyond the string's length, returns the original string.
+    public subscript(ip_safely range: CountableClosedRange<Int>) -> String {
+        let chars = Array(characters)
+        guard range.upperBound < chars.count else { return self }
+        let substringCharacters = chars[range]
+        return String(substringCharacters)
+    }
+
     public mutating func ip_dropFirst() {
         guard !isEmpty else { return }
         self = self[1..<characters.count]
