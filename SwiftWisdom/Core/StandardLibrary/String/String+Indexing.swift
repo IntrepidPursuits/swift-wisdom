@@ -15,21 +15,31 @@ extension String {
     }
 
     /// Returns a substring in the given range.
-    /// If the range is beyond the string's length, returns the original string.
+    /// If the range is beyond the string's length, returns the substring up to it's bounds.
     public subscript(ip_safely range: Range<Int>) -> String {
         let chars = Array(characters)
-        guard range.upperBound < chars.count else { return self }
-        let substringCharacters = chars[range]
-        return String(substringCharacters)
+        if range.lowerBound < 0 {
+            return self[ip_safely: 0..<range.upperBound]
+        } else if range.upperBound > chars.count {
+            let newRange = range.lowerBound..<chars.count
+            return String(chars[newRange])
+        } else {
+            return String(chars[range])
+        }
     }
 
     /// Returns a substring in the given range.
-    /// If the range is beyond the string's length, returns the original string.
+    /// If the range is beyond the string's length, returns the substring up to it's bounds.
     public subscript(ip_safely range: CountableClosedRange<Int>) -> String {
         let chars = Array(characters)
-        guard range.upperBound < chars.count else { return self }
-        let substringCharacters = chars[range]
-        return String(substringCharacters)
+        if range.lowerBound < 0 {
+            return self[ip_safely: 0...range.upperBound]
+        } else if range.upperBound >= chars.count {
+            let newRange = range.lowerBound...(chars.count - 1)
+            return String(chars[newRange])
+        } else {
+            return String(chars[range])
+        }
     }
 
     public mutating func ip_dropFirst() {

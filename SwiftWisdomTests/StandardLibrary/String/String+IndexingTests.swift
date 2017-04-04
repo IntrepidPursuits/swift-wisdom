@@ -53,6 +53,8 @@ class String_IndexingTests: XCTestCase {
         XCTAssert(hello[ip_safely: 0...4] == "Hello")
         XCTAssert(hello[ip_safely: 0...3] == "Hell")
         XCTAssert(hello[ip_safely: 0...5] == "Hello")
+        XCTAssert(hello[ip_safely: 1...5] == "ello")
+        XCTAssert(hello[ip_safely: -1...5] == "Hello")
     }
 
     func testSafeRange() {
@@ -60,6 +62,8 @@ class String_IndexingTests: XCTestCase {
         XCTAssert(hello[ip_safely: 0..<5] == "Hello")
         XCTAssert(hello[ip_safely: 0..<4] == "Hell")
         XCTAssert(hello[ip_safely: 0..<6] == "Hello")
+        XCTAssert(hello[ip_safely: 1..<6] == "ello")
+        XCTAssert(hello[ip_safely: -1..<6] == "Hello")
     }
 }
 
