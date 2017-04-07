@@ -27,18 +27,8 @@ public func random(inRange range: CountableClosedRange<Int>) -> Int {
 // TODO: write tests for this extension
 extension UnsignedInteger {
 
-    public init(ip_data: Data) {
-        let hexInt = ip_data.ip_hexInt ?? 0
-        self.init(ip_safely: hexInt)
-    }
-
     public func ip_containsBitMask(_ bitMask: Self) -> Bool {
         return (self & bitMask) == bitMask
-    }
-
-    public var ip_data: Data {
-        var copy = self
-        return Data(bytes: &copy, count: MemoryLayout<Self>.size)
     }
 
     /// Converts a bit mask into its given indexes. For example, `0b101` will return `[0,2]`

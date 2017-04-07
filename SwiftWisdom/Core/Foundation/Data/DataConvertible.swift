@@ -18,13 +18,24 @@ public protocol DataConvertible {
 extension DataConvertible {
     
     public init?(ip_data data: Data) {
-        guard data.count == MemoryLayout<Self>.size else { return nil }
-        self = data.withUnsafeBytes { $0.pointee }
+        let size = MemoryLayout<Self>.size
+        if data.count < size {
+            let difference = size - data.count
+            var modifiedData = data
+            for _ in 0..<difference {
+                modifiedData.append(0)
+            }
+            self = modifiedData.withUnsafeBytes { $0.pointee }
+        } else if data.count == size {
+            self = data.withUnsafeBytes { $0.pointee }
+        } else {
+            return nil
+        }
     }
     
     public var ip_data: Data {
-        var value = self
-        return Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
+        var copy = self
+        return Data(bytes: &copy, count: MemoryLayout<Self>.size)
     }
 }
 
@@ -36,4 +47,8 @@ extension Int8: DataConvertible {}
 extension Int16: DataConvertible {}
 extension Int32: DataConvertible {}
 extension Int64: DataConvertible {}
-// UnsignedIntegers are covered by UnsignedInteger+Extensions.swift (without optional init)
+extension UInt: DataConvertible {}
+extension UInt8: DataConvertible {}
+extension UInt16: DataConvertible {}
+extension UInt32: DataConvertible {}
+extension UInt64: DataConvertible {}

@@ -16,12 +16,13 @@ extension Data {
         guard self.count > 0 else { return nil }
         return map { String(format: "%02hhx", $0) }.joined()
     }
+
+    // MARK: Convenience
     
     // From here: http://stackoverflow.com/questions/38023838/round-trip-swift-number-types-to-from-data
-    public func to<T>(type: T.Type) -> T? {
+    public func to<T: DataConvertible>(type: T.Type) -> T? {
         guard self.count > 0 else { return nil }
-        let value: T = self.withUnsafeBytes { $0.pointee }
-        return value
+        return T(ip_data: self)
     }
     
     public var ip_hexInt: UInt? {
