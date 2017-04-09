@@ -27,7 +27,15 @@ public func <- <T: ObserverType, O: ObservableType>(observer: T, observable: O) 
     return observable.observeOn(MainScheduler.instance).bindTo(observer)
 }
 
+public func <- <T: ObserverType, O: ObservableType>(observer: T, observable: O) -> Disposable where T.E == O.E? {
+    return observable.observeOn(MainScheduler.instance).bindTo(observer)
+}
+
 public func <- <T: ObserverType, O>(observer: T, variable: Variable<O>) -> Disposable where T.E == O {
+    return observer <- variable.asObservable()
+}
+
+public func <- <T: ObserverType, O>(observer: T, variable: Variable<O>) -> Disposable where T.E == O? {
     return observer <- variable.asObservable()
 }
 

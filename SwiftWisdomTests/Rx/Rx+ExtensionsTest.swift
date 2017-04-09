@@ -21,6 +21,18 @@ class OperatorTests: XCTestCase {
         XCTAssertEqual(nil, label.text)
     }
 
+    func testNonOptionalVariableBindingToOptionalObserver() {
+        let disposeBag = DisposeBag()
+        let label = UILabel()
+        let variable = Variable<String>("")
+
+        label.rx.text <- variable >>> disposeBag
+        XCTAssertEqual("", label.text)
+
+        variable.value = "hello"
+        XCTAssertEqual("hello", label.text)
+    }
+
     func testObserverBinding() {
         let disposeBag = DisposeBag()
         let button = UIButton()
