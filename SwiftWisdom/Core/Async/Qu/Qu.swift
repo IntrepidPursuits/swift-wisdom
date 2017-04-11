@@ -8,6 +8,7 @@
 import Foundation
 
 public typealias Block = () -> ()
+public typealias CompletableBlock = (@escaping Block) -> ()
 
 // MARK: Qu
 
@@ -143,6 +144,18 @@ public class Qu {
         }
         operationQueue += op
         return self
+    }
+
+    /**
+     Accepts a series of blocks and executes them sequentially.
+
+     - Parameter blocks: An array of block functions conforming to the `CompletableBlock` style.
+     */
+    class func executeMultiple(blocks: [CompletableBlock]) {
+        guard let block = blocks.first else { return }
+        block {
+            self.executeMultiple(blocks: Array(blocks.dropFirst()))
+        }
     }
 }
 
