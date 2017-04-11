@@ -24,11 +24,11 @@ infix operator <- : Binding
 infix operator >>> : Disposing
 
 public func <- <T: ObserverType, O: ObservableType>(observer: T, observable: O) -> Disposable where T.E == O.E {
-    return observable.observeOn(MainScheduler.instance).bindTo(observer)
+    return observable.observeOn(MainScheduler.instance).bind(to: observer)
 }
 
 public func <- <T: ObserverType, O: ObservableType>(observer: T, observable: O) -> Disposable where T.E == O.E? {
-    return observable.observeOn(MainScheduler.instance).bindTo(observer)
+    return observable.observeOn(MainScheduler.instance).bind(to: observer)
 }
 
 public func <- <T: ObserverType, O>(observer: T, variable: Variable<O>) -> Disposable where T.E == O {
@@ -40,7 +40,7 @@ public func <- <T: ObserverType, O>(observer: T, variable: Variable<O>) -> Dispo
 }
 
 public func <- <T, O: ObservableType>(variable: Variable<T>, observable: O) -> Disposable where O.E == T {
-    return observable.bindTo(variable)
+    return observable.bind(to: variable)
 }
 
 public func <- <T>(observer: Variable<T>, observable: Variable<T>) -> Disposable {
@@ -64,7 +64,7 @@ public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposabl
 public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disposable {
     let bindToUIDisposable = variable
         .asObservable()
-        .bindTo(property)
+        .bind(to: property)
     let bindToVariable = property
         .subscribe(
             onNext: { n in

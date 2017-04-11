@@ -30,7 +30,7 @@ final class RxDelayElementsTests: XCTestCase {
                 scheduler: scheduler
             )
         let observer = scheduler.createObserver(Int.self)
-        observable.bindTo(observer) >>> bag
+        observable.bind(to: observer) >>> bag
         scheduler.start()
 
         let correctEvents: [Recorded<Event<Int>>] = [
@@ -62,7 +62,7 @@ final class RxDelayElementsTests: XCTestCase {
                 scheduler: scheduler
             )
         let observer = scheduler.createObserver(Int.self)
-        observable.bindTo(observer) >>> bag
+        observable.bind(to: observer) >>> bag
         scheduler.start()
 
         let correctEvents: [Recorded<Event<Int>>] = [
