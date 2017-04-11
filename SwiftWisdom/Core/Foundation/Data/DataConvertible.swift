@@ -20,11 +20,8 @@ extension DataConvertible {
     public init?(ip_data data: Data) {
         let size = MemoryLayout<Self>.size
         if data.count < size {
-            let difference = size - data.count
-            var modifiedData = data
-            for _ in 0..<difference {
-                modifiedData.append(0)
-            }
+            let emptyBytes = Array<UInt8>(repeating: 0, count: (size - data.count))
+            let modifiedData = data + emptyBytes
             self = modifiedData.withUnsafeBytes { $0.pointee }
         } else if data.count == size {
             self = data.withUnsafeBytes { $0.pointee }
