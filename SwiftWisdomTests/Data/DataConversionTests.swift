@@ -133,6 +133,15 @@ class DataConversionTests: XCTestCase {
         let numberString = "321".data(using: String.Encoding.ascii)!
         XCTAssert((numberString as Data).ip_asciiString == "321")
     }
+
+    func testIntSmallValue() {
+        let intData = Data(bytes: [25])
+        XCTAssert(intData.ip_intValue == 25)
+        XCTAssert(intData.ip_int64Value == 25)
+
+        let intDataTwo = Data(bytes: [4,5]) // 0000_0101_0000_0100
+        XCTAssert(intDataTwo.ip_intValue == 1284)
+    }
     
     // MARK: Testing DataConvertible protocol
     
@@ -140,14 +149,20 @@ class DataConversionTests: XCTestCase {
         let data = Int8(-42).ip_data
         let backToNum = Int8(ip_data: data)
         XCTAssert(backToNum == -42)
+
+        let longData = Data(bytes: [4,5,6,7])
+        XCTAssertNil(Int8(ip_data: longData))
     }
     
     func testInt64Conversion() {
         let data = Int64(-4232).ip_data
         let backToNum = Int64(ip_data: data)
         XCTAssert(backToNum == -4232)
+
+        let longData = Data(bytes: [4,5,6,7,8,9,10,11,12,13,14])
+        XCTAssertNil(Int64(ip_data: longData))
     }
-    
+
     func testIntegerConversion() {
         let data = Int(-100055).ip_data // Be careful with the signed bit boundary.
         let backToNum = Int(ip_data: data)

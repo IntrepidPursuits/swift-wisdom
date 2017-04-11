@@ -12,7 +12,7 @@ import SwiftWisdom
 class DoubleTests: XCTestCase {
 
     func testRounding() {
-        let unroundedDoubles = [M_PI, 5.0156, 10.014, 9999.99499]
+        let unroundedDoubles = [Double.pi, 5.0156, 10.014, 9999.99499]
         let roundedToOneDecimalPlaces = [3.1, 5.0, 10.0, 10000.0]
         let roundedToTwoDecimalPlaces = [3.14, 5.02, 10.01, 9999.99]
         let roundedToFiveDecimalPlaces = [3.14159, 5.0156, 10.014, 9999.99499]

@@ -34,9 +34,9 @@ class BitMaskTests: XCTestCase {
     }
     
     func testDataInitializer() {
-        let data = "0x1f".ip_dataFromHexadecimalString()!
-        let mask = UInt8(ip_data: data)
-        let hex = data.ip_hexInt!
+        let data = "1f".ip_dataFromHexadecimalString()!
+        let mask = UInt8(ip_data: data)!
+        let hex = data.ip_hexInt
         XCTAssert(hex == UInt(mask))
         
         let empty = Data()
