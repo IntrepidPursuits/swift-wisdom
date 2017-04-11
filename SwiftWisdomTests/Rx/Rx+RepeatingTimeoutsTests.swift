@@ -34,7 +34,7 @@ final class RxRepeatingTimeoutsTests: XCTestCase {
                 scheduler: scheduler
             )
         let observer = scheduler.createObserver(TestElement.self)
-        observable.bindTo(observer) >>> bag
+        observable.bind(to: observer) >>> bag
         scheduler.start()
 
         let correctEvents: [Recorded<Event<TestElement>>] = [
