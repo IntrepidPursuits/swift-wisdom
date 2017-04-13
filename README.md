@@ -20,8 +20,8 @@ pod 'Intrepid/Rx' # Intrepid's RxSwift Extensions
 ### Testing Additions
 
 ```Ruby
-source 'https://github.com/IntrepidPursuits/intrepid-wisdom.git'
-target 'SwiftWisdomTests',
+source 'https://github.com/IntrepidPursuits/swift-wisdom.git'
+target 'YourTestTarget',
     use_frameworks!
     pod 'IntrepidSwiftWisdomTesting'
 end
