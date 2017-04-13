@@ -87,6 +87,8 @@
 		CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */; };
 		CDCDE25B1E67C8F7007B3784 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25A1E67C8F7007B3784 /* SetTests.swift */; };
 		CDCDE25D1E67D785007B3784 /* TimeOfDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */; };
+		E67264821E9E780C00880794 /* XCTest+Optionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67264811E9E780C00880794 /* XCTest+Optionals.swift */; };
+		E67264841E9E788500880794 /* XCTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E67264831E9E788500880794 /* XCTestTests.swift */; };
 		E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69A8C801E4E5751004E0663 /* QuTests.swift */; };
 		E7280FC31E4D2F3C0050B327 /* Multicast.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC21E4D2F3C0050B327 /* Multicast.swift */; };
 		E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7280FC51E4D2F510050B327 /* MulticastTests.swift */; };
@@ -199,6 +201,8 @@
 		CDCDE25A1E67C8F7007B3784 /* SetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 		CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeOfDayTests.swift; path = Date/TimeOfDayTests.swift; sourceTree = "<group>"; };
 		D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdomTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E67264811E9E780C00880794 /* XCTest+Optionals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCTest+Optionals.swift"; sourceTree = "<group>"; };
+		E67264831E9E788500880794 /* XCTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestTests.swift; sourceTree = "<group>"; };
 		E69A8C801E4E5751004E0663 /* QuTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuTests.swift; sourceTree = "<group>"; };
 		E7280FC21E4D2F3C0050B327 /* Multicast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Multicast.swift; path = CommonTypes/Multicast.swift; sourceTree = "<group>"; };
 		E7280FC51E4D2F510050B327 /* MulticastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastTests.swift; sourceTree = "<group>"; };
@@ -443,6 +447,7 @@
 				FF44B7791CDCD10C00764AB0 /* Rx */,
 				1C99FB601DD52EDC009FC493 /* Data */,
 				E7280FC41E4D2F510050B327 /* CommonTypes */,
+				E672647F1E9E780C00880794 /* Testing */,
 				80D63D211C4F22B800C88D00 /* BitMaskTests.swift */,
 				805807EB1C5D8B3C00F9AFB1 /* VersionTests.swift */,
 				80232BB91BF2EE2E00818B6E /* Info.plist */,
@@ -450,6 +455,7 @@
 				805807E91C5D89C600F9AFB1 /* ColorDescriptorTests.swift */,
 				134882541CDB87C500CA27BA /* CellConfiguringTests.swift */,
 				1C16E3081D2809C5008A1001 /* ComparablesTests.swift */,
+				E67264831E9E788500880794 /* XCTestTests.swift */,
 			);
 			path = SwiftWisdomTests;
 			sourceTree = "<group>";
@@ -684,6 +690,22 @@
 				CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */,
 			);
 			name = Date;
+			sourceTree = "<group>";
+		};
+		E672647F1E9E780C00880794 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				E67264801E9E780C00880794 /* XCTest */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
+		E67264801E9E780C00880794 /* XCTest */ = {
+			isa = PBXGroup;
+			children = (
+				E67264811E9E780C00880794 /* XCTest+Optionals.swift */,
+			);
+			path = XCTest;
 			sourceTree = "<group>";
 		};
 		E69A8C7F1E4E5751004E0663 /* Async */ = {
@@ -981,6 +1003,7 @@
 				E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */,
 				CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */,
 				13425F901DB0761500F446BE /* String+IndexingTests.swift in Sources */,
+				E67264821E9E780C00880794 /* XCTest+Optionals.swift in Sources */,
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */,
@@ -1002,6 +1025,7 @@
 				E7280FC61E4D2F510050B327 /* MulticastTests.swift in Sources */,
 				CDCDE25B1E67C8F7007B3784 /* SetTests.swift in Sources */,
 				13425F7E1DB0757000F446BE /* NSMutableAttributedString+FormatTests.swift in Sources */,
+				E67264841E9E788500880794 /* XCTestTests.swift in Sources */,
 				13425F871DB075B300F446BE /* UnsignedInteger+ExtensionsTests.swift in Sources */,
 				13425F741DB073F300F446BE /* MathableTests.swift in Sources */,
 				805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */,
