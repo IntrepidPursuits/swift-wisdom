@@ -41,3 +41,23 @@ class GetConstraintTests: XCTestCase {
         XCTAssertNil(constraint, "Constraint found, expected nil constraint")
     }
 }
+
+class NavigationItemBackButtonTests: XCTestCase {
+
+    func testHidingNavigationBackTitle() {
+        let firstViewController = UIViewController()
+        firstViewController.title = "First"
+        let secondViewController = UIViewController()
+        secondViewController.title = "Second"
+        let thirdViewController = UIViewController()
+        thirdViewController.title = "Third"
+
+        let navigationController = UINavigationController(rootViewController: firstViewController)
+        navigationController.pushViewController(secondViewController, animated: true)
+        XCTAssertNil(firstViewController.navigationItem.backBarButtonItem)
+        secondViewController.ip_hideBackButtonTitle()
+        navigationController.pushViewController(thirdViewController, animated: true)
+        XCTAssertNotNil(secondViewController.navigationItem.backBarButtonItem)
+        XCTAssertEqual(secondViewController.navigationItem.backBarButtonItem?.title, "")
+    }
+}
