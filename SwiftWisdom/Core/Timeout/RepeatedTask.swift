@@ -39,11 +39,9 @@ public class RepeatedTask {
     }
 
     private func executeOp() {
-        if let count = repeatCount {
-            guard currentCount < count else {
-                isComplete = true
-                return
-            }
+        if let count = repeatCount, currentCount >= count {
+            isComplete = true
+            return
         }
         guard isActive else { return }
 
