@@ -16,8 +16,8 @@ public class RepeatedTask {
     let queue: DispatchQueue
 
     private var currentCount: Int = 0
-    private var isComplete: Bool = false
-    private var isActive: Bool = false
+    private var isComplete = false
+    private var isActive = false
 
     public init(repeatCount: Int? = nil, timeBetweenOps: TimeInterval = 0, on queue: DispatchQueue = DispatchQueue.main, operation: @escaping Block) {
         self.operation = operation
@@ -30,7 +30,9 @@ public class RepeatedTask {
     public func start() {
         guard !isActive else { return }
         isActive = true
-        executeOp()
+        queue.async { [weak self] in
+            self?.executeOp()
+        }
     }
 
     public func stop() {
