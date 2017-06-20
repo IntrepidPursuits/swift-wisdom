@@ -1,5 +1,5 @@
-[![Build Status](https://ci.intrepid.io/buildStatus/icon?job=Swift-Wisdom)](https://ci.intrepid.io/job/Swift-Wisdom/)
-[![Coverage](http://ci.intrepid.io:9913/jenkins/cobertura/Swift-Wisdom/)](https://ci.intrepid.io/job/Swift-Wisdom/cobertura/)
+[![Build Status](https://ci.intrepid.io/buildStatus/icon?job=iOS/ios-libraries/Swift-Wisdom)](https://ci.intrepid.io/job/iOS/job/ios-libraries/job/Swift-Wisdom/)
+[![Coverage](http://ci.intrepid.io:9913/jenkins/cobertura/iOS/job/ios-libraries/job/Swift-Wisdom)](https://ci.intrepid.io/job/iOS/job/ios-libraries/job/Swift-Wisdom/cobertura/)
 
 This library is meant to be a general grab bag of Swift methods made by the engineers at IntrepidPursuits.  As this library goes, useful components will be isolated into separate podspecs where appropriate.
 
