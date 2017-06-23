@@ -4,14 +4,14 @@ extension Integer {
     public var ip_isEven: Bool {
         return (self % 2) == 0
     }
-    
+
     public var ip_isOdd: Bool {
         return !ip_isEven
     }
 }
 
-extension Integer where Self : _Strideable & Comparable, Self.Stride : SignedInteger  {
-    public func ip_times(closure: (Void) -> Void) {
+extension Integer where Self : _Strideable & Comparable, Self.Stride : SignedInteger {
+    public func ip_times(closure: () -> Void) {
         precondition(self >= 0)
         (0..<self).forEach { _ in closure() }
     }

@@ -12,11 +12,11 @@ extension RawRepresentable where RawValue: Integer {
     public static var ip_allCases: [Self] {
         var caseIndex: RawValue = RawValue.allZeros
         let generator: () -> Self? = {
-            let next = Self.init(rawValue: caseIndex)
+            let next = Self(rawValue: caseIndex)
             caseIndex = caseIndex.advanced(by: 1)
             return next
         }
-        
+
         let sequence = AnyIterator(generator)
         return [Self](sequence)
     }

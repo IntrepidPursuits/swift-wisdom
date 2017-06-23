@@ -12,16 +12,16 @@ public struct Version {
     public private(set) var major: Int = 0
     public private(set) var minor: Int = 0
     public private(set) var patch: Int = 0
-    
+
     public init?(string: String) {
         let components = string
             .components(separatedBy: ".")
         guard components.count > 0, let major = Int(components[0]) else { return nil }
         self.major = major
-        
+
         guard components.count > 1, let minor = Int(components[1]) else { return nil }
         self.minor = minor
-        
+
         guard components.count > 2, let patch = Int(components[2]) else { return nil }
         self.patch = patch
     }

@@ -9,7 +9,7 @@
 import Foundation
 
 public extension NSMutableAttributedString {
-    
+
     /**
      Create a mutable attributed string with the attributes applied to all arguments.
      
@@ -25,7 +25,7 @@ public extension NSMutableAttributedString {
         self.init(string: formatString)
         ip_format(withArguments: arguments)
     }
-    
+
     /**
      Create a mutable attributed string with the given list of NSAttributedString
      
@@ -38,7 +38,7 @@ public extension NSMutableAttributedString {
         self.init(string: formatString)
         ip_format(withArguments: arguments)
     }
-    
+
     /**
      Create a mutable attributed string with the given collection of NSAttributedString
      

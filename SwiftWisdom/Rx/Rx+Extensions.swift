@@ -52,7 +52,7 @@ public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
 }
 
 public func >>> (disposable: Disposable, compositeDisposable: CompositeDisposable) {
-    let _ = compositeDisposable.insert(disposable)
+    _ = compositeDisposable.insert(disposable)
 }
 
 //  Operators.swift
@@ -70,10 +70,10 @@ public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disp
             onNext: { n in
                 variable.value = n
             },
-            onCompleted:  {
+            onCompleted: {
                 bindToUIDisposable.dispose()
             }
     )
-    
+
     return Disposables.create(bindToUIDisposable, bindToVariable)
 }

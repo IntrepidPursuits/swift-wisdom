@@ -16,7 +16,7 @@ public protocol DataConvertible {
 }
 
 extension DataConvertible {
-    
+
     public init?(ip_data data: Data) {
         let size = MemoryLayout<Self>.size
         if data.count < size {
@@ -29,7 +29,7 @@ extension DataConvertible {
             return nil
         }
     }
-    
+
     public var ip_data: Data {
         var copy = self
         return Data(bytes: &copy, count: MemoryLayout<Self>.size)

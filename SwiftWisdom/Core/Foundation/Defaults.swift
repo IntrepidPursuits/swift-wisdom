@@ -16,7 +16,7 @@ extension SettingsKeyAccessible {
     public var defaults: UserDefaults {
         return UserDefaults.standard
     }
-    
+
     public func writeToDefaults(_ any: AnyObject?) {
         if let any = any {
             defaults.setValue(any, forKey: key)
@@ -25,13 +25,13 @@ extension SettingsKeyAccessible {
         }
         defaults.synchronize()
     }
-    
+
     public func readFromDefaults<T>() -> T? {
         return defaults.object(forKey: key) as? T
     }
 }
 
-public protocol EnumSettingsKeyAccessible : SettingsKeyAccessible {
+public protocol EnumSettingsKeyAccessible: SettingsKeyAccessible {
     var rawValue: String { get }
     init?(rawValue: String)
 }

@@ -27,9 +27,9 @@ extension Dictionary {
                 print("Unable to set value: \(subdict) to dictionary of type: \(type(of: self))")
             }
         }
-        
+
     }
-    
+
     /// Finds a value (if it exists) for a provided `keypath`
     ///
     /// - parameter keypath: The keypath to access
@@ -47,7 +47,6 @@ extension Dictionary {
         return value as? T
     }
 }
-
 
 private extension String {
     func ip_keypathComponents() -> [String] {

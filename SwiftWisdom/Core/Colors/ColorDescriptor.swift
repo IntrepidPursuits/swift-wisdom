@@ -29,7 +29,7 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
     public typealias RawValue = StringLiteralType
     public typealias ExtendedGraphemeClusterLiteralType = StringLiteralType
     public typealias UnicodeScalarLiteralType = StringLiteralType
-    
+
     public var color: UIColor {
         switch self {
         case let .patternImage(imageName: imageName):
@@ -47,7 +47,7 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
             return UIColor(ip_hex: hex)
         }
     }
-    
+
     public var rawValue: RawValue {
         switch self {
         case let .patternImage(imageName: imageName):
@@ -60,13 +60,13 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
             return hex
         }
     }
-    
+
     // MARK: Initializers
-    
+
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
         self.init(value)
     }
-    
+
     public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
         self.init(value)
     }
@@ -74,11 +74,11 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
     public init(stringLiteral value: StringLiteralType) {
         self.init(value)
     }
-    
+
     public init?(rawValue: RawValue) {
         self.init(rawValue)
     }
-    
+
     public init(_ string: String) {
         let rgbComponents = string.components(separatedBy: ",")
         if rgbComponents.count == 4 {

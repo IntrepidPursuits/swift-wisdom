@@ -8,40 +8,40 @@
 
 import UIKit
 
-public final class Downloader : NSObject, URLSessionDownloadDelegate {
-    
+public final class Downloader: NSObject, URLSessionDownloadDelegate {
+
     public enum State {
         case began
         case inProgress(CGFloat)
         case completed(Result<URL>)
     }
 
-    public enum DownloaderError : Error {
+    public enum DownloaderError: Error {
         case httpRequestFailed
     }
-    
+
     public let url: URL
     public let id = UUID().uuidString
-    
+
     private var updater: ((State) -> Void)?
-    
+
     private lazy var session: Foundation.URLSession =
     Foundation.URLSession(
         configuration: URLSessionConfiguration.default,
         delegate: self,
         delegateQueue: OperationQueue.current
     )
-    
+
     public init(url: URL) {
         self.url = url
     }
-    
+
     public func start(_ updater: @escaping (State) -> Void) {
         self.updater = updater
         self.updater?(.began)
         downloadFileFromRemoteUrl(url)
     }
-    
+
     private func downloadFileFromRemoteUrl(_ url: URL) {
         let task = session.downloadTask(with: url)
         task.resume()
@@ -52,9 +52,9 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
         updater?(.completed(.failure(error)))
         updater = nil
     }
-    
+
     // MARK: NSURLSessionDownloadDelegate
-    
+
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
         if let httpResponse = downloadTask.response as? HTTPURLResponse, !httpResponse.isSuccess {
             updater?(.completed(.failure(DownloaderError.httpRequestFailed)))
@@ -63,11 +63,11 @@ public final class Downloader : NSObject, URLSessionDownloadDelegate {
         }
         updater = nil
     }
-    
+
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
         updater?(.inProgress(downloadTask.ip_percentageDownloaded))
     }
-    
+
     public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
         updater?(.began)
         updater?(.inProgress(downloadTask.ip_percentageDownloaded))

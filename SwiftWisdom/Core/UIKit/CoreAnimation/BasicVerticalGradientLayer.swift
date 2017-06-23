@@ -8,11 +8,11 @@
 
 import UIKit
 
-public final class BasicVerticalGradientLayer : CAGradientLayer {
+public final class BasicVerticalGradientLayer: CAGradientLayer {
     override init(layer: Any) {
         super.init(layer: layer)
     }
-    
+
     public init(topColor: UIColor = .gray, bottomColor: UIColor = .black) {
         super.init()
         colors = [topColor.cgColor, bottomColor.cgColor]

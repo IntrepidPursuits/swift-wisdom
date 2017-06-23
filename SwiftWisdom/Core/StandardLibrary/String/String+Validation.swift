@@ -53,7 +53,6 @@ extension String {
         return range(of: ".@.+\\..", options: .regularExpression) != nil
     }
 
-
     /**
      Validate if a password at least conforms to an array of requirements. For character types,
      requirments can define if they should be excluded or appear at least once. Minimum and maximum

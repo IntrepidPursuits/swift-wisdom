@@ -95,7 +95,7 @@ extension UnsignedInteger {
 
 // TODO: write tests for this extension
 extension UnsignedInteger {
-    public init<T : SignedInteger>(ip_safely value: T) {
+    public init<T: SignedInteger>(ip_safely value: T) {
         if value < 0 {
             self.init(ip_safely: UInt8(0))
         } else {
@@ -103,10 +103,10 @@ extension UnsignedInteger {
             self.init(ip_safely: max)
         }
     }
-    
-    public init<T : UnsignedInteger>(ip_safely value: T) {
+
+    public init<T: UnsignedInteger>(ip_safely value: T) {
         self = 0
-        
+
         let maxSelf = type(of: self).ip_maxValue
         if maxSelf.toUIntMax() >= value.toUIntMax() {
             self = .init(value.toUIntMax())

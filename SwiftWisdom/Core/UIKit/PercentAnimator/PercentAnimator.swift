@@ -31,7 +31,7 @@ extension AnimationState {
             return false
         }
     }
-    
+
     public var percent: CGFloat {
         switch self {
         case .began:
@@ -46,13 +46,12 @@ extension AnimationState {
 
 // MARK: Implementation
 
-
 private final class PercentAnimator {
-    
+
     private var animations: [Animation] = []
-    
+
     private static let shared = PercentAnimator()
-    
+
     static func animateWithDuration(
         _ duration: TimeInterval,
         animation: @escaping (AnimationState) -> Void) {
@@ -69,33 +68,32 @@ private final class PercentAnimator {
 }
 
 final class Animation {
-    
+
     private let start: Date
     private let duration: TimeInterval
-    
+
     private var displayLink: CADisplayLink!
-    
+
     private(set) var state: AnimationState
     private let animation: (AnimationState) -> Void
     fileprivate let id: String
-    
+
     fileprivate init(id: String, duration: TimeInterval, animation: @escaping (AnimationState) -> Void) {
         self.start = Date()
         self.duration = duration
         self.animation = animation
         self.state = .began
         self.id = id
-        
-        
+
         displayLink = CADisplayLink(target: self, selector: #selector(Animation.displayLinkFired))
         displayLink.add(to: .main, forMode: .defaultRunLoopMode)
         animation(state)
     }
-    
+
     private func cancel() {
         displayLink.invalidate()
     }
-    
+
     dynamic private func displayLinkFired() {
         let percent = percentageCompleted()
         if percent < 1 {
@@ -106,7 +104,7 @@ final class Animation {
         }
         animation(state)
     }
-    
+
     private func percentageCompleted() -> CGFloat {
         let now = Date()
         let timePassed = now.timeIntervalSince(start)

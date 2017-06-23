@@ -30,14 +30,14 @@ extension Collection where Iterator.Element: Mathable {
         guard count > zero else { return zero }
         return reduce(zero, +) / count
     }
-    
+
     public func ip_median() -> Iterator.Element {
         let zero = Iterator.Element.zero
         let count = Iterator.Element(self.count.toIntMax())
         guard count > zero else { return zero }
         return sorted(by: <).ip_middleElements.ip_mean()
     }
-    
+
     public func ip_mode() -> [Iterator.Element] {
         return ip_mostCommonElements()
     }

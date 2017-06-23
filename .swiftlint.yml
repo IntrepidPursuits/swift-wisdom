@@ -1,0 +1,114 @@
+# Don't add any files/directories to the 'include:' section. Everything not
+# listed under 'excluded:' should be linted.
+# included:
+#   - Nothing
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Pods
+  - Carthage
+  - SwiftWisdomTests
+
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)
+
+## Rules
+
+# enabled_rules_for_documentation:
+#   - attributes
+#   - class_delegate_protocol
+#   - closing_brace
+#   - closure_end_indentation
+#   - closure_parameter_position
+#   - closure_spacing
+#   - colon
+#   - comma
+#   - compiler_protocol_init
+#   - control_statement
+#   - custom_rules
+#   - discarded_notification_center_observer
+#   - dynamic_inline
+#   - empty_parameters
+#   - empty_parentheses_with_trailing_closure
+#   - first_where
+#   - force_cast
+#   - force_try
+#   - force_unwrapping
+#   - generic_type_name
+#   - identifier
+#   - identifier_name
+#   - implicit_getter
+#   - implicitly_unwrapped_optional
+#   - leading_whitespace
+#   - legacy_cggeometry_functions
+#   - legacy_constant
+#   - legacy_constructor
+#   - legacy_nsgeometry_functions
+#   - mark
+#   - missing_docs
+#   - nesting
+#   - notification_center_detachment
+#   - object_literal
+#   - opening_brace
+#   - operator_usage_whitespace
+#   - operator_whitespace
+#   - private_outlet
+#   - private_unit_test
+#   - redundant_discardable_let
+#   - redundant_nil_coalescing
+#   - redundant_optional_initialization
+#   - redundant_string_enum_value
+#   - return_arrow_whitespace
+#   - statement_position
+#   - syntactic_sugar
+#   - trailing_comma
+#   - trailing_newline
+#   - trailing_semicolon
+#   - trailing_whitespace
+#   - type_body_length
+#   - type_name
+#   - unused_closure_parameter
+#   - unused_enumerated
+#   - unused_optional_binding
+#   - valid_docs
+#   - valid_ibinspectable
+#   - vertical_parameter_alignment
+#   - vertical_whitespace
+#   - weak_delegate
+
+opt_in_rules:
+  - explicit_init
+  - fatal_error_message
+  - overridden_super_call
+  - prohibited_super_call
+  - redundant_void_return
+
+disabled_rules:
+  - conditional_returns_on_newline
+  - cyclomatic_complexity
+  - empty_count
+  - explicit_type_interface
+  - file_header
+  - for_where
+  - nimble_operator
+  - shorthand_operator
+  - switch_case_on_newline
+  - todo
+  - void_return
+
+  # These next four rules are recommended to be enabled on a project-by-project
+  # basis with specific configurations that fit the project style.
+  - function_body_length
+  - function_parameter_count
+  - large_tuple
+  - line_length
+
+## Rule Configuration
+
+colon:
+  apply_to_dictionaries: false
+
+file_length:
+  warning: 750
+  error: 1500
+
+nesting:
+  type_level: 3

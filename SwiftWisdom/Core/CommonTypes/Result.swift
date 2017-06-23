@@ -16,7 +16,7 @@ extension Result {
         guard case .success(_) = self else { return false }
         return true
     }
-    
+
     public var isFailure: Bool {
         guard case .failure(_) = self else { return false }
         return true
@@ -28,7 +28,7 @@ extension Result {
         guard case let .success(value) = self else { return nil }
         return value
     }
-    
+
     public var error: Error? {
         guard case let .failure(error) = self else { return nil }
         return error

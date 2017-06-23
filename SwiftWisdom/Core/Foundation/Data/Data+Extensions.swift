@@ -18,25 +18,25 @@ extension Data {
     }
 
     // MARK: Convenience
-    
+
     public func to<T: DataConvertible>(type: T.Type) -> T? {
         guard self.count > 0 else { return nil }
         return T(ip_data: self)
     }
-    
+
     public var ip_hexInt: UInt? {
         guard let hexString = ip_hexString else { return nil }
         return strtoul(hexString, nil, 16)
     }
-    
+
     public var ip_intValue: Int? {
         return self.to(type: Int.self)
     }
-    
+
     public var ip_int8Value: Int8? {
         return self.to(type: Int8.self)
     }
-    
+
     public var ip_uint8Value: UInt8? {
         return self.to(type: UInt8.self)
     }
@@ -64,12 +64,12 @@ extension Data {
     public var ip_int64Value: Int64? {
         return self.to(type: Int64.self)
     }
-    
+
     public var ip_utf8String: String? {
         guard self.count > 0 else { return nil }
         return String(data: self as Data, encoding: .utf8)
     }
-    
+
     public var ip_asciiString: String? {
         guard self.count > 0 else { return nil }
         return String(data: self as Data, encoding: .ascii)
@@ -98,17 +98,17 @@ extension Data {
     public subscript(ip_safely idx: Int) -> Data? {
         return self[ip_safely: idx...idx]
     }
-    
+
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
     public subscript(ip_safely range: CountableRange<Int>) -> Data? {
         return self[ip_safely: Range<Int>(range)]
     }
-    
+
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
     public subscript(ip_safely range: CountableClosedRange<Int>) -> Data? {
         return self[ip_safely: Range<Int>(range)]
     }
-    
+
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
     public subscript(ip_safely range: Range<Int>) -> Data? {
         guard range.lowerBound >= 0, count >= range.upperBound else { return nil }
@@ -135,12 +135,12 @@ extension Data {
             chunks.append(next)
             mutable.removeSubrange(range)
         }
-        
+
         if includeRemainder && mutable.count > 0 {
             let trailingData = mutable
             chunks.append(trailingData)
         }
-        
+
         return chunks
     }
 }

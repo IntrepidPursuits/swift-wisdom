@@ -12,7 +12,7 @@ public extension Set {
         }
         return false
     }
-    
+
     public func ip_filter(_ include: (Element) -> Bool) -> Set<Element> {
         var filtered = Set<Element>()
         for ob in self {

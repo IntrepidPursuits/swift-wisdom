@@ -64,7 +64,6 @@ extension String {
         return from..<to
     }
 
-
     /// Returns a String range based on an Int range. It is up to the caller to ensure that the
     /// int range is not out of bounds.
     ///
@@ -78,6 +77,6 @@ extension String {
     }
 
     public var ip_fullrange: NSRange {
-        return NSRange(location: 0, length: ip_length);
+        return NSRange(location: 0, length: ip_length)
     }
 }
