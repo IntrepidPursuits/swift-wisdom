@@ -1,4 +1,4 @@
-[![Build Status](https://ci.intrepid.io/job/iOS/job/ios-pipeline/job/swift-wisdom/job/master/badge/icon)](https://ci.intrepid.io/job/iOS/job/ios-pipeline/job/swift-wisdom/job/master/)
+[![Build Status](https://ci.intrepid.io/buildStatus/icon?job=iOS/ios-pipeline/swift-wisdom/master)](https://ci.intrepid.io/job/iOS/job/ios-pipeline/job/swift-wisdom/job/master/)
 [![SonarQube](https://img.shields.io/badge/Metrics-SonarQube-blue.svg)](https://sonar.intrepid.io/dashboard?id=SwiftWisdom%3Aios)
 
 
