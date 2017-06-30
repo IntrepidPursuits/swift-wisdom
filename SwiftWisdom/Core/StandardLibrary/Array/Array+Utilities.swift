@@ -114,14 +114,29 @@ extension Array where Element: Hashable {
 }
 
 extension Array {
-    /// Provides a way to safely index into an array. If the index is beyond the array's final element this method will return `nil`.
+    /// DEPRECATED: Use `ip_safely` instead.
+    ///
+    /// Provides a way to safely index into an array. If the index is beyond the array's 
+    /// final element this method will return `nil`.
     ///
     /// - parameter safe: Index of the element to return
     ///
     /// - returns: An `Element` if the index was correct, or `nil` if it goes beyond the array
+    @available(*, deprecated: 0.7.11, message: "Use `ip_safely` instead.")
     public subscript(ip_safe safe: Int) -> Element? {
         guard 0 <= safe && safe < count else { return nil }
         return self[safe]
+    }
+
+    /// Provides a way to safely index into an array. If the index is beyond the array's 
+    /// bounds this method will return `nil`.
+    ///
+    /// - parameter index: Index of the element to return
+    ///
+    /// - returns: An `Element` if the index is valid, or `nil` if the index is outside the bounds of the array.
+    public subscript(ip_safely index: Int) -> Element? {
+        guard 0 <= index && index < count else { return nil }
+        return self[index]
     }
 }
 

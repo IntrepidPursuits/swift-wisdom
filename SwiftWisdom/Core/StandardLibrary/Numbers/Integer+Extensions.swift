@@ -38,7 +38,7 @@ extension Integer {
         }
 
         // if our number exceeds our current magnitude system return the scientific notation
-        let magnitudeSuffix = units[ip_safe: magnitude - 1] ?? "E\(magnitude * 3)"
+        let magnitudeSuffix = units[ip_safely: magnitude - 1] ?? "E\(magnitude * 3)"
 
         guard let valueFormatted = NumberFormatter.decimalFormatter.string(from: NSNumber(value: roundedHundredsValue)) else {
             return "\(roundedHundredsValue)\(magnitudeSuffix)"

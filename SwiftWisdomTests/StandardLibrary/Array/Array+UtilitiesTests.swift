@@ -92,4 +92,19 @@ class ArrayUtilities: XCTestCase {
         XCTAssert([].ip_chunks(of: 0).isEmpty)
         XCTAssert([].ip_chunks(of: 1).isEmpty)
     }
+
+    func testSafeSubscript() {
+        let testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+        // Covering deprecated subscript syntax
+        XCTAssert(testArray[ip_safe: 3] == 4)
+        XCTAssert(testArray[ip_safe: 8] == 9)
+        XCTAssertNil(testArray[ip_safe: -1])
+        XCTAssertNil(testArray[ip_safe: 9])
+
+        XCTAssert(testArray[ip_safely: 3] == 4)
+        XCTAssert(testArray[ip_safely: 8] == 9)
+        XCTAssertNil(testArray[ip_safely: -1])
+        XCTAssertNil(testArray[ip_safely: 9])
+    }
 }
