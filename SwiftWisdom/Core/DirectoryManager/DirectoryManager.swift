@@ -29,12 +29,14 @@ public final class DirectoryManager {
 
     // MARK: Initializer
 
+    // swiftlint:disable force_try
     public init(directoryName: String, fileManager: FileManager = FileManager.default) {
         self.directoryName = directoryName
         self.fileManager = fileManager
         // Should fail if not available
         self.directoryUrl = try! fileManager.directoryPath(withName: directoryName)
     }
+    // swiftlint:enable force_try
 
     // MARK: Move
 

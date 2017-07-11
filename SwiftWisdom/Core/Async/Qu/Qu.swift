@@ -5,6 +5,8 @@
 //  Copyright © 2015 lowriDevs. All rights reserved.
 //
 
+// swiftlint:disable identifier_name
+
 import Foundation
 
 public typealias Block = () -> ()

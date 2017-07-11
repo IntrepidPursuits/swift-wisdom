@@ -57,6 +57,7 @@ public extension UICollectionView {
 
     // MARK: Dequeue
 
+    // swiftlint:disable force_cast
     public func ip_dequeueCell<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionViewCell, T: TypeIdentifiable {
         return dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! T
     }
@@ -72,7 +73,7 @@ public extension UICollectionView {
     public func ip_dequeueSupplementary<T>(_ indexPath: IndexPath, kind: String, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView, T: TypeIdentifiable {
         return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: identifier, for: indexPath) as! T
     }
-
+    // swiftlint:enable force_cast
 }
 
 // MARK: UITableView
@@ -99,6 +100,7 @@ public extension UITableView {
 
     // MARK: Dequeue
 
+    // swiftlint:disable force_cast
     public func ip_dequeueCell<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UITableViewCell, T: TypeIdentifiable {
         return dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! T
     }
@@ -110,4 +112,5 @@ public extension UITableView {
     public func ip_cellForRowAtIndexPath<T>(_ indexPath: IndexPath) -> T where T: UITableViewCell, T: TypeIdentifiable {
         return cellForRow(at: indexPath) as! T
     }
+    // swiftlint:enable force_cast
 }
