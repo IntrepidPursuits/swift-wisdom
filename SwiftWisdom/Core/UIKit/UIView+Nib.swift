@@ -41,7 +41,7 @@ public extension UIView {
         return name
     }
     public class var ip_nib: UINib? {
-        if let _ = Bundle.main.path(forResource: ip_nibName, ofType: "nib") {
+        if Bundle.main.path(forResource: ip_nibName, ofType: "nib") != nil {
             return UINib(nibName: ip_nibName, bundle: nil)
         } else {
             return nil

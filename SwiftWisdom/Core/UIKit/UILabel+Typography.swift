@@ -34,7 +34,7 @@ extension UILabel {
 
     private func addAttribute(_ attr: String, value: Any) {
         let attrText = mutableAttributedText()
-        attrText.addAttributes([attr : value], range: NSMakeRange(0, attrText.length))
+        attrText.addAttributes([attr : value], range: NSRange(location: 0, length: attrText.length))
         text = nil
         attributedText = attrText
     }

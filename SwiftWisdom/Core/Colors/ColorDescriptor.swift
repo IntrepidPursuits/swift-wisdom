@@ -94,7 +94,7 @@ extension ColorDescriptor : ExpressibleByStringLiteral, RawRepresentable, Equata
             }
         } else if string.hasPrefix("#") {
             self = .hex(hex: string)
-        } else if let _ = UIImage(named: string) {
+        } else if UIImage(named: string) != nil {
             self = .patternImage(imageName: string)
         } else {
             fatalError(

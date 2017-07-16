@@ -71,7 +71,7 @@ public extension NSMutableAttributedString {
         arguments.reversed().forEach { arg in
             guard insertRange.location != NSNotFound else { return }
             replaceCharacters(in: insertRange, with: arg)
-            rangeLimit = NSMakeRange(0, insertRange.location)
+            rangeLimit = NSRange(location: 0, length: insertRange.location)
             insertRange = str.range(of: "%@", options: .backwards, range: rangeLimit)
         }
     }

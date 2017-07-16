@@ -115,3 +115,7 @@ nesting:
 
 identifier_name:
   allowed_symbols: _
+  min_length: 2
+
+type_name:
+  min_length: 2

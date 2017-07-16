@@ -3,17 +3,12 @@
 ////  Created by Paul Rolfe on 7/31/15.
 ////  Copyright (c) 2015 Paul Rolfe. All rights reserved.
 ////
-///*
-//
-//The idea is that you can call view.ip_topConstraint or view.ip_heightConstraint on any view and you'll be given the editable constraint that deals with that attribute.
-//Optionally you can use the base function ip_constraintForAttribute() and pass in the toItem and itemAttribute. It is less convienient but more accurate.
-//
 /*
 
-The idea is that you can call view.ip_topConstraint or view.ip_heightConstraint on any view and you'll be given the editable constraint that deals with that attribute.
-Optionally you can use the base function ip_constraintForAttribute() and pass in the toItem and itemAttribute. It is less convienient but more accurate.
+ The idea is that you can call view.ip_topConstraint or view.ip_heightConstraint on any view and you'll be given the editable constraint that deals with that attribute.
+ Optionally you can use the base function ip_constraintForAttribute() and pass in the toItem and itemAttribute. It is less convienient but more accurate.
 
-*/
+ */
 import Foundation
 import UIKit
 
@@ -65,12 +60,12 @@ public extension UIView {
 
     /**
      More precise way of getting constraints for a view. The constraint does not have to belong to the reciever -- this method searches the superview for the matching constraint as well.
-     
+
      :param: attribute     Attribute to look for belonging to the receiver
      :param: view1        Defaults to the receiver, but could be any subview as well.
      :param: view2        Probably a UIView, that view1 is related to.
      :param: viewAttribute Attribute that should be used with the toItem
-     
+
      :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
      */
     public func ip_constraintForAttribute(_ attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
@@ -116,41 +111,41 @@ public extension UIView {
 extension NSLayoutConstraint {
 
     public func ip_relatesView(view view1: UIView,
-        viaAttribute attribute1: NSLayoutAttribute,
-        toView view2: UIView,
-        andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
+                               viaAttribute attribute1: NSLayoutAttribute,
+                               toView view2: UIView,
+                               andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
 
-            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2 && secondAttribute == attribute2)
+        let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2 && secondAttribute == attribute2)
 
-            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2 && firstAttribute == attribute2)
+        let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2 && firstAttribute == attribute2)
 
-            return possibility1 || possibility2
+        return possibility1 || possibility2
     }
 
     public func ip_relatesView(view view1: UIView,
-        viaAttribute attribute1: NSLayoutAttribute,
-        toView view2: UIView) -> Bool {
+                               viaAttribute attribute1: NSLayoutAttribute,
+                               toView view2: UIView) -> Bool {
 
-            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2)
+        let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2)
 
-            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2)
+        let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1 && firstItem as? UIView == view2)
 
-            return possibility1 || possibility2
+        return possibility1 || possibility2
     }
 
     public func ip_relatesView(view view1: UIView,
-        viaAttribute attribute1: NSLayoutAttribute) -> Bool {
+                               viaAttribute attribute1: NSLayoutAttribute) -> Bool {
 
-            let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
+        let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
 
-            let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1)
+        let possibility2 = (secondItem as? UIView == view1 && secondAttribute == attribute1)
 
-            return possibility1 || possibility2
+        return possibility1 || possibility2
     }
 
     public func ip_isIntrinsicConstraintWithView(view view1: UIView,
-        andAttribute attribute1: NSLayoutAttribute) -> Bool {
+                                                 andAttribute attribute1: NSLayoutAttribute) -> Bool {
 
-            return (firstItem as? UIView == view1 && firstAttribute == attribute1)
+        return (firstItem as? UIView == view1 && firstAttribute == attribute1)
     }
 }

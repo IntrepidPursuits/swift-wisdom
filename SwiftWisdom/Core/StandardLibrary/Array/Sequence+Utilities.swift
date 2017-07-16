@@ -10,7 +10,7 @@ extension Sequence {
     /// Converts a `Sequence` into an `Array`.
     ///
     /// - returns: An array with the same elements as the sequence
-    public func ip_toArray() -> Array<Iterator.Element> {
+    public func ip_toArray() -> [Iterator.Element] {
         return Array(self)
     }
 }
