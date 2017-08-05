@@ -41,3 +41,14 @@ extension EnumSettingsKeyAccessible {
         return rawValue
     }
 }
+
+extension UserDefaults {
+
+    /// Removes all stored objects from UserDefaults.
+    func ip_removeAllObjects() {
+        dictionaryRepresentation().forEach { key, _ in
+            removeObject(forKey: key)
+        }
+        synchronize()
+    }
+}

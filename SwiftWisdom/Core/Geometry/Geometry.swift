@@ -11,18 +11,23 @@ public extension Int {
         return CGFloat(self).ip_radians
     }
 }
+
 public extension CGFloat {
     public var ip_radians: CGFloat {
         return CGFloat(Double(self) * (.pi / 180))
     }
+
     public var ip_degrees: CGFloat {
         return self * CGFloat(180.0 / .pi)
     }
-}
 
-public extension CGFloat {
     public var ip_squared: CGFloat {
         return self * self
+    }
+
+    /// Provides the complement of the percentage. Ex: 35% -> 0.65 returned
+    public var ip_complementOfPercentage: CGFloat {
+        return 1 - self
     }
 }
 
@@ -47,7 +52,7 @@ public extension CGPoint {
 }
 
 public func circumferenceForRadius(_ radius: CGFloat) -> CGFloat {
-    return radius * CGFloat.pi * 2
+    return radius * .pi * 2
 }
 
 public func lengthOfArcForDegrees(_ degrees: CGFloat, radius: CGFloat) -> CGFloat {

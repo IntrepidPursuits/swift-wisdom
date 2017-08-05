@@ -57,6 +57,16 @@ public struct Video {
     }
 }
 
+extension Video {
+    static public func == (lhs: Video, rhs: Video) -> Bool {
+        return
+            lhs.fileName == rhs.fileName &&
+            lhs.type == rhs.type &&
+            lhs.bundle == rhs.bundle &&
+            lhs.url == rhs.url
+    }
+}
+
 // MARK: Player
 
 public protocol VideoPlayerDelegate : class {

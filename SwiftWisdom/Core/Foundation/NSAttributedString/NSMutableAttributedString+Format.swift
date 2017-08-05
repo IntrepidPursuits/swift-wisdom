@@ -19,11 +19,25 @@ public extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with the attributes applied to argument strings.
      */
-
     convenience init(formatString: String, attributes: [String : AnyObject], arguments: String...) {
         let arguments = arguments.map { NSAttributedString(string: $0, attributes: attributes) }
         self.init(string: formatString)
         ip_format(withArguments: arguments)
+    }
+
+    /**
+     Create a mutable attributed string with the attributes applied to all arguments.
+
+     - parameter string:     formatted string where `%@` represents an argument
+     - parameter attributes: attributes dictionary to use on arguments
+     - parameter args:       array of attributed strings
+
+     - returns: NSMutableAttributedString with the attributes applied to argument strings.
+     */
+    convenience init(formatString string: String, attributes: [String : AnyObject]?, arguments: [NSAttributedString]) {
+        let mutable = NSMutableAttributedString(string: string, attributes: attributes)
+        mutable.ip_format(withArguments: arguments)
+        self.init(attributedString: mutable)
     }
 
     /**

@@ -77,3 +77,10 @@ public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disp
 
     return Disposables.create(bindToUIDisposable, bindToVariable)
 }
+
+extension ObservableType {
+    /// This function just exists to enable use of the trailing closure.
+    public func subscribeNext(_ on: @escaping (E) -> Swift.Void) -> Disposable {
+        return subscribe(onNext: on)
+    }
+}

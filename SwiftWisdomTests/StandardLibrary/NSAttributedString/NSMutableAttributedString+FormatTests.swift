@@ -61,6 +61,14 @@ class NSMutableAttributedString_FormatTests: XCTestCase {
         let rangeOfRED = NSRange(location: 7, length: 3)
         XCTAssertEqual(testString.attributedSubstring(from: rangeOfRED), redText)
     }
+    
+    func testStringWithSpacing() {
+        let spacing: CGFloat = 2.0
+        let regularString = "Two roads diverged in the woods"
+        let compareAttributedString = NSMutableAttributedString(string: regularString, attributes: [NSKernAttributeName: spacing])
+        let testString = regularString.ip_attributedStringWithSpacing(spacing)
+        XCTAssert(testString == compareAttributedString)
+    }
 
 }
 
