@@ -11,13 +11,14 @@ import Foundation
 public class RepeatedTask {
     let operation: Block
     let timeBetweenOps: TimeInterval
+
     /// nil repeatCount means infinite
     let repeatCount: Int?
     let queue: DispatchQueue
 
     private var currentCount: Int = 0
-    private var isComplete = false
-    private var isActive = false
+    public private(set) var isComplete = false
+    public private(set) var isActive = false
 
     public init(repeatCount: Int? = nil, timeBetweenOps: TimeInterval = 0, on queue: DispatchQueue = DispatchQueue.main, operation: @escaping Block) {
         self.operation = operation
@@ -35,6 +36,7 @@ public class RepeatedTask {
         }
     }
 
+    /// Pauses the task, maintaining the repeat count and same closure.
     public func stop() {
         guard isActive else { return }
         isActive = false
@@ -43,6 +45,7 @@ public class RepeatedTask {
     private func executeOp() {
         if let count = repeatCount, currentCount >= count {
             isComplete = true
+            isActive = false
             return
         }
         guard isActive else { return }
