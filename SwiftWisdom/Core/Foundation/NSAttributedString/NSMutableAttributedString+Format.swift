@@ -1,6 +1,6 @@
 //
 //  NSAttributedString+Format.swift
-//  bose-connect-ios
+//  SwiftWisdom
 //
 //  Created by Paul Rolfe on 1/16/16.
 //  Copyright © 2016 Intrepid-Pursuits. All rights reserved.

@@ -10,6 +10,9 @@ import XCTest
 @testable import SwiftWisdom
 
 class QuTests: XCTestCase {
+
+    var repeatedTask: RepeatedTask?
+
     func testMainExecutesClosureOnMainThread() {
         let mainExpectation = expectation(description: "Calling Qu.Main should call a block on the main thread")
 
@@ -49,5 +52,25 @@ class QuTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 1.0, handler: nil)
+    }
+
+    func testRepeatedTaskMainThread() {
+        let countExpectation = expectation(description: "Should fullfill twice")
+        countExpectation.expectedFulfillmentCount = 2
+        repeatedTask = RepeatedTask(repeatCount: 2, timeBetweenOps: 0.1) {
+            XCTAssert(Thread.current.isMainThread)
+            countExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 0.2, handler: nil)
+    }
+
+    func testRepeatedTaskBackgroundThread() {
+        let countExpectation = expectation(description: "Should fullfill twice")
+        countExpectation.expectedFulfillmentCount = 2
+        repeatedTask = RepeatedTask(repeatCount: 2, timeBetweenOps: 0.1, on: .global(qos: .background)) {
+            XCTAssertFalse(Thread.current.isMainThread)
+            countExpectation.fulfill()
+        }
+        waitForExpectations(timeout: 0.2, handler: nil)
     }
 }
