@@ -16,7 +16,7 @@ public class RepeatedTask {
     let repeatCount: Int?
     let queue: DispatchQueue
 
-    private var currentCount: Int = 0
+    private var currentCount = 0
     public private(set) var isComplete = false
     public private(set) var isActive = false
 
