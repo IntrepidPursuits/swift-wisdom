@@ -9,7 +9,9 @@
 
 import Foundation
 
+/// Simple closure alias. Ensure that a `weak` reference is used if referencing anything that could create a retain cycle.
 public typealias Block = () -> ()
+/// Same style of closure alias to `Block`, but this one accepts a completion block to be executed afterwards.
 public typealias CompletableBlock = (@escaping Block) -> ()
 
 // MARK: Qu
