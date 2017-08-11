@@ -18,9 +18,9 @@ public extension UIColor {
             cleanHex = "FFFFFF"
         }
 
-        let rString = cleanHex.substring(with: cleanHex.ip_range(from: 0...1))
-        let gString = cleanHex.substring(with: cleanHex.ip_range(from: 2...3))
-        let bString = cleanHex.substring(with: cleanHex.ip_range(from: 4...5))
+        let rString = cleanHex[0...1]
+        let gString = cleanHex[2...3]
+        let bString = cleanHex[4...5]
 
         var r: CUnsignedInt = 0, g: CUnsignedInt = 0, b: CUnsignedInt = 0
         Scanner(string: rString).scanHexInt32(&r)

@@ -94,7 +94,7 @@ final class Animation {
         displayLink.invalidate()
     }
 
-    dynamic private func displayLinkFired() {
+    @objc private func displayLinkFired() {
         let percent = percentageCompleted()
         if percent < 1 {
             state = .inProgress(percentComplete: percent)

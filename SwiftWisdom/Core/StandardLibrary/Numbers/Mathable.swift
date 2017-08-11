@@ -14,31 +14,31 @@ public protocol Mathable: Comparable {
     static func / (lhs: Self, rhs: Self) -> Self
     static func * (lhs: Self, rhs: Self) -> Self
     static func - (lhs: Self, rhs: Self) -> Self
-    init(_ int: IntMax)
+    init(_ int: Int64)
 }
 
 extension Mathable {
     public static var zero: Self {
-        return self.init(0.toIntMax())
+        return self.init(Int64(0))
     }
 }
 
-extension Collection where Iterator.Element: Mathable {
-    public func ip_mean() -> Iterator.Element {
+extension Collection where Element: Mathable {
+    public func ip_mean() -> Element {
         let zero = Iterator.Element.zero
-        let count = Iterator.Element(self.count.toIntMax())
+        let count = Iterator.Element(Int64(self.count))
         guard count > zero else { return zero }
         return reduce(zero, +) / count
     }
 
-    public func ip_median() -> Iterator.Element {
+    public func ip_median() -> Element {
         let zero = Iterator.Element.zero
-        let count = Iterator.Element(self.count.toIntMax())
+        let count = Iterator.Element(Int64(self.count))
         guard count > zero else { return zero }
         return sorted(by: <).ip_middleElements.ip_mean()
     }
 
-    public func ip_mode() -> [Iterator.Element] {
+    public func ip_mode() -> [Element] {
         return ip_mostCommonElements()
     }
 }
@@ -64,5 +64,3 @@ extension Int8: Mathable {}
 extension Int16: Mathable {}
 extension Int32: Mathable {}
 extension Int64: Mathable {}
-//extension Float80: Mathable {}
-// Any other number types we should include?

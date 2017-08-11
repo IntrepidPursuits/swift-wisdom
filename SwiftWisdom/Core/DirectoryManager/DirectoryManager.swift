@@ -57,7 +57,7 @@ public final class DirectoryManager {
         return ((try? data.write(to: URL(fileURLWithPath: path), options: [.atomicWrite])) != nil)
     }
 
-    public func writeInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _ in }) {
+    public func writeInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _, _  in }) {
         Background {
             let success = self.write(data, withName: name)
             Main {

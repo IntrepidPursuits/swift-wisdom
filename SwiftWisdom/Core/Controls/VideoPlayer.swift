@@ -15,7 +15,7 @@ import IP_UIKit_Wisdom
 
 extension AVAsset {
     public var naturalVideoSize: CGSize? {
-        return tracks(withMediaType: AVMediaTypeVideo).first?.naturalSize
+        return tracks(withMediaType: .video).first?.naturalSize
     }
 }
 
@@ -48,7 +48,7 @@ public struct Video {
 
     public let url: URL
 
-    public init?(fileName: String, type: String, bundle: Bundle = Bundle.main) {
+    public init?(fileName: String, type: String, bundle: Bundle = .main) {
         self.fileName = fileName
         self.type = type
         self.bundle = bundle
@@ -153,7 +153,7 @@ public final class VideoPlayer: UIViewController {
 
     private func setupPlayer() {
         playerController.showsPlaybackControls = false
-        playerController.view.backgroundColor = UIColor.white
+        playerController.view.backgroundColor = .white
         ip_addChildViewController(playerController)
         view.constrainView(toAllEdges: playerController.view)
     }
@@ -174,7 +174,7 @@ public final class VideoPlayer: UIViewController {
 
     // MARK: Notifications
 
-    dynamic private func videoDidFinish(_ note: Notification) {
+    @objc private func videoDidFinish(_ note: Notification) {
         videoQueueComplete()
     }
 }

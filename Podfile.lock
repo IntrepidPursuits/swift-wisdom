@@ -1,23 +1,45 @@
 PODS:
   - IP-UIKit-Wisdom (0.0.10)
-  - RxCocoa (3.4.0):
-    - RxSwift (~> 3.4)
-  - RxSwift (3.4.0)
-  - RxTest (3.4.0):
-    - RxSwift (~> 3.4)
+  - RxCocoa (4.0.0-alpha.0):
+    - RxSwift (~> 4.0.0-alpha.0)
+  - RxSwift (4.0.0-alpha.0)
+  - RxTest (4.0.0-alpha.0):
+    - RxSwift (~> 4.0.0-alpha.0)
 
 DEPENDENCIES:
   - IP-UIKit-Wisdom
-  - RxCocoa (~> 3.0)
-  - RxSwift (~> 3.0)
-  - RxTest (~> 3.0)
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `swift4.0`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `swift4.0`)
+  - RxTest (from `https://github.com/ReactiveX/RxSwift.git`, branch `swift4.0`)
+
+EXTERNAL SOURCES:
+  RxCocoa:
+    :branch: swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :branch: swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxTest:
+    :branch: swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+
+CHECKOUT OPTIONS:
+  RxCocoa:
+    :commit: 7291a9af3fb2e209b7a423d599719b8551b8b137
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :commit: 7291a9af3fb2e209b7a423d599719b8551b8b137
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxTest:
+    :commit: 7291a9af3fb2e209b7a423d599719b8551b8b137
+    :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:
   IP-UIKit-Wisdom: b395a065344071b33659e5f6b918043a97c48a44
-  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
-  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
-  RxTest: beb6beb882cf1dcac5fc9fdbd4760a5254e7f3a6
+  RxCocoa: d57cc4a5b88c5179b3ca7fe30d0ab0d928e886ff
+  RxSwift: 6946957e4e99243ea7c9bba38afa06b1363b0048
+  RxTest: 5a18c2a2c0e7566887703cd3f6bdf6693c471782
 
-PODFILE CHECKSUM: 911a320307fdef2a400530396eb0ee1b029be56b
+PODFILE CHECKSUM: c9f9944e845c37f2f92836d2a5678507b0091e62
 
 COCOAPODS: 1.3.1

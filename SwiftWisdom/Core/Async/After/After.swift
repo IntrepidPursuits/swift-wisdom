@@ -21,14 +21,14 @@ public func Background(_ function: @escaping Block) {
 
 // MARK: Later
 
-public func After(_ after: TimeInterval, on queue: DispatchQueue = DispatchQueue.main, op: @escaping Block) {
+public func After(_ after: TimeInterval, on queue: DispatchQueue = .main, op: @escaping Block) {
     let seconds = Int64(after * Double(NSEC_PER_SEC))
     let dispatchTime = DispatchTime.now() + Double(seconds) / Double(NSEC_PER_SEC)
 
     queue.asyncAfter(deadline: dispatchTime, execute: op)
 }
 
-public func RepeatAtInterval(_ interval: TimeInterval, numberOfTimes: Int, op: @escaping () -> (), on queue: DispatchQueue = DispatchQueue.main, completion: @escaping () -> Void = {}) {
+public func RepeatAtInterval(_ interval: TimeInterval, numberOfTimes: Int, op: @escaping () -> (), on queue: DispatchQueue = .main, completion: @escaping () -> Void = {}) {
     let numberOfTimesLeft = numberOfTimes - 1
 
     let wrappedCompletion: () -> Void

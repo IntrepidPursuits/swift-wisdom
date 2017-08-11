@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension RawRepresentable where RawValue: Integer {
+extension RawRepresentable where RawValue == Int {
     public static var ip_allCases: [Self] {
         var caseIndex: RawValue = 0
         let generator: () -> Self? = {

@@ -1,6 +1,7 @@
 def xcodeProject = new io.intrepid.XcodeProject()
 xcodeProject.name = 'SwiftWisdom'
 xcodeProject.addBuild([ configuration: "Debug" ])
+xcodeProject.xcodeVersion = '9'
 
 def config = [
   deploy: false,

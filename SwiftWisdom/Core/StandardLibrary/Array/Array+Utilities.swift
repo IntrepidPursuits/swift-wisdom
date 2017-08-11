@@ -169,9 +169,9 @@ extension Collection {
     /// If there's an odd number the return array is just one element.
     /// If there are an even number it will return the two middle elements.
     /// The two middle elements will be flipped if the array has an even number.
-    public var ip_middleElements: [Iterator.Element] {
+    public var ip_middleElements: [Element] {
         guard count > 0 else { return [] }
-        let needsAverageOfTwo = count.toIntMax().ip_isEven
+        let needsAverageOfTwo = Int(count).ip_isEven
 
         let middle = index(startIndex, offsetBy: count / 2)
         if needsAverageOfTwo {
