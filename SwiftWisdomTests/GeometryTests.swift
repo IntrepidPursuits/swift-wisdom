@@ -48,14 +48,14 @@ class GeometryTests: XCTestCase {
         XCTAssert(negTest.ip_complementOfPercentage == 1.35)
         
         let overOne: CGFloat = 1.35
-        XCTAssertEqualWithAccuracy(overOne.ip_complementOfPercentage, -0.35, accuracy: 0.0001)
+        XCTAssertEqual(overOne.ip_complementOfPercentage, -0.35, accuracy: 0.0001)
     }
 
     func testIpAngleTo() {
         let originPoint = CGPoint(x: 10.0, y: 10.0)
         let testPoint = CGPoint(x: 30.0, y: 30.0)
         let angle = originPoint.ip_angle(to: testPoint)
-        XCTAssertEqualWithAccuracy(angle, 45.0, accuracy: 0.01)
+        XCTAssertEqual(angle, 45.0, accuracy: 0.01)
     }
 
     func testIpDistanceTo() {
@@ -68,21 +68,21 @@ class GeometryTests: XCTestCase {
     func testCircumferenceForRadius() {
         let testRadius: CGFloat = 30.0
         let circumference = circumferenceForRadius(testRadius)
-        XCTAssertEqualWithAccuracy(circumference, 188.49, accuracy: 0.01)
+        XCTAssertEqual(circumference, 188.49, accuracy: 0.01)
     }
 
     func testLengthOfArcForDegrees() {
         let testDegrees: CGFloat = 45.0
         let testRadius: CGFloat = 30.0
         let length = lengthOfArcForDegrees(testDegrees, radius: testRadius)
-        XCTAssertEqualWithAccuracy(length, 23.56, accuracy: 0.01)
+        XCTAssertEqual(length, 23.56, accuracy: 0.01)
     }
 
     func testDegreesForLengthOfArc() {
         let testLength: CGFloat = 23.56
         let testRadius: CGFloat = 30.0
         let degrees = degreesForLengthOfArc(testLength, radius: testRadius)
-        XCTAssertEqualWithAccuracy(degrees, 45.0, accuracy: 0.01)
+        XCTAssertEqual(degrees, 45.0, accuracy: 0.01)
     }
 
     func testPointWithCenter() {
@@ -90,7 +90,7 @@ class GeometryTests: XCTestCase {
         let testRadius: CGFloat = 30.0
         let testDegrees: CGFloat = 90.0
         let point = pointWithCenter(testCenter, radius: testRadius, angleDegrees: testDegrees)
-        XCTAssertEqualWithAccuracy(point.x, 20.0, accuracy: 0.01)
-        XCTAssertEqualWithAccuracy(point.y, 50.0, accuracy: 0.01)
+        XCTAssertEqual(point.x, 20.0, accuracy: 0.01)
+        XCTAssertEqual(point.y, 50.0, accuracy: 0.01)
     }
 }

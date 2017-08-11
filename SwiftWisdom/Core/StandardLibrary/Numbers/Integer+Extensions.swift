@@ -1,6 +1,6 @@
 import Foundation
 
-extension Int {
+extension BinaryInteger {
     public var ip_isEven: Bool {
         return (self % 2) == 0
     }
@@ -17,14 +17,14 @@ extension Int {
     }
 }
 
-extension Int {
+extension BinaryInteger {
     public func ip_toMagnitudeString(withDecimalPlaces decimalPlaces: Int = 1) -> String {
 
         guard self > 999 else { return "\(self)" }
 
         let units = ["K", "M", "B", "T", "Q"]
 
-        let value = Double(self)
+        let value = Double(Int64(self))
 
         var magnitude: Int = Int(log10(value) / 3.0) // the order of magnitude of our value in thousands
 
@@ -57,10 +57,10 @@ extension NumberFormatter {
     }
 }
 
-extension Int {
+extension BinaryInteger {
     fileprivate var ip_data: Data {
         var copy = self
-        return Data(bytes: &copy, count: MemoryLayout<Int>.size)
+        return Data(bytes: &copy, count: MemoryLayout<Self>.size)
     }
 
     public var ip_bigEndianData: Data? {

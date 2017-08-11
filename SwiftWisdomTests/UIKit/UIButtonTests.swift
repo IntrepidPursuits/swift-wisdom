@@ -19,8 +19,8 @@ final class UIButtonTests: XCTestCase {
         button.ip_editAttributedTitle("CANCEL", useSpacing: 2.0, forState: .normal)
         
         let attributes = button.attributedTitle(for: .normal)?.attributes(at: 0, effectiveRange: nil)
-        XCTAssert(attributes?[NSKernAttributeName] as? CGFloat == 2.0)
-        XCTAssert(attributes?[NSForegroundColorAttributeName] as? UIColor == .blue)
+        XCTAssert(attributes?[.kern] as? CGFloat == 2.0)
+        XCTAssert(attributes?[.foregroundColor] as? UIColor == .blue)
     }
 
 }

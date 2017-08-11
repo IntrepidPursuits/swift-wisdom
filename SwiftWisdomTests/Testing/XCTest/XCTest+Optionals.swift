@@ -15,13 +15,13 @@ public func ip_XCTAssertNotEqualOptional<T: Any>(_ expression1: @autoclosure () 
 
 public func ip_XCTAssertEqualWithAccuracyOptional<T : FloatingPoint>(_ expression1: @autoclosure () throws -> T?, _ expression2: @autoclosure () throws -> T?, _ accuracy: T, _ message: String? = nil, file: StaticString = #file, line: UInt = #line) {
     testHelper(expression1, expression2, message: message, file: file, line: line) { (lhs, rhs) in
-        XCTAssertEqualWithAccuracy(lhs, rhs, accuracy: accuracy, message ?? "", file: file, line: line)
+        XCTAssertEqual(lhs, rhs, accuracy: accuracy, message ?? "", file: file, line: line)
     }
 }
 
 public func ip_XCTAssertNotEqualWithAccuracyOptional<T : FloatingPoint>(_ expression1: @autoclosure () throws -> T?, _ expression2: @autoclosure () throws -> T?, _ accuracy: T, _ message: String? = nil, file: StaticString = #file, line: UInt = #line) {
     testHelper(expression1, expression2, message: message, file: file, line: line) { (lhs, rhs) in
-        XCTAssertNotEqualWithAccuracy(lhs, rhs, accuracy, message ?? "", file: file, line: line)
+        XCTAssertNotEqual(lhs, rhs, accuracy: accuracy, message ?? "", file: file, line: line)
     }
 }
 
