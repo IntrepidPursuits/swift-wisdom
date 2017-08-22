@@ -10,7 +10,7 @@ extension Integer {
     }
 }
 
-extension Integer where Self : _Strideable & Comparable, Self.Stride : SignedInteger {
+extension Integer where Self.Stride : SignedInteger {
     public func ip_times(closure: () -> Void) {
         precondition(self >= 0)
         (0..<self).forEach { _ in closure() }
