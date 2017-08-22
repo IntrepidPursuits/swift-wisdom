@@ -10,7 +10,7 @@ import Foundation
 
 extension RawRepresentable where RawValue: Integer {
     public static var ip_allCases: [Self] {
-        var caseIndex: RawValue = RawValue.allZeros
+        var caseIndex: RawValue = 0
         let generator: () -> Self? = {
             let next = Self(rawValue: caseIndex)
             caseIndex = caseIndex.advanced(by: 1)
