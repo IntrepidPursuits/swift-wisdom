@@ -79,4 +79,19 @@ extension String {
     public var ip_fullrange: NSRange {
         return NSRange(location: 0, length: ip_length)
     }
+
+    /// Returns a new string containing the characters of the String up to, but not including, the first occurence of the given string.
+    /// If the string is not found, nil is returned.
+    public func ip_prefix(upTo string: String) -> String? {
+        guard let range = self.range(of: string) else { return nil }
+        return self.substring(to: range.lowerBound)
+    }
+
+    /// Returns a new string containing the characters of the String from the end of the first occurence of the given String.
+    /// If the string is not found, nil is returned.
+    public func ip_suffix(from string: String) -> String? {
+        guard let range = self.range(of: string) else { return nil }
+        return self.substring(from: range.upperBound)
+    }
+
 }
