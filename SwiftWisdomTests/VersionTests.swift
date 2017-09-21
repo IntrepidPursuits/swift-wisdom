@@ -45,6 +45,7 @@ class VersionTests: XCTestCase {
             ("1.2.0-beta.3", "1.2.0-beta.2"),
             ("1.2.0", "1.2.0-beta.2"),
             ("1.2.0-beta", "1.2.0-alpha"),
+            ("1.2.0-beta1", "1.2.0-beta"),
             ("1.2.3-1+abc" , "1.2.3-1+def") // These are undefined. Should pass.
         ]
         pairs
@@ -64,6 +65,7 @@ class VersionTests: XCTestCase {
             ("1.2.0-beta.1", "1.2.0-beta.2"),
             ("1.2.0-alpha", "1.2.0-beta"),
             ("1.2.0-beta.1", "1.2.0"),
+            ("1.2.0-beta", "1.2.0-beta1"),
             ("1.2.3-1+abc" , "1.2.3-1+def") // These are undefined. Should pass.
         ]
         pairs

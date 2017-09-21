@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// This object attempts to (mostly) mirror the rules defined by semver.org
+/// This attempts to (mostly) mirror the rules defined by semver.org
 /// Note: Some exceptions are made to be more lenient.
 /// A strict semver library can be found here: https://github.com/weekwood/Semver.Swift
 public struct Version {
