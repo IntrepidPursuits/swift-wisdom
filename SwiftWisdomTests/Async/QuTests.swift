@@ -61,7 +61,7 @@ class QuTests: XCTestCase {
             XCTAssert(Thread.current.isMainThread)
             countExpectation.fulfill()
         }
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
 
     func testRepeatedTaskBackgroundThread() {
@@ -71,6 +71,6 @@ class QuTests: XCTestCase {
             XCTAssertFalse(Thread.current.isMainThread)
             countExpectation.fulfill()
         }
-        waitForExpectations(timeout: 0.2, handler: nil)
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
 }

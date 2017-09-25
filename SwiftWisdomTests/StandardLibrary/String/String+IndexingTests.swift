@@ -65,6 +65,24 @@ class String_IndexingTests: XCTestCase {
         XCTAssert(hello[ip_safely: 1..<6] == "ello")
         XCTAssert(hello[ip_safely: -1..<6] == "Hello")
     }
+
+    func testPrefix() {
+        let hello = "Hello"
+        XCTAssertEqual(hello.ip_prefix(upTo: "H"), "")
+        XCTAssertEqual(hello.ip_prefix(upTo: "l"), "He")
+        XCTAssertEqual(hello.ip_prefix(upTo: "lo"), "Hel")
+        XCTAssertNil(hello.ip_prefix(upTo: "x"))
+        XCTAssertNil(hello.ip_prefix(upTo: ""))
+    }
+
+    func testSuffix() {
+        let hello = "Hello"
+        XCTAssertEqual(hello.ip_suffix(from: "o"), "")
+        XCTAssertEqual(hello.ip_suffix(from: "ll"), "o")
+        XCTAssertEqual(hello.ip_suffix(from: "l"), "lo")
+        XCTAssertNil(hello.ip_suffix(from: "x"))
+        XCTAssertNil(hello.ip_suffix(from: ""))
+    }
 }
 
 
