@@ -84,14 +84,14 @@ extension String {
     /// If the string is not found, nil is returned.
     public func ip_prefix(upTo string: String) -> String? {
         guard let range = self.range(of: string) else { return nil }
-        return self.substring(to: range.lowerBound)
+        return String(self[..<range.lowerBound])
     }
 
     /// Returns a new string containing the characters of the String from the end of the first occurrence of the given String.
     /// If the string is not found, nil is returned.
     public func ip_suffix(from string: String) -> String? {
         guard let range = self.range(of: string) else { return nil }
-        return self.substring(from: range.upperBound)
+        return String(self[range.upperBound...])
     }
 
 }
