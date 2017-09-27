@@ -6,6 +6,12 @@ This library is meant to be a general grab bag of Swift methods made by the engi
 
 The reason for the grab bag approach is to make it easier to facilitate the adding of materials and encourage componentization and sharing of common functionality.
 
+### Swift Versions
+- Swift 4.0 -> `0.9.0` +
+- Swift 3.2 (Xcode 9 Compatible) -> `0.8.3` through `0.8.4`
+- Swift 3 -> `0.6.1` through `0.8.1`
+- Swift 2 -> anything through `0.5.2`
+
 ### Core
 
 ```Ruby
