@@ -1,8 +1,9 @@
 source 'https://github.com/CocoaPods/Specs'
 
-platform :ios, '8.0'
+platform :ios, '10.0'
 
 use_frameworks!
+inhibit_all_warnings!
 
 def commonpods
   pod 'IP-UIKit-Wisdom'
