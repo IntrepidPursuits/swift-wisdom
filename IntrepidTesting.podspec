@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "IntrepidTesting"
-  s.version       = "0.9.0-beta"
+  s.version       = "0.9.0"
   s.summary       = "A collection of test extensions to the Swift Standard Library"
   s.description   = <<-DESC
                     Collection of test extensions and utility classes by and for the developers at Intrepid Pursuits.
