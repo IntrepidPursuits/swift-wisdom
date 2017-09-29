@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
   s.ios.deployment_target = "8.0"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '3.0' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.default_subspec = "Core"
 
   s.subspec "Core" do |cs|
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |rx|
     rx.source_files = "SwiftWisdom/Rx/**/**/*.swift"
-    rx.dependency 'RxSwift', '~> 3.0'
-    rx.dependency 'RxCocoa', '~> 3.0'
+    rx.dependency 'RxSwift', '~> 4.0.0-alpha'
+    rx.dependency 'RxCocoa', '~> 4.0.0-alpha'
   end
 end
