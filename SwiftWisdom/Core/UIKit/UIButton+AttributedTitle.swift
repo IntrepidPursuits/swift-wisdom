@@ -26,7 +26,7 @@ public extension UIButton {
             let color = titleColor(for: state) {
             let range = NSRange(location: 0, length: spacedText.length)
             spacedText.addAttributes(existingAttributes, range: range)
-            spacedText.addAttribute(NSForegroundColorAttributeName, value: color, range: range)
+            spacedText.addAttribute(.foregroundColor, value: color, range: range)
         }
         setAttributedTitle(spacedText, for: state)
     }

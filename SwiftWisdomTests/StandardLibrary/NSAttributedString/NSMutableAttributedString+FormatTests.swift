@@ -9,8 +9,8 @@
 import XCTest
 import SwiftWisdom
 
-private let redAttribute = [NSForegroundColorAttributeName : UIColor.red]
-private let blueAttribute = [NSForegroundColorAttributeName : UIColor.blue]
+private let redAttribute: [NSAttributedStringKey : UIColor] = [.foregroundColor : .red]
+private let blueAttribute: [NSAttributedStringKey : UIColor] = [.foregroundColor : .blue]
 
 class NSMutableAttributedString_FormatTests: XCTestCase {
 
@@ -27,15 +27,15 @@ class NSMutableAttributedString_FormatTests: XCTestCase {
         let world = NSAttributedString(string: "world", attributes: blueAttribute)
         let subject = NSMutableAttributedString(string: "%@%@")
         subject.ip_format(withArguments: [hello, world])
-        XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == UIColor.red)
-        XCTAssert(subject.foregroundColorAttribute(atIndex: 5) == UIColor.blue)
+        XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == .red)
+        XCTAssert(subject.foregroundColorAttribute(atIndex: 5) == .blue)
     }
 
     func testInitFormatStringAttributesArgumentsShouldSetAttributes() {
         let subject = NSMutableAttributedString(formatString: "%@%@",
                                                 attributes: blueAttribute,
                                                 arguments: "hello", "world")
-        XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == UIColor.blue)
+        XCTAssert(subject.foregroundColorAttribute(atIndex: 0) == .blue)
     }
 
 
@@ -65,7 +65,7 @@ class NSMutableAttributedString_FormatTests: XCTestCase {
     func testStringWithSpacing() {
         let spacing: CGFloat = 2.0
         let regularString = "Two roads diverged in the woods"
-        let compareAttributedString = NSMutableAttributedString(string: regularString, attributes: [NSKernAttributeName: spacing])
+        let compareAttributedString = NSMutableAttributedString(string: regularString, attributes: [.kern: spacing])
         let testString = regularString.ip_attributedStringWithSpacing(spacing)
         XCTAssert(testString == compareAttributedString)
     }
@@ -77,7 +77,7 @@ fileprivate extension NSMutableAttributedString {
 
     func foregroundColorAttribute(atIndex index: Int) -> UIColor {
         let dict = attributes(at: index, effectiveRange: nil)
-        return dict[NSForegroundColorAttributeName] as! UIColor
+        return dict[.foregroundColor] as! UIColor
     }
 
 }

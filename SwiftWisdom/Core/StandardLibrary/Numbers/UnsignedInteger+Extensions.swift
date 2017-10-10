@@ -10,7 +10,7 @@ import Foundation
 
 extension UnsignedInteger {
     public static func ip_random() -> Self {
-        let intMax = Int(ip_maxValue.toIntMax())
+        let intMax = Int(Int64(ip_maxValue))
         let rand = random(inRange: 0...intMax)
         return self.init(ip_safely: rand)
     }
@@ -99,7 +99,7 @@ extension UnsignedInteger {
         if value < 0 {
             self.init(ip_safely: UInt8(0))
         } else {
-            let max = UIntMax(value.toIntMax())
+            let max = UInt64(Int64(value))
             self.init(ip_safely: max)
         }
     }
@@ -108,8 +108,8 @@ extension UnsignedInteger {
         self = 0
 
         let maxSelf = type(of: self).ip_maxValue
-        if maxSelf.toUIntMax() >= value.toUIntMax() {
-            self = .init(value.toUIntMax())
+        if UInt64(maxSelf) >= UInt64(value) {
+            self = .init(UInt64(value))
         } else {
             self = maxSelf
         }

@@ -19,9 +19,9 @@ class String_IndexingTests: XCTestCase {
 
     func testIpRangeRangeRetunsProperRange() {
         let testString = "hello"
-        XCTAssert(testString.substring(with: testString.ip_range(from: 0...0)) == "h")
-        XCTAssert(testString.substring(with: testString.ip_range(from: 0...4)) == "hello")
-        XCTAssert(testString.substring(with: testString.ip_range(from: 1...2)) == "el")
+        XCTAssert(testString[0...0] == "h")
+        XCTAssert(testString[0...4] == "hello")
+        XCTAssert(testString[1...2] == "el")
     }
 
     func testCountableClosedRangeSubscriptReturnsProperString() {

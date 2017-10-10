@@ -11,7 +11,7 @@ import UIKit
 public extension String {
     func ip_attributedStringWithSpacing(_ spacingValue: CGFloat) -> NSMutableAttributedString {
         let attributedString = NSMutableAttributedString(string: self)
-        attributedString.addAttribute(NSKernAttributeName, value: spacingValue, range: NSRange(location: 0, length: self.characters.count))
+        attributedString.addAttribute(.kern, value: spacingValue, range: NSRange(location: 0, length: self.count))
         return attributedString
     }
 }
