@@ -24,12 +24,12 @@ extension String {
     }
 
     /// Returns a substring in the given range.
-    /// If the range is beyond the string's length, returns the substring up to it's bounds.
+    /// If the range is beyond the string's length, returns the substring up to its bounds.
     public subscript(ip_safely range: Range<Int>) -> String {
         if range.lowerBound < 0 {
             return self[ip_safely: 0..<range.upperBound]
-        } else if range.upperBound > self.count {
-            let newRange = range.lowerBound..<self.count
+        } else if range.upperBound > count {
+            let newRange = range.lowerBound..<count
             return String(self[newRange])
         } else {
             return String(self[range])
@@ -37,12 +37,12 @@ extension String {
     }
 
     /// Returns a substring in the given range.
-    /// If the range is beyond the string's length, returns the substring up to it's bounds.
+    /// If the range is beyond the string's length, returns the substring up to its bounds.
     public subscript(ip_safely range: CountableClosedRange<Int>) -> String {
         if range.lowerBound < 0 {
             return self[ip_safely: 0...range.upperBound]
-        } else if range.upperBound >= self.count {
-            let newRange = range.lowerBound...(self.count - 1)
+        } else if range.upperBound >= count {
+            let newRange = range.lowerBound...(count - 1)
             return String(self[newRange])
         } else {
             return String(self[range])
@@ -51,7 +51,7 @@ extension String {
 
     public mutating func ip_dropFirst() {
         guard !isEmpty else { return }
-        self = self[1..<self.count]
+        self = self[1..<count]
     }
 
     /// From http://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index/32379600#32379600
