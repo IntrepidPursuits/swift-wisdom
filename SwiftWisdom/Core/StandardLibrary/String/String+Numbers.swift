@@ -22,6 +22,6 @@ extension String {
     }
 
     public var ip_length: Int {
-        return self.characters.count
+        return self.count
     }
 }

@@ -22,20 +22,20 @@ public struct Weak<T> where T: AnyObject {
 /**
     Conforming to this protocol lets a class implement a multi-delegate system.
 
-    Only subclasses of NSObject can conform to this protocol. In addition, you can only typealias `Delegate` to a
+    Only subclasses of NSObject can conform to this protocol. In addition, you can only typealias `MulticastDelegate` to a
     class or an `@objc` protocol.
  */
 public protocol Multicast: class {
 
-    associatedtype Delegate: AnyObject
+    associatedtype MulticastDelegate: AnyObject
 
-    var delegateReferences: [Weak<Delegate>] { get set }
+    var delegateReferences: [Weak<MulticastDelegate>] { get set }
 }
 
 public extension Multicast {
 
     /// Delegates of this class.
-    var delegates: [Delegate] {
+    var delegates: [MulticastDelegate] {
         let existing = delegateReferences.flatMap { $0.weak }
         if existing.count != delegateReferences.count {
             delegateReferences = existing.map { Weak($0) }
@@ -45,21 +45,21 @@ public extension Multicast {
 
     /**
         Add a delegate.
-     
-        - parameter delegate: Delegate to be added.
+
+        - parameter delegate: MulticastDelegate to be added.
      */
-    func add(delegate: Delegate) {
+    func add(delegate: MulticastDelegate) {
         remove(delegate: delegate)
         delegateReferences.append(Weak(delegate))
     }
 
     /**
         Remove delegates matching a predicate.
-     
+
         - parameter shouldRemove: A predicate that is called once for each delegate of this class. It should return true
           if a delegate should be removed.
      */
-    func removeDelegates(_ shouldRemove: (Delegate) -> Bool) {
+    func removeDelegates(_ shouldRemove: (MulticastDelegate) -> Bool) {
         delegateReferences = delegates
             .filter { !shouldRemove($0) }
             .map { Weak($0) }
@@ -68,9 +68,9 @@ public extension Multicast {
     /**
         Remove a delegate.
 
-        - parameter delegate: Delegate to be removed.
+        - parameter delegate: MulticastDelegate to be removed.
      */
-    func remove(delegate: Delegate) {
+    func remove(delegate: MulticastDelegate) {
         removeDelegates { $0 === delegate }
     }
 }

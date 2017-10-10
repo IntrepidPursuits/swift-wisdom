@@ -7,8 +7,8 @@ inhibit_all_warnings!
 
 def commonpods
   pod 'IP-UIKit-Wisdom'
-    pod 'RxSwift', '~> 4.0.0-beta.1'
-    pod 'RxCocoa', '~> 4.0.0-beta.1'
+    pod 'RxSwift', '~> 4.0.0-rc.0'
+    pod 'RxCocoa', '~> 4.0.0-rc.0'
 end
 
 target 'SwiftWisdom' do
@@ -17,7 +17,7 @@ end
 
 target 'SwiftWisdomTests' do
   commonpods()
-  pod 'RxTest', '~> 4.0.0-beta.1'
+  pod 'RxTest', '~> 4.0.0-rc.0'
 end
 
 post_install do |installer|
