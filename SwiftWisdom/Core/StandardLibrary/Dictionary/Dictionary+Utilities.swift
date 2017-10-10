@@ -50,8 +50,6 @@ extension Dictionary {
 
 private extension String {
     func ip_keypathComponents() -> [String] {
-        return characters
-            .split { $0 == "." }
-            .map { String($0) }
+        return split { $0 == "." }.map { String($0) }
     }
 }

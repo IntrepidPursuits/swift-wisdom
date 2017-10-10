@@ -14,7 +14,7 @@ public extension UIColor {
         if hex.hasPrefix("#") {
             cleanHex.ip_dropFirst()
         }
-        if cleanHex.characters.count != 6 {
+        if cleanHex.count != 6 {
             cleanHex = "FFFFFF"
         }
 
