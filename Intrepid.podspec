@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |rx|
     rx.source_files = "SwiftWisdom/Rx/**/**/*.swift"
-    rx.dependency 'RxSwift', '~> 4.0.0-alpha'
-    rx.dependency 'RxCocoa', '~> 4.0.0-alpha'
+    rx.dependency 'RxSwift', '~> 4.0'
+    rx.dependency 'RxCocoa', '~> 4.0'
   end
 end

@@ -1,10 +1,10 @@
 PODS:
   - IP-UIKit-Wisdom (0.0.10)
-  - RxCocoa (4.0.0-rc.0):
-    - RxSwift (~> 4.0.0-rc.0)
-  - RxSwift (4.0.0-rc.0)
-  - RxTest (4.0.0-rc.0):
-    - RxSwift (~> 4.0.0-rc.0)
+  - RxCocoa (4.0.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.0.0)
+  - RxTest (4.0.0):
+    - RxSwift (~> 4.0)
 
 DEPENDENCIES:
   - IP-UIKit-Wisdom
@@ -14,10 +14,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   IP-UIKit-Wisdom: b395a065344071b33659e5f6b918043a97c48a44
-  RxCocoa: 62457355be73369670fbdf053a79a491552b64ed
-  RxSwift: 1dd09ceb11531c39adff4efe23556b1484e16967
-  RxTest: 9c731f05da986e443a064e6c5c012ae3dc08c8b8
+  RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
+  RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
+  RxTest: 0041e792cede35e53e4749f378d21482af0e9d12
 
 PODFILE CHECKSUM: 063823ed351063eebfbce1260c44280569d0ec09
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.3.1
