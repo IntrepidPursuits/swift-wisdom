@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.9.0"
+  s.version       = "0.9.1"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |rx|
     rx.source_files = "SwiftWisdom/Rx/**/**/*.swift"
-    rx.dependency 'RxSwift', '~> 4.0.0-alpha'
-    rx.dependency 'RxCocoa', '~> 4.0.0-alpha'
+    rx.dependency 'RxSwift', '~> 4.0'
+    rx.dependency 'RxCocoa', '~> 4.0'
   end
 end
