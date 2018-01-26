@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.9.1"
+  s.version       = "0.9.2"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
                       "Alan Scarpa" => "alan@intrepid.io",
                       "Paul Rolfe" => "paul@intrepid.io",
                       "Colin Tan" => "ctan@intrepid.io",
-                      "Stephen Wingchi Wong" => "stephenwong@intrepid.io"
+                      "Stephen Wingchi Wong" => "stephenwong@intrepid.io",
+                      "Bob Gilmore" => "bgilmore@intrepid.io"
                     }
   s.social_media_url = 'https://twitter.com/intpd'
   s.source        = { :git => "https://github.com/IntrepidPursuits/swift-wisdom.git", :tag => "#{s.version}" }
