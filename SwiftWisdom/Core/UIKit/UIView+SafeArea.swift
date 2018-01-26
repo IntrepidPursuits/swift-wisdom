@@ -6,6 +6,11 @@
 //  Copyright © 2017 Intrepid. All rights reserved.
 //
 
+import UIKit
+
+// Documentation on safeAreaLayoutGuides introduced in iOS 11
+// https://developer.apple.com/documentation/uikit/uiview/2891102-safearealayoutguide
+
 extension UIView {
 
     /// Provides the view's edge insets with regards to the safe area.
@@ -23,8 +28,9 @@ extension UIView {
 
     /// Provides the view's top anchor with regards to the safe area.
     ///
-    /// **Note:** for iOS 11 and above this anchor will not be available
-    /// until after `viewDidAppear` is called
+    /// **Note:** For iOS 11 and above this anchor will be available before
+    /// viewDidAppear, but it will not be accurate until _after_ it has been
+    /// added to the view hierarchy and `viewDidAppear` is called.
     var ip_safeAreaTopAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.topAnchor
@@ -35,8 +41,9 @@ extension UIView {
 
     /// Provides the view's bottom anchor with regards to the safe area.
     ///
-    /// **Note:** for iOS 11 and above this anchor will not be available
-    /// until after `viewDidAppear` is called
+    /// **Note:** For iOS 11 and above this anchor will be available before
+    /// viewDidAppear, but it will not be accurate until _after_ it has been
+    /// added to the view hierarchy and `viewDidAppear` is called.
     var ip_safeAreaBottomAnchor: NSLayoutYAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.bottomAnchor
@@ -47,8 +54,9 @@ extension UIView {
 
     /// Provides the view's leading anchor with regards to the safe area.
     ///
-    /// **Note:** for iOS 11 and above this anchor will not be available
-    /// until after `viewDidAppear` is called
+    /// **Note:** For iOS 11 and above this anchor will be available before
+    /// viewDidAppear, but it will not be accurate until _after_ it has been
+    /// added to the view hierarchy and `viewDidAppear` is called.
     var ip_safeAreaLeadingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.leadingAnchor
@@ -59,8 +67,9 @@ extension UIView {
 
     /// Provides the view's trailing anchor with regards to the safe area.
     ///
-    /// **Note:** for iOS 11 and above this anchor will not be available
-    /// until after `viewDidAppear` is called
+    /// **Note:** For iOS 11 and above this anchor will be available before
+    /// viewDidAppear, but it will not be accurate until _after_ it has been
+    /// added to the view hierarchy and `viewDidAppear` is called.
     var ip_safeAreaTrailingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return self.safeAreaLayoutGuide.trailingAnchor
