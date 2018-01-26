@@ -39,7 +39,7 @@ extension UILabel {
         attributedText = attrText
     }
 
-    private func baseAttributes() -> [NSAttributedStringKey : AnyObject] {
+    private func baseAttributes() -> [NSAttributedStringKey: AnyObject] {
         return [.font : font, .foregroundColor : textColor]
     }
 

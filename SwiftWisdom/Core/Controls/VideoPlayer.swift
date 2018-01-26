@@ -69,7 +69,7 @@ extension Video {
 
 // MARK: Player
 
-public protocol VideoPlayerDelegate : class {
+public protocol VideoPlayerDelegate: class {
     /**
      The delegate is notified when the video finishes playing and returns 
      a boolean whether or not the video should repeat

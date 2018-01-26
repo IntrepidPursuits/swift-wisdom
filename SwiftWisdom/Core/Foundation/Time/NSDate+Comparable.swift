@@ -9,7 +9,7 @@ import Foundation
 
 // Date already conforms to comparable. But NSDate does not.
 
-extension NSDate : Comparable {
+extension NSDate: Comparable {
     @nonobjc public static func < (lhs: NSDate, rhs: NSDate) -> Bool {
         return lhs.timeIntervalSince1970 < rhs.timeIntervalSince1970
     }

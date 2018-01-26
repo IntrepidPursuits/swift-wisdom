@@ -16,8 +16,8 @@ extension Dictionary {
             self[first] = settable
         } else {
             let rejoined = keys.joined(separator: ".")
-            var subdict: [String : AnyObject] = [:]
-            if let sub = self[first] as? [String : AnyObject] {
+            var subdict: [String: AnyObject] = [:]
+            if let sub = self[first] as? [String: AnyObject] {
                 subdict = sub
             }
             subdict.ip_set(value: value, forKeypath: rejoined)
@@ -40,7 +40,7 @@ extension Dictionary {
         guard let first = keys.first as? Key else { print("Unable to use string as key on type: \(Key.self)"); return nil }
         guard let value = self[first] else { return nil }
         keys.remove(at: 0)
-        if !keys.isEmpty, let subDict = value as? [String : AnyObject] {
+        if !keys.isEmpty, let subDict = value as? [String: AnyObject] {
             let rejoined = keys.joined(separator: ".")
             return subDict.ip_value(forKeypath: rejoined)
         }
