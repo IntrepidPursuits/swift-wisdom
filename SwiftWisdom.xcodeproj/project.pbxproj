@@ -51,6 +51,10 @@
 		31C0E33D1E15A9CB009AB216 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0E33C1E15A9CB009AB216 /* UIViewController+Extensions.swift */; };
 		31C0E33F1E15AA72009AB216 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0E33E1E15AA72009AB216 /* UIView+Extensions.swift */; };
 		31C0E3441E15C8D5009AB216 /* GeometryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C0E3431E15C8D5009AB216 /* GeometryTests.swift */; };
+		49688E801FFD2127008BE521 /* TimeInterval+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E7F1FFD2127008BE521 /* TimeInterval+Extensions.swift */; };
+		49688E821FFD28A3008BE521 /* TimeIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E811FFD28A3008BE521 /* TimeIntervalTests.swift */; };
+		49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */; };
+		49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */; };
 		50D4C0475426EF5C6D884DA9 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */; };
 		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
@@ -169,6 +173,10 @@
 		31C0E33C1E15A9CB009AB216 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		31C0E33E1E15AA72009AB216 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		31C0E3431E15C8D5009AB216 /* GeometryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeometryTests.swift; sourceTree = "<group>"; };
+		49688E7F1FFD2127008BE521 /* TimeInterval+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extensions.swift"; sourceTree = "<group>"; };
+		49688E811FFD28A3008BE521 /* TimeIntervalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalTests.swift; sourceTree = "<group>"; };
+		49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Measurement+Extensions.swift"; sourceTree = "<group>"; };
+		49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnitDurationTests.swift; sourceTree = "<group>"; };
 		4E9D68BE066065C510CF97B7 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
 		5EAF2031B1809BA087E2827D /* Pods-SwiftWisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.release.xcconfig"; sourceTree = "<group>"; };
 		703B104B32DD95D07A614A46 /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -425,6 +433,8 @@
 			children = (
 				800205A11BF684C7005852C9 /* NSDate+Comparable.swift */,
 				319CB0E41E14502F00BBD79B /* Date+Extensions.swift */,
+				49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */,
+				49688E7F1FFD2127008BE521 /* TimeInterval+Extensions.swift */,
 				800205A31BF684D1005852C9 /* TimeOfDay.swift */,
 			);
 			path = Time;
@@ -735,6 +745,8 @@
 				CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */,
 				CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */,
 				1CFEBD041E8047D60078108A /* DateFormattingTests.swift */,
+				49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */,
+				49688E811FFD28A3008BE521 /* TimeIntervalTests.swift */,
 			);
 			name = Date;
 			sourceTree = "<group>";
@@ -1034,6 +1046,7 @@
 				319CB0E31E144CF400BBD79B /* Bundle+Extensions.swift in Sources */,
 				80D63D241C4F231C00C88D00 /* Synchronize.swift in Sources */,
 				80232BFE1BF2F1BD00818B6E /* After.swift in Sources */,
+				49688E801FFD2127008BE521 /* TimeInterval+Extensions.swift in Sources */,
 				80232C0D1BF2FAA100818B6E /* AppDelegate.swift in Sources */,
 				80232BFF1BF2F1BD00818B6E /* Qu.swift in Sources */,
 				805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */,
@@ -1054,6 +1067,7 @@
 				1C99FB581DD51DEC009FC493 /* String+Data.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
 				8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */,
+				49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
 				E7E2576C1E3F99FF00CA3DBD /* Rx+DelayElements.swift in Sources */,
@@ -1096,6 +1110,7 @@
 				E69A8C811E4E5751004E0663 /* QuTests.swift in Sources */,
 				CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */,
 				13425F901DB0761500F446BE /* String+IndexingTests.swift in Sources */,
+				49688E821FFD28A3008BE521 /* TimeIntervalTests.swift in Sources */,
 				E67264821E9E780C00880794 /* XCTest+Optionals.swift in Sources */,
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
@@ -1127,6 +1142,7 @@
 				314F3BF61E9EA7E7005753BE /* VideoPlayerTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
 				1CFEBD081E8055AB0078108A /* UIButtonTests.swift in Sources */,
+				49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */,
 				13425F961DB07D0000F446BE /* Array+UtilitiesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -118,14 +118,14 @@ extension Version: CustomStringConvertible {
 
 // MARK: Operator Overloads
 
-extension Version : Equatable {
+extension Version: Equatable {
     /// Metadata is considered when measuring equality.
     public static func == (lhs: Version, rhs: Version) -> Bool {
         return lhs.description == rhs.description
     }
 }
 
-extension Version : Comparable {
+extension Version: Comparable {
     /// Metadata is not considered when measuring precedence.
     public static func < (lhs: Version, rhs: Version) -> Bool {
         return lhs.comparableDescription.compare(rhs.comparableDescription, options: .numeric) == .orderedAscending

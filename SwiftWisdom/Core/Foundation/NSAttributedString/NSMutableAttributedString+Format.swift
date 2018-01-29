@@ -19,7 +19,7 @@ public extension NSMutableAttributedString {
      
      - returns: NSMutableAttributedString with the attributes applied to argument strings.
      */
-    convenience init(formatString: String, attributes: [NSAttributedStringKey : AnyObject], arguments: String...) {
+    convenience init(formatString: String, attributes: [NSAttributedStringKey: AnyObject], arguments: String...) {
         let arguments = arguments.map { NSAttributedString(string: $0, attributes: attributes) }
         self.init(string: formatString)
         ip_format(withArguments: arguments)
@@ -34,7 +34,7 @@ public extension NSMutableAttributedString {
 
      - returns: NSMutableAttributedString with the attributes applied to argument strings.
      */
-    convenience init(formatString string: String, attributes: [NSAttributedStringKey : AnyObject]?, arguments: [NSAttributedString]) {
+    convenience init(formatString string: String, attributes: [NSAttributedStringKey: AnyObject]?, arguments: [NSAttributedString]) {
         let mutable = NSMutableAttributedString(string: string, attributes: attributes)
         mutable.ip_format(withArguments: arguments)
         self.init(attributedString: mutable)
