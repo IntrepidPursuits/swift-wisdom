@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.9.2"
+  s.version       = "0.9.3"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/IntrepidPursuits/swift-wisdom.git", :tag => "#{s.version}" }
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "9.0"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.default_subspec = "Core"
 
