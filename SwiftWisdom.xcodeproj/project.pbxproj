@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0922A8531FAD0A78005AD966 /* UIView+SafeArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922A8521FAD0A78005AD966 /* UIView+SafeArea.swift */; };
 		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
 		13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */; };
 		13425F741DB073F300F446BE /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F691DB073F300F446BE /* MathableTests.swift */; };
@@ -129,6 +130,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0922A8521FAD0A78005AD966 /* UIView+SafeArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+SafeArea.swift"; sourceTree = "<group>"; };
 		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F691DB073F300F446BE /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathableTests.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				80232BFA1BF2F1BD00818B6E /* CellConfiguring.swift */,
 				80232BFB1BF2F1BD00818B6E /* UIColor+Hex.swift */,
 				80232BFC1BF2F1BD00818B6E /* UIView+GetConstraints.swift */,
+				0922A8521FAD0A78005AD966 /* UIView+SafeArea.swift */,
 				80232BFD1BF2F1BD00818B6E /* UIView+Nib.swift */,
 				80D63CFF1C4F132E00C88D00 /* UIView+Geometry.swift */,
 				31C0E33E1E15AA72009AB216 /* UIView+Extensions.swift */,
@@ -1096,6 +1099,7 @@
 				80232C001BF2F1BD00818B6E /* ColorDescriptor.swift in Sources */,
 				E7A613981E3FB27F006382DA /* Rx+RepeatingTimeouts.swift in Sources */,
 				FFCA61B01C8A1F1B00FD35A7 /* String+Empty.swift in Sources */,
+				0922A8531FAD0A78005AD966 /* UIView+SafeArea.swift in Sources */,
 				31C0E33D1E15A9CB009AB216 /* UIViewController+Extensions.swift in Sources */,
 				800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */,
 				13425F811DB075A000F446BE /* Integer+Extensions.swift in Sources */,
