@@ -85,11 +85,11 @@ extension ColorDescriptor: ExpressibleByStringLiteral, RawRepresentable, Equatab
             // If any portion of the string has a `.`, we are in 0-1.0 scale
             if string.contains(".") {
                 let floats = rgbComponents
-                    .flatMap { Double($0) }
+                    .compactMap { Double($0) }
                     .map { CGFloat($0) }
                 self = .rgbFloat(r: floats[0], g: floats[1], b: floats[2], a: floats[3])
             } else {
-                let ints = rgbComponents.flatMap { Int($0) }
+                let ints = rgbComponents.compactMap { Int($0) }
                 self = .rgb255(r: ints[0], g: ints[1], b: ints[2], a: ints[3])
             }
         } else if string.hasPrefix("#") {

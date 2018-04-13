@@ -36,7 +36,7 @@ public extension Multicast {
 
     /// Delegates of this class.
     var delegates: [MulticastDelegate] {
-        let existing = delegateReferences.flatMap { $0.weak }
+        let existing = delegateReferences.compactMap { $0.weak }
         if existing.count != delegateReferences.count {
             delegateReferences = existing.map { Weak($0) }
         }
