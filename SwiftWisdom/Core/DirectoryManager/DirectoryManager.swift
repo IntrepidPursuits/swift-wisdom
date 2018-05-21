@@ -16,6 +16,7 @@ public final class DirectoryManager {
     }
 
     private let directoryName: String
+    private let directoryParentPath: FileManager.SearchPathDirectory
     private let fileManager: FileManager
     private let directoryUrl: NSURL
 
@@ -30,11 +31,12 @@ public final class DirectoryManager {
     // MARK: Initializer
 
     // swiftlint:disable force_try
-    public init(directoryName: String, fileManager: FileManager = FileManager.default) {
+    public init(directoryName: String, directoryParentPath: FileManager.SearchPathDirectory = .documentDirectory, fileManager: FileManager = FileManager.default) {
         self.directoryName = directoryName
+        self.directoryParentPath = directoryParentPath
         self.fileManager = fileManager
         // Should fail if not available
-        self.directoryUrl = try! fileManager.directoryPath(withName: directoryName)
+        self.directoryUrl = try! fileManager.directoryPath(withSearchPathDirectory: directoryParentPath, name: directoryName)
     }
     // swiftlint:enable force_try
 
@@ -86,8 +88,8 @@ public final class DirectoryManager {
 }
 
 extension FileManager {
-    fileprivate func directoryPath(withName directoryName: String) throws -> NSURL {
-        let pathsArray = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+    fileprivate func directoryPath(withSearchPathDirectory searchPathDirectory: SearchPathDirectory, name directoryName: String) throws -> NSURL {
+        let pathsArray = NSSearchPathForDirectoriesInDomains(searchPathDirectory, .userDomainMask, true)
         guard let pathString = pathsArray.first else { fatalError("Unable to create directory") }
         guard let documentsDirectoryPath = NSURL(string: pathString) else {
             throw DirectoryManager.DirectoryError.unableToFindDirectory(name: directoryName)
