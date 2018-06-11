@@ -100,11 +100,6 @@ extension Data {
     }
 
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
-    public subscript(ip_safely range: CountableRange<Int>) -> Data? {
-        return self[ip_safely: Range<Int>(range)]
-    }
-
-    /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
     public subscript(ip_safely range: CountableClosedRange<Int>) -> Data? {
         return self[ip_safely: Range<Int>(range)]
     }

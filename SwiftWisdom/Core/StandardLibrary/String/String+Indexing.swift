@@ -9,13 +9,6 @@ extension String {
         return String(self[indexRange])
     }
 
-    public subscript(range: CountableRange<Int>) -> String {
-        let lowerBound = index(startIndex, offsetBy: range.lowerBound)
-        let upperBound = index(startIndex, offsetBy: range.upperBound)
-        let indexRange = lowerBound..<upperBound
-        return String(self[indexRange])
-    }
-
     public subscript(range: CountableClosedRange<Int>) -> String {
         let lowerBound = index(startIndex, offsetBy: range.lowerBound)
         let upperBound = index(startIndex, offsetBy: range.upperBound)
