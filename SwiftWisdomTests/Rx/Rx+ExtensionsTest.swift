@@ -62,5 +62,73 @@ class OperatorTests: XCTestCase {
         UILabel().rx.text <- observable >>> compositeDisposable
         XCTAssertEqual(1, compositeDisposable.count)
     }
+    
+    func testBehaviorRelayBinding() {
+        let disposeBag = DisposeBag()
+        let label = UILabel()
+        let behaviorRelay = BehaviorRelay<String?>(value: nil)
+        
+        label.rx.text <- behaviorRelay >>> disposeBag
+        XCTAssertEqual(nil, label.text)
+        
+        behaviorRelay.accept("hello")
+        XCTAssertEqual("hello", label.text)
+        
+        behaviorRelay.accept(nil)
+        XCTAssertEqual(nil, label.text)
+    }
+    
+    func testNonOptionalBehaviorRelayBindingToOptionalObserver() {
+        let disposeBag = DisposeBag()
+        let label = UILabel()
+        let behaviorRelay = BehaviorRelay<String>(value: "")
+
+        label.rx.text <- behaviorRelay >>> disposeBag
+        XCTAssertEqual("", label.text)
+        
+        behaviorRelay.accept("hello")
+        XCTAssertEqual("hello", label.text)
+    }
+    
+    func testBindingToBehaviorRelay() {
+        let disposeBag = DisposeBag()
+        let sut = BehaviorRelay<String>(value: "")
+        let behaviorRelay = BehaviorRelay<String>(value: "hello")
+
+        sut <- behaviorRelay >>> disposeBag
+        XCTAssertEqual(behaviorRelay.value, sut.value)
+        XCTAssertEqual("hello", sut.value)
+
+        behaviorRelay.accept("world")
+        XCTAssertEqual(behaviorRelay.value, sut.value)
+    }
+    
+    func testTwoWayBindingWithBehaviorRelay() {
+        let disposeBag = DisposeBag()
+        let textField = UITextField()
+        let behaviorRelay = BehaviorRelay<String?>(value: nil)
+
+        textField.rx.text <-> behaviorRelay >>> disposeBag
+        behaviorRelay.accept("hello")
+        XCTAssertEqual("hello", textField.text)
+        
+        textField.text = "world"
+        textField.sendActions(for: .editingChanged)
+        XCTAssertEqual("world", behaviorRelay.value)
+    }
+    
+    func testTwoWayBindingWithVariable() {
+        let disposeBag = DisposeBag()
+        let textField = UITextField()
+        let variable = Variable<String?>(nil)
+        
+        textField.rx.text <-> variable >>> disposeBag
+        variable.value = "hello"
+        XCTAssertEqual("hello", textField.text)
+        
+        textField.text = "world"
+        textField.sendActions(for: .editingChanged)
+        XCTAssertEqual("world", variable.value)
+    }
 
 }

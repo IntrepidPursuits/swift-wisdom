@@ -47,6 +47,22 @@ public func <- <T>(observer: Variable<T>, observable: Variable<T>) -> Disposable
     return observer <- observable.asObservable()
 }
 
+public func <- <T: ObserverType, O>(observer: T, behaviorRelay: BehaviorRelay<O>) -> Disposable where T.E == O {
+    return observer <- behaviorRelay.asObservable()
+}
+
+public func <- <T: ObserverType, O>(observer: T, behaviorRelay: BehaviorRelay<O>) -> Disposable where T.E == O? {
+    return observer <- behaviorRelay.asObservable()
+}
+
+public func <- <T, O: ObservableType>(behaviorRelay: BehaviorRelay<T>, observable: O) -> Disposable where O.E == T {
+    return observable.bind(to: behaviorRelay)
+}
+
+public func <- <T>(observer: BehaviorRelay<T>, observable: BehaviorRelay<T>) -> Disposable {
+    return observer <- observable.asObservable()
+}
+
 public func >>> (disposable: Disposable, disposeBag: DisposeBag) {
     disposeBag.insert(disposable)
 }
@@ -76,6 +92,22 @@ public func <-> <T>(property: ControlProperty<T>, variable: Variable<T>) -> Disp
     )
 
     return Disposables.create(bindToUIDisposable, bindToVariable)
+}
+
+public func <-> <T>(property: ControlProperty<T>, behaviorRelay: BehaviorRelay<T>) -> Disposable {
+    let bindToUIDisposable = behaviorRelay
+        .asObservable()
+        .bind(to: property)
+    let bindToBehaviorRelay = property
+        .subscribe(
+            onNext: { next in
+                behaviorRelay.accept(next)
+        },
+            onCompleted: {
+                bindToUIDisposable.dispose()
+        }
+    )
+    return Disposables.create(bindToUIDisposable, bindToBehaviorRelay)
 }
 
 extension ObservableType {
