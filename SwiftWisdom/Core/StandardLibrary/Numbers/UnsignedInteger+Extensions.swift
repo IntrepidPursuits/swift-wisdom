@@ -16,8 +16,7 @@ extension UnsignedInteger {
     }
 }
 
-// TODO: evaluate whether we should move random to be a member of CountableClosedRange
-public func random(inRange range: CountableClosedRange<Int>) -> Int {
+public func random(inRange range: ClosedRange<Int>) -> Int {
     let diff = range.upperBound - range.lowerBound
     let randomOffset = Int(arc4random_uniform(UInt32(diff + 1)))
     let random = range.lowerBound + randomOffset
@@ -63,9 +62,9 @@ extension UnsignedInteger {
     }
 
     /**
-     * Returns a type with a particular bit pattern of ones. 
+     * Returns a type with a particular bit pattern of ones.
      *
-     * If length > MemoryLayout<Self>.size, the function computes 
+     * If length > MemoryLayout<Self>.size, the function computes
      * ip_bitStackOfLength(MemoryLayout<Self>.size). If length <= 0, the function computes
      * ip_bitStackOfLength(0)
      *
