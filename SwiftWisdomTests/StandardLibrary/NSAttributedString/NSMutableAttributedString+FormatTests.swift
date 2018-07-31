@@ -9,8 +9,8 @@
 import XCTest
 import SwiftWisdom
 
-private let redAttribute: [NSAttributedStringKey : UIColor] = [.foregroundColor : .red]
-private let blueAttribute: [NSAttributedStringKey : UIColor] = [.foregroundColor : .blue]
+private let redAttribute: [NSAttributedString.Key : UIColor] = [.foregroundColor : .red]
+private let blueAttribute: [NSAttributedString.Key : UIColor] = [.foregroundColor : .blue]
 
 class NSMutableAttributedString_FormatTests: XCTestCase {
 

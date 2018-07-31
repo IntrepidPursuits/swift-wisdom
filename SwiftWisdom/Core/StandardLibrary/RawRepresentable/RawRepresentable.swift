@@ -9,6 +9,7 @@
 import Foundation
 
 extension RawRepresentable where RawValue: BinaryInteger {
+    // TODO: May be deprecated by CaseIterable protocol and allCases computed property.
     public static var ip_allCases: [Self] {
         var caseIndex: RawValue = 0
         let generator: () -> Self? = {

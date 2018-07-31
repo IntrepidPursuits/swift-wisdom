@@ -32,14 +32,14 @@ extension UILabel {
 
     // MARK: Private
 
-    private func addAttribute(_ attr: NSAttributedStringKey, value: Any) {
+    private func addAttribute(_ attr: NSAttributedString.Key, value: Any) {
         let attrText = mutableAttributedText()
         attrText.addAttributes([attr : value], range: NSRange(location: 0, length: attrText.length))
         text = nil
         attributedText = attrText
     }
 
-    private func baseAttributes() -> [NSAttributedStringKey: AnyObject] {
+    private func baseAttributes() -> [NSAttributedString.Key: AnyObject] {
         return [.font : font, .foregroundColor : textColor]
     }
 
