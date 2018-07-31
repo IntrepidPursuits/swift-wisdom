@@ -109,7 +109,7 @@ extension Data {
     #endif
 
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
-    public subscript(ip_safely range: CountableClosedRange<Int>) -> Data? {
+    public subscript(ip_safely range: ClosedRange<Int>) -> Data? {
         return self[ip_safely: Range<Int>(range)]
     }
 
