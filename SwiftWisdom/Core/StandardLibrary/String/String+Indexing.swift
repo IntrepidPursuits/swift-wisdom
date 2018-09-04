@@ -9,12 +9,16 @@ extension String {
         return String(self[indexRange])
     }
 
+    // Make this compile with both Xcode 9 and Xcode 10's slightly different versions of
+    // Swift 4.1. This can be removed once Xcode 9 is no longer supported.
+    #if !swift(>=4.1.50)
     public subscript(range: CountableRange<Int>) -> String {
         let lowerBound = index(startIndex, offsetBy: range.lowerBound)
         let upperBound = index(startIndex, offsetBy: range.upperBound)
         let indexRange = lowerBound..<upperBound
         return String(self[indexRange])
     }
+    #endif
 
     public subscript(range: CountableClosedRange<Int>) -> String {
         let lowerBound = index(startIndex, offsetBy: range.lowerBound)
