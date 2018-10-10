@@ -8,9 +8,9 @@ PODS:
 
 DEPENDENCIES:
   - IP-UIKit-Wisdom
-  - RxCocoa (~> 4.0)
-  - RxSwift (~> 4.0)
-  - RxTest (~> 4.0)
+  - RxCocoa (~> 4.3)
+  - RxSwift (~> 4.3)
+  - RxTest (~> 4.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
 
-PODFILE CHECKSUM: d81cbe2f98140887848195204b8b667819be7198
+PODFILE CHECKSUM: 1e7af95e567bb8fd9ac58eae1647e4fd40786519
 
 COCOAPODS: 1.5.3
