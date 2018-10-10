@@ -40,11 +40,11 @@ public extension UICollectionView {
     }
 
     public func ip_registerHeader<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionReusableView {
-        ip_registerSupplementary(T.self, kind: UICollectionElementKindSectionHeader, identifier: identifier)
+        ip_registerSupplementary(T.self, kind: UICollectionView.elementKindSectionHeader, identifier: identifier)
     }
 
     public func ip_registerFooter<T>(_: T.Type, identifier: String = T.ip_identifier) where T: UICollectionReusableView {
-        ip_registerSupplementary(T.self, kind: UICollectionElementKindSectionFooter, identifier: identifier)
+        ip_registerSupplementary(T.self, kind: UICollectionView.elementKindSectionFooter, identifier: identifier)
     }
 
     public func ip_registerSupplementary<T>(_: T.Type, kind: String, identifier: String = T.ip_identifier) where T: UICollectionReusableView {
@@ -63,11 +63,11 @@ public extension UICollectionView {
     }
 
     public func ip_dequeueHeader<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView {
-        return ip_dequeueSupplementary(indexPath, kind: UICollectionElementKindSectionHeader, identifier: identifier)
+        return ip_dequeueSupplementary(indexPath, kind: UICollectionView.elementKindSectionHeader, identifier: identifier)
     }
 
     public func ip_dequeueFooter<T>(_ indexPath: IndexPath, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView {
-        return ip_dequeueSupplementary(indexPath, kind: UICollectionElementKindSectionFooter, identifier: identifier)
+        return ip_dequeueSupplementary(indexPath, kind: UICollectionView.elementKindSectionFooter, identifier: identifier)
     }
 
     public func ip_dequeueSupplementary<T>(_ indexPath: IndexPath, kind: String, identifier: String = T.ip_identifier) -> T where T: UICollectionReusableView {

@@ -14,7 +14,7 @@ enum OpenSettingsError: Error {
 
 extension UIApplication {
     public func ip_openSettingsApp() throws {
-        guard let url = URL(string: UIApplicationOpenSettingsURLString), canOpenURL(url) else {
+        guard let url = URL(string: UIApplication.openSettingsURLString), canOpenURL(url) else {
             throw OpenSettingsError.cannotOpenURL
         }
         openURL(url)

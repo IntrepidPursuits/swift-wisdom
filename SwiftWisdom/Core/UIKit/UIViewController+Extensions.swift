@@ -12,7 +12,7 @@ extension UIViewController {
 
     /// Remove all child view controllers from this UIViewController.
     public final func ip_removeAllChildViewControllers() {
-        childViewControllers.forEach { (viewController) in
+        children.forEach { (viewController) in
             viewController.ip_removeFromParentViewController()
         }
     }

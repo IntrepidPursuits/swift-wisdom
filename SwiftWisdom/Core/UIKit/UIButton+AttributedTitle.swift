@@ -18,7 +18,7 @@ public extension UIButton {
      - parameter spacing: Value to use for kern
      - parameter state:   `UIControlState`
      */
-    func ip_editAttributedTitle(_ text: String?, useSpacing spacing: CGFloat = 0.0, forState state: UIControlState) {
+    func ip_editAttributedTitle(_ text: String?, useSpacing spacing: CGFloat = 0.0, forState state: UIControl.State) {
         let rangePointer: NSRangePointer? = nil
         let spacedText = text?.ip_attributedStringWithSpacing(spacing)
         if let existingAttributes = titleLabel?.attributedText?.attributes(at: 0, effectiveRange: rangePointer),

@@ -68,7 +68,7 @@ public extension UIView {
 
      :returns: The first constraint that matches. May return unexpected constraint if receiver contains multiple constraints with this item and itemAttribute.
      */
-    public func ip_constraintForAttribute(_ attribute: NSLayoutAttribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutAttribute? = nil) -> NSLayoutConstraint? {
+    public func ip_constraintForAttribute(_ attribute: NSLayoutConstraint.Attribute, onView: UIView? = nil, toView: UIView? = nil, viewAttribute: NSLayoutConstraint.Attribute? = nil) -> NSLayoutConstraint? {
 
         let onView = onView ?? self
 
@@ -111,9 +111,9 @@ public extension UIView {
 extension NSLayoutConstraint {
 
     public func ip_relatesView(view view1: UIView,
-                               viaAttribute attribute1: NSLayoutAttribute,
+                               viaAttribute attribute1: NSLayoutConstraint.Attribute,
                                toView view2: UIView,
-                               andItsAttribute attribute2: NSLayoutAttribute) -> Bool {
+                               andItsAttribute attribute2: NSLayoutConstraint.Attribute) -> Bool {
 
         let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2 && secondAttribute == attribute2)
 
@@ -123,7 +123,7 @@ extension NSLayoutConstraint {
     }
 
     public func ip_relatesView(view view1: UIView,
-                               viaAttribute attribute1: NSLayoutAttribute,
+                               viaAttribute attribute1: NSLayoutConstraint.Attribute,
                                toView view2: UIView) -> Bool {
 
         let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1 && secondItem as? UIView == view2)
@@ -134,7 +134,7 @@ extension NSLayoutConstraint {
     }
 
     public func ip_relatesView(view view1: UIView,
-                               viaAttribute attribute1: NSLayoutAttribute) -> Bool {
+                               viaAttribute attribute1: NSLayoutConstraint.Attribute) -> Bool {
 
         let possibility1 = (firstItem as? UIView == view1 && firstAttribute == attribute1)
 
@@ -144,7 +144,7 @@ extension NSLayoutConstraint {
     }
 
     public func ip_isIntrinsicConstraintWithView(view view1: UIView,
-                                                 andAttribute attribute1: NSLayoutAttribute) -> Bool {
+                                                 andAttribute attribute1: NSLayoutConstraint.Attribute) -> Bool {
 
         return (firstItem as? UIView == view1 && firstAttribute == attribute1)
     }

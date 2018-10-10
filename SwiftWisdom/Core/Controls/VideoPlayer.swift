@@ -168,7 +168,7 @@ public final class VideoPlayer: UIViewController {
     }
 
     public func restartVideoFromBeginning() {
-        player.seek(to: kCMTimeZero)
+        player.seek(to: .zero)
         play()
     }
 
