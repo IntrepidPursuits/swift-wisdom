@@ -1,14 +1,14 @@
 source 'https://github.com/CocoaPods/Specs'
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 use_frameworks!
 inhibit_all_warnings!
 
 def commonpods
   pod 'IP-UIKit-Wisdom'
-    pod 'RxSwift', '~> 4.0'
-    pod 'RxCocoa', '~> 4.0'
+    pod 'RxSwift', '~> 4.3'
+    pod 'RxCocoa', '~> 4.3'
 end
 
 target 'SwiftWisdom' do
@@ -17,7 +17,7 @@ end
 
 target 'SwiftWisdomTests' do
   commonpods()
-  pod 'RxTest', '~> 4.0'
+  pod 'RxTest', '~> 4.3'
 end
 
 post_install do |installer|
