@@ -17,6 +17,6 @@ extension UIApplication {
         guard let url = URL(string: UIApplication.openSettingsURLString), canOpenURL(url) else {
             throw OpenSettingsError.cannotOpenURL
         }
-        openURL(url)
+        open(url)
     }
 }
