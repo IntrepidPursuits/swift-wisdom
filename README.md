@@ -6,6 +6,9 @@ This library is meant to be a general grab bag of Swift methods made by the engi
 
 The reason for the grab bag approach is to make it easier to facilitate the adding of materials and encourage componentization and sharing of common functionality.
 
+### iOS Versions
+- iOS <= 9 -> <`0.11.0`
+
 ### Swift Versions
 - Swift 4.2 -> `0.11.0` +
 - Swift 4.1.50 (Xcode 10 Compatible) -> `0.10.3`
