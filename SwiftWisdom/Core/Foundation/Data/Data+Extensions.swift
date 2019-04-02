@@ -87,7 +87,7 @@ extension Data {
 
 extension Data {
     public init(byte: UInt8) {
-        self.init(bytes: [byte])
+        self.init([byte])
     }
 }
 

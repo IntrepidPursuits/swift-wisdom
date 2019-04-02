@@ -10,7 +10,7 @@
 import Foundation
 import UIKit
 
-public protocol DataConvertible {
+public protocol DataConvertible: ExpressibleByIntegerLiteral {
     init?(ip_data: Data)
     var ip_data: Data { get }
 }
@@ -19,12 +19,15 @@ extension DataConvertible {
 
     public init?(ip_data data: Data) {
         let size = MemoryLayout<Self>.size
+        var value: Self = 0
         if data.count < size {
             let emptyBytes: [UInt8] = Array(repeating: 0, count: size - data.count)
             let modifiedData = data + emptyBytes
-            self = modifiedData.withUnsafeBytes { $0.pointee }
+            _ = withUnsafeMutableBytes(of: &value) { modifiedData.copyBytes(to: $0) }
+            self = value
         } else if data.count == size {
-            self = data.withUnsafeBytes { $0.pointee }
+            _ = withUnsafeMutableBytes(of: &value) { data.copyBytes(to: $0) }
+            self = value
         } else {
             return nil
         }

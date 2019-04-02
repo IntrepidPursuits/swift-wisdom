@@ -11,7 +11,6 @@
 		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
 		13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */; };
 		13425F741DB073F300F446BE /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F691DB073F300F446BE /* MathableTests.swift */; };
-		13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */; };
 		13425F781DB074FA00F446BE /* Dictionary+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F771DB074FA00F446BE /* Dictionary+Utilities.swift */; };
 		13425F7A1DB0751C00F446BE /* Dictionary+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F791DB0751C00F446BE /* Dictionary+UtilitiesTests.swift */; };
 		13425F7C1DB0755B00F446BE /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F7B1DB0755B00F446BE /* NSMutableAttributedString+Format.swift */; };
@@ -134,7 +133,6 @@
 		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F691DB073F300F446BE /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathableTests.swift; sourceTree = "<group>"; };
-		13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
 		13425F771DB074FA00F446BE /* Dictionary+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utilities.swift"; sourceTree = "<group>"; };
 		13425F791DB0751C00F446BE /* Dictionary+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F7B1DB0755B00F446BE /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				13425F611DB073F300F446BE /* Array */,
 				13425F641DB073F300F446BE /* Dictionary */,
 				13425F651DB073F300F446BE /* Numbers */,
-				13425F6A1DB073F300F446BE /* RawRepresentable */,
 				13425F6C1DB073F300F446BE /* Set */,
 				13425F6D1DB073F300F446BE /* String */,
 			);
@@ -312,14 +309,6 @@
 				13425F691DB073F300F446BE /* MathableTests.swift */,
 			);
 			path = Numbers;
-			sourceTree = "<group>";
-		};
-		13425F6A1DB073F300F446BE /* RawRepresentable */ = {
-			isa = PBXGroup;
-			children = (
-				13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */,
-			);
-			path = RawRepresentable;
 			sourceTree = "<group>";
 		};
 		13425F6C1DB073F300F446BE /* Set */ = {
@@ -868,6 +857,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -1119,7 +1109,6 @@
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				1CFEBD051E8047D60078108A /* DateFormattingTests.swift in Sources */,
-				13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */,
 				1C16E3091D2809C5008A1001 /* ComparablesTests.swift in Sources */,
 				FF44B77B1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift in Sources */,
 				13425F8F1DB0761500F446BE /* String+EmptyTests.swift in Sources */,
@@ -1233,7 +1222,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1282,7 +1271,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1300,7 +1289,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1318,7 +1307,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1332,7 +1321,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
 			};
 			name = Debug;
@@ -1348,7 +1337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
 			};
 			name = Release;

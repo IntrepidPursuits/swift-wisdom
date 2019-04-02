@@ -6,13 +6,13 @@
 import Foundation
 import UIKit
 
-public extension Int {
+extension Int {
     public var ip_radians: CGFloat {
         return CGFloat(self).ip_radians
     }
 }
 
-public extension CGFloat {
+extension CGFloat {
     public var ip_radians: CGFloat {
         return CGFloat(Double(self) * (.pi / 180))
     }
@@ -31,7 +31,7 @@ public extension CGFloat {
     }
 }
 
-public extension CGPoint {
+extension CGPoint {
     public func ip_angle(to comparisonPoint: CGPoint) -> CGFloat {
         let originX = comparisonPoint.x - self.x
         let originY = comparisonPoint.y - self.y
@@ -73,7 +73,7 @@ public func pointWithCenter(_ center: CGPoint, radius: CGFloat, angleDegrees: CG
     return CGPoint(x: x, y: y)
 }
 
-public extension CGRect {
+extension CGRect {
     public var ip_width: CGFloat {
         get {
             return self.width

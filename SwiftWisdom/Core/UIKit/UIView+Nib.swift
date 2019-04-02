@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     public class func ip_fromNib(_ nibNameOrNil: String? = nil) -> Self {
         return ip_fromNib(nibNameOrNil, type: self)
     }

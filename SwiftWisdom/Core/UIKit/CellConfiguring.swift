@@ -27,7 +27,7 @@ extension UICollectionReusableView: TypeIdentifiable {}
 
 // MARK: UICollectionView
 
-public extension UICollectionView {
+extension UICollectionView {
 
     // MARK: Register
 
@@ -78,7 +78,7 @@ public extension UICollectionView {
 
 // MARK: UITableView
 
-public extension UITableView {
+extension UITableView {
 
     // MARK: Register
 

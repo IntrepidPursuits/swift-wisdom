@@ -53,7 +53,7 @@ class DataConversionTests: XCTestCase {
     }
 
     func testUInt16() {
-        var data = Data(bytes: [0x00, 0x01])
+        var data = Data([0x00, 0x01])
         XCTAssertEqual(data.ip_uint16Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_uint16Value?.littleEndian, 1)
 
@@ -63,7 +63,7 @@ class DataConversionTests: XCTestCase {
     }
 
     func testUInt32() {
-        var data = Data(bytes: [0x00, 0x00, 0x00, 0x01])
+        var data = Data([0x00, 0x00, 0x00, 0x01])
         XCTAssertEqual(data.ip_uint32Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_uint32Value?.littleEndian, 1)
 
@@ -73,7 +73,7 @@ class DataConversionTests: XCTestCase {
     }
 
     func testUInt64() {
-        var data = Data(bytes: [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
+        var data = Data([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
         XCTAssertEqual(data.ip_uint64Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_uint64Value?.littleEndian, 1)
 
@@ -83,11 +83,11 @@ class DataConversionTests: XCTestCase {
     }
 
     func testInt16() {
-        var data = Data(bytes: [0x00, 0x01])
+        var data = Data([0x00, 0x01])
         XCTAssertEqual(data.ip_int16Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_int16Value?.littleEndian, 1)
 
-        data = Data(bytes: [0xFF, 0xFE])
+        data = Data([0xFF, 0xFE])
         XCTAssertEqual(data.ip_int16Value?.bigEndian, -2)
         XCTAssertEqual(Data(data.reversed()).ip_int16Value?.littleEndian, -2)
 
@@ -97,11 +97,11 @@ class DataConversionTests: XCTestCase {
     }
 
     func testInt32() {
-        var data = Data(bytes: [0x00, 0x00, 0x00, 0x01])
+        var data = Data([0x00, 0x00, 0x00, 0x01])
         XCTAssertEqual(data.ip_int32Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_int32Value?.littleEndian, 1)
 
-        data = Data(bytes: [0xFF, 0xFF, 0xFF, 0xFE])
+        data = Data([0xFF, 0xFF, 0xFF, 0xFE])
         XCTAssertEqual(data.ip_int32Value?.bigEndian, -2)
         XCTAssertEqual(Data(data.reversed()).ip_int32Value?.littleEndian, -2)
 
@@ -111,11 +111,11 @@ class DataConversionTests: XCTestCase {
     }
 
     func testInt64() {
-        var data = Data(bytes: [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
+        var data = Data([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01])
         XCTAssertEqual(data.ip_int64Value?.bigEndian, 1)
         XCTAssertEqual(Data(data.reversed()).ip_int64Value?.littleEndian, 1)
 
-        data = Data(bytes: [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE])
+        data = Data([0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE])
         XCTAssertEqual(data.ip_int64Value?.bigEndian, -2)
         XCTAssertEqual(Data(data.reversed()).ip_int64Value?.littleEndian, -2)
 
@@ -135,11 +135,11 @@ class DataConversionTests: XCTestCase {
     }
 
     func testIntSmallValue() {
-        let intData = Data(bytes: [25])
+        let intData = Data([25])
         XCTAssert(intData.ip_intValue == 25)
         XCTAssert(intData.ip_int64Value == 25)
 
-        let intDataTwo = Data(bytes: [4,5]) // 0000_0101_0000_0100
+        let intDataTwo = Data([4,5]) // 0000_0101_0000_0100
         XCTAssert(intDataTwo.ip_intValue == 1284)
     }
     
@@ -150,7 +150,7 @@ class DataConversionTests: XCTestCase {
         let backToNum = Int8(ip_data: data)
         XCTAssert(backToNum == -42)
 
-        let longData = Data(bytes: [4,5,6,7])
+        let longData = Data([4,5,6,7])
         XCTAssertNil(Int8(ip_data: longData))
     }
     
@@ -159,7 +159,7 @@ class DataConversionTests: XCTestCase {
         let backToNum = Int64(ip_data: data)
         XCTAssert(backToNum == -4232)
 
-        let longData = Data(bytes: [4,5,6,7,8,9,10,11,12,13,14])
+        let longData = Data([4,5,6,7,8,9,10,11,12,13,14])
         XCTAssertNil(Int64(ip_data: longData))
     }
 

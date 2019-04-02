@@ -16,7 +16,7 @@ public enum AnimationState {
     case completed
 }
 
-public extension UIView {
+extension UIView {
     public static func pa_percentAnimate(_ duration: TimeInterval, animation: @escaping (AnimationState) -> Void) {
         PercentAnimator.animateWithDuration(duration, animation: animation)
     }

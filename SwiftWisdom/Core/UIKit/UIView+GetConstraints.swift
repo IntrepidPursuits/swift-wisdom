@@ -12,7 +12,7 @@
 import Foundation
 import UIKit
 
-public extension UIView {
+extension UIView {
     /// This computed property result may be unexpected when inspecting views with multiple constraints on an attribute.
     public var ip_widthConstraint: NSLayoutConstraint? {
         return ip_constraintForAttribute(.width)

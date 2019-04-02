@@ -1,4 +1,4 @@
-public extension Set {
+extension Set {
     public func ip_toArray() -> [Element] {
         return [Element](self)
     }
