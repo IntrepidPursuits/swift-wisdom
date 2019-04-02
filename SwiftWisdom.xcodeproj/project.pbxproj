@@ -99,6 +99,7 @@
 		80D63D241C4F231C00C88D00 /* Synchronize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D231C4F231C00C88D00 /* Synchronize.swift */; };
 		80D63D261C4F236F00C88D00 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D251C4F236F00C88D00 /* Not.swift */; };
 		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
+		BCD3A40122567A02001D8208 /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD3A40022567A02001D8208 /* RawRepresentableTests.swift */; };
 		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
 		CDCDE2561E67A6EC007B3784 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2551E67A6EC007B3784 /* ResultTests.swift */; };
 		CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */; };
@@ -229,6 +230,7 @@
 		80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UnsignedInteger+Extensions.swift"; sourceTree = "<group>"; };
 		94555EC02E932CF736415F8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E808C6BB3914E0E49C738D /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCD3A40022567A02001D8208 /* RawRepresentableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
 		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
 		CDCDE2551E67A6EC007B3784 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateComparableTests.swift; path = Date/NSDateComparableTests.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		13425F601DB073F300F446BE /* StandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				BCD3A40422567A65001D8208 /* RawRepresentable */,
 				CDCDE2571E67C546007B3784 /* Date */,
 				13425F7F1DB0757400F446BE /* NSAttributedString */,
 				13425F611DB073F300F446BE /* Array */,
@@ -731,6 +734,14 @@
 			path = Numbers;
 			sourceTree = "<group>";
 		};
+		BCD3A40422567A65001D8208 /* RawRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				BCD3A40022567A02001D8208 /* RawRepresentableTests.swift */,
+			);
+			path = RawRepresentable;
+			sourceTree = "<group>";
+		};
 		CDCDE2571E67C546007B3784 /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -1121,6 +1132,7 @@
 				13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */,
 				1C70C4EF1DD6217100F2C80B /* DataConversionTests.swift in Sources */,
 				1C99FB5F1DD52ECF009FC493 /* DataSubscriptTests.swift in Sources */,
+				BCD3A40122567A02001D8208 /* RawRepresentableTests.swift in Sources */,
 				13425F911DB0761500F446BE /* String+ValidationTests.swift in Sources */,
 				13425F861DB075B300F446BE /* Integer+ExtensionsTests.swift in Sources */,
 				31C0E3441E15C8D5009AB216 /* GeometryTests.swift in Sources */,
