@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIColor {
-    public convenience init(ip_hex hex: String) {
+    convenience init(ip_hex hex: String) {
         var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {
             cleanHex.ip_dropFirst()

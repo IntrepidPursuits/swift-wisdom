@@ -9,16 +9,16 @@
 import UIKit
 
 public extension UIView {
-    public class func ip_fromNib(_ nibNameOrNil: String? = nil) -> Self {
+    class func ip_fromNib(_ nibNameOrNil: String? = nil) -> Self {
         return ip_fromNib(nibNameOrNil, type: self)
     }
 
-    public class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
+    class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
         let v: T? = ip_fromNib(nibNameOrNil, type: T.self)
         return v!
     }
 
-    public class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
+    class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
         if let nibName = nibNameOrNil {
@@ -36,11 +36,11 @@ public extension UIView {
         return view
     }
 
-    public class var ip_nibName: String {
+    class var ip_nibName: String {
         let name = "\(self)".components(separatedBy: ".").first ?? ""
         return name
     }
-    public class var ip_nib: UINib? {
+    class var ip_nib: UINib? {
         if Bundle.main.path(forResource: ip_nibName, ofType: "nib") != nil {
             return UINib(nibName: ip_nibName, bundle: nil)
         } else {
