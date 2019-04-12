@@ -99,7 +99,7 @@ extension Array where Element: Equatable {
     /// - returns: Array of indexes or NSNotFound if element does not exist in self; count is equal to the count of `elements`
     public func ip_indices(ofElements elements: [Element]) -> [Int] {
         return elements.map { element in
-            return index(of: element) ?? NSNotFound
+            return firstIndex(of: element) ?? NSNotFound
         }
     }
 }
@@ -131,7 +131,7 @@ extension Array {
     ///
     /// - parameter matcher: The element that should be removed
     public mutating func ip_removeFirst(matcher: (Iterator.Element) -> Bool) {
-        guard let idx = index(where: matcher) else { return }
+        guard let idx = firstIndex(where: matcher) else { return }
         remove(at: idx)
     }
 }

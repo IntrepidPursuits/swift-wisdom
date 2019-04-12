@@ -87,7 +87,7 @@ extension Data {
 
 extension Data {
     public init(byte: UInt8) {
-        self.init(bytes: [byte])
+        self.init([byte])
     }
 }
 
@@ -98,15 +98,6 @@ extension Data {
     public subscript(ip_safely idx: Int) -> Data? {
         return self[ip_safely: idx...idx]
     }
-
-    // Make this compile with both Xcode 9 and Xcode 10's slightly different versions of
-    // Swift 4.1. This can be removed once Xcode 9 is no longer supported.
-    #if !swift(>=4.1.50)
-    /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
-    public subscript(ip_safely range: CountableRange<Int>) -> Data? {
-        return self[ip_safely: Range<Int>(range)]
-    }
-    #endif
 
     /// Safer version of `subdata`. Will return nil if the range is outside the bounds of the data.
     public subscript(ip_safely range: ClosedRange<Int>) -> Data? {
