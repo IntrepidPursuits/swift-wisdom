@@ -34,19 +34,19 @@ class UnsignedIntegerExtensionTests: XCTestCase {
 
     func testUInt16EndianConversion() {
         let value: UInt16 = 1
-        XCTAssertEqual(Data(bytes: [0x00, 0x01]), value.ip_bigEndianData)
-        XCTAssertEqual(Data(bytes: [0x01, 0x00]), value.ip_littleEndianData)
+        XCTAssertEqual(Data([0x00, 0x01]), value.ip_bigEndianData)
+        XCTAssertEqual(Data([0x01, 0x00]), value.ip_littleEndianData)
     }
 
     func testUInt32EndianConversion() {
         let value: UInt32 = 1
-        XCTAssertEqual(Data(bytes: [0x00, 0x00, 0x00, 0x01]), value.ip_bigEndianData)
-        XCTAssertEqual(Data(bytes: [0x01, 0x00, 0x00, 0x00]), value.ip_littleEndianData)
+        XCTAssertEqual(Data([0x00, 0x00, 0x00, 0x01]), value.ip_bigEndianData)
+        XCTAssertEqual(Data([0x01, 0x00, 0x00, 0x00]), value.ip_littleEndianData)
     }
 
     func testUInt64EndianConversion() {
         let value: UInt64 = 1
-        XCTAssertEqual(Data(bytes: [0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01]), value.ip_bigEndianData)
-        XCTAssertEqual(Data(bytes: [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]), value.ip_littleEndianData)
+        XCTAssertEqual(Data([0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01]), value.ip_bigEndianData)
+        XCTAssertEqual(Data([0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]), value.ip_littleEndianData)
     }
 }
