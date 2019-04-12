@@ -1,16 +1,16 @@
 PODS:
   - IP-UIKit-Wisdom (0.0.10)
-  - RxCocoa (4.3.1):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
-  - RxTest (4.3.1):
-    - RxSwift (~> 4.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
+  - RxTest (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
 
 DEPENDENCIES:
   - IP-UIKit-Wisdom
-  - RxCocoa (~> 4.3)
-  - RxSwift (~> 4.3)
-  - RxTest (~> 4.3)
+  - RxCocoa (~> 4.5)
+  - RxSwift (~> 4.5)
+  - RxTest (~> 4.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,10 +21,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   IP-UIKit-Wisdom: b395a065344071b33659e5f6b918043a97c48a44
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  RxTest: ea97a208826906f3904c0debdd09575ebcbfe216
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  RxTest: 3ccb66bfbace0bf7df1c43a7c75d046f8ce60372
 
-PODFILE CHECKSUM: 1e7af95e567bb8fd9ac58eae1647e4fd40786519
+PODFILE CHECKSUM: afd51654925ed213b6b02f072f7fa09392e041f0
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1
