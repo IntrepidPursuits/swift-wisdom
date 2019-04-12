@@ -13,7 +13,7 @@ public final class Downloader: NSObject, URLSessionDownloadDelegate {
     public enum State {
         case began
         case inProgress(CGFloat)
-        case completed(Result<URL>)
+        case completed(Result<URL, Error>)
     }
 
     public enum DownloaderError: Error {

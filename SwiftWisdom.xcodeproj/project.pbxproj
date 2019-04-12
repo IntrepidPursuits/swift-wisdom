@@ -56,7 +56,7 @@
 		49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */; };
 		49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */; };
 		50D4C0475426EF5C6D884DA9 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */; };
-		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
+		8002059E1BF683E0005852C9 /* IPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* IPResult.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
 		800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A81BF82E5F005852C9 /* SoundFile.swift */; };
@@ -179,7 +179,7 @@
 		4E9D68BE066065C510CF97B7 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
 		5EAF2031B1809BA087E2827D /* Pods-SwiftWisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.release.xcconfig"; sourceTree = "<group>"; };
 		703B104B32DD95D07A614A46 /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
+		8002059D1BF683E0005852C9 /* IPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPResult.swift; path = CommonTypes/IPResult.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		800205A81BF82E5F005852C9 /* SoundFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundFile.swift; path = Sounds/SoundFile.swift; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				E7280FC21E4D2F3C0050B327 /* Multicast.swift */,
-				8002059D1BF683E0005852C9 /* Result.swift */,
+				8002059D1BF683E0005852C9 /* IPResult.swift */,
 			);
 			name = CommonTypes;
 			sourceTree = "<group>";
@@ -1034,7 +1034,7 @@
 				13425F8B1DB0760400F446BE /* String+Validation.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
-				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
+				8002059E1BF683E0005852C9 /* IPResult.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
 				0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */,
 				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
