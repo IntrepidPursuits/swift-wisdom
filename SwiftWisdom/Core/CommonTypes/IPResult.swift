@@ -6,12 +6,11 @@
 //  Copyright © 2015 Intrepid. All rights reserved.
 //
 
-public enum Result<T> {
+@available(swift, deprecated: 5.0, message: "use Swift.Result instead", renamed: "Result")
+public enum IPResult<T> {
     case success(T)
     case failure(Error)
-}
 
-extension Result {
     public var isSuccess: Bool {
         guard case .success(_) = self else { return false }
         return true
@@ -21,9 +20,7 @@ extension Result {
         guard case .failure(_) = self else { return false }
         return true
     }
-}
 
-extension Result {
     public var value: T? {
         guard case let .success(value) = self else { return nil }
         return value
@@ -33,9 +30,7 @@ extension Result {
         guard case let .failure(error) = self else { return nil }
         return error
     }
-}
 
-extension Result {
     public func extract() throws -> T {
         switch self {
         case .success(let val):

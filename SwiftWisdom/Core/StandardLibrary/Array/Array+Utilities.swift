@@ -99,7 +99,7 @@ extension Array where Element: Equatable {
     /// - returns: Array of indexes or NSNotFound if element does not exist in self; count is equal to the count of `elements`
     public func ip_indices(ofElements elements: [Element]) -> [Int] {
         return elements.map { element in
-            return index(of: element) ?? NSNotFound
+            return firstIndex(of: element) ?? NSNotFound
         }
     }
 }
@@ -114,20 +114,6 @@ extension Array where Element: Hashable {
 }
 
 extension Array {
-    /// DEPRECATED: Use `ip_safely` instead.
-    ///
-    /// Provides a way to safely index into an array. If the index is beyond the array's 
-    /// final element this method will return `nil`.
-    ///
-    /// - parameter safe: Index of the element to return
-    ///
-    /// - returns: An `Element` if the index was correct, or `nil` if it goes beyond the array
-    @available(*, deprecated: 0.7.11, message: "Use `ip_safely` instead.")
-    public subscript(ip_safe safe: Int) -> Element? {
-        guard 0 <= safe && safe < count else { return nil }
-        return self[safe]
-    }
-
     /// Provides a way to safely index into an array. If the index is beyond the array's 
     /// bounds this method will return `nil`.
     ///
@@ -145,7 +131,7 @@ extension Array {
     ///
     /// - parameter matcher: The element that should be removed
     public mutating func ip_removeFirst(matcher: (Iterator.Element) -> Bool) {
-        guard let idx = index(where: matcher) else { return }
+        guard let idx = firstIndex(where: matcher) else { return }
         remove(at: idx)
     }
 }

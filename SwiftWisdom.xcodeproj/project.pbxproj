@@ -11,7 +11,6 @@
 		0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CED7D661CD6971400672913 /* Double+Extensions.swift */; };
 		13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */; };
 		13425F741DB073F300F446BE /* MathableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F691DB073F300F446BE /* MathableTests.swift */; };
-		13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */; };
 		13425F781DB074FA00F446BE /* Dictionary+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F771DB074FA00F446BE /* Dictionary+Utilities.swift */; };
 		13425F7A1DB0751C00F446BE /* Dictionary+UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F791DB0751C00F446BE /* Dictionary+UtilitiesTests.swift */; };
 		13425F7C1DB0755B00F446BE /* NSMutableAttributedString+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13425F7B1DB0755B00F446BE /* NSMutableAttributedString+Format.swift */; };
@@ -57,7 +56,7 @@
 		49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */; };
 		49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */; };
 		50D4C0475426EF5C6D884DA9 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */; };
-		8002059E1BF683E0005852C9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* Result.swift */; };
+		8002059E1BF683E0005852C9 /* IPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* IPResult.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
 		800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A81BF82E5F005852C9 /* SoundFile.swift */; };
@@ -84,7 +83,6 @@
 		802C4BBA1C1B6F7C00C69D80 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BB91C1B6F7C00C69D80 /* Version.swift */; };
 		802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */; };
 		8037D86E1CAD9981008F324C /* Rx+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D86D1CAD9981008F324C /* Rx+Extensions.swift */; };
-		8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8701CADEBAB008F324C /* RawRepresentable.swift */; };
 		8037D8731CADEE48008F324C /* Sequence+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037D8721CADEE48008F324C /* Sequence+Utilities.swift */; };
 		805807DF1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */; };
 		805807E11C5BEE2300F9AFB1 /* UIImage+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */; };
@@ -134,7 +132,6 @@
 		0CED7D661CD6971400672913 /* Double+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		13425F631DB073F300F446BE /* Sequence+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F691DB073F300F446BE /* MathableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathableTests.swift; sourceTree = "<group>"; };
-		13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawRepresentableTests.swift; sourceTree = "<group>"; };
 		13425F771DB074FA00F446BE /* Dictionary+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+Utilities.swift"; sourceTree = "<group>"; };
 		13425F791DB0751C00F446BE /* Dictionary+UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+UtilitiesTests.swift"; sourceTree = "<group>"; };
 		13425F7B1DB0755B00F446BE /* NSMutableAttributedString+Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Format.swift"; sourceTree = "<group>"; };
@@ -182,7 +179,7 @@
 		4E9D68BE066065C510CF97B7 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
 		5EAF2031B1809BA087E2827D /* Pods-SwiftWisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.release.xcconfig"; sourceTree = "<group>"; };
 		703B104B32DD95D07A614A46 /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8002059D1BF683E0005852C9 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = CommonTypes/Result.swift; sourceTree = "<group>"; };
+		8002059D1BF683E0005852C9 /* IPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPResult.swift; path = CommonTypes/IPResult.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		800205A81BF82E5F005852C9 /* SoundFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundFile.swift; path = Sounds/SoundFile.swift; sourceTree = "<group>"; };
@@ -213,7 +210,6 @@
 		802C4BB91C1B6F7C00C69D80 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		802C4BBC1C1B6FF300C69D80 /* TimeoutOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeoutOperation.swift; sourceTree = "<group>"; };
 		8037D86D1CAD9981008F324C /* Rx+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Rx+Extensions.swift"; sourceTree = "<group>"; };
-		8037D8701CADEBAB008F324C /* RawRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RawRepresentable.swift; path = RawRepresentable/RawRepresentable.swift; sourceTree = "<group>"; };
 		8037D8721CADEE48008F324C /* Sequence+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sequence+Utilities.swift"; sourceTree = "<group>"; };
 		805807DE1C5BEDE400F9AFB1 /* UIImage+ColorImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColorImage.swift"; sourceTree = "<group>"; };
 		805807E01C5BEE2300F9AFB1 /* UIImage+Overlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Overlay.swift"; sourceTree = "<group>"; };
@@ -279,7 +275,6 @@
 				13425F611DB073F300F446BE /* Array */,
 				13425F641DB073F300F446BE /* Dictionary */,
 				13425F651DB073F300F446BE /* Numbers */,
-				13425F6A1DB073F300F446BE /* RawRepresentable */,
 				13425F6C1DB073F300F446BE /* Set */,
 				13425F6D1DB073F300F446BE /* String */,
 			);
@@ -312,14 +307,6 @@
 				13425F691DB073F300F446BE /* MathableTests.swift */,
 			);
 			path = Numbers;
-			sourceTree = "<group>";
-		};
-		13425F6A1DB073F300F446BE /* RawRepresentable */ = {
-			isa = PBXGroup;
-			children = (
-				13425F6B1DB073F300F446BE /* RawRepresentableTests.swift */,
-			);
-			path = RawRepresentable;
 			sourceTree = "<group>";
 		};
 		13425F6C1DB073F300F446BE /* Set */ = {
@@ -425,7 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				E7280FC21E4D2F3C0050B327 /* Multicast.swift */,
-				8002059D1BF683E0005852C9 /* Result.swift */,
+				8002059D1BF683E0005852C9 /* IPResult.swift */,
 			);
 			name = CommonTypes;
 			sourceTree = "<group>";
@@ -591,7 +578,6 @@
 		80232BF01BF2F1BD00818B6E /* StandardLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				8037D86F1CADEB91008F324C /* RawRepresentable */,
 				80D63D291C4F251E00C88D00 /* Numbers */,
 				80232BF11BF2F1BD00818B6E /* Array */,
 				80232BF31BF2F1BD00818B6E /* Dictionary */,
@@ -715,14 +701,6 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		8037D86F1CADEB91008F324C /* RawRepresentable */ = {
-			isa = PBXGroup;
-			children = (
-				8037D8701CADEBAB008F324C /* RawRepresentable.swift */,
-			);
-			name = RawRepresentable;
-			sourceTree = "<group>";
-		};
 		805807E61C5D827000F9AFB1 /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -809,7 +787,6 @@
 				80232B9C1BF2EE2E00818B6E /* Frameworks */,
 				80232B9D1BF2EE2E00818B6E /* Resources */,
 				BEDBF20DB05D76F60C858449 /* [CP] Embed Pods Frameworks */,
-				E3F5EA111B900D6479C8D173 /* [CP] Copy Pods Resources */,
 				3169F10A1F06850F00C917B2 /* SwiftLint */,
 			);
 			buildRules = (
@@ -830,7 +807,6 @@
 				80232BB01BF2EE2E00818B6E /* Frameworks */,
 				80232BB11BF2EE2E00818B6E /* Resources */,
 				FAA5EC81369AE73A0E00ED4B /* [CP] Embed Pods Frameworks */,
-				77882022D65A5916A7FFD999 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -849,23 +825,23 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Intrepid;
 				TargetAttributes = {
 					80232B9E1BF2EE2E00818B6E = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 					};
 					80232BB21BF2EE2E00818B6E = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1020;
 						TestTargetID = 80232B9E1BF2EE2E00818B6E;
 					};
 				};
 			};
 			buildConfigurationList = 80232B9A1BF2EE2E00818B6E /* Build configuration list for PBXProject "SwiftWisdom" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -938,28 +914,13 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		77882022D65A5916A7FFD999 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BEDBF20DB05D76F60C858449 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IP-UIKit-Wisdom/IP_UIKit_Wisdom.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -972,7 +933,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C5F7F12786C00CB6E4D3A5F0 /* [CP] Check Pods Manifest.lock */ = {
@@ -993,28 +954,13 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E3F5EA111B900D6479C8D173 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FAA5EC81369AE73A0E00ED4B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IP-UIKit-Wisdom/IP_UIKit_Wisdom.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -1029,7 +975,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1069,7 +1015,6 @@
 				80D63D041C4F18FA00C88D00 /* String+Localization.swift in Sources */,
 				1C99FB581DD51DEC009FC493 /* String+Data.swift in Sources */,
 				802C4BAF1C1A1C0200C69D80 /* PercentAnimator.swift in Sources */,
-				8037D8711CADEBAB008F324C /* RawRepresentable.swift in Sources */,
 				49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */,
 				80D63D061C4F1AC900C88D00 /* UIApplication+Extensions.swift in Sources */,
 				80232C0B1BF2F1BD00818B6E /* UIView+Nib.swift in Sources */,
@@ -1089,7 +1034,7 @@
 				13425F8B1DB0760400F446BE /* String+Validation.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
-				8002059E1BF683E0005852C9 /* Result.swift in Sources */,
+				8002059E1BF683E0005852C9 /* IPResult.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
 				0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */,
 				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
@@ -1119,7 +1064,6 @@
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				1CFEBD051E8047D60078108A /* DateFormattingTests.swift in Sources */,
-				13425F751DB073F300F446BE /* RawRepresentableTests.swift in Sources */,
 				1C16E3091D2809C5008A1001 /* ComparablesTests.swift in Sources */,
 				FF44B77B1CDCD19A00764AB0 /* Rx+ExtensionsTest.swift in Sources */,
 				13425F8F1DB0761500F446BE /* String+EmptyTests.swift in Sources */,
@@ -1186,6 +1130,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1242,6 +1187,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1300,7 +1246,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1318,7 +1264,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1332,7 +1278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
 			};
 			name = Debug;
@@ -1348,7 +1294,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.intrepid.SwiftWisdomTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftWisdom.app/SwiftWisdom";
 			};
 			name = Release;

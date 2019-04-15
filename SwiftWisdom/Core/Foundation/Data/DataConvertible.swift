@@ -22,9 +22,9 @@ extension DataConvertible {
         if data.count < size {
             let emptyBytes: [UInt8] = Array(repeating: 0, count: size - data.count)
             let modifiedData = data + emptyBytes
-            self = modifiedData.withUnsafeBytes { $0.pointee }
+            self = modifiedData.withUnsafeBytes { $0.load(as: Self.self) }
         } else if data.count == size {
-            self = data.withUnsafeBytes { $0.pointee }
+            self = data.withUnsafeBytes { $0.load(as: Self.self) }
         } else {
             return nil
         }

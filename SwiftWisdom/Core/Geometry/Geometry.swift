@@ -7,32 +7,32 @@ import Foundation
 import UIKit
 
 public extension Int {
-    public var ip_radians: CGFloat {
+    var ip_radians: CGFloat {
         return CGFloat(self).ip_radians
     }
 }
 
 public extension CGFloat {
-    public var ip_radians: CGFloat {
+    var ip_radians: CGFloat {
         return CGFloat(Double(self) * (.pi / 180))
     }
 
-    public var ip_degrees: CGFloat {
+    var ip_degrees: CGFloat {
         return self * CGFloat(180.0 / .pi)
     }
 
-    public var ip_squared: CGFloat {
+    var ip_squared: CGFloat {
         return self * self
     }
 
     /// Provides the complement of the percentage. Ex: 35% -> 0.65 returned
-    public var ip_complementOfPercentage: CGFloat {
+    var ip_complementOfPercentage: CGFloat {
         return 1 - self
     }
 }
 
 public extension CGPoint {
-    public func ip_angle(to comparisonPoint: CGPoint) -> CGFloat {
+    func ip_angle(to comparisonPoint: CGPoint) -> CGFloat {
         let originX = comparisonPoint.x - self.x
         let originY = comparisonPoint.y - self.y
         let bearingRadians = atan2f(Float(originY), Float(originX))
@@ -43,7 +43,7 @@ public extension CGPoint {
         return bearingDegrees
     }
 
-    public func ip_distance(to point: CGPoint) -> CGFloat {
+    func ip_distance(to point: CGPoint) -> CGFloat {
         let distX = point.x - self.x
         let distY = point.y - self.y
         let distance = sqrt(distX.ip_squared + distY.ip_squared)
@@ -74,7 +74,7 @@ public func pointWithCenter(_ center: CGPoint, radius: CGFloat, angleDegrees: CG
 }
 
 public extension CGRect {
-    public var ip_width: CGFloat {
+    var ip_width: CGFloat {
         get {
             return self.width
         }
@@ -83,7 +83,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_halfWidth: CGFloat {
+    var ip_halfWidth: CGFloat {
         get {
             return ip_width / 2.0
         }
@@ -92,7 +92,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_height: CGFloat {
+    var ip_height: CGFloat {
         get {
             return self.height
         }
@@ -101,7 +101,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_halfHeight: CGFloat {
+    var ip_halfHeight: CGFloat {
         get {
             return ip_height / 2.0
         }
@@ -110,7 +110,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_center: CGPoint {
+    var ip_center: CGPoint {
         get {
             return CGPoint(x: ip_midX, y: ip_midY)
         }
@@ -120,7 +120,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_midX: CGFloat {
+    var ip_midX: CGFloat {
         get {
             return self.midX
         }
@@ -129,7 +129,7 @@ public extension CGRect {
         }
     }
 
-    public var ip_midY: CGFloat {
+    var ip_midY: CGFloat {
         get {
             return self.midY
         }
@@ -138,11 +138,11 @@ public extension CGRect {
         }
     }
 
-    public var ip_shortestEdge: CGFloat {
+    var ip_shortestEdge: CGFloat {
         return min(width, height)
     }
 
-    public var ip_longestEdge: CGFloat {
+    var ip_longestEdge: CGFloat {
         return max(width, height)
     }
 }

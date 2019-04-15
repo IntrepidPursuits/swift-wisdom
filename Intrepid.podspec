@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "Intrepid"
-  s.version       = "0.12.0"
+  s.version       = "0.13.0"
   s.summary       = "Swift Bag"
   s.description   = <<-DESC
                     Collection of extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.exclude_files = "tests/**/*"
   s.platform      = :ios
   s.ios.deployment_target = "10.0"
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.2' }
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.default_subspec = "Core"
 
   s.subspec "Core" do |cs|
@@ -36,7 +36,7 @@ Pod::Spec.new do |s|
 
   s.subspec "Rx" do |rx|
     rx.source_files = "SwiftWisdom/Rx/**/**/*.swift"
-    rx.dependency 'RxSwift', '~> 4.3'
-    rx.dependency 'RxCocoa', '~> 4.3'
+    rx.dependency 'RxSwift', '~> 4.5'
+    rx.dependency 'RxCocoa', '~> 4.5'
   end
 end
