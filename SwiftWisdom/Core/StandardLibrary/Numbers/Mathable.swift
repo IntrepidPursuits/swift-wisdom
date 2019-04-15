@@ -9,18 +9,10 @@
 import Foundation
 import UIKit
 
-public protocol Mathable: Comparable {
-    static func + (lhs: Self, rhs: Self) -> Self
+public protocol Mathable: Comparable, AdditiveArithmetic {
     static func / (lhs: Self, rhs: Self) -> Self
     static func * (lhs: Self, rhs: Self) -> Self
-    static func - (lhs: Self, rhs: Self) -> Self
     init(_ int: Int64)
-}
-
-extension Mathable {
-    public static var zero: Self {
-        return self.init(Int64(0))
-    }
 }
 
 extension Collection where Element: Mathable {
