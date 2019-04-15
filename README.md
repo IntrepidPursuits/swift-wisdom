@@ -11,7 +11,7 @@ The reason for the grab bag approach is to make it easier to facilitate the addi
 
 ### Swift Versions
 - Swift 5.0 -> `0.13.0` +
-- Swift 4.2 -> `0.11.0`
+- Swift 4.2 -> `0.11.0` through `0.12.0`
 - Swift 4.1.50 (Xcode 10 Compatible) -> `0.10.3`
 - Swift 4.0 -> `0.9.0` through `0.10.x`
 - Swift 3.2 (Xcode 9 Compatible) -> `0.8.3` through `0.8.4`
