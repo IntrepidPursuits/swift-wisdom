@@ -10,6 +10,21 @@ import XCTest
 import SwiftWisdom
 
 class MathableTests: XCTestCase {
+
+    func testZeroCompatibility() {
+        let _ = Int.zero
+        let _ = Float.zero
+        let _ = Double.zero
+        let _ = CGFloat.zero
+        let _ = UInt.zero
+        let _ = UInt8.zero
+        let _ = UInt16.zero
+        let _ = UInt32.zero
+        let _ = Int8.zero
+        let _ = Int16.zero
+        let _ = Int32.zero
+        let _ = Int64.zero
+    }
     
     func testMean() {
         let maths = [4, 5, 6, 9, 2, 4]
