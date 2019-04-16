@@ -5,7 +5,6 @@ class DateExtensionTests: XCTestCase {
     
     let formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(abbreviation: "EST")
         formatter.dateFormat = "M/d/y h:mm a"
         return formatter
     }()
