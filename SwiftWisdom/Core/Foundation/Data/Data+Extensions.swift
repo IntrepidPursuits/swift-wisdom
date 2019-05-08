@@ -142,17 +142,15 @@ extension Data {
 
 extension Data {
     public func ip_segmentIterator(start: Int = 0, chunkLength: Int) -> AnyIterator<Data> {
-        let segmentToWrite = ip_suffix(from: start)
-        var mutable = segmentToWrite
-        let range = 0..<chunkLength
+        var iteratedData = ip_suffix(from: start)
         return AnyIterator {
             let nextData: Data?
-            if let remaining = mutable, remaining.count >= chunkLength {
-                nextData = mutable?[ip_safely:range]
-                mutable?.removeSubrange(range)
-            } else if let remaining = mutable, remaining.count > 0 {
-                nextData = mutable
-                mutable?.count = 0
+            if let remaining = iteratedData, remaining.count >= chunkLength {
+                nextData = remaining.prefix(chunkLength)
+                iteratedData?.removeFirst(chunkLength)
+            } else if let remaining = iteratedData, remaining.count > 0 {
+                nextData = remaining
+                iteratedData?.removeAll()
             } else {
                 nextData = nil
             }
