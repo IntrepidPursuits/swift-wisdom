@@ -59,6 +59,7 @@ public final class DirectoryManager {
         return ((try? data.write(to: URL(fileURLWithPath: path), options: [.atomicWrite])) != nil)
     }
 
+    //swiftlint:disable function_default_parameter_at_end
     public func writeInBackground(_ data: Data, withName name: String = UUID().uuidString, completion: @escaping (String, Bool) -> Void = { _, _  in }) {
         Background {
             let success = self.write(data, withName: name)
@@ -67,6 +68,7 @@ public final class DirectoryManager {
             }
         }
     }
+    //swiftlint:enable function_default_parameter_at_end
 
     // MARK: Delete
 

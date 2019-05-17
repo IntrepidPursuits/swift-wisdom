@@ -10,6 +10,7 @@ import UIKit
 
 public extension UIButton {
 
+    //swiftlint:disable function_default_parameter_at_end
     /**
      This will use existing attributes on the attributed text, plus the spacing passed in and apply 
      them to the string passed in.
@@ -30,4 +31,5 @@ public extension UIButton {
         }
         setAttributedTitle(spacedText, for: state)
     }
+    //swiftlint:enable function_default_parameter_at_end
 }

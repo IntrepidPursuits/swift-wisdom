@@ -52,7 +52,7 @@ private final class PercentAnimator {
 
     private static let shared = PercentAnimator()
 
-    static func animateWithDuration(
+    fileprivate static func animateWithDuration(
         _ duration: TimeInterval,
         animation: @escaping (AnimationState) -> Void) {
             let id = UUID().uuidString

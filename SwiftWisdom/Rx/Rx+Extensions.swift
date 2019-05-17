@@ -9,6 +9,8 @@
 import RxSwift
 import RxCocoa
 
+//swiftlint:disable static_operator
+
 precedencegroup Binding {
     associativity: left
     higherThan: Disposing

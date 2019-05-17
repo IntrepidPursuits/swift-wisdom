@@ -11,6 +11,9 @@
  
       let newNames = ["Joe", "Betty"].filter(!existingNames.contains)
  */
+
+//swiftlint:disable static_operator
 public prefix func ! <T>(original: @escaping (T) -> Bool) -> (T) -> Bool {
     return { !original($0) }
 }
+//swiftlint:enable static_operator

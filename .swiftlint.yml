@@ -198,8 +198,16 @@ file_length:
   error: 1500
 
 identifier_name:
+  allowed_symbols: "_"
+  min_length: 2
   excluded:
     - id
+    - r
+    - g
+    - b
+    - a
+    - x
+    - y
 
 lower_acl_than_parent:
   severity: error

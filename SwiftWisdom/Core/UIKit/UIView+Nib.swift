@@ -13,11 +13,14 @@ public extension UIView {
         return ip_fromNib(nibNameOrNil, type: self)
     }
 
+    //swiftlint:disable function_default_parameter_at_end
     class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T {
-        let v: T? = ip_fromNib(nibNameOrNil, type: T.self)
-        return v!
+        let view: T? = ip_fromNib(nibNameOrNil, type: T.self)
+        return view!
     }
+    //swiftlint:enable function_default_parameter_at_end
 
+    //swiftlint:disable function_default_parameter_at_end
     class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type) -> T? {
         var view: T?
         let name: String
@@ -28,13 +31,14 @@ public extension UIView {
             name = ip_nibName
         }
         let nibViews = Bundle.main.loadNibNamed(name, owner: nil, options: nil)
-        for v in nibViews ?? [] {
-            if let tog = v as? T {
+        for thisView in nibViews ?? [] {
+            if let tog = thisView as? T {
                 view = tog
             }
         }
         return view
     }
+    //swiftlint:enable function_default_parameter_at_end
 
     class var ip_nibName: String {
         let name = "\(self)".components(separatedBy: ".").first ?? ""
