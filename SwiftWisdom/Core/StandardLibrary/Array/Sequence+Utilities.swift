@@ -79,7 +79,7 @@ extension Sequence where Iterator.Element: Equatable {
     ///
     /// - returns: `true` if the sequence contains `all`
     public func ip_contains<T: Sequence>(all: T) -> Bool where T.Iterator.Element == Iterator.Element {
-        for e in all where !contains(e) {
+        for element in all where !contains(element) {
             return false
         }
         return true

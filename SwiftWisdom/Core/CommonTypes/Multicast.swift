@@ -25,7 +25,7 @@ public struct Weak<T> where T: AnyObject {
     Only subclasses of NSObject can conform to this protocol. In addition, you can only typealias `MulticastDelegate` to a
     class or an `@objc` protocol.
  */
-public protocol Multicast: class {
+public protocol Multicast: AnyObject {
 
     associatedtype MulticastDelegate: AnyObject
 

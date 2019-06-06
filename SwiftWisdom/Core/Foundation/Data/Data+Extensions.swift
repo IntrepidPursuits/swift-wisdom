@@ -141,6 +141,7 @@ extension Data {
 }
 
 extension Data {
+    //swiftlint:disable function_default_parameter_at_end
     public func ip_segmentIterator(start: Int = 0, chunkLength: Int) -> AnyIterator<Data> {
         var iteratedData = ip_suffix(from: start)
         return AnyIterator {
@@ -157,4 +158,5 @@ extension Data {
             return nextData
         }
     }
+    //swiftlint:enable function_default_parameter_at_end
 }

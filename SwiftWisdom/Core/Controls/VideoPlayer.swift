@@ -69,7 +69,7 @@ extension Video {
 
 // MARK: Player
 
-public protocol VideoPlayerDelegate: class {
+public protocol VideoPlayerDelegate: AnyObject {
     /**
      The delegate is notified when the video finishes playing and returns 
      a boolean whether or not the video should repeat
@@ -109,6 +109,7 @@ public final class VideoPlayer: UIViewController {
         setupItemNotification(item)
     }
 
+    @available(*, unavailable)
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

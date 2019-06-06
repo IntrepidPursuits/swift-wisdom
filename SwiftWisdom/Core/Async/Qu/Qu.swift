@@ -16,7 +16,9 @@ public typealias CompletableBlock = (@escaping Block) -> ()
 
 // MARK: Qu
 
+//swiftlint:disable type_name
 public class Qu {
+//swiftlint:enable type_name
 
     // MARK: Priority Enumeration
 
