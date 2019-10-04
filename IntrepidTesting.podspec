@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "IntrepidTesting"
-  s.version       = "0.9.0"
+  s.version       = "0.10.0"
   s.summary       = "A collection of test extensions to the Swift Standard Library"
   s.description   = <<-DESC
                     Collection of test extensions and utility classes by and for the developers at Intrepid Pursuits.
@@ -13,7 +13,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
   s.default_subspec = "Core"
-
+  s.swift_versions = ['4.2', '5.0']
+  
   s.subspec "Core" do |cs|
     cs.frameworks    = "XCTest"
     cs.source_files  = "SwiftWisdomTests/Testing/**/*.swift"

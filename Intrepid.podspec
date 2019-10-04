@@ -28,6 +28,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "10.0"
   s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
   s.default_subspec = "Core"
+  s.swift_versions = ['4.2', '5.0']
 
   s.subspec "Core" do |cs|
     cs.source_files = "SwiftWisdom/Core/**/**/*.swift"
