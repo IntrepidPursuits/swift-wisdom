@@ -36,15 +36,16 @@ class String_IndexingTests: XCTestCase {
         XCTAssert("hello"[0..<5] == "hello")
     }
 
-    func testIpDropFirstWithNonEmptyString() {
+    func testIpSafelyRemoveFirstWithNonEmptyString() {
         var testString = "Hello"
-        testString.ip_dropFirst()
+        let first = testString.ip_safelyRemoveFirst()
+        XCTAssertEqual(Character("H"), first)
         XCTAssertEqual("ello", testString)
     }
 
-    func testIpDropFirstWithEmptyString() {
+    func testIpSafelyRemoveFirstWithEmptyString() {
         var emptyString = ""
-        emptyString.ip_dropFirst()
+        emptyString.ip_safelyRemoveFirst()
         XCTAssert(emptyString.isEmpty)
     }
 

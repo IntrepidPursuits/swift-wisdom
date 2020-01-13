@@ -107,4 +107,17 @@ class ArrayUtilities: XCTestCase {
         XCTAssertNil(testArray[ip_safely: -1])
         XCTAssertNil(testArray[ip_safely: 9])
     }
+
+    func testIterator() {
+        let testArray = [1, 2, 3, 4, 5]
+        let iterator = testArray.ip_iterator
+
+        XCTAssertEqual(iterator.next(), 1)
+        XCTAssertEqual(iterator.next(), 2)
+        XCTAssertEqual(iterator.next(), 3)
+        XCTAssertEqual(iterator.next(), 4)
+        XCTAssertEqual(iterator.next(), 5)
+        XCTAssertEqual(iterator.next(), nil)
+
+    }
 }

@@ -38,6 +38,29 @@ extension Sequence {
 }
 
 extension Sequence where Iterator.Element: Equatable {
+    /// Finds the count of a certain element.
+    ///
+    /// - parameter element: The element to be counted
+    ///
+    /// - returns: Number of instances of the element within the set
+    public func ip_count(ofElement element: Iterator.Element) -> Int {
+        return filter { $0 == element }.count
+    }
+
+    /// Checks to see if all of the passed in elements are within the `Sequence`.
+    ///
+    /// - parameter all: A collection of elements
+    ///
+    /// - returns: `true` if the sequence contains `all`
+    public func ip_contains<T: Sequence>(all: T) -> Bool where T.Iterator.Element == Iterator.Element {
+        for element in all where !contains(element) {
+            return false
+        }
+        return true
+    }
+}
+
+extension Sequence where Iterator.Element: Hashable {
     /// Provides the most common element(s) of a sequence.
     ///
     /// - returns: The most common element(s)
@@ -56,32 +79,11 @@ extension Sequence where Iterator.Element: Equatable {
     /// - returns: Returns a sequence of the unique values
     public func ip_uniqueValues() -> [Iterator.Element] {
         var buffer: [Iterator.Element] = []
-        forEach { element in
-            if !buffer.contains(element) {
-                buffer.append(element)
-            }
+        var seen = Set<Iterator.Element>()
+        for element in self where !seen.contains(element) {
+            buffer.append(element)
+            seen.insert(element)
         }
         return buffer
-    }
-
-    /// Finds the count of a certain element.
-    ///
-    /// - parameter element: The element to be counted
-    ///
-    /// - returns: Number of instances of the element within the set
-    public func ip_count(ofElement element: Iterator.Element) -> Int {
-        return self.filter { $0 == element } .count
-    }
-
-    /// Checks to see if all of the passed in elements are within the `Sequence`.
-    ///
-    /// - parameter all: A collection of elements
-    ///
-    /// - returns: `true` if the sequence contains `all`
-    public func ip_contains<T: Sequence>(all: T) -> Bool where T.Iterator.Element == Iterator.Element {
-        for element in all where !contains(element) {
-            return false
-        }
-        return true
     }
 }

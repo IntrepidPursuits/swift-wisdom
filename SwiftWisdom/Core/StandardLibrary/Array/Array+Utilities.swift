@@ -21,7 +21,7 @@ extension Array {
         return subArray
     }
 
-    //TODO: Add documentation
+    @available (*, unavailable, message: "use allSatisfy(_:) instead")
     public func ip_passes(test: (Element) -> Bool) -> Bool {
         for ob in self {
             if test(ob) {
@@ -138,6 +138,17 @@ extension Array {
 
 extension Array {
     //TODO: Add documentation
+    public var ip_iterator: AnyIterator<Element> {
+        var idx = 0
+        let count = self.count
+        return AnyIterator {
+            guard idx < count else { return nil }
+            defer { idx += 1 }
+            return self[idx]
+        }
+    }
+
+    @available (*, unavailable, message: "ip_generator has been renamed to ip_iterator")
     public var ip_generator: AnyIterator<Element> {
         var idx = 0
         let count = self.count

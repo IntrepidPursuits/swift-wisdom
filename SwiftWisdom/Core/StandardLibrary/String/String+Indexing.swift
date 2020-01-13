@@ -53,9 +53,19 @@ extension String {
         }
     }
 
+    @available (*, unavailable, message: "use ip_safelyRemoveFirst() instead.")
     public mutating func ip_dropFirst() {
         guard !isEmpty else { return }
         self = self[1..<count]
+    }
+
+    /// Removes and returns the first character of the string.
+    ///
+    /// - returns: The removed character, or `nil` if string is empty.
+    @discardableResult
+    public mutating func ip_safelyRemoveFirst() -> Character? {
+        guard !isEmpty else { return nil }
+        return removeFirst()
     }
 
     /// From http://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index/32379600#32379600
@@ -66,13 +76,7 @@ extension String {
     /// - returns: The string range
     public func ip_range(from range: NSRange) -> Range<String.Index>? {
         guard range.location >= 0 else { return nil }
-        guard
-            let from16 = utf16.index(utf16.startIndex, offsetBy: range.location, limitedBy: utf16.endIndex),
-            let to16 = utf16.index(from16, offsetBy: range.length, limitedBy: utf16.endIndex),
-            let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self)
-            else { return nil }
-        return from..<to
+        return Range(range, in: self)
     }
 
     /// Returns a String range based on an Int range. It is up to the caller to ensure that the
@@ -88,7 +92,7 @@ extension String {
     }
 
     public var ip_fullrange: NSRange {
-        return NSRange(location: 0, length: ip_length)
+        return NSRange(location: 0, length: count)
     }
 
     /// Returns a new string containing the characters of the String up to, but not including, the first occurrence of the given string.

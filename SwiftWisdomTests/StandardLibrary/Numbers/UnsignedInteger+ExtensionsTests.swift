@@ -11,15 +11,6 @@ import SwiftWisdom
 
 class UnsignedIntegerExtensionTests: XCTestCase {
 
-    func testRandomInRange() {
-        let positives = 0...100
-        XCTAssert(positives.contains(random(inRange: positives)))
-        let negatives = -100...(-50)
-        XCTAssert(negatives.contains(random(inRange: negatives)))
-        let mixed = -100...100
-        XCTAssert(mixed.contains(random(inRange: mixed)))
-    }
-
     func test_bitStackOfLength() {
         XCTAssertEqual(UInt8.ip_bitStackOfLength(-1), UInt8(0))
         XCTAssertEqual(UInt8.ip_bitStackOfLength(0), UInt8(1 - 1)) // 2^0 - 1
