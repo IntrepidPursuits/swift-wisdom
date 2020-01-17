@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol Mathable: Comparable, AdditiveArithmetic {
+public protocol Mathable: Comparable, Hashable, AdditiveArithmetic {
     static func / (lhs: Self, rhs: Self) -> Self
     static func * (lhs: Self, rhs: Self) -> Self
     init(_ int: Int64)

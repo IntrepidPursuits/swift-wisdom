@@ -69,4 +69,9 @@ class ColorDescriptorTests: XCTestCase {
         XCTAssertNotNil(color)
         XCTAssert(color?.color == UIColor(red: 1, green: 0, blue: 0, alpha: 1))
     }
+
+    func testInvalidHexString() {
+        let color: ColorDescriptor? = ColorDescriptor(rawValue: "#FF000G")
+        XCTAssertNil(color)
+    }
 }

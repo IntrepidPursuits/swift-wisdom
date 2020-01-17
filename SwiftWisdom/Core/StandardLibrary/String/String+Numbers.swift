@@ -21,6 +21,7 @@ extension String {
         return self.range(of: find) != nil
     }
 
+    @available (*, unavailable, message: "use count instead")
     public var ip_length: Int {
         return count
     }

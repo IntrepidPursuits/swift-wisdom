@@ -9,13 +9,14 @@
 import UIKit
 
 public extension UIColor {
-    convenience init(ip_hex hex: String) {
+    convenience init?(ip_hex hex: String) {
         var cleanHex: String = hex.uppercased()
         if hex.hasPrefix("#") {
-            cleanHex.ip_dropFirst()
+            cleanHex.ip_safelyRemoveFirst()
         }
-        if cleanHex.count != 6 {
-            cleanHex = "FFFFFF"
+
+        guard cleanHex.count == 6 && cleanHex.allSatisfy({ $0.isHexDigit }) else {
+            return nil
         }
 
         let rString = cleanHex[0...1]

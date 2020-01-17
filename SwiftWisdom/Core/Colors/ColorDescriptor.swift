@@ -44,7 +44,7 @@ extension ColorDescriptor: ExpressibleByStringLiteral, RawRepresentable, Equatab
         case let .rgbFloat(r: r, g: g, b: b, a: a):
             return UIColor(red: r, green: g, blue: b, alpha: a)
         case let .hex(hex: hex):
-            return UIColor(ip_hex: hex)
+            return UIColor(ip_hex: hex)!
         }
     }
 
@@ -64,22 +64,37 @@ extension ColorDescriptor: ExpressibleByStringLiteral, RawRepresentable, Equatab
     // MARK: Initializers
 
     public init(unicodeScalarLiteral value: UnicodeScalarLiteralType) {
-        self.init(value)
+        guard let colorDescriptor = ColorDescriptor(value) else {
+            fatalError(
+            "Unrecognized color literal! Use format `r,g,b,a` on 255 or 0-1.0 scale, a valid UIImage name, or a 6 character hex string w/ `#` prefix")
+        }
+
+        self = colorDescriptor
     }
 
     public init(extendedGraphemeClusterLiteral value: ExtendedGraphemeClusterLiteralType) {
-        self.init(value)
+        guard let colorDescriptor = ColorDescriptor(value) else {
+            fatalError(
+            "Unrecognized color literal! Use format `r,g,b,a` on 255 or 0-1.0 scale, a valid UIImage name, or a 6 character hex string w/ `#` prefix")
+        }
+
+        self = colorDescriptor
     }
 
     public init(stringLiteral value: StringLiteralType) {
-        self.init(value)
+        guard let colorDescriptor = ColorDescriptor(value) else {
+            fatalError(
+            "Unrecognized color literal! Use format `r,g,b,a` on 255 or 0-1.0 scale, a valid UIImage name, or a 6 character hex string w/ `#` prefix")
+        }
+
+        self = colorDescriptor
     }
 
     public init?(rawValue: RawValue) {
         self.init(rawValue)
     }
 
-    public init(_ string: String) {
+    public init?(_ string: String) {
         let rgbComponents = string.components(separatedBy: ",")
         if rgbComponents.count == 4 {
             // If any portion of the string has a `.`, we are in 0-1.0 scale
@@ -93,12 +108,14 @@ extension ColorDescriptor: ExpressibleByStringLiteral, RawRepresentable, Equatab
                 self = .rgb255(r: ints[0], g: ints[1], b: ints[2], a: ints[3])
             }
         } else if string.hasPrefix("#") {
+            guard string.dropFirst().allSatisfy({ $0.isHexDigit }) else {
+               return nil
+            }
             self = .hex(hex: string)
         } else if UIImage(named: string) != nil {
             self = .patternImage(imageName: string)
         } else {
-            fatalError(
-                "Unrecognized color literal! Use format `r,g,b,a` on 255 or 0-1.0 scale, a valid UIImage name, or a 6 character hex string w/ `#` prefix")
+            return nil
         }
     }
 }

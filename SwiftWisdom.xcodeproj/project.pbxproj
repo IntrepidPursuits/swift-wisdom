@@ -56,7 +56,9 @@
 		49688E841FFD3CDA008BE521 /* Measurement+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E831FFD3CDA008BE521 /* Measurement+Extensions.swift */; };
 		49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */; };
 		50D4C0475426EF5C6D884DA9 /* Pods_SwiftWisdomTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78024964F38E35675660D1A /* Pods_SwiftWisdomTests.framework */; };
-		8002059E1BF683E0005852C9 /* IPResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002059D1BF683E0005852C9 /* IPResult.swift */; };
+		6C64224C23CCF75300474E73 /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C64224B23CCF75300474E73 /* TestView.xib */; };
+		6C64224E23CCF76800474E73 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C64224D23CCF76800474E73 /* TestView.swift */; };
+		6CBBC23923CCE2AA00CC589F /* UIViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CBBC23823CCE2AA00CC589F /* UIViewTests.swift */; };
 		800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A11BF684C7005852C9 /* NSDate+Comparable.swift */; };
 		800205A41BF684D1005852C9 /* TimeOfDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A31BF684D1005852C9 /* TimeOfDay.swift */; };
 		800205A91BF82E5F005852C9 /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800205A81BF82E5F005852C9 /* SoundFile.swift */; };
@@ -99,7 +101,6 @@
 		80D63D261C4F236F00C88D00 /* Not.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D251C4F236F00C88D00 /* Not.swift */; };
 		80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D63D2C1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift */; };
 		CD16463F1CC16A410049BBD5 /* UILabel+Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */; };
-		CDCDE2561E67A6EC007B3784 /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2551E67A6EC007B3784 /* ResultTests.swift */; };
 		CDCDE2591E67C574007B3784 /* NSDateComparableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */; };
 		CDCDE25B1E67C8F7007B3784 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25A1E67C8F7007B3784 /* SetTests.swift */; };
 		CDCDE25D1E67D785007B3784 /* TimeOfDayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */; };
@@ -178,8 +179,10 @@
 		49688E851FFD435C008BE521 /* MeasurementUnitDurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementUnitDurationTests.swift; sourceTree = "<group>"; };
 		4E9D68BE066065C510CF97B7 /* Pods-SwiftWisdomTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.release.xcconfig"; sourceTree = "<group>"; };
 		5EAF2031B1809BA087E2827D /* Pods-SwiftWisdom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdom.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdom/Pods-SwiftWisdom.release.xcconfig"; sourceTree = "<group>"; };
+		6C64224B23CCF75300474E73 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		6C64224D23CCF76800474E73 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		6CBBC23823CCE2AA00CC589F /* UIViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewTests.swift; sourceTree = "<group>"; };
 		703B104B32DD95D07A614A46 /* Pods-SwiftWisdomTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftWisdomTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftWisdomTests/Pods-SwiftWisdomTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8002059D1BF683E0005852C9 /* IPResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IPResult.swift; path = CommonTypes/IPResult.swift; sourceTree = "<group>"; };
 		800205A11BF684C7005852C9 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
 		800205A31BF684D1005852C9 /* TimeOfDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeOfDay.swift; sourceTree = "<group>"; };
 		800205A81BF82E5F005852C9 /* SoundFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SoundFile.swift; path = Sounds/SoundFile.swift; sourceTree = "<group>"; };
@@ -228,7 +231,6 @@
 		94555EC02E932CF736415F8E /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96E808C6BB3914E0E49C738D /* Pods_SwiftWisdom.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftWisdom.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD16463E1CC16A410049BBD5 /* UILabel+Typography.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Typography.swift"; sourceTree = "<group>"; };
-		CDCDE2551E67A6EC007B3784 /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 		CDCDE2581E67C574007B3784 /* NSDateComparableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSDateComparableTests.swift; path = Date/NSDateComparableTests.swift; sourceTree = "<group>"; };
 		CDCDE25A1E67C8F7007B3784 /* SetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 		CDCDE25C1E67D785007B3784 /* TimeOfDayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeOfDayTests.swift; path = Date/TimeOfDayTests.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 		1CFEBD061E8055850078108A /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				6CBBC23C23CCE31A00CC589F /* UIViewTests */,
 				1CFEBD071E8055AB0078108A /* UIButtonTests.swift */,
 			);
 			path = UIKit;
@@ -408,11 +411,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6CBBC23C23CCE31A00CC589F /* UIViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				6CBBC23823CCE2AA00CC589F /* UIViewTests.swift */,
+				6C64224B23CCF75300474E73 /* TestView.xib */,
+				6C64224D23CCF76800474E73 /* TestView.swift */,
+			);
+			path = UIViewTests;
+			sourceTree = "<group>";
+		};
 		8002059C1BF683CB005852C9 /* CommonTypes */ = {
 			isa = PBXGroup;
 			children = (
 				E7280FC21E4D2F3C0050B327 /* Multicast.swift */,
-				8002059D1BF683E0005852C9 /* IPResult.swift */,
 			);
 			name = CommonTypes;
 			sourceTree = "<group>";
@@ -760,7 +772,6 @@
 			isa = PBXGroup;
 			children = (
 				E7280FC51E4D2F510050B327 /* MulticastTests.swift */,
-				CDCDE2551E67A6EC007B3784 /* ResultTests.swift */,
 			);
 			path = CommonTypes;
 			sourceTree = "<group>";
@@ -873,6 +884,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C64224C23CCF75300474E73 /* TestView.xib in Resources */,
 				314F3BF91E9EA92B005753BE /* testvideoone.mp4 in Resources */,
 				80D63D201C4F224500C88D00 /* mock_firmware_update.dfu in Resources */,
 				314F3BFA1E9EA92B005753BE /* testvideotwo.mov in Resources */,
@@ -1034,7 +1046,6 @@
 				13425F8B1DB0760400F446BE /* String+Validation.swift in Sources */,
 				802C4BBD1C1B6FF300C69D80 /* TimeoutOperation.swift in Sources */,
 				80232C061BF2F1BD00818B6E /* Set+Utilities.swift in Sources */,
-				8002059E1BF683E0005852C9 /* IPResult.swift in Sources */,
 				800205A21BF684C7005852C9 /* NSDate+Comparable.swift in Sources */,
 				0CED7D671CD6971400672913 /* Double+Extensions.swift in Sources */,
 				80D63D2F1C4F251E00C88D00 /* UnsignedInteger+Extensions.swift in Sources */,
@@ -1061,6 +1072,7 @@
 				13425F901DB0761500F446BE /* String+IndexingTests.swift in Sources */,
 				49688E821FFD28A3008BE521 /* TimeIntervalTests.swift in Sources */,
 				E67264821E9E780C00880794 /* XCTest+Optionals.swift in Sources */,
+				6CBBC23923CCE2AA00CC589F /* UIViewTests.swift in Sources */,
 				E7A613961E3FA2B6006382DA /* Rx+DelayElementsTests.swift in Sources */,
 				805807EC1C5D8B3C00F9AFB1 /* VersionTests.swift in Sources */,
 				1CFEBD051E8047D60078108A /* DateFormattingTests.swift in Sources */,
@@ -1071,7 +1083,6 @@
 				80D63D221C4F22B800C88D00 /* BitMaskTests.swift in Sources */,
 				CDCDE25D1E67D785007B3784 /* TimeOfDayTests.swift in Sources */,
 				E7A6139A1E3FB521006382DA /* Rx+RepeatingTimeoutsTests.swift in Sources */,
-				CDCDE2561E67A6EC007B3784 /* ResultTests.swift in Sources */,
 				134882551CDB87C500CA27BA /* CellConfiguringTests.swift in Sources */,
 				13425F701DB073F300F446BE /* Sequence+UtilitiesTests.swift in Sources */,
 				1C70C4EF1DD6217100F2C80B /* DataConversionTests.swift in Sources */,
@@ -1089,6 +1100,7 @@
 				805807EA1C5D89C600F9AFB1 /* ColorDescriptorTests.swift in Sources */,
 				314F3BF61E9EA7E7005753BE /* VideoPlayerTests.swift in Sources */,
 				80232BB81BF2EE2E00818B6E /* SwiftWisdomTests.swift in Sources */,
+				6C64224E23CCF76800474E73 /* TestView.swift in Sources */,
 				1CFEBD081E8055AB0078108A /* UIButtonTests.swift in Sources */,
 				49688E861FFD435C008BE521 /* MeasurementUnitDurationTests.swift in Sources */,
 				13425F961DB07D0000F446BE /* Array+UtilitiesTests.swift in Sources */,
