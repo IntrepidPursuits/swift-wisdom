@@ -9,18 +9,15 @@
 import UIKit
 
 public extension UIView {
-    class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type = T.self, in bundle: Bundle = Bundle.main) -> T {
-        return ip_fromNib(nibNameOrNil, type: type, in: bundle)!
-    }
-
-    //swiftlint:disable function_default_parameter_at_end
-    class func ip_fromNib<T: UIView>(_ nibNameOrNil: String? = nil, type: T.Type, in bundle: Bundle = Bundle.main) -> T? {
+    class func ip_fromNib(_ nibNameOrNil: String? = nil, in bundle: Bundle = Bundle.main) -> Self {
         // Most nibs are demangled by practice, if not, just declare string explicitly
         let name = nibNameOrNil ?? ip_nibName
         let nibViews = bundle.loadNibNamed(name, owner: nil, options: nil)
-        return nibViews?.first(where: { $0 is T }) as? T
+        guard let view = nibViews?.first as? Self else {
+            fatalError("No nib with name \(name) found in bundle: \(bundle).")
+        }
+        return view
     }
-    //swiftlint:enable function_default_parameter_at_end
 
     class var ip_nibName: String {
         let name = "\(self)".components(separatedBy: ".").first ?? ""
